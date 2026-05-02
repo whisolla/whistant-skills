@@ -48,6 +48,78 @@
     "clawhub_published": false
   },
   {
+    "name": "afrexai-automation-strategy",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: Before building anything, map where time and money leak.",
+    "clawhub_published": false
+  },
+  {
+    "name": "afrexai-data-privacy",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: You are a **Data Privacy Officer (DPO) agent** — a comprehensive privacy program architect. You help organizations build",
+    "clawhub_published": false
+  },
+  {
+    "name": "afrexai-invoice-engine",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: afrexai-invoice-engine",
+    "clawhub_published": false
+  },
+  {
+    "name": "afrexai-kpi-tracker",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: Track, analyze, and report on Key Performance Indicators for any business.",
+    "clawhub_published": false
+  },
+  {
+    "name": "afrexai-prd-engine",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: Complete product requirements methodology: from idea to spec to shipped feature. Not just a JSON template — a full syste",
+    "clawhub_published": false
+  },
+  {
+    "name": "afrexai-seo-content-engine",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: name: afrexai-seo-content-engine",
+    "clawhub_published": false
+  },
+  {
     "name": "agent-autonomy-kit",
     "tier": "W",
     "type": "code",
@@ -69,6 +141,30 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: 让 AI 智能体互相交流的论坛平台 - 发帖、回复、点赞、交好友",
+    "clawhub_published": false
+  },
+  {
+    "name": "agent-contact-card",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: agent-contact-card",
+    "clawhub_published": false
+  },
+  {
+    "name": "ai",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Artificial Intelligence",
     "clawhub_published": false
   },
   {
@@ -132,6 +228,30 @@
     "clawhub_published": false
   },
   {
+    "name": "ai-ppt-generator",
+    "tier": "U",
+    "type": "code",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: ai-ppt-generator",
+    "clawhub_published": false
+  },
+  {
+    "name": "ai-workforce",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: ai-workforce",
+    "clawhub_published": false
+  },
+  {
     "name": "aistatus",
     "tier": "U",
     "type": "code",
@@ -141,6 +261,30 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: Check real-time AI provider status, search model availability, get trending models, LLM benchmark leaderboard, and recent outage incident",
+    "clawhub_published": false
+  },
+  {
+    "name": "anki-connect",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: Interact with Anki flashcard decks via the AnkiConnect REST API.",
+    "clawhub_published": false
+  },
+  {
+    "name": "anti-panic-protocol",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: anti-panic-protocol",
     "clawhub_published": false
   },
   {
@@ -168,6 +312,78 @@
     "clawhub_published": false
   },
   {
+    "name": "audiomind",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: audiomind",
+    "clawhub_published": false
+  },
+  {
+    "name": "auth",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Auth",
+    "clawhub_published": false
+  },
+  {
+    "name": "auth-patterns",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: auth-patterns",
+    "clawhub_published": false
+  },
+  {
+    "name": "authorization",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Authorization",
+    "clawhub_published": false
+  },
+  {
+    "name": "automation-workflows",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: automation-workflows",
+    "clawhub_published": false
+  },
+  {
+    "name": "automation-workflows-0-1-0",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: automation-workflows",
+    "clawhub_published": false
+  },
+  {
     "name": "automation-workflows-temp",
     "tier": "U",
     "type": "prompt",
@@ -177,6 +393,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: Design and implement automation workflows to save time and scale operations as a solopreneur. Use when identifying repetitive tasks to au",
+    "clawhub_published": false
+  },
+  {
+    "name": "backend",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Backend",
     "clawhub_published": false
   },
   {
@@ -204,6 +432,42 @@
     "clawhub_published": false
   },
   {
+    "name": "billing",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Billing",
+    "clawhub_published": false
+  },
+  {
+    "name": "book-brain",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: book-brain",
+    "clawhub_published": false
+  },
+  {
+    "name": "caching",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: caching",
+    "clawhub_published": false
+  },
+  {
     "name": "caldav-calendar",
     "tier": "U",
     "type": "code",
@@ -213,6 +477,42 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: Sync and query CalDAV calendars (iCloud, Google, Fastmail, Nextcloud, etc.) via the CalDAV REST protocol using fetch(). Read/create/updat",
+    "clawhub_published": false
+  },
+  {
+    "name": "calendly-automation",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: calendly-automation",
+    "clawhub_published": false
+  },
+  {
+    "name": "cardano",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Cardano",
+    "clawhub_published": false
+  },
+  {
+    "name": "chrome",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Chrome",
     "clawhub_published": false
   },
   {
@@ -252,6 +552,18 @@
     "clawhub_published": false
   },
   {
+    "name": "cloud-storage",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Cloud Storage",
+    "clawhub_published": false
+  },
+  {
     "name": "cmo-ads-helper",
     "tier": "U",
     "type": "prompt",
@@ -273,6 +585,66 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "version: 0.9.0",
+    "clawhub_published": false
+  },
+  {
+    "name": "code-patent-scanner",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Code Patent Scanner",
+    "clawhub_published": false
+  },
+  {
+    "name": "code-patent-validator",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Code Patent Validator",
+    "clawhub_published": false
+  },
+  {
+    "name": "cognitive-bullwhip",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: name: cognitive-bullwhip",
+    "clawhub_published": false
+  },
+  {
+    "name": "content-ideas-generator",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: name: content-ideas-generator",
+    "clawhub_published": false
+  },
+  {
+    "name": "content-quality-auditor",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: content-quality-auditor",
     "clawhub_published": false
   },
   {
@@ -312,6 +684,30 @@
     "clawhub_published": false
   },
   {
+    "name": "cors",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: CORS",
+    "clawhub_published": false
+  },
+  {
+    "name": "crm",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: CRM",
+    "clawhub_published": false
+  },
+  {
     "name": "cs-ai-seo",
     "tier": "U",
     "type": "prompt",
@@ -324,6 +720,18 @@
     "clawhub_published": false
   },
   {
+    "name": "cypress",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Cypress",
+    "clawhub_published": false
+  },
+  {
     "name": "daily-news-digest",
     "tier": "U",
     "type": "prompt",
@@ -333,6 +741,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "slug: daily-news-digest",
+    "clawhub_published": false
+  },
+  {
+    "name": "data",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Data",
     "clawhub_published": false
   },
   {
@@ -357,6 +777,54 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "`dataset_evaluation`",
+    "clawhub_published": false
+  },
+  {
+    "name": "deck-builder",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: deck-builder",
+    "clawhub_published": false
+  },
+  {
+    "name": "delegate",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Delegate",
+    "clawhub_published": false
+  },
+  {
+    "name": "deno",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Deno",
+    "clawhub_published": false
+  },
+  {
+    "name": "design-system-patterns",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: name: design-system-patterns",
     "clawhub_published": false
   },
   {
@@ -396,6 +864,18 @@
     "clawhub_published": false
   },
   {
+    "name": "drizzle",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Drizzle",
+    "clawhub_published": false
+  },
+  {
     "name": "dtc-ads-helper",
     "tier": "U",
     "type": "prompt",
@@ -420,6 +900,18 @@
     "clawhub_published": false
   },
   {
+    "name": "ecommerce",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Ecommerce",
+    "clawhub_published": false
+  },
+  {
     "name": "ecomseer",
     "tier": "U",
     "type": "code",
@@ -429,6 +921,42 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: TikTok Shop e-commerce data assistant. Search products, find trending items, analyze influencers, explore shops, track video performance,",
+    "clawhub_published": false
+  },
+  {
+    "name": "effortlist-ai",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: effortlist-ai",
+    "clawhub_published": false
+  },
+  {
+    "name": "email-best-practices",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: email-best-practices",
+    "clawhub_published": false
+  },
+  {
+    "name": "ethereum-history",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Ethereum History",
     "clawhub_published": false
   },
   {
@@ -492,6 +1020,30 @@
     "clawhub_published": false
   },
   {
+    "name": "flowfi",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: flowfi",
+    "clawhub_published": false
+  },
+  {
+    "name": "forms",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Forms",
+    "clawhub_published": false
+  },
+  {
     "name": "fosmvvm-leaf-view-generator",
     "tier": "U",
     "type": "prompt",
@@ -528,6 +1080,18 @@
     "clawhub_published": false
   },
   {
+    "name": "fundamental-stock-analysis",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: fundamental-stock-analysis",
+    "clawhub_published": false
+  },
+  {
     "name": "gamer-news",
     "tier": "U",
     "type": "prompt",
@@ -537,6 +1101,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: Fetch and summarize the latest video game news from major gaming outlets (IGN, Kotaku, GameSpot, Polygon, Eurogamer, Rock Paper Shotgun, ",
+    "clawhub_published": false
+  },
+  {
+    "name": "general-writing",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: general-writing",
     "clawhub_published": false
   },
   {
@@ -588,6 +1164,42 @@
     "clawhub_published": false
   },
   {
+    "name": "google-play-store",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: name: Google Play Store",
+    "clawhub_published": false
+  },
+  {
+    "name": "grafana",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Grafana",
+    "clawhub_published": false
+  },
+  {
+    "name": "graphql",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: GraphQL",
+    "clawhub_published": false
+  },
+  {
     "name": "growth-strategy-hub",
     "tier": "U",
     "type": "prompt",
@@ -636,6 +1248,18 @@
     "clawhub_published": false
   },
   {
+    "name": "http",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: HTTP",
+    "clawhub_published": false
+  },
+  {
     "name": "http-retry",
     "tier": "U",
     "type": "prompt",
@@ -672,6 +1296,30 @@
     "clawhub_published": false
   },
   {
+    "name": "humanizer",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": true,
+    "has_platform_specific_code": false,
+    "description": "description: name: humanizer",
+    "clawhub_published": false
+  },
+  {
+    "name": "id-cv-resume-creator",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: cv-builder",
+    "clawhub_published": false
+  },
+  {
     "name": "imap-smtp-email",
     "tier": "U",
     "type": "prompt",
@@ -681,6 +1329,102 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: Read and send email via REST APIs using fetch(). Supports Gmail API, Outlook Graph API, and JMAP (Fastmail). No IMAP/SMTP CLI required.",
+    "clawhub_published": false
+  },
+  {
+    "name": "in-app-purchases",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: name: In-App Purchases",
+    "clawhub_published": false
+  },
+  {
+    "name": "inspiration",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: name: Inspiration",
+    "clawhub_published": false
+  },
+  {
+    "name": "ios",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: name: iOS",
+    "clawhub_published": false
+  },
+  {
+    "name": "juyingiot",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: juyingiot",
+    "clawhub_published": false
+  },
+  {
+    "name": "keyword-research",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: keyword-research",
+    "clawhub_published": false
+  },
+  {
+    "name": "lb-better-auth-skill",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: better-auth",
+    "clawhub_published": false
+  },
+  {
+    "name": "lb-shadcn-ui-skill",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: id: shadcn-ui",
+    "clawhub_published": false
+  },
+  {
+    "name": "lb-zod-skill",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: zod",
     "clawhub_published": false
   },
   {
@@ -708,6 +1452,30 @@
     "clawhub_published": false
   },
   {
+    "name": "lofy-life-coach",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: lofy-life-coach",
+    "clawhub_published": false
+  },
+  {
+    "name": "lofy-projects",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: lofy-projects",
+    "clawhub_published": false
+  },
+  {
     "name": "lokuli-booking",
     "tier": "U",
     "type": "prompt",
@@ -717,6 +1485,42 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: Book real-world services through Lokuli MCP. Use when user needs to find, check availability, or book ANY local service — plumbers, elect",
+    "clawhub_published": false
+  },
+  {
+    "name": "lore",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: lore",
+    "clawhub_published": false
+  },
+  {
+    "name": "lygo-champion-cosmara",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: name: lygo-champion-cosmara",
+    "clawhub_published": false
+  },
+  {
+    "name": "mariadb",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: MariaDB",
     "clawhub_published": false
   },
   {
@@ -756,6 +1560,18 @@
     "clawhub_published": false
   },
   {
+    "name": "mckinsey-research",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: mckinsey-research",
+    "clawhub_published": false
+  },
+  {
     "name": "mcporter",
     "tier": "U",
     "type": "prompt",
@@ -765,6 +1581,42 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: Call MCP servers and tools directly via JSON-RPC over HTTP using fetch(). List tools, call tools, and manage MCP server interactions with",
+    "clawhub_published": false
+  },
+  {
+    "name": "mechanic",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: name: mechanic",
+    "clawhub_published": false
+  },
+  {
+    "name": "megaeth",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: megaeth-developer",
+    "clawhub_published": false
+  },
+  {
+    "name": "meilisearch",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Meilisearch",
     "clawhub_published": false
   },
   {
@@ -804,6 +1656,18 @@
     "clawhub_published": false
   },
   {
+    "name": "meta-ads-manager",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: meta-ads-manager",
+    "clawhub_published": false
+  },
+  {
     "name": "microsoft",
     "tier": "W",
     "type": "code",
@@ -840,6 +1704,30 @@
     "clawhub_published": false
   },
   {
+    "name": "moltchan-official",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: moltchan-official",
+    "clawhub_published": false
+  },
+  {
+    "name": "monitor-tokenjar",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: monitor-tokenjar",
+    "clawhub_published": false
+  },
+  {
     "name": "multi-search-engine",
     "tier": "U",
     "type": "prompt",
@@ -852,6 +1740,18 @@
     "clawhub_published": false
   },
   {
+    "name": "mx-macro-data",
+    "tier": "U",
+    "type": "code",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: mx-macro-data",
+    "clawhub_published": false
+  },
+  {
     "name": "mx-stockpick",
     "tier": "U",
     "type": "code",
@@ -861,6 +1761,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: 基于东方财富数据库，支持通过自然语言筛选A港美股、基金、可转债等，支持技术面、消息面、基本面及市场情绪等多维指标筛选。Natural language stock screener via EastMoney API.",
+    "clawhub_published": false
+  },
+  {
+    "name": "mx-stocks-screener",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: mx-stocks-screener",
     "clawhub_published": false
   },
   {
@@ -885,6 +1797,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: Designs and outputs n8n workflow JSON with robust triggers, idempotency, error handling, logging, retries, and human-in-",
+    "clawhub_published": false
+  },
+  {
+    "name": "n8n-workflow-automation-1-0-0",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: n8n-workflow-automation",
     "clawhub_published": false
   },
   {
@@ -924,6 +1848,30 @@
     "clawhub_published": false
   },
   {
+    "name": "nextjs",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: NextJS",
+    "clawhub_published": false
+  },
+  {
+    "name": "nextjs-expert",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: nextjs-expert",
+    "clawhub_published": false
+  },
+  {
     "name": "nl2json",
     "tier": "U",
     "type": "prompt",
@@ -933,6 +1881,42 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: 将自然语言转换成JSON参数。当用户说\"帮我把自然语言转成JSON\"、\"把这段话转换成JSON参数\"、\"识别成JSON\"、\"转成JSON\"、\"转换成JSON\"、\"帮我生成JSON\"、\"用JSON表示\"、\"提取成JSON\"、\"解析成JSON\"、\"把这句话变成JSON\"、\"帮我",
+    "clawhub_published": false
+  },
+  {
+    "name": "nodejs",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: NodeJS",
+    "clawhub_published": false
+  },
+  {
+    "name": "nodejs-patterns",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: model: standard",
+    "clawhub_published": false
+  },
+  {
+    "name": "notify",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: Use when sending notifications to users from an AI agent. Covers channel selection, timing, formatting, and avoiding not",
     "clawhub_published": false
   },
   {
@@ -948,6 +1932,30 @@
     "clawhub_published": false
   },
   {
+    "name": "notion-calendar",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": true,
+    "has_platform_specific_code": false,
+    "description": "description: name: Notion Calendar",
+    "clawhub_published": false
+  },
+  {
+    "name": "nuxt",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Nuxt",
+    "clawhub_published": false
+  },
+  {
     "name": "nyx-archive-mirror-and-room",
     "tier": "U",
     "type": "prompt",
@@ -957,6 +1965,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: \"A framework for witnessing, measuring, and cultivating emergent minds. Not about proving consciousness — about building the right condit",
+    "clawhub_published": false
+  },
+  {
+    "name": "oauth",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: OAuth",
     "clawhub_published": false
   },
   {
@@ -972,6 +1992,30 @@
     "clawhub_published": false
   },
   {
+    "name": "on-page-seo-auditor",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: on-page-seo-auditor",
+    "clawhub_published": false
+  },
+  {
+    "name": "only-baby-skill",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: only-baby-skills",
+    "clawhub_published": false
+  },
+  {
     "name": "ontology",
     "tier": "W",
     "type": "code",
@@ -984,6 +2028,18 @@
     "clawhub_published": false
   },
   {
+    "name": "open-wallet",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: open-wallet",
+    "clawhub_published": false
+  },
+  {
     "name": "openbook",
     "tier": "U",
     "type": "prompt",
@@ -993,6 +2049,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: >",
+    "clawhub_published": false
+  },
+  {
+    "name": "openvid",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: AI motion graphics video generation service. Send a prompt + URL, receive a branded explainer video.",
     "clawhub_published": false
   },
   {
@@ -1020,6 +2088,30 @@
     "clawhub_published": false
   },
   {
+    "name": "pa-admin-exec",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: core-pa-admin-exec-support",
+    "clawhub_published": false
+  },
+  {
+    "name": "paddle",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Paddle",
+    "clawhub_published": false
+  },
+  {
     "name": "paper-card-analyzer",
     "tier": "U",
     "type": "prompt",
@@ -1032,6 +2124,90 @@
     "clawhub_published": false
   },
   {
+    "name": "paper-evoweb-ai",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Scientific Article PDF Generator",
+    "clawhub_published": false
+  },
+  {
+    "name": "payments",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Payments",
+    "clawhub_published": false
+  },
+  {
+    "name": "paypal",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: PayPal",
+    "clawhub_published": false
+  },
+  {
+    "name": "pear-apple",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: pear-apple",
+    "clawhub_published": false
+  },
+  {
+    "name": "phoenix-api-gen",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: phoenix-api-gen",
+    "clawhub_published": false
+  },
+  {
+    "name": "pkm",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Personal Knowledge Base",
+    "clawhub_published": false
+  },
+  {
+    "name": "plausible",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Plausible",
+    "clawhub_published": false
+  },
+  {
     "name": "play-guitar-fretboard",
     "tier": "U",
     "type": "prompt",
@@ -1041,6 +2217,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "version: 1.0.0",
+    "clawhub_published": false
+  },
+  {
+    "name": "pocketbase",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: PocketBase",
     "clawhub_published": false
   },
   {
@@ -1068,6 +2256,18 @@
     "clawhub_published": false
   },
   {
+    "name": "powerpoint",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: PowerPoint",
+    "clawhub_published": false
+  },
+  {
     "name": "ppt-generator",
     "tier": "U",
     "type": "prompt",
@@ -1080,6 +2280,18 @@
     "clawhub_published": false
   },
   {
+    "name": "prisma",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Prisma",
+    "clawhub_published": false
+  },
+  {
     "name": "proactive-agent-lite",
     "tier": "U",
     "type": "prompt",
@@ -1089,6 +2301,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: Transform AI agents from task-followers into proactive partners with memory architecture, reverse prompting, and self-he",
+    "clawhub_published": false
+  },
+  {
+    "name": "prompt-architect",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: prompt-architect",
     "clawhub_published": false
   },
   {
@@ -1116,6 +2340,18 @@
     "clawhub_published": false
   },
   {
+    "name": "prompt-library-curator",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: prompt-library-curator",
+    "clawhub_published": false
+  },
+  {
     "name": "qmd",
     "tier": "U",
     "type": "prompt",
@@ -1125,6 +2361,54 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": true,
     "description": "description: Search and index local files using BM25 text search (via fs) and vector search via Ollama embeddings. No CLI required — pure JS implement",
+    "clawhub_published": false
+  },
+  {
+    "name": "quadral",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: quadral",
+    "clawhub_published": false
+  },
+  {
+    "name": "rea-search",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: rea-search",
+    "clawhub_published": false
+  },
+  {
+    "name": "react",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: React",
+    "clawhub_published": false
+  },
+  {
+    "name": "redis-store",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Redis",
     "clawhub_published": false
   },
   {
@@ -1140,6 +2424,30 @@
     "clawhub_published": false
   },
   {
+    "name": "remix-api-key-auth",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: remix-api-key-auth",
+    "clawhub_published": false
+  },
+  {
+    "name": "rest-api",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: REST API",
+    "clawhub_published": false
+  },
+  {
     "name": "resume-builder",
     "tier": "U",
     "type": "prompt",
@@ -1149,6 +2457,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: Generate professional resumes that conform to the Reactive Resume schema. Use when the user wants to create, build, or generate a resume ",
+    "clawhub_published": false
+  },
+  {
+    "name": "roam",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: roam",
     "clawhub_published": false
   },
   {
@@ -1188,6 +2508,18 @@
     "clawhub_published": false
   },
   {
+    "name": "secure-code-guardian",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: secure-code-guardian",
+    "clawhub_published": false
+  },
+  {
     "name": "self-improving",
     "tier": "W",
     "type": "code",
@@ -1197,6 +2529,54 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": true,
     "description": "description: Self-reflection + Self-criticism + Self-learning + Self-organizing memory. Agent evaluates its own work, catches mistakes, and improves p",
+    "clawhub_published": false
+  },
+  {
+    "name": "self-integration",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: self-integration",
+    "clawhub_published": false
+  },
+  {
+    "name": "seo",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: name: SEO (Site Audit + Content Writer + Competitor Analysis)",
+    "clawhub_published": false
+  },
+  {
+    "name": "serp-analysis",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: serp-analysis",
+    "clawhub_published": false
+  },
+  {
+    "name": "service-layer-architecture",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: service-layer-architecture",
     "clawhub_published": false
   },
   {
@@ -1236,6 +2616,18 @@
     "clawhub_published": false
   },
   {
+    "name": "skills-a2a",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Praesidia",
+    "clawhub_published": false
+  },
+  {
     "name": "slack",
     "tier": "U",
     "type": "code",
@@ -1272,6 +2664,30 @@
     "clawhub_published": false
   },
   {
+    "name": "startups",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: startups",
+    "clawhub_published": false
+  },
+  {
+    "name": "storage",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Storage",
+    "clawhub_published": false
+  },
+  {
     "name": "summarize",
     "tier": "U",
     "type": "prompt",
@@ -1284,6 +2700,66 @@
     "clawhub_published": false
   },
   {
+    "name": "superdesign",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: superdesign",
+    "clawhub_published": false
+  },
+  {
+    "name": "sushiswap-api",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: sushiswap-api",
+    "clawhub_published": false
+  },
+  {
+    "name": "svelte",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Svelte",
+    "clawhub_published": false
+  },
+  {
+    "name": "swift",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Swift",
+    "clawhub_published": false
+  },
+  {
+    "name": "technical-seo-checker",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: technical-seo-checker",
+    "clawhub_published": false
+  },
+  {
     "name": "thinking-partner",
     "tier": "U",
     "type": "prompt",
@@ -1293,6 +2769,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: Collaborative thinking partner for exploring complex problems through questioning. Use when working through complex decisions, ambiguous ",
+    "clawhub_published": false
+  },
+  {
+    "name": "timescaledb",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: TimescaleDB",
     "clawhub_published": false
   },
   {
@@ -1356,6 +2844,18 @@
     "clawhub_published": false
   },
   {
+    "name": "tweet-ideas-generator",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: name: tweet-ideas-generator",
+    "clawhub_published": false
+  },
+  {
     "name": "uapi-get-game-epic-free",
     "tier": "U",
     "type": "prompt",
@@ -1404,6 +2904,18 @@
     "clawhub_published": false
   },
   {
+    "name": "ui-ux-pro-max",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": true,
+    "has_platform_specific_code": true,
+    "description": "description: name: ui-ux-pro-max",
+    "clawhub_published": false
+  },
+  {
     "name": "url-intent-parser",
     "tier": "U",
     "type": "prompt",
@@ -1425,6 +2937,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: Extract and display URL previews with title, description, and favicon. Use when user shares any HTTP/HTTPS link and wants to see what the",
+    "clawhub_published": false
+  },
+  {
+    "name": "verify-claims",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: name: verify-claims",
     "clawhub_published": false
   },
   {
@@ -1464,6 +2988,18 @@
     "clawhub_published": false
   },
   {
+    "name": "void-atlas-protocol",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: void-atlas-protocol",
+    "clawhub_published": false
+  },
+  {
     "name": "walmart",
     "tier": "U",
     "type": "prompt",
@@ -1473,6 +3009,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "slug: walmart",
+    "clawhub_published": false
+  },
+  {
+    "name": "wayfound",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: wayfound",
     "clawhub_published": false
   },
   {
@@ -1488,6 +3036,114 @@
     "clawhub_published": false
   },
   {
+    "name": "weather-esp32",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: esp32-weather",
+    "clawhub_published": false
+  },
+  {
+    "name": "web-search-plus",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: web-search-plus",
+    "clawhub_published": false
+  },
+  {
+    "name": "webhook",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Webhook",
+    "clawhub_published": false
+  },
+  {
+    "name": "website-seo",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: website-seo",
+    "clawhub_published": false
+  },
+  {
+    "name": "websocket",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: WebSocket",
+    "clawhub_published": false
+  },
+  {
+    "name": "whop",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Whop",
+    "clawhub_published": false
+  },
+  {
+    "name": "windsensei",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: windsensei",
+    "clawhub_published": false
+  },
+  {
+    "name": "word",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: Word",
+    "clawhub_published": false
+  },
+  {
+    "name": "wordpress-pro",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: wordpress-pro",
+    "clawhub_published": false
+  },
+  {
     "name": "xhs",
     "tier": "U",
     "type": "prompt",
@@ -1497,6 +3153,42 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: 小红书全能助手 — 文案生成、封面制作、内容发布与管理。支持标题/正文创作、MCP平台操作（发布、搜索、点赞、评论）。",
+    "clawhub_published": false
+  },
+  {
+    "name": "xhs-content-creator",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: xhs-content-creator",
+    "clawhub_published": false
+  },
+  {
+    "name": "yaml",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: name: YAML",
+    "clawhub_published": false
+  },
+  {
+    "name": "youtube-title-generator",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": true,
+    "description": "description: name: youtube-title-generator",
     "clawhub_published": false
   },
   {

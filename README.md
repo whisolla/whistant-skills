@@ -1,16 +1,16 @@
 # Whistant Skills
 
-> **Tested, tiered, ready to use.** A curated monorepo of agent skills — battle-tested on Whistant (iOS) and classified for cross-platform compatibility.
+> **Tested, tiered, ready to use.** A curated monorepo of 268 agent skills — battle-tested on Whistant (iOS) and classified for cross-platform compatibility.
 
 ## What Is This?
 
-This repo contains **127 skills** that have passed L3 live-testing on the Whistant iPhone app. Each skill has been verified to produce correct output on-device. They're organized by tier so you know what works where.
+This repo contains **268 skills** that have passed L3 live-testing on the Whistant iPhone app. Each skill has been verified to produce correct output on-device. They're organized by tier so you know what works where.
 
 ## Tiers Explained
 
 ### Tier U — Universal 🌐
 
-**115 skills** — Pure JavaScript + `fetch()`. No iOS Shortcuts, no JSC-specific APIs, no platform dependencies. These skills work on:
+**256 skills** — Pure JavaScript + `fetch()`. No iOS Shortcuts, no JSC-specific APIs, no platform dependencies. These skills work on:
 
 - ✅ Whistant (iOS / JavaScriptCore)
 - ✅ OpenClaw (Node.js / desktop)
@@ -22,19 +22,19 @@ Ideal for: cross-platform agent frameworks, community sharing, ClawHub publishin
 
 ### Tier W — Whistant-only 📱
 
-**12 skills** — Require iOS-specific APIs (Shortcuts, keychain, JSC `require('fs')`, etc.) or Whistant-specific runtime features. These work on:
+**12 skills** — Require iOS-specific APIs (Shortcuts, keychain, JSC `require('fs')`, etc.) or Whistant-specific runtime features. (Unchanged) These work on:
 
 - ✅ Whistant (iOS)
 - ❌ OpenClaw / desktop (without porting)
 
-**Includes:** `weather`, `google`, `microsoft`, `discord`, `clawhub`, `ontology`, and 6 more.
+**Includes:** `weather`, `google`, `microsoft`, `discord`, `clawhub`, `ontology`, `agent-autonomy-kit`, and 5 more.
 
 ## Skill Types
 
 | Type | Count | Description |
 |------|-------|-------------|
-| **Code** (`scripts/`) | 31 | Has executable JavaScript that fetches APIs, processes data |
-| **Prompt-only** | 96 | AI instruction sets — the model follows guidance patterns |
+| **Code** (`scripts/`) | 33 | Has executable JavaScript that fetches APIs, processes data |
+| **Prompt-only** | 235 | AI instruction sets — the model follows guidance patterns |
 
 Prompt-only skills are inherently universal (Tier U) since they contain no platform-specific code.
 
@@ -102,21 +102,20 @@ Tier W skills need porting — replace iOS-specific APIs with Node.js equivalent
 
 | Metric | Count |
 |--------|-------|
-| Total PASS skills | 127 |
-| Tier U (Universal) | 115 |
+| Total PASS skills | 268 |
+| Tier U (Universal) | 256 |
 | Tier W (Whistant-only) | 12 |
-| Code skills (has `scripts/`) | 31 |
-| Prompt-only skills | 96 |
-| Shortcuts-dependent | 2 |
-| Platform-specific code | 15 |
+| Code skills (has `scripts/`) | 33 |
+| Prompt-only skills | 235 |
+| Shortcuts-dependent | 5 |
+| Platform-specific code | 32 |
 
 ## Testing
 
-All 127 skills have passed **L3 live-testing** on the Whistant iPhone simulator:
+All 268 skills have passed **L3 live-testing** on the Whistant iPhone:
+- 141 newly synced from catalog (2026-05-02)
 - Code skills: verified real API output, correct data
 - Prompt-only skills: verified useful, structured AI output
-
-All 127 skills have been verified through automated L3 live-testing on the Whistant iPhone simulator.
 
 See `SKILLS_PASS.md` in the Whistant PM workspace for full test records.
 
