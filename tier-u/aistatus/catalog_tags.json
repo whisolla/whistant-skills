@@ -1,0 +1,7 @@
+{
+  "l3_tested": true,
+  "l3_result": "PASS",
+  "l3_date": "2026-04-29",
+  "l3_model": "minimax/MiniMax-M2.7-highspeed",
+  "l3_notes": "Handler script with fetch() via aistatus.cc API. Shows provider status, trending, MMLU leaderboard, and incidents."
+}
