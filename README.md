@@ -116,10 +116,7 @@ All 127 skills have passed **L3 live-testing** on the Whistant iPhone simulator:
 - Code skills: verified real API output, correct data
 - Prompt-only skills: verified useful, structured AI output
 
-Testing was performed by:
-- Initial testing — individual L3 tests (37 skills)
-- **Forge 🔧** — marathon batch testing (30 + 3 + 6 + 2 + 8 + 15 + 4 skills)
-- Plus 18 previously-compatible and 5 pre-installed skills
+All 127 skills have been verified through automated L3 live-testing on the Whistant iPhone simulator.
 
 See `SKILLS_PASS.md` in the Whistant PM workspace for full test records.
 
