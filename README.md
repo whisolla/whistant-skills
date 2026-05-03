@@ -1,10 +1,12 @@
 # Whistant Skills
 
-> **Tested, tiered, ready to use.** A curated monorepo of 287 agent skills — battle-tested on Whistant (iOS) and classified for cross-platform compatibility.
+> **Cataloged, tiered, ready to use.** A curated monorepo of 287 agent skills — organized for Whistant compatibility and classified by platform reach.
 
 ## What Is This?
 
-This repo contains **287 skills** that have passed L3 live-testing on the Whistant iPhone app. Each skill has been verified to produce correct output on-device. They're organized by tier so you know what works where.
+This repo contains **287 skills** cataloged for availability on Whistant. They're organized by tier so you know what works where.
+
+**⚠️ Testing status:** These skills were sourced from the community skill catalog and curated for Whistant compatibility. They have **not** been individually L3 live-tested on the Whistant iPhone app. The `whistant_tested` flag in `skills.json` reflects catalog population, not on-device verification.
 
 ## Tiers Explained
 
@@ -102,7 +104,9 @@ Tier W skills need porting — replace iOS-specific APIs with Node.js equivalent
 
 | Metric | Count |
 |--------|-------|
-| Total PASS skills | 287 |
+| Metric | Count |
+|--------|-------|
+| Total cataloged skills | 287 |
 | Tier U (Universal) | 275 |
 | Tier W (Whistant-only) | 12 |
 | Code skills (has `scripts/`) | 33 |
@@ -110,15 +114,14 @@ Tier W skills need porting — replace iOS-specific APIs with Node.js equivalent
 | Shortcuts-dependent | 5 |
 | Platform-specific code | 32 |
 
-## Testing
+## Testing & Verification
 
-All 287 skills have passed **L3 live-testing** on the Whistant iPhone:
-- 141 newly synced from catalog
-- 19 Batch 27 PASS skills added (2026-05-02)
-- Code skills: verified real API output, correct data
-- Prompt-only skills: verified useful, structured AI output
+These 287 skills are **catalog-sourced**, not individually L3 live-tested on Whistant:
 
-See `SKILLS_PASS.md` in the Whistant PM workspace for full test records.
+- **275 Tier U (Universal)** — Community skills cataloged for Whistant compatibility. Pure JavaScript + `fetch()`, no iOS-specific dependencies.
+- **12 Tier W (Whistant-only)** — Whistant-specific skills using iOS APIs (Shortcuts, keychain, JSC extensions).
+
+The `whistant_tested` field in `skills.json` is set based on catalog sourcing, not on-device L3 verification.
 
 ## Contributing
 
