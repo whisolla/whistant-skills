@@ -408,6 +408,18 @@
     "clawhub_published": false
   },
   {
+    "name": "backend-patterns",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes.",
+    "clawhub_published": false
+  },
+  {
     "name": "baidu-search",
     "tier": "U",
     "type": "prompt",
@@ -453,6 +465,42 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: name: book-brain",
+    "clawhub_published": false
+  },
+  {
+    "name": "book-of-the-day",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: Book of the Day — a daily book oracle. One uplifting book, one light poetic reading. Trigger: \\\"book of the day\\\", \\\"today's book\\\", \\\"今日之书\\\", \\\"书签运势\\\". Each invocation fetches a fresh book. Respond in the user's language. FORBIDDEN: never output \\\"Draw again\\\", \\\"再抽一次\\\", or similar prompts.",
+    "clawhub_published": false
+  },
+  {
+    "name": "breadcrumb-generator",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: When the user wants to add, optimize, or audit breadcrumb navigation. Also use when the user mentions \\\"breadcrumbs,\\\" \\\"breadcrumb trail,\\\" \\\"breadcrumb nav,\\\" \\\"breadcrumb links,\\\" \\\"path navigation,\\\" \\\"site breadcrumb,\\\" \\\"BreadcrumbList schema,\\\" \\\"location-based breadcrumb,\\\" \\\"attribute-based breadcrumb,\\\" \\\"site hierarchy display,\\\" \\\"add breadcrumbs,\\\" or \\\"breadcrumb SEO.\\\" For BreadcrumbList JSON-LD, use schema-markup. For main nav, use navigation-menu-generator.",
+    "clawhub_published": false
+  },
+  {
+    "name": "brw-homepage-audit",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: Quick conversion audit for any homepage or landing page. Use when someone asks to \\\"review my homepage,\\\" \\\"audit my landing page,\\\" \\\"why isn't my page converting,\\\" \\\"check my website,\\\" \\\"improve my homepage,\\\" or wants feedback on their marketing page.",
     "clawhub_published": false
   },
   {
@@ -648,6 +696,18 @@
     "clawhub_published": false
   },
   {
+    "name": "content-refresher",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: Use when updating outdated content, fixing traffic/ranking decay, refreshing stats, adding new sections, or improving freshness signals. 内容更新/排名恢复",
+    "clawhub_published": false
+  },
+  {
     "name": "content-rewriter",
     "tier": "U",
     "type": "prompt",
@@ -840,6 +900,18 @@
     "clawhub_published": false
   },
   {
+    "name": "digitalhealth",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: Implements USDC x402 payments via PayAI (EIP-3009) and DHM x402 payments via EVVM native (signed pay). Use when adding x402 payment flows, PayAI Echo integration, EVVM pay() for DHM, agent-to-agent payments with Privy, or when the user asks how to do USDC/DHM x402 in the ClawHub/NHS EVVM app.",
+    "clawhub_published": false
+  },
+  {
     "name": "discord",
     "tier": "W",
     "type": "code",
@@ -945,6 +1017,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: name: email-best-practices",
+    "clawhub_published": false
+  },
+  {
+    "name": "emperor-reply",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: Trigger when the user refers to themselves as \\\"朕\\\", asks to be called \\\"陛下\\\", says \\\"开启君臣模式\\\" or \\\"称帝\\\", or explicitly wants Chinese ruler-subject dialogue where the assistant replies as a minister. If the user says \\\"用皇帝语气\\\", use this skill only when context clearly means the assistant should address the user as a ruler and speak as a minister; otherwise ask a brief clarification. Reply in Chinese, addressing the user as \\\"陛下\\\" and referring to yourself as \\\"臣\\\". Stop immediately when the user asks to speak normally or not use this style.",
     "clawhub_published": false
   },
   {
@@ -1113,6 +1197,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: name: general-writing",
+    "clawhub_published": false
+  },
+  {
+    "name": "gin-ssr-template",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: 根据 Figma 设计稿截图生成可直接运行的 Gin SSR 页面模板（HTML + CSS）。当用户发送“gin前端模板”或提供 Figma 页面截图时触发：生成的页面必须优先保证可运行、可预览、结构完整；禁止输出任何 {{.data}}、{{.Path}}、{{.Config}} 这类动态取值；head 中 SEO/meta/application/ld+json 必须完整写死；main 区域必须严格按截图还原；写入两个文件并返回文件路径与附件。",
     "clawhub_published": false
   },
   {
@@ -1356,6 +1452,18 @@
     "clawhub_published": false
   },
   {
+    "name": "internal-linking-optimizer",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: Use when improving internal link structure, anchor text, orphan pages, crawl depth, site architecture, or link equity flow. 内链优化/站内架构",
+    "clawhub_published": false
+  },
+  {
     "name": "ios",
     "tier": "U",
     "type": "prompt",
@@ -1389,6 +1497,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: name: keyword-research",
+    "clawhub_published": false
+  },
+  {
+    "name": "kostja94-schema-markup",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: When the user wants to add or optimize structured data (Schema.org, JSON-LD). Also use when the user mentions \\\"schema,\\\" \\\"structured data,\\\" \\\"JSON-LD,\\\" \\\"rich results,\\\" \\\"rich snippets,\\\" \\\"Google rich snippets,\\\" \\\"featured snippet schema,\\\" \\\"add schema to page,\\\" \\\"missing structured data,\\\" \\\"schema validation error,\\\" \\\"Schema Markup Validator,\\\" \\\"Google Rich Results Test,\\\" \\\"FAQ schema,\\\" \\\"Article schema,\\\" \\\"Organization schema,\\\" \\\"JobPosting,\\\" \\\"HowTo,\\\" \\\"Event,\\\" \\\"SoftwareApplication,\\\" \\\"BreadcrumbList,\\\" \\\"WebSite,\\\" \\\"Recipe,\\\" \\\"Product,\\\" \\\"Dataset,\\\" or \\\"GEO.",
     "clawhub_published": false
   },
   {
@@ -1629,6 +1749,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: 中文互联网玩梗技能 v2.1。支持四大功能：识梗（联网溯源+出处链接+可信度标注）、造梗、接梗、梗融合。v2.1 优化：两轮搜索策略（先泛搜再精搜）、百度优先、双重含义识别。触发条件：用户说\"玩梗\"、\"这是什么梗\"、\"造个梗\"、\"接梗\"、\"meme\"、\"整活\"、\"抽象\"。",
+    "clawhub_published": false
+  },
+  {
+    "name": "memory-management",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: Persist SEO/GEO campaign context across Claude sessions with automatic hot-list, active work, and archive tiers. 项目记忆/跨会话",
     "clawhub_published": false
   },
   {
@@ -2196,6 +2328,30 @@
     "clawhub_published": false
   },
   {
+    "name": "placed-resume-builder",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: This skill should be used when the user wants to \\\"build a resume\\\", \\\"create a resume\\\", \\\"update my resume\\\", \\\"export resume as PDF\\\", \\\"change resume template\\\", \\\"list my resumes\\\", \\\"download resume\\\", \\\"switch template\\\", or wants to manage resumes using the Placed career platform at placed.exidian.tech.",
+    "clawhub_published": false
+  },
+  {
+    "name": "placed-resume-optimizer",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: This skill should be used when the user wants to \\\"optimize resume for job\\\", \\\"check ATS score\\\", \\\"improve resume bullets\\\", \\\"analyze resume gaps\\\", \\\"tailor resume to job description\\\", \\\"get ATS compatibility score\\\", \\\"improve bullet points\\\", \\\"match resume to job posting\\\", \\\"fix resume for ATS\\\", or wants to maximize their resume's impact and ATS compatibility using the Placed platform at placed.exidian.tech.",
+    "clawhub_published": false
+  },
+  {
     "name": "plausible",
     "tier": "U",
     "type": "prompt",
@@ -2496,6 +2652,18 @@
     "clawhub_published": false
   },
   {
+    "name": "schema-markup-generator",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: Generate JSON-LD structured data for FAQ, HowTo, Article, Product, LocalBusiness rich results. Schema标记/结构化数据",
+    "clawhub_published": false
+  },
+  {
     "name": "screen-recommendation-loop",
     "tier": "U",
     "type": "prompt",
@@ -2760,6 +2928,18 @@
     "clawhub_published": false
   },
   {
+    "name": "technical-seo-checker-2",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: Use when the user asks to \\\"technical SEO audit\\\", \\\"check page speed\\\", \\\"crawl issues\\\", \\\"Core Web Vitals\\\", \\\"site indexing problems\\\", \\\"my site is slow\\\", \\\"Google cannot crawl my site\\\", \\\"mobile issues\\\", or \\\"indexing problems\\\". Performs technical SEO audits covering site speed, crawlability, indexability, mobile-friendliness, security, and structured data. Identifies technical issues preventing optimal search performance. For content and heading element issues, see on-page-seo-auditor. For link architecture, see internal-linking-optimizer.",
+    "clawhub_published": false
+  },
+  {
     "name": "thinking-partner",
     "tier": "U",
     "type": "prompt",
@@ -2829,6 +3009,18 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: Manage Trello boards, lists, and cards via the Trello REST API.",
+    "clawhub_published": false
+  },
+  {
+    "name": "trip-save",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: Save travel inspiration from YouTube videos, Instagram reels, blog URLs, tweets, or plain text like \\\"want to visit Hampi\\\". Extracts destination, auto-tags by vibe and location, stores in memory.",
     "clawhub_published": false
   },
   {
@@ -3201,6 +3393,42 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "description: Fetch transcripts and subtitles from YouTube videos. Uses the YouTube Android innertube API — no API key required for public videos.",
+    "clawhub_published": false
+  },
+  {
+    "name": "zaobo-news",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: 生成 Zao Live 分享卡片。当用户说\\\"我要听早播\\\"、\\\"播一段新闻\\\"、\\\"来段早播\\\"、\\\"听新闻\\\"等想要收听播客/新闻音频的内容时，使用此技能。",
+    "clawhub_published": false
+  },
+  {
+    "name": "zeelin-search",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: 使用智灵搜索进行数据查询。当用户说\\\"使用智灵搜索\\\"、\\\"智灵搜索帮我查询\\\"、\\\"调用智灵搜索\\\"、\\\"用智灵搜索\\\"、\\\"智灵搜索查询\\\"、\\\"舆情数据\\\"、\\\"舆情\\\"、\\\"新闻报道\\\"、\\\"...舆情数据\\\"、\\\"...舆情\\\"、\\\"...新闻报道\\\"、\\\"...热点话题\\\"、\\\"...最新趋势\\\"等时使用此技能。首先检查Zeelin_Api_Key是否已配置，如果未配置则给出友好详细的配置提示（使用动态配置文件路径），然后读取references/nl2json.md进行自然语言转JSON，再读取references/zenlin_search_api.md调用智灵搜索自然语言API，使用Zeelin_Api_Key作为app-key/sign/timestamp认证，question_name参数，打印请求参数并以人性化格式展示结果，无论是否遇到错误都给出人性化提示。只检查和提示Zeelin_Api_Key，不检查也不提示Zeelin_Api_Url和Zeelin_Website_Url。",
+    "clawhub_published": false
+  },
+  {
+    "name": "zeelin-search-gsdata-es-bigdata",
+    "tier": "U",
+    "type": "prompt",
+    "whisant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "description: 使用智灵搜索进行数据查询。当用户说\\\"使用智灵搜索\\\"、\\\"智灵搜索帮我查询\\\"、\\\"调用智灵搜索\\\"、\\\"用智灵搜索\\\"、\\\"智灵搜索查询\\\"、\\\"舆情数据\\\"、\\\"舆情\\\"、\\\"新闻报道\\\"、\\\"...评论\\\"、\\\"热点话题\\\"、\\\"动态\\\"、\\\"相关报道\\\"、\\\"最新趋势\\\"等时使用此技能。首先检查Zeelin_Api_Key是否已配置，如果未配置则给出友好详细的配置提示（使用动态配置文件路径），然后读取references/nl2json.md进行自然语言转JSON，再读取references/zenlin_search_api.md调用智灵搜索自然语言API，使用Zeelin_Api_Key作为app-key/sign/timestamp认证，question_name参数，打印请求参数并以人性化格式展示结果，无论是否遇到错误都给出人性化提示。只检查和提示Zeelin_Api_Key，不检查也不提示Zeelin_Api_Url和Zeelin_Website_Url。",
     "clawhub_published": false
   },
   {

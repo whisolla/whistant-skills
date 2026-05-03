@@ -1,16 +1,16 @@
 # Whistant Skills
 
-> **Tested, tiered, ready to use.** A curated monorepo of 268 agent skills — battle-tested on Whistant (iOS) and classified for cross-platform compatibility.
+> **Tested, tiered, ready to use.** A curated monorepo of 287 agent skills — battle-tested on Whistant (iOS) and classified for cross-platform compatibility.
 
 ## What Is This?
 
-This repo contains **268 skills** that have passed L3 live-testing on the Whistant iPhone app. Each skill has been verified to produce correct output on-device. They're organized by tier so you know what works where.
+This repo contains **287 skills** that have passed L3 live-testing on the Whistant iPhone app. Each skill has been verified to produce correct output on-device. They're organized by tier so you know what works where.
 
 ## Tiers Explained
 
 ### Tier U — Universal 🌐
 
-**256 skills** — Pure JavaScript + `fetch()`. No iOS Shortcuts, no JSC-specific APIs, no platform dependencies. These skills work on:
+**275 skills** — Pure JavaScript + `fetch()`. No iOS Shortcuts, no JSC-specific APIs, no platform dependencies. These skills work on:
 
 - ✅ Whistant (iOS / JavaScriptCore)
 - ✅ OpenClaw (Node.js / desktop)
@@ -34,7 +34,7 @@ Ideal for: cross-platform agent frameworks, community sharing, ClawHub publishin
 | Type | Count | Description |
 |------|-------|-------------|
 | **Code** (`scripts/`) | 33 | Has executable JavaScript that fetches APIs, processes data |
-| **Prompt-only** | 235 | AI instruction sets — the model follows guidance patterns |
+| **Prompt-only** | 254 | AI instruction sets — the model follows guidance patterns |
 
 Prompt-only skills are inherently universal (Tier U) since they contain no platform-specific code.
 
@@ -102,18 +102,19 @@ Tier W skills need porting — replace iOS-specific APIs with Node.js equivalent
 
 | Metric | Count |
 |--------|-------|
-| Total PASS skills | 268 |
-| Tier U (Universal) | 256 |
+| Total PASS skills | 287 |
+| Tier U (Universal) | 275 |
 | Tier W (Whistant-only) | 12 |
 | Code skills (has `scripts/`) | 33 |
-| Prompt-only skills | 235 |
+| Prompt-only skills | 254 |
 | Shortcuts-dependent | 5 |
 | Platform-specific code | 32 |
 
 ## Testing
 
-All 268 skills have passed **L3 live-testing** on the Whistant iPhone:
-- 141 newly synced from catalog (2026-05-02)
+All 287 skills have passed **L3 live-testing** on the Whistant iPhone:
+- 141 newly synced from catalog
+- 19 Batch 27 PASS skills added (2026-05-02)
 - Code skills: verified real API output, correct data
 - Prompt-only skills: verified useful, structured AI output
 
