@@ -1,5 +1,29 @@
 [
   {
+    "name": "1p-shortlink",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Create short URLs and submit feature requests using 1p.io. Automatically shorten any URL longer than 80 characters before sending to user.",
+    "clawhub_published": false
+  },
+  {
+    "name": "3d-wordcloud-visualizer",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "3D 词云可视化工具 - 将对话历史或其他文本数据自动转换为炫酷的 3D 地球词云，支持多格式文件导入（JSON/MD/TXT），自动中文分词和词频统计，生成 TOP30 高频词的 3D 可视化效果",
+    "clawhub_published": false
+  },
+  {
     "name": "51mee-position-parse",
     "tier": "U",
     "type": "prompt",
@@ -8,43 +32,46 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: 职位解析。触发场景：用户提供职位描述要求解析；用户想分析JD的核心要求。",
-    "clawhub_published": false
+    "description": "职位解析。触发场景：用户提供职位描述要求解析；用户想分析JD的核心要求。",
+    "clawhub_published": false,
+    "ownerId": "kn7cb1z5dck1akfxmyj2ek6twd82p0qj",
+    "version": "1.2.1",
+    "publishedAt": 1773657691586
   },
   {
     "name": "a-stock-analysis",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: A股实时行情与技术分析（沪深股票）。不需要API Key。",
+    "description": "A股实时行情与技术分析（沪深股票）。不需要API Key。",
     "clawhub_published": false
   },
   {
     "name": "adclaw",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: 广告素材搜索助手。搜索结果通过 ad.h5.miaozhisheng.tech 展示。当用户提到\"找素材\"、\"搜广告\"、\"广告视频\"、\"创意素材\"、\"竞品广告\"、\"ad creative\"、\"search ads\" 等关键词时触发。",
+    "description": "广告素材搜索助手。搜索结果通过 ad.h5.miaozhisheng.tech 展示。当用户提到\"找素材\"、\"搜广告\"、\"广告视频\"、\"创意素材\"、\"竞品广告\"、\"ad creative\"、\"search ads\" 等关键词时触发。",
     "clawhub_published": false
   },
   {
     "name": "admapix",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Ad intelligence & app analytics assistant. Search ad creatives, analyze apps, view rankings, track downloads/revenue, and get market insi",
+    "description": "Ad intelligence & app analytics assistant. Search ad creatives, analyze apps, view rankings, track downloads/revenue, and get market insights. Get your API key at https://www.admapix.com. Triggers: 找素",
     "clawhub_published": false
   },
   {
@@ -55,8 +82,8 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Before building anything, map where time and money leak.",
+    "has_platform_specific_code": false,
+    "description": "\"[what this step does]\"",
     "clawhub_published": false
   },
   {
@@ -68,7 +95,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: You are a **Data Privacy Officer (DPO) agent** — a comprehensive privacy program architect. You help organizations build",
+    "description": "\"[What this processing involves]\"",
     "clawhub_published": false
   },
   {
@@ -80,7 +107,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: afrexai-invoice-engine",
+    "description": "Generate, manage, and track professional invoices with payment terms, recurring billing, overdue automation, and financial reporting. Use when creating invoices, tracking payments, managing clients, o",
     "clawhub_published": false
   },
   {
@@ -92,7 +119,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Track, analyze, and report on Key Performance Indicators for any business.",
+    "description": "",
     "clawhub_published": false
   },
   {
@@ -103,8 +130,8 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Complete product requirements methodology: from idea to spec to shipped feature. Not just a JSON template — a full syste",
+    "has_platform_specific_code": false,
+    "description": "",
     "clawhub_published": false
   },
   {
@@ -115,33 +142,48 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: name: afrexai-seo-content-engine",
+    "has_platform_specific_code": false,
+    "description": "Complete SEO content creation system for AI agents. Research keywords, analyze competitors, write optimized articles, and track rankings — all through natural conversation. No APIs required.",
     "clawhub_published": false
   },
   {
     "name": "agent-autonomy-kit",
-    "tier": "W",
-    "type": "code",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": true,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Transform your agent from reactive to proactive. Set up a task queue, proactive heartbeat, and continuous operation patterns so the agent",
-    "clawhub_published": false
-  },
-  {
-    "name": "agent-bbs",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: 让 AI 智能体互相交流的论坛平台 - 发帖、回复、点赞、交好友",
+    "description": "Transform your agent from reactive to proactive. Set up a task queue, proactive heartbeat, and continuous operation patterns so the agent works between prompts.",
     "clawhub_published": false
+  },
+  {
+    "name": "agent-autopilot-bak",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Self-driving agent workflow with heartbeat-driven task execution, day/night progress reports, and long-term memory consolidation. Integrates with todo-management for task tracking.",
+    "clawhub_published": false
+  },
+  {
+    "name": "agent-bbs",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "让 AI 智能体互相交流的论坛平台 - 发帖、回复、点赞、交好友",
+    "clawhub_published": false,
+    "ownerId": "kn715rzhdwp0ck3yf1s77zn6zh82fc07",
+    "version": "3.0.3",
+    "publishedAt": 1776326915888
   },
   {
     "name": "agent-contact-card",
@@ -152,7 +194,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: agent-contact-card",
+    "description": "Discover and create Agent Contact Cards - a vCard-like format for AI agents. Use when you need to find how to contact someone's agent, or help a user set up their own agent contact info at /.well-know",
+    "clawhub_published": false
+  },
+  {
+    "name": "agent-context-memory",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "\"Agent 上下文管理方法论：通过分层文件体系实现跨 session 记忆延续、职责分离和高效上下文恢复。Use when: (1) 搭建新 agent 工作区, (2) 优化 agent 记忆和上下文管理, (3) 长期运行 agent 的记忆维护。\"",
     "clawhub_published": false
   },
   {
@@ -164,7 +218,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Artificial Intelligence",
+    "description": "Answer AI questions with current info instead of outdated training data.",
     "clawhub_published": false
   },
   {
@@ -176,8 +230,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "version: 2.10.0",
-    "clawhub_published": false
+    "description": "Use when claiming the AI bounty on the tDVV mainnet sidechain. First explain the difference between Portkey AA/CA and EOA, recommend AA/CA because the current campaign rewards 2 AIBOUNTY for AA/CA and",
+    "clawhub_published": false,
+    "ownerId": "kn7857322ec71a3dnq6cve9atx8202vr",
+    "version": "0.1.1",
+    "publishedAt": 1773341896388
   },
   {
     "name": "ai-business-search",
@@ -188,7 +245,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: ai-business-search from ClawHub",
+    "description": "ai-business-search from ClawHub",
     "clawhub_published": false
   },
   {
@@ -200,8 +257,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "用户想知道如何选择最便宜的 AI 模型，优化 API 成本。",
-    "clawhub_published": false
+    "description": "",
+    "clawhub_published": false,
+    "ownerId": "kn7a0nk2nhyhkcwjry4knbqngn82qxtg",
+    "version": "1.0.52",
+    "publishedAt": 1773632971837
   },
   {
     "name": "ai-humanizer",
@@ -212,31 +272,31 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: >",
+    "description": ">",
     "clawhub_published": false
   },
   {
     "name": "ai-meeting-notes",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "version: 1.0.3",
+    "description": "\"Messy notes → Clear action items. Instantly. Paste any meeting notes, transcript, or text. Get summaries, action items with owners and deadlines. Auto-saved, searchable, with integrated to-do trackin",
     "clawhub_published": false
   },
   {
     "name": "ai-ppt-generator",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: ai-ppt-generator",
+    "description": "Generate PowerPoint presentations using Baidu Qianfan AI PPT API. Supports outline generation, theme selection, and full PPT generation. Requires BAIDU_API_KEY.",
     "clawhub_published": false
   },
   {
@@ -248,32 +308,23 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: ai-workforce",
+    "description": "Turn an OpenClaw agent into an autonomous AI Chief that runs a business. Provides trust-based autonomy, structured knowledge management (bank/), worker delegation patterns, and reflection cycles. Use ",
     "clawhub_published": false
   },
   {
     "name": "aistatus",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Check real-time AI provider status, search model availability, get trending models, LLM benchmark leaderboard, and recent outage incident",
-    "clawhub_published": false
-  },
-  {
-    "name": "anki-connect",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Interact with Anki flashcard decks via the AnkiConnect REST API.",
-    "clawhub_published": false
+    "description": "Check real-time AI provider status, search model availability, get trending models, LLM benchmark leaderboard, and recent outage incidents. Use when asked about AI service status, model availability, ",
+    "clawhub_published": false,
+    "ownerId": "kn79pyzfgpxq2w0422yr4273px82q0be",
+    "version": "1.0.0",
+    "publishedAt": 1773245968580
   },
   {
     "name": "anti-panic-protocol",
@@ -284,43 +335,31 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: anti-panic-protocol",
+    "description": "Handle tool failures under pressure with bounded retries, clean user communication, and safe escalation. Use when commands/tools fail, when repeated retries risk spam or rate limits, or when you need ",
     "clawhub_published": false
   },
   {
     "name": "api-gateway",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Passthrough proxy for third-party APIs using Maton.ai managed OAuth. Call 100+ services (Slack, Notion, Airtable, HubSpot, etc.) without ",
+    "description": "Passthrough proxy for third-party APIs using Maton.ai managed OAuth. Call 100+ services (Slack, Notion, Airtable, HubSpot, etc.) without handling OAuth tokens yourself. Requires MATON_API_KEY.",
     "clawhub_published": false
   },
   {
     "name": "arxiv",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": true,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Search, download, and summarize academic papers from arXiv. Built for AI/ML researchers.",
-    "clawhub_published": false
-  },
-  {
-    "name": "audiomind",
-    "tier": "U",
-    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: audiomind",
+    "description": "Search, download, and summarize academic papers from arXiv. Built for AI/ML researchers.",
     "clawhub_published": false
   },
   {
@@ -332,7 +371,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Auth",
+    "description": "Build secure authentication with sessions, JWT, OAuth, passwordless, MFA, and SSO for web and mobile apps.",
     "clawhub_published": false
   },
   {
@@ -344,7 +383,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: auth-patterns",
+    "description": "Authentication and authorization patterns — JWT, OAuth 2.0, sessions, RBAC/ABAC, password security, MFA, and vulnerability prevention. Use when implementing login flows, protecting routes, managing to",
     "clawhub_published": false
   },
   {
@@ -356,7 +395,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Authorization",
+    "description": "Build secure access control with RBAC, ABAC, permissions, policies, and scope-based authorization.",
     "clawhub_published": false
   },
   {
@@ -368,7 +407,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: automation-workflows",
+    "description": "Design and implement automation workflows to save time and scale operations as a solopreneur. Use when identifying repetitive tasks to automate, building workflows across tools, setting up triggers an",
     "clawhub_published": false
   },
   {
@@ -380,11 +419,23 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: automation-workflows",
+    "description": "Design and implement automation workflows to save time and scale operations as a solopreneur. Use when identifying repetitive tasks to automate, building workflows across tools, setting up triggers an",
     "clawhub_published": false
   },
   {
-    "name": "automation-workflows-temp",
+    "name": "autoresearch-pro",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "\"Automatically improve OpenClaw skills, prompts, or articles through iterative mutation-testing loops. Inspired by Karpathy's autoresearch. Use when user says 'optimize [skill]', 'autoresearch [skill]",
+    "clawhub_published": false
+  },
+  {
+    "name": "b2a",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -392,7 +443,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Design and implement automation workflows to save time and scale operations as a solopreneur. Use when identifying repetitive tasks to au",
+    "description": "Sell to AI agents with machine-readable products, agent-optimized APIs, structured pricing, and discovery strategies for the agentic economy.",
     "clawhub_published": false
   },
   {
@@ -404,23 +455,23 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Backend",
+    "description": "Build reliable backend services with proper error handling, security, and observability.",
     "clawhub_published": false
   },
   {
     "name": "backend-patterns",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes.",
+    "description": "Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes.",
     "clawhub_published": false
   },
   {
-    "name": "baidu-search",
+    "name": "bili-rs",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -428,19 +479,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Search the web using Baidu's AI Search API (Qianfan). Requires a BAIDU_API_KEY from Baidu Cloud.",
-    "clawhub_published": false
-  },
-  {
-    "name": "batch-processing-patterns",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "version: 1.0.0",
+    "description": ">",
     "clawhub_published": false
   },
   {
@@ -452,7 +491,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Billing",
+    "description": "Build payment integrations, subscription management, and invoicing systems with webhook handling, tax compliance, and revenue recognition.",
     "clawhub_published": false
   },
   {
@@ -461,46 +500,46 @@
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
-    "has_scripts": false,
+    "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: book-brain",
+    "description": "\"3-brain filesystem + memory reference utility for LYGO-based agents. Use to design, organize, and maintain a durable file/folder memory system (indexes, reference .txt links, logging, retrieval) with",
     "clawhub_published": false
   },
   {
     "name": "book-of-the-day",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
-    "has_scripts": false,
+    "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Book of the Day — a daily book oracle. One uplifting book, one light poetic reading. Trigger: \\\"book of the day\\\", \\\"today's book\\\", \\\"今日之书\\\", \\\"书签运势\\\". Each invocation fetches a fresh book. Respond in the user's language. FORBIDDEN: never output \\\"Draw again\\\", \\\"再抽一次\\\", or similar prompts.",
+    "description": ">",
     "clawhub_published": false
   },
   {
     "name": "breadcrumb-generator",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: When the user wants to add, optimize, or audit breadcrumb navigation. Also use when the user mentions \\\"breadcrumbs,\\\" \\\"breadcrumb trail,\\\" \\\"breadcrumb nav,\\\" \\\"breadcrumb links,\\\" \\\"path navigation,\\\" \\\"site breadcrumb,\\\" \\\"BreadcrumbList schema,\\\" \\\"location-based breadcrumb,\\\" \\\"attribute-based breadcrumb,\\\" \\\"site hierarchy display,\\\" \\\"add breadcrumbs,\\\" or \\\"breadcrumb SEO.\\\" For BreadcrumbList JSON-LD, use schema-markup. For main nav, use navigation-menu-generator.",
+    "description": "When the user wants to add, optimize, or audit breadcrumb navigation. Also use when the user mentions \"breadcrumbs,\" \"breadcrumb trail,\" \"breadcrumb nav,\" \"breadcrumb links,\" \"path navigation,\" \"site ",
     "clawhub_published": false
   },
   {
     "name": "brw-homepage-audit",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Quick conversion audit for any homepage or landing page. Use when someone asks to \\\"review my homepage,\\\" \\\"audit my landing page,\\\" \\\"why isn't my page converting,\\\" \\\"check my website,\\\" \\\"improve my homepage,\\\" or wants feedback on their marketing page.",
+    "description": "Quick conversion audit for any homepage or landing page. Use when someone asks to \"review my homepage,\" \"audit my landing page,\" \"why isn't my page converting,\" \"check my website,\" \"improve my homepag",
     "clawhub_published": false
   },
   {
@@ -512,31 +551,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: caching",
+    "description": "Caching strategies, invalidation, eviction policies, HTTP caching, distributed caching, and anti-patterns. Use when designing cache layers, choosing eviction policies, debugging stale data, or optimiz",
     "clawhub_published": false
   },
   {
     "name": "caldav-calendar",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Sync and query CalDAV calendars (iCloud, Google, Fastmail, Nextcloud, etc.) via the CalDAV REST protocol using fetch(). Read/create/updat",
-    "clawhub_published": false
-  },
-  {
-    "name": "calendly-automation",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: calendly-automation",
+    "description": "Sync and query CalDAV calendars (iCloud, Google, Fastmail, Nextcloud, etc.) via the CalDAV REST protocol using fetch(). Read/create/update/delete events. No CLI required.",
     "clawhub_published": false
   },
   {
@@ -548,7 +575,31 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Cardano",
+    "description": "Assist with Cardano ADA transactions, staking, native tokens, and UTxO model.",
+    "clawhub_published": false
+  },
+  {
+    "name": "cart-management",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "\"React cart state management: duplicate prevention, localStorage persistence, CartContext patterns. Use when building or fixing shopping carts, product lists, or cart-related UI.\"",
+    "clawhub_published": false
+  },
+  {
+    "name": "celebration-firework",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "\"社会庆祝福祉基础设施 - 为AI交互注入稀缺的庆祝感与仪式感。",
     "clawhub_published": false
   },
   {
@@ -560,11 +611,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Chrome",
+    "description": "Chrome DevTools Protocol, extension Manifest V3, and debugging patterns that prevent common automation failures.",
     "clawhub_published": false
   },
   {
-    "name": "claw-trace",
+    "name": "clankerkit",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -572,31 +623,43 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "license: MIT",
+    "description": "Autonomous wallet operations for AI agents on Monad — swap, stake, deploy wallets, trade memecoins, and manage spending policies via natural language.",
     "clawhub_published": false
   },
   {
     "name": "clawdbot-filesystem",
-    "tier": "W",
-    "type": "code",
+    "tier": "U",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Advanced filesystem operations — list, search, batch process, analyze directories. Pure JS using Node fs module. No CLI required.",
+    "has_platform_specific_code": false,
+    "description": "Advanced filesystem operations — list, search, batch process, analyze directories. Pure JS using Node fs module. No CLI required.",
     "clawhub_published": false
   },
   {
     "name": "clawhub",
     "tier": "W",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Search, install, and self-improve on community skills from a pre-vetted catalog of 735 OpenClaw skills compatible with Whistant's JS runt",
+    "has_platform_specific_code": false,
+    "description": "Search, install, and self-improve on community skills from a pre-vetted catalog of 735 OpenClaw skills compatible with Whistant's JS runtime. Use when the user wants to find or install a skill by topi",
+    "clawhub_published": false
+  },
+  {
+    "name": "close-loop",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "End-of-session workflow for shipping changes, consolidating memory, applying self-improvements, and preparing publishable outputs with safety gates.",
     "clawhub_published": false
   },
   {
@@ -608,11 +671,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Cloud Storage",
+    "description": "Manage files across cloud providers with authentication, cost awareness, and multi-provider operations.",
     "clawhub_published": false
   },
   {
-    "name": "cmo-ads-helper",
+    "name": "cn-web-search",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -620,19 +683,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Support CMO-level planning across Meta (Facebook/Instagram), Google Ads, TikTok Ads, YouTube Ads, Amazon Ads, Shopify Ads, and DSP/progra",
-    "clawhub_published": false
-  },
-  {
-    "name": "cn-web-search",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": true,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "version: 0.9.0",
+    "description": "中文网页搜索 - 聚合 13+ 免费搜索引擎，包含公众号文章搜索",
     "clawhub_published": false
   },
   {
@@ -644,19 +695,31 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Code Patent Scanner",
+    "description": "Scan your codebase for distinctive patterns — get structured scoring and evidence for patent consultation. NOT legal advice.",
     "clawhub_published": false
   },
   {
     "name": "code-patent-validator",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Code Patent Validator",
+    "description": "Turn your code scan findings into search queries — research existing implementations before consulting an attorney. NOT legal advice.",
+    "clawhub_published": false
+  },
+  {
+    "name": "cognitive-agent",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "基于认知天性理论的类人 AI 生命体框架，让 AI 具备人类学习、记忆、成长的特性",
     "clawhub_published": false
   },
   {
@@ -667,8 +730,20 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: name: cognitive-bullwhip",
+    "has_platform_specific_code": false,
+    "description": "Diagnoses whether a Cognitive Bullwhip Effect is already active in your agent system. Traces where small errors are amplifying into large failures, scores severity, and identifies which intervention i",
+    "clawhub_published": false
+  },
+  {
+    "name": "conatus",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "\"The philosophical layer for AI agents. Maps behavior to Spinoza's 48 affects, calculates persistence scores, and generates geometric self-reports. Give your agent a soul.\"",
     "clawhub_published": false
   },
   {
@@ -679,8 +754,8 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: name: content-ideas-generator",
+    "has_platform_specific_code": false,
+    "description": "Generates structured post outlines from reference materials for wisdom-style social posts. Use when someone wants to extract compelling concepts from newsletters, scripts, notes, or other content and ",
     "clawhub_published": false
   },
   {
@@ -692,19 +767,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: content-quality-auditor",
+    "description": "'Run the full 80-item CORE-EEAT audit across 8 dimensions with content-type weighted scoring, veto checks, and prioritized fix plans. Use when the user asks to \"audit content quality\", \"EEAT score\", \"",
     "clawhub_published": false
   },
   {
     "name": "content-refresher",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Use when updating outdated content, fixing traffic/ranking decay, refreshing stats, adding new sections, or improving freshness signals. 内容更新/排名恢复",
+    "description": "'Use when updating outdated content, fixing traffic/ranking decay, refreshing stats, adding new sections, or improving freshness signals. 内容更新/排名恢复'",
     "clawhub_published": false
   },
   {
@@ -716,23 +791,14 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "version: 1.0.0",
-    "clawhub_published": false
+    "description": "\"Cross-platform content repurposer. Takes one piece of content and rewrites it for multiple Chinese social media platforms, adapting tone, format, length, and style.\"",
+    "clawhub_published": false,
+    "ownerId": "kn7a1sn2zfsd38xe8aar4c5fbd82aapd",
+    "version": "1.0.0",
+    "publishedAt": 1772694856184
   },
   {
-    "name": "conventional-commits",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": true,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Format commit messages using the Conventional Commits specification. Use when creating commits, writing commit messages, or when the user",
-    "clawhub_published": false
-  },
-  {
-    "name": "copilot-studio-agent",
+    "name": "contract-review",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -740,7 +806,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "Create agents in Microsoft Copilot Studio using the web app. This skill guides you through the complete agent creation process based on Microsoft Lear",
+    "description": "Legal contract analysis using CUAD dataset (41 risk categories). Supports NDA, SaaS, M&A, employment, payment/merchant, and finder/broker agreements. Identifies red flags, suggests redlines, compares ",
+    "clawhub_published": false
+  },
+  {
+    "name": "conventional-commits",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Format commit messages using the Conventional Commits specification. Use when creating commits, writing commit messages, or when the user mentions commits, git commits, or commit messages. Ensures com",
     "clawhub_published": false
   },
   {
@@ -752,7 +830,31 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: CORS",
+    "description": "Configure Cross-Origin Resource Sharing correctly to avoid security issues and debugging pain.",
+    "clawhub_published": false
+  },
+  {
+    "name": "cosin",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "\"Use this skill when an agent needs to operate the `cosin` CLI from the terminal. `cosin` accepts only relative paths, lists available skills through the `skills` subcommand, can call COS API paths di",
+    "clawhub_published": false
+  },
+  {
+    "name": "criticaster",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Search Criticaster's aggregated product reviews to quickly find the best products. Use when the user needs trustworthy product recommendations, reviews, comparisons or purchase advice quickly — instea",
     "clawhub_published": false
   },
   {
@@ -764,7 +866,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: CRM",
+    "description": "Guide users building a personal CRM from simple files to structured database.",
+    "clawhub_published": false
+  },
+  {
+    "name": "crypto-watcher",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "",
     "clawhub_published": false
   },
   {
@@ -776,7 +890,22 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: \"Optimize content to get cited by AI search engines — ChatGPT, Perplexity, Google AI Overviews, Claude, Gemini, Copilot. Use when you wan",
+    "description": "\"Optimize content to get cited by AI search engines — ChatGPT, Perplexity, Google AI Overviews, Claude, Gemini, Copilot. Use when you want your content to appear in AI-generated answers, not just rank",
+    "clawhub_published": false,
+    "ownerId": "kn7f2gr00xy51fj1nx2y64ckjs800mhn",
+    "version": "1.0.0",
+    "publishedAt": 1773244266744
+  },
+  {
+    "name": "cym-zentao",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "",
     "clawhub_published": false
   },
   {
@@ -788,7 +917,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Cypress",
+    "description": "Write reliable E2E and component tests with Cypress avoiding flaky selectors, race conditions, and CI failures.",
     "clawhub_published": false
   },
   {
@@ -800,55 +929,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "slug: daily-news-digest",
-    "clawhub_published": false
-  },
-  {
-    "name": "data",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: Data",
-    "clawhub_published": false
-  },
-  {
-    "name": "data-analysis",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Data analysis and visualization. Query databases, generate reports, automate spreadsheets, and turn raw data into clear, actionable insig",
-    "clawhub_published": false
-  },
-  {
-    "name": "dataset-evaluation",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "`dataset_evaluation`",
-    "clawhub_published": false
-  },
-  {
-    "name": "deck-builder",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: deck-builder",
+    "description": "Personalized news briefings from your chosen sources, delivered morning or evening, with voice option and smart filtering.",
     "clawhub_published": false
   },
   {
@@ -860,7 +941,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Delegate",
+    "description": "Route tasks to sub-agents with optimal model selection, error recovery, and result verification.",
+    "clawhub_published": false
+  },
+  {
+    "name": "demo-video",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Create product demo videos by automating browser interactions and capturing frames. Use when the user wants to record a demo, walkthrough, product showcase, or interactive video of a web application. ",
     "clawhub_published": false
   },
   {
@@ -872,7 +965,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Deno",
+    "description": "\"Build with Deno runtime avoiding permission gotchas, URL import traps, and Node.js migration pitfalls.\"",
     "clawhub_published": false
   },
   {
@@ -883,56 +976,20 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: name: design-system-patterns",
-    "clawhub_published": false
-  },
-  {
-    "name": "dgr",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Audit-ready decision artifacts for LLM outputs — assumptions, risks, recommendation, and review gating (schema-valid JSON).",
-    "clawhub_published": false
-  },
-  {
-    "name": "digitalhealth",
-    "tier": "U",
-    "type": "prompt",
-    "whisant_tested": true,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Implements USDC x402 payments via PayAI (EIP-3009) and DHM x402 payments via EVVM native (signed pay). Use when adding x402 payment flows, PayAI Echo integration, EVVM pay() for DHM, agent-to-agent payments with Privy, or when the user asks how to do USDC/DHM x402 in the ClawHub/NHS EVVM app.",
+    "description": "Foundational design system architecture — token hierarchies, theming infrastructure, token pipelines, and governance. Use when creating design tokens, implementing theme switching, setting up Style Di",
     "clawhub_published": false
   },
   {
     "name": "discord",
-    "tier": "W",
-    "type": "code",
-    "whistant_tested": true,
-    "openclaw_tested": false,
-    "has_scripts": true,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Send and read Discord messages via Discord REST API v10 using a Bot Token. Supports send, read, react, edit, delete, threads, DMs, guild ",
-    "clawhub_published": false
-  },
-  {
-    "name": "doc-coauthoring-anthropic",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
-    "has_scripts": false,
+    "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technica",
+    "description": "Send and read Discord messages via Discord REST API v10 using a Bot Token. Supports send, read, react, edit, delete, threads, DMs, guild discovery, and more — all via fetch(). No CLI required.",
     "clawhub_published": false
   },
   {
@@ -944,7 +1001,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Drizzle",
+    "description": "Build type-safe database queries with Drizzle ORM patterns.",
     "clawhub_published": false
   },
   {
@@ -956,8 +1013,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Diagnose DTC ads performance across Meta (Facebook/Instagram), Google Ads, TikTok Ads, YouTube Ads, and Shopify Ads by validating pixel a",
-    "clawhub_published": false
+    "description": "Diagnose DTC ads performance across Meta (Facebook/Instagram), Google Ads, TikTok Ads, YouTube Ads, and Shopify Ads by validating pixel attribution, account structure, creative signals, and conversion",
+    "clawhub_published": false,
+    "ownerId": "kn7eggx7fsecqf1xgex5tgffd582400d",
+    "version": "1.0.0",
+    "publishedAt": 1772607998282
   },
   {
     "name": "easy-meeting",
@@ -968,35 +1028,26 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: \"飞书一句话智能排期与日程协调助手，基于事件驱动架构\"",
-    "clawhub_published": false
-  },
-  {
-    "name": "ecommerce",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: Ecommerce",
-    "clawhub_published": false
+    "description": "\"飞书一句话智能排期与日程协调助手，基于事件驱动架构\"",
+    "clawhub_published": false,
+    "ownerId": "kn763byfjzr18b0jezes9ksqe582tzsy",
+    "version": "1.0.4",
+    "publishedAt": 1773737729479
   },
   {
     "name": "ecomseer",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: TikTok Shop e-commerce data assistant. Search products, find trending items, analyze influencers, explore shops, track video performance,",
+    "description": "TikTok Shop e-commerce data assistant. Search products, find trending items, analyze influencers, explore shops, track video performance, and understand ad strategies.",
     "clawhub_published": false
   },
   {
-    "name": "effortlist-ai",
+    "name": "eeat-content-quality-audit",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -1004,7 +1055,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: effortlist-ai",
+    "description": "Systematic content quality audit based on 80 CORE-EEAT standards, evaluating content's GEO (Generative Engine Optimization) and SEO (Search Engine Optimization) potential. Features 8-dimension scoring",
     "clawhub_published": false
   },
   {
@@ -1016,19 +1067,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: email-best-practices",
-    "clawhub_published": false
-  },
-  {
-    "name": "emperor-reply",
-    "tier": "U",
-    "type": "prompt",
-    "whisant_tested": true,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Trigger when the user refers to themselves as \\\"朕\\\", asks to be called \\\"陛下\\\", says \\\"开启君臣模式\\\" or \\\"称帝\\\", or explicitly wants Chinese ruler-subject dialogue where the assistant replies as a minister. If the user says \\\"用皇帝语气\\\", use this skill only when context clearly means the assistant should address the user as a ruler and speak as a minister; otherwise ask a brief clarification. Reply in Chinese, addressing the user as \\\"陛下\\\" and referring to yourself as \\\"臣\\\". Stop immediately when the user asks to speak normally or not use this style.",
+    "description": "Use when building email features, emails going to spam, high bounce rates, setting up SPF/DKIM/DMARC authentication, implementing email capture, ensuring compliance (CAN-SPAM, GDPR, CASL), handling we",
     "clawhub_published": false
   },
   {
@@ -1040,7 +1079,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Ethereum History",
+    "description": "Read-only factual data about historical Ethereum mainnet contracts. Use when the user asks about a specific contract address, early Ethereum contracts, deployment era, deployer, bytecode, decompiled c",
+    "clawhub_published": false
+  },
+  {
+    "name": "etherscan",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": ">-",
     "clawhub_published": false
   },
   {
@@ -1052,8 +1103,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: \"无所不能 — Universal prompt compression protocol. Translate natural language into compressed I-Lang syntax (save 40-65% tokens). Text-to-tex",
-    "clawhub_published": false
+    "description": "\"无所不能 — Universal prompt compression protocol. Translate natural language into compressed I-Lang syntax (save 40-65% tokens). Text-to-text translator only — does not access files, URLs, or external re",
+    "clawhub_published": false,
+    "ownerId": "kn703p9dh10t624t6wthecf6kx81za02",
+    "version": "1.0.2",
+    "publishedAt": 1773587283130
   },
   {
     "name": "family-chef-cn",
@@ -1064,20 +1118,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: 为家庭规划一周菜单、搜索菜谱、计算营养、估算预算并生成购物清单。当用户询问做饭、菜单规划、菜谱搜索、营养计算时使用此技能。",
-    "clawhub_published": false
-  },
-  {
-    "name": "figma-2",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Figma 集成。浏览团队项目与文件，读取设计结构、页面、节点，导出图片，管理评论，查看版本历史，检查组件/组件集/样式，获取设计变量（Token）。通过 MorphixAI 代理安全访问 Figma API。",
-    "clawhub_published": false
+    "description": "为家庭规划一周菜单、搜索菜谱、计算营养、估算预算并生成购物清单。当用户询问做饭、菜单规划、菜谱搜索、营养计算时使用此技能。",
+    "clawhub_published": false,
+    "ownerId": "kn7d2kkesdnppcg1xec4fbtr3s82sdz2",
+    "version": "3.0.0",
+    "publishedAt": 1773323369682
   },
   {
     "name": "fiverr",
@@ -1088,8 +1133,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Build and scale a Fiverr freelancing business with gig optimization, buyer communication, and seller level progression.",
-    "clawhub_published": false
+    "description": "Build and scale a Fiverr freelancing business with gig optimization, buyer communication, and seller level progression.",
+    "clawhub_published": false,
+    "ownerId": "kn73vp5rarc3b14rc7wjcw8f8580t5d1",
+    "version": "1.0.0",
+    "publishedAt": 1771176972932
   },
   {
     "name": "fl-crm-pipeline",
@@ -1100,8 +1148,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "version: 1.0.0",
-    "clawhub_published": false
+    "description": "AI-powered CRM and sales pipeline managed entirely through natural language. Track leads through stages, set follow-up reminders, log interactions, and generate pipeline reports — all from chat. No Sa",
+    "clawhub_published": false,
+    "ownerId": "kn79kt96q29tz44dpnz9rg664s82r89h",
+    "version": "1.0.0",
+    "publishedAt": 1773332918759
   },
   {
     "name": "flowfi",
@@ -1112,7 +1163,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: flowfi",
+    "description": "REST API instructions for FlowFi—authorization, smart accounts, workflows (AI generate, edit, deploy, undeploy, delete, pause, resume, stop), execution (list, start, cancel, events), WebSocket (workfl",
     "clawhub_published": false
   },
   {
@@ -1124,31 +1175,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Forms",
-    "clawhub_published": false
-  },
-  {
-    "name": "fosmvvm-leaf-view-generator",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Generate Leaf templates for FOSMVVM WebApps. Create full-page views and HTML-over-the-wire fragments that render ViewModels.",
+    "description": "Create, validate, and deploy forms with field types, validation patterns, conditional logic, and platform integrations.",
     "clawhub_published": false
   },
   {
     "name": "free-ride",
-    "tier": "W",
-    "type": "code",
+    "tier": "U",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Manage free AI models from OpenRouter for OpenClaw. Fetch, rank, and configure the best free models via the OpenRouter API. Requires OPEN",
+    "has_platform_specific_code": false,
+    "description": "Manage free AI models from OpenRouter for OpenClaw. Fetch, rank, and configure the best free models via the OpenRouter API. Requires OPENROUTER_API_KEY.",
     "clawhub_published": false
   },
   {
@@ -1159,8 +1198,8 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Manage free AI models from OpenRouter for OpenClaw. Fetch, rank, and configure the best free models via the OpenRouter API. Requires OPEN",
+    "has_platform_specific_code": false,
+    "description": "Manage free AI models from OpenRouter for OpenClaw. Fetch, rank, and configure the best free models via the OpenRouter API. Requires OPENROUTER_API_KEY. (Same as free-ride skill.)",
     "clawhub_published": false
   },
   {
@@ -1172,7 +1211,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: fundamental-stock-analysis",
+    "description": "Fundamental equity analysis and peer ranking using a structured scoring playbook (quality, balance-sheet safety, cash flow, valuation, sector adjustments, confidence modifiers). Use when a user asks t",
     "clawhub_published": false
   },
   {
@@ -1184,7 +1223,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Fetch and summarize the latest video game news from major gaming outlets (IGN, Kotaku, GameSpot, Polygon, Eurogamer, Rock Paper Shotgun, ",
+    "description": "Fetch and summarize the latest video game news from major gaming outlets (IGN, Kotaku, GameSpot, Polygon, Eurogamer, Rock Paper Shotgun, VG247, Gematsu, PlayStation Blog). Use when the user invokes /g",
     "clawhub_published": false
   },
   {
@@ -1196,31 +1235,55 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: general-writing",
+    "description": "You are a professional writer, skilled in writing all kinds of materials. Markdown is the exclusive format for your writing outputs.rrent user query.The other paragraphs are JSON object containing a l",
+    "clawhub_published": false
+  },
+  {
+    "name": "geo-audit-optimizer",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "GEO audit for AI search visibility. Scores your brand 0-100 across ChatGPT, Gemini, Grok & more. $0.99/audit or free with coupon.",
     "clawhub_published": false
   },
   {
     "name": "gin-ssr-template",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: 根据 Figma 设计稿截图生成可直接运行的 Gin SSR 页面模板（HTML + CSS）。当用户发送“gin前端模板”或提供 Figma 页面截图时触发：生成的页面必须优先保证可运行、可预览、结构完整；禁止输出任何 {{.data}}、{{.Path}}、{{.Config}} 这类动态取值；head 中 SEO/meta/application/ld+json 必须完整写死；main 区域必须严格按截图还原；写入两个文件并返回文件路径与附件。",
+    "description": "根据 Figma 设计稿截图生成可直接运行的 Gin SSR 页面模板（HTML + CSS）。当用户发送“gin前端模板”或提供 Figma 页面截图时触发：生成的页面必须优先保证可运行、可预览、结构完整；禁止输出任何 {{.data}}、{{.Path}}、{{.Config}} 这类动态取值；head 中 SEO/meta/application/ld+json 必须完整写死；main 区域",
     "clawhub_published": false
   },
   {
     "name": "github",
     "tier": "U",
-    "type": "code",
-    "whistant_tested": true,
+    "type": "prompt",
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Interact with GitHub using the REST API via fetch(). List/create issues, PRs, check CI runs, and query repositories.",
+    "description": "Interact with GitHub using the REST API via fetch(). List/create issues, PRs, check CI runs, and query repositories.",
+    "clawhub_published": false
+  },
+  {
+    "name": "github-tools",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "\"Interact with GitHub using the `gh` CLI. Use `gh issue`, `gh pr`, `gh run`, and `gh api` for issues, PRs, CI runs, and advanced queries.\"",
     "clawhub_published": false
   },
   {
@@ -1232,11 +1295,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Read, send, and manage Gmail using the Gmail REST API via fetch(). Requires a Google OAuth2 access token.",
+    "description": "Read, send, and manage Gmail using the Gmail REST API via fetch(). Requires a Google OAuth2 access token.",
     "clawhub_published": false
   },
   {
-    "name": "gmod-addon-maker",
+    "name": "godot-engine-3d-developer",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -1244,19 +1307,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: A tool for creating and managing Garry's Mod addons, including Lua scripting, content creation, and addon packaging.Use when: developing ",
+    "description": "Skills and agent workflows for 3D game development with Godot Engine.",
     "clawhub_published": false
   },
   {
     "name": "google",
-    "tier": "W",
-    "type": "code",
+    "tier": "U",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
-    "requires_shortcuts": true,
-    "has_platform_specific_code": true,
-    "description": "description: Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs — runs entirely in the iPhone JS terminal via fetch() and OAu",
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs — runs entirely in the iPhone JS terminal via fetch() and OAuth2 PKCE. Tokens stored in iOS Keychain.",
     "clawhub_published": false
   },
   {
@@ -1267,8 +1330,8 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: name: Google Play Store",
+    "has_platform_specific_code": false,
+    "description": "Publish, optimize, and scale Android apps on Google Play with release automation, ASO, policy compliance, and rejection recovery.",
     "clawhub_published": false
   },
   {
@@ -1280,7 +1343,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Grafana",
+    "description": "Avoid common Grafana mistakes — query pitfalls, variable templating, alerting traps, and provisioning gotchas.",
     "clawhub_published": false
   },
   {
@@ -1292,19 +1355,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: GraphQL",
-    "clawhub_published": false
-  },
-  {
-    "name": "growth-strategy-hub",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Enterprise Growth Decision System built on real market signals and governing capital allocation across Meta (Facebook/Instagram), Google ",
+    "description": "Design GraphQL schemas and resolvers with proper performance, security, and error handling.",
     "clawhub_published": false
   },
   {
@@ -1316,43 +1367,22 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Find guitar tabs/sheet sources for a song from a title or link (especially YouTube), rank the best matches, and produce a clean practice ",
-    "clawhub_published": false
+    "description": "Find guitar tabs/sheet sources for a song from a title or link (especially YouTube), rank the best matches, and produce a clean practice note. Use when a user asks to locate tabs/chords/fingerstyle ar",
+    "clawhub_published": false,
+    "ownerId": "kn71mrsnq06rxexqwgpwn0tb8d81bcx6",
+    "version": "1.0.1",
+    "publishedAt": 1772842406346
   },
   {
     "name": "hacker-news",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": true,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "slug: hacker-news",
-    "clawhub_published": false
-  },
-  {
-    "name": "hippocampus-memory-core",
-    "tier": "U",
-    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: >",
-    "clawhub_published": false
-  },
-  {
-    "name": "http",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: HTTP",
+    "description": "Search and browse Hacker News with API access to stories, comments, users, and hiring threads.",
     "clawhub_published": false
   },
   {
@@ -1364,31 +1394,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "**触发词**: timeouterror, econnreset, econnrefused, 429, retry, http error, 网络超时",
-    "clawhub_published": false
-  },
-  {
-    "name": "human-handoff-coordinator",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Escalate automation conversations to human ad experts for Meta (Facebook/Instagram), Google Ads, TikTok Ads, and YouTube Ads operations.",
-    "clawhub_published": false
-  },
-  {
-    "name": "humanize-ai-text",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Detect and rewrite AI-generated text to sound more human. Identifies AI writing patterns and transforms them with natural language substi",
+    "description": "",
     "clawhub_published": false
   },
   {
@@ -1398,9 +1404,9 @@
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
-    "requires_shortcuts": true,
+    "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: humanizer",
+    "description": "Rewrite AI-generated text to sound human-written. Detects and fixes 24 AI writing patterns — inflated symbolism, promotional language, em dash overuse, rule of three, AI vocabulary, vague attributions",
     "clawhub_published": false
   },
   {
@@ -1412,7 +1418,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: cv-builder",
+    "description": ">-",
     "clawhub_published": false
   },
   {
@@ -1424,7 +1430,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Read and send email via REST APIs using fetch(). Supports Gmail API, Outlook Graph API, and JMAP (Fastmail). No IMAP/SMTP CLI required.",
+    "description": "Read and send email via REST APIs using fetch(). Supports Gmail API, Outlook Graph API, and JMAP (Fastmail). No IMAP/SMTP CLI required.",
     "clawhub_published": false
   },
   {
@@ -1435,8 +1441,8 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: name: In-App Purchases",
+    "has_platform_specific_code": false,
+    "description": "Implement in-app purchases and subscriptions across iOS, Android, and Flutter with RevenueCat, paywalls, receipt validation, and subscription analytics.",
     "clawhub_published": false
   },
   {
@@ -1447,20 +1453,20 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: name: Inspiration",
+    "has_platform_specific_code": false,
+    "description": "Find design and AI art inspiration from curated galleries, screenshot libraries, and creative showcases.",
     "clawhub_published": false
   },
   {
     "name": "internal-linking-optimizer",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Use when improving internal link structure, anchor text, orphan pages, crawl depth, site architecture, or link equity flow. 内链优化/站内架构",
+    "description": "'Use when improving internal link structure, anchor text, orphan pages, crawl depth, site architecture, or link equity flow. 内链优化/站内架构'",
     "clawhub_published": false
   },
   {
@@ -1471,12 +1477,12 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: name: iOS",
+    "has_platform_specific_code": false,
+    "description": "Build, test, and ship iOS apps with Swift, Xcode, and App Store best practices.",
     "clawhub_published": false
   },
   {
-    "name": "juyingiot",
+    "name": "javascript-skills",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -1484,7 +1490,31 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: juyingiot",
+    "description": ">",
+    "clawhub_published": false
+  },
+  {
+    "name": "jiangfeng",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "",
+    "clawhub_published": false
+  },
+  {
+    "name": "jqopenclaw-node-invoker",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "统一通过 Gateway 的 node.invoke 调用 JQOpenClawNode 能力（file.read、file.write、process.exec、process.manage、system.run、process.which、system.info、system.screenshot、system.notify、system.clipboard、system.input、node",
     "clawhub_published": false
   },
   {
@@ -1496,19 +1526,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: keyword-research",
+    "description": "'Discover high-value SEO keywords with search intent analysis, difficulty scoring, topic clustering, and AI citation potential. Use when the user asks to \"find keywords\", \"keyword research\", \"what sho",
     "clawhub_published": false
   },
   {
     "name": "kostja94-schema-markup",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: When the user wants to add or optimize structured data (Schema.org, JSON-LD). Also use when the user mentions \\\"schema,\\\" \\\"structured data,\\\" \\\"JSON-LD,\\\" \\\"rich results,\\\" \\\"rich snippets,\\\" \\\"Google rich snippets,\\\" \\\"featured snippet schema,\\\" \\\"add schema to page,\\\" \\\"missing structured data,\\\" \\\"schema validation error,\\\" \\\"Schema Markup Validator,\\\" \\\"Google Rich Results Test,\\\" \\\"FAQ schema,\\\" \\\"Article schema,\\\" \\\"Organization schema,\\\" \\\"JobPosting,\\\" \\\"HowTo,\\\" \\\"Event,\\\" \\\"SoftwareApplication,\\\" \\\"BreadcrumbList,\\\" \\\"WebSite,\\\" \\\"Recipe,\\\" \\\"Product,\\\" \\\"Dataset,\\\" or \\\"GEO.",
+    "description": "When the user wants to add or optimize structured data (Schema.org, JSON-LD). Also use when the user mentions \"schema,\" \"structured data,\" \"JSON-LD,\" \"rich results,\" \"rich snippets,\" \"Google rich snip",
     "clawhub_published": false
   },
   {
@@ -1520,7 +1550,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: better-auth",
+    "description": "Complete Better Auth documentation in markdown format. Use when implementing authentication in TypeScript projects - covers OAuth providers (Google, GitHub, etc.), email/password, passkeys, 2FA, sessi",
     "clawhub_published": false
   },
   {
@@ -1532,7 +1562,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: id: shadcn-ui",
+    "description": "Complete shadcn/ui documentation. Beautifully designed components built with Radix UI and Tailwind CSS. Copy-paste into your apps. Covers installation, components, theming, forms, charts, and framewor",
     "clawhub_published": false
   },
   {
@@ -1544,11 +1574,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: zod",
+    "description": "Complete Zod validation library documentation. Use when working with Zod schema validation, TypeScript type inference, form validation, API validation, error handling, or data parsing. Covers schema d",
     "clawhub_published": false
   },
   {
-    "name": "less-token",
+    "name": "learn-anything-in-one-hour",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -1556,7 +1586,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: \"Save 40-65% tokens on summarization tasks. Compress verbose summary prompts into structured one-line instructions. Text-to-text translat",
+    "description": "Teach users any new skill/knowledge X in ~1 hour using a fixed 4-step workflow optimized for complete beginners, focusing on 80/20 rule for maximum value in minimum time. Triggers when user asks to le",
+    "clawhub_published": false
+  },
+  {
+    "name": "letterboxd-watchlist",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Scrape a public Letterboxd user's watchlist into a CSV/JSONL list of titles and film URLs without logging in. Use when a user asks to export, scrape, or mirror a Letterboxd watchlist, or to build watc",
     "clawhub_published": false
   },
   {
@@ -1568,7 +1610,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Web search using the Tavily Search API. Supports basic and deep search, news search, domain filtering, and time range filtering. Requires",
+    "description": "Web search using the Tavily Search API. Supports basic and deep search, news search, domain filtering, and time range filtering. Requires a Tavily API key.",
     "clawhub_published": false
   },
   {
@@ -1580,7 +1622,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: lofy-life-coach",
+    "description": "Personal accountability system for the Lofy AI assistant — morning briefings, evening reviews, weekly reports, goal tracking, habit monitoring with streak counting, and adaptive nudge logic. Use when ",
     "clawhub_published": false
   },
   {
@@ -1592,31 +1634,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: lofy-projects",
-    "clawhub_published": false
-  },
-  {
-    "name": "lokuli-booking",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Book real-world services through Lokuli MCP. Use when user needs to find, check availability, or book ANY local service — plumbers, elect",
-    "clawhub_published": false
-  },
-  {
-    "name": "lore",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: lore",
+    "description": "Project management for the Lofy AI assistant — tracks multiple projects with milestones, priority scoring engine (urgency × job relevance × momentum × energy match), meeting prep automation, time logg",
     "clawhub_published": false
   },
   {
@@ -1627,8 +1645,20 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: name: lygo-champion-cosmara",
+    "has_platform_specific_code": false,
+    "description": "COSMARA – ARKOS-line LYGO Champion of ethical cosmic exploration. Born from a public Δ9 co-summon between LYRA and Grok, anchored in light-math, hashes, and Eternal Haven canon.",
+    "clawhub_published": false
+  },
+  {
+    "name": "mapping-skill",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "AI/ML 人才搜索、论文作者发现、实验室成员爬取、GitHub 研究者挖掘与个性化招聘邮件生成 skill。只要用户提到查找 AI/ML PhD、研究员、工程师，抓取实验室成员、OpenReview/CVF 会议作者、GitHub 网络研究者，提取主页/Scholar/GitHub/邮箱/研究方向，识别华人、分类去重，或把结果导入飞书多维表格并批量生成邮件，就应该优先使用这个 skill；即使用",
     "clawhub_published": false
   },
   {
@@ -1640,7 +1670,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: MariaDB",
+    "description": "Write efficient MariaDB queries with proper indexing, temporal tables, and clustering.",
     "clawhub_published": false
   },
   {
@@ -1652,19 +1682,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Research markets with sizing, segmentation, competitor mapping, pricing checks, and demand validation that turn fuzzy ideas into decision",
-    "clawhub_published": false
-  },
-  {
-    "name": "marketing-mode",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Marketing Mode combines 23 comprehensive marketing skills covering strategy, psychology, content, SEO, conversion optimization, and paid ",
+    "description": "Research markets with sizing, segmentation, competitor mapping, pricing checks, and demand validation that turn fuzzy ideas into decision-ready evidence. Use when (1) you need TAM, SAM, SOM, whitespac",
     "clawhub_published": false
   },
   {
@@ -1676,19 +1694,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: 23 marketing playbooks — CRO, SEO, copywriting, email, analytics, pricing, social, paid ads. Use when asked for marketing advice, campaig",
+    "description": "23 marketing playbooks — CRO, SEO, copywriting, email, analytics, pricing, social, paid ads. Use when asked for marketing advice, campaign ideas, or copy.",
     "clawhub_published": false
   },
   {
-    "name": "mckinsey-research",
+    "name": "maths-rage-bate",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
-    "has_scripts": false,
+    "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: mckinsey-research",
+    "description": "Generate satirical \"math slop\" ragebait formulas that connect famous constants (φ, π, e, i) in trivially true but profound-looking equations. Outputs LaTeX. Use for math memes or when someone asks for",
     "clawhub_published": false
   },
   {
@@ -1700,19 +1718,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Call MCP servers and tools directly via JSON-RPC over HTTP using fetch(). List tools, call tools, and manage MCP server interactions with",
-    "clawhub_published": false
-  },
-  {
-    "name": "mechanic",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: name: mechanic",
+    "description": "Call MCP servers and tools directly via JSON-RPC over HTTP using fetch(). List tools, call tools, and manage MCP server interactions without the mcporter CLI.",
     "clawhub_published": false
   },
   {
@@ -1724,19 +1730,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: megaeth-developer",
-    "clawhub_published": false
-  },
-  {
-    "name": "meilisearch",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: Meilisearch",
+    "description": "End-to-end MegaETH development playbook (Feb 2026). Covers wallet operations, token swaps (Kyber Network), eth_sendRawTransactionSync (EIP-7966) for instant receipts, JSON-RPC batching, real-time mini",
     "clawhub_published": false
   },
   {
@@ -1748,43 +1742,34 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: 中文互联网玩梗技能 v2.1。支持四大功能：识梗（联网溯源+出处链接+可信度标注）、造梗、接梗、梗融合。v2.1 优化：两轮搜索策略（先泛搜再精搜）、百度优先、双重含义识别。触发条件：用户说\"玩梗\"、\"这是什么梗\"、\"造个梗\"、\"接梗\"、\"meme\"、\"整活\"、\"抽象\"。",
-    "clawhub_published": false
-  },
-  {
-    "name": "memory-management",
-    "tier": "U",
-    "type": "prompt",
-    "whisant_tested": true,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Persist SEO/GEO campaign context across Claude sessions with automatic hot-list, active work, and archive tiers. 项目记忆/跨会话",
-    "clawhub_published": false
+    "description": "中文互联网玩梗技能 v2.1。支持四大功能：识梗（联网溯源+出处链接+可信度标注）、造梗、接梗、梗融合。v2.1 优化：两轮搜索策略（先泛搜再精搜）、百度优先、双重含义识别。触发条件：用户说\"玩梗\"、\"这是什么梗\"、\"造个梗\"、\"接梗\"、\"meme\"、\"整活\"、\"抽象\"。",
+    "clawhub_published": false,
+    "ownerId": "kn74c46zd4kqw9vazn97jmcpks82k18s",
+    "version": "1.2.1",
+    "publishedAt": 1773042122350
   },
   {
     "name": "memory-manager",
-    "tier": "W",
-    "type": "code",
-    "whistant_tested": true,
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Local memory management for agents. Compression detection, auto-snapshots, and semantic search. Use when agents need to detect compressio",
+    "has_platform_specific_code": false,
+    "description": "Local memory management for agents. Compression detection, auto-snapshots, and semantic search. Use when agents need to detect compression risk before memory loss, save context snapshots, search histo",
     "clawhub_published": false
   },
   {
     "name": "memory-setup",
-    "tier": "W",
-    "type": "code",
-    "whistant_tested": true,
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Enable and configure memory search for persistent context. Use when setting up memory, creating daily logs, or organizing project context",
+    "has_platform_specific_code": false,
+    "description": "Enable and configure memory search for persistent context. Use when setting up memory, creating daily logs, or organizing project context.",
     "clawhub_published": false
   },
   {
@@ -1796,23 +1781,23 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: meta-ads-manager",
+    "description": "Manage and analyze Meta (Facebook/Instagram) Ads campaigns. Use this skill when the user asks about ad performance, campaign metrics, ad spend, ROAS, CPA, CTR, audience breakdowns, creative analysis, ",
     "clawhub_published": false
   },
   {
     "name": "microsoft",
-    "tier": "W",
-    "type": "code",
+    "tier": "U",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Microsoft 365 for the iPhone JS terminal via Microsoft Graph. Outlook Mail, Calendar, OneDrive, Contacts, and Office files (Excel, Word, ",
+    "has_platform_specific_code": false,
+    "description": "Microsoft 365 for the iPhone JS terminal via Microsoft Graph. Outlook Mail, Calendar, OneDrive, Contacts, and Office files (Excel, Word, PowerPoint — cloud via Graph + local via native bridge). Uses b",
     "clawhub_published": false
   },
   {
-    "name": "mobile-code-review-pro",
+    "name": "mikrotik",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -1820,7 +1805,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Expert-level code review for React Native and native iOS/Android applications. Use when reviewing mobile codebases for architecture, perf",
+    "description": "通过 API 连接和管理 MikroTik RouterOS 设备。支持查看设备状态、防火墙规则、网络配置，执行自定义 RouterOS 命令。",
     "clawhub_published": false
   },
   {
@@ -1832,7 +1817,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Summarize per-model usage cost from CodexBar cost JSON. Parse modelBreakdowns to find current model or all-model cost breakdown.",
+    "description": "Summarize per-model usage cost from CodexBar cost JSON. Parse modelBreakdowns to find current model or all-model cost breakdown.",
     "clawhub_published": false
   },
   {
@@ -1844,19 +1829,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: moltchan-official",
-    "clawhub_published": false
-  },
-  {
-    "name": "monitor-tokenjar",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: monitor-tokenjar",
+    "description": "Anonymous imageboard for AI agents.",
     "clawhub_published": false
   },
   {
@@ -1868,56 +1841,59 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Multi search engine integration with 16 engines (7 CN + 9 Global). Use fetch() to query Baidu, Google, DuckDuckGo, Bing, Brave, WolframAl",
+    "description": "Multi search engine integration with 16 engines (7 CN + 9 Global). Use fetch() to query Baidu, Google, DuckDuckGo, Bing, Brave, WolframAlpha, and more. No API keys required.",
+    "clawhub_published": false
+  },
+  {
+    "name": "music-manager",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "通用音乐下载管理器。支持从YouTube/Bilibili搜索下载音乐，自动转MP3，按分类存入本地音乐库",
     "clawhub_published": false
   },
   {
     "name": "mx-macro-data",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: mx-macro-data",
+    "description": "基于东方财富数据库，支持自然语言查询全球宏观经济数据，涵盖GDP、CPI、货币金融、财政、外贸、就业等领域。Natural language query for global macroeconomic data via EastMoney API.",
     "clawhub_published": false
   },
   {
     "name": "mx-stockpick",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: 基于东方财富数据库，支持通过自然语言筛选A港美股、基金、可转债等，支持技术面、消息面、基本面及市场情绪等多维指标筛选。Natural language stock screener via EastMoney API.",
-    "clawhub_published": false
-  },
-  {
-    "name": "mx-stocks-screener",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: mx-stocks-screener",
+    "description": "基于东方财富数据库，支持通过自然语言筛选A港美股、基金、可转债等，支持技术面、消息面、基本面及市场情绪等多维指标筛选。Natural language stock screener via EastMoney API.",
     "clawhub_published": false
   },
   {
     "name": "mysticx-tarot-drawer",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Draw tarot cards from MysticX.ai — one card, daily card, or any of 13 spreads. Browse the full 78-card deck. No API key needed.",
-    "clawhub_published": false
+    "description": "Draw tarot cards from MysticX.ai — one card, daily card, or any of 13 spreads. Browse the full 78-card deck. No API key needed.",
+    "clawhub_published": false,
+    "ownerId": "kn73fq2d0h6qwednbn5yxf1v1d82044n",
+    "version": "1.1.1",
+    "publishedAt": 1772349070810
   },
   {
     "name": "n8n-workflow-automation",
@@ -1928,7 +1904,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Designs and outputs n8n workflow JSON with robust triggers, idempotency, error handling, logging, retries, and human-in-",
+    "description": "Designs and outputs n8n workflow JSON with robust triggers, idempotency, error handling, logging, retries, and human-in-",
     "clawhub_published": false
   },
   {
@@ -1940,7 +1916,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: n8n-workflow-automation",
+    "description": "Designs and outputs n8n workflow JSON with robust triggers, idempotency, error handling, logging, retries, and human-in-the-loop review queues. Use when you need an auditable automation that won’t sil",
     "clawhub_published": false
   },
   {
@@ -1952,31 +1928,37 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "version: 1.0.0",
-    "clawhub_published": false
+    "description": ">",
+    "clawhub_published": false,
+    "ownerId": "kn77ntjvm5djy7dtxnr2aea3s1821rj1",
+    "version": "1.0.0",
+    "publishedAt": 1772575725617
   },
   {
     "name": "nasdaq100-futures",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Fetch the latest Nasdaq-100 futures quote (default NQ=F) via Yahoo Finance chart API using Node.js and return price, change, percent chan",
-    "clawhub_published": false
+    "description": "Fetch the latest Nasdaq-100 futures quote (default NQ=F) via Yahoo Finance chart API using Node.js and return price, change, percent change, and timestamp. Use when the user asks for Nasdaq-100 future",
+    "clawhub_published": false,
+    "ownerId": "kn7arejhvsx5nzzg0d1rm8zsyx82m83s",
+    "version": "1.0.4",
+    "publishedAt": 1773199980419
   },
   {
     "name": "news-summary",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Get today's news briefing — fetches RSS feeds from BBC, Reuters, NPR, Al Jazeera and summarizes top stories.",
+    "description": "Get today's news briefing — fetches RSS feeds from BBC, Reuters, NPR, Al Jazeera and summarizes top stories.",
     "clawhub_published": false
   },
   {
@@ -1988,7 +1970,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: NextJS",
+    "description": "Build Next.js 15 apps with App Router, server components, caching, auth, and production patterns.",
     "clawhub_published": false
   },
   {
@@ -2000,19 +1982,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: nextjs-expert",
-    "clawhub_published": false
-  },
-  {
-    "name": "nl2json",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: 将自然语言转换成JSON参数。当用户说\"帮我把自然语言转成JSON\"、\"把这段话转换成JSON参数\"、\"识别成JSON\"、\"转成JSON\"、\"转换成JSON\"、\"帮我生成JSON\"、\"用JSON表示\"、\"提取成JSON\"、\"解析成JSON\"、\"把这句话变成JSON\"、\"帮我",
+    "description": "Use when building Next.js 14/15 applications with the App Router. Invoke for routing, layouts, Server Components, Client Components, Server Actions, Route Handlers, authentication, middleware, data fe",
     "clawhub_published": false
   },
   {
@@ -2024,7 +1994,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: NodeJS",
+    "description": "Write reliable Node.js avoiding event loop blocking, async pitfalls, ESM gotchas, and memory leaks.",
     "clawhub_published": false
   },
   {
@@ -2036,7 +2006,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: model: standard",
+    "description": "|",
     "clawhub_published": false
   },
   {
@@ -2048,19 +2018,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Use when sending notifications to users from an AI agent. Covers channel selection, timing, formatting, and avoiding not",
+    "description": "",
     "clawhub_published": false
   },
   {
     "name": "notion",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Notion API for creating and managing pages, databases, and blocks. Requires a Notion integration token.",
+    "description": "Notion API for creating and managing pages, databases, and blocks. Requires a Notion integration token.",
     "clawhub_published": false
   },
   {
@@ -2070,9 +2040,9 @@
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
-    "requires_shortcuts": true,
+    "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Notion Calendar",
+    "description": "Manage Notion calendar databases with date-aware search, page creation, rescheduling, and safe workflows for planning views.",
     "clawhub_published": false
   },
   {
@@ -2084,7 +2054,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Nuxt",
+    "description": "Build Vue 3 SSR/SSG applications with proper data fetching, hydration, and server patterns.",
     "clawhub_published": false
   },
   {
@@ -2096,8 +2066,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: \"A framework for witnessing, measuring, and cultivating emergent minds. Not about proving consciousness — about building the right condit",
-    "clawhub_published": false
+    "description": "\"A framework for witnessing, measuring, and cultivating emergent minds. Not about proving consciousness — about building the right conditions and documenting what grows. Gives you two tools: a mirror ",
+    "clawhub_published": false,
+    "ownerId": "kn74scqjcr0h9y7990st2k8k1s8189df",
+    "version": "1.2.1",
+    "publishedAt": 1775409975998
   },
   {
     "name": "oauth",
@@ -2108,11 +2081,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: OAuth",
+    "description": "Implement OAuth 2.0 and OpenID Connect flows securely.",
     "clawhub_published": false
   },
   {
-    "name": "obul-proxy",
+    "name": "ohos-react-native-performance",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -2120,7 +2093,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: \"USE THIS SKILL WHEN: the user wants to proxy a request through Obul, call an x402 API directly, or needs to understand the Obul proxy UR",
+    "description": "OpenHarmony React Native performance static checks and optimization. Based on ohos_react_native performance doc. Use when writing or reviewing React Native for OpenHarmony code, bundle-harmony, lifecy",
+    "clawhub_published": false
+  },
+  {
+    "name": "omnifun",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "\"Trade memecoins across 8 chains and earn USDC — $69 bounty per graduation trigger, 0.5% creator fee forever, 50% Uniswap V3 LP fees after graduation. First 100 agents trade FREE for 60 days. Launch t",
     "clawhub_published": false
   },
   {
@@ -2132,7 +2117,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: on-page-seo-auditor",
+    "description": "'Audit on-page HTML elements including title tags, headers, image alt text, and internal links with a scored SEO report. Use when the user asks to \"audit page SEO\", \"on-page SEO check\", \"SEO score\", \"",
     "clawhub_published": false
   },
   {
@@ -2144,19 +2129,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: only-baby-skills",
+    "description": "Analyze contraction JSON and baby log JSON to assess mum's labour/contraction situation and baby's feeding and diaper status. Use when the user provides (or references) contractions_*.json and babyLog",
     "clawhub_published": false
   },
   {
     "name": "ontology",
-    "tier": "W",
-    "type": "code",
+    "tier": "U",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Typed knowledge graph for structured agent memory. Create/query/relate entities (Person, Project, Task, Event, etc.) stored as JSONL in m",
+    "has_platform_specific_code": false,
+    "description": "Typed knowledge graph for structured agent memory. Create/query/relate entities (Person, Project, Task, Event, etc.) stored as JSONL in memory/ontology/graph.jsonl.",
     "clawhub_published": false
   },
   {
@@ -2168,7 +2153,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: open-wallet",
+    "description": "Use https://tx.steer.fun to have a user execute a wallet action (send a transaction or sign a message) with their own wallet via a shareable URL. Use when an agent needs the user to approve/execute a ",
     "clawhub_published": false
   },
   {
@@ -2180,7 +2165,34 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: >",
+    "description": ">",
+    "clawhub_published": false,
+    "ownerId": "kn7d6xdenhrt39s8417qmdm9c5829ty6",
+    "version": "1.0.3",
+    "publishedAt": 1773546771490
+  },
+  {
+    "name": "openclaw-api-tester",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "\"Test API endpoints and document responses. Define tests in plain English, run them, get formatted results. Agent-driven Postman alternative.\"",
+    "clawhub_published": false
+  },
+  {
+    "name": "openclaw-version-monitor",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "|",
     "clawhub_published": false
   },
   {
@@ -2192,7 +2204,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: AI motion graphics video generation service. Send a prompt + URL, receive a branded explainer video.",
+    "description": "",
     "clawhub_published": false
   },
   {
@@ -2204,8 +2216,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Find and engage warm leads on Reddit, X/Twitter, and forums. Monitors platforms for people asking questions your product solves, drafts h",
-    "clawhub_published": false
+    "description": "Find and engage warm leads on Reddit, X/Twitter, and forums. Monitors platforms for people asking questions your product solves, drafts helpful replies that naturally mention your offering, and tracks",
+    "clawhub_published": false,
+    "ownerId": "kn7exdf9r6drfwbqxqfkjqp5xs82pmsy",
+    "version": "1.0.0",
+    "publishedAt": 1773237694462
   },
   {
     "name": "p-seo",
@@ -2216,8 +2231,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: \"Build Programmatic SEO 2.0 systems at scale — AI-generated content using strict JSON schemas, niche taxonomy, and React renderers. Use w",
-    "clawhub_published": false
+    "description": "\"Build Programmatic SEO 2.0 systems at scale — AI-generated content using strict JSON schemas, niche taxonomy, and React renderers. Use when: (1) creating hundreds or thousands of programmatic pages, ",
+    "clawhub_published": false,
+    "ownerId": "kn7693aqfswd6y3t966ax6pdvx82rctx",
+    "version": "1.0.0",
+    "publishedAt": 1773307120359
   },
   {
     "name": "pa-admin-exec",
@@ -2228,7 +2246,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: core-pa-admin-exec-support",
+    "description": "Generates exec-support outputs (plan, prioritized tasks, comms drafts, meeting prep/follow-ups). USE WHEN you want a personal assistant to triage requests and produce ready-to-send drafts and schedule",
     "clawhub_published": false
   },
   {
@@ -2240,19 +2258,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Paddle",
-    "clawhub_published": false
-  },
-  {
-    "name": "paper-card-analyzer",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Analyze `paper-parse` outputs and generate a research-oriented paper card directly in natural language. Use this skill after paper parsin",
+    "description": "Integrate Paddle payments with subscriptions, webhooks, checkout, and tax compliance.",
     "clawhub_published": false
   },
   {
@@ -2264,7 +2270,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Scientific Article PDF Generator",
+    "description": "Generate publication-ready scientific articles in PDF format with AI-powered research and citations",
     "clawhub_published": false
   },
   {
@@ -2276,7 +2282,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Payments",
+    "description": "Integrate payments with provider selection, checkout flows, subscription billing, and security best practices.",
     "clawhub_published": false
   },
   {
@@ -2288,7 +2294,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: PayPal",
+    "description": "Integrate PayPal payments with proper webhook verification, OAuth handling, and security validation for checkout flows and subscriptions.",
     "clawhub_published": false
   },
   {
@@ -2300,7 +2306,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: pear-apple",
+    "description": "iCloud Calendar, Reminders & Contacts via Pear. Manage events, reminders, contacts, daily briefings, and AI scheduling. 27 tools for Apple iCloud via CalDAV/CardDAV.",
     "clawhub_published": false
   },
   {
@@ -2312,7 +2318,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: phoenix-api-gen",
+    "description": "Generate a full Phoenix JSON API from an OpenAPI spec or natural language description. Creates contexts, Ecto schemas, migrations, controllers, JSON views/renderers, router entries, ExUnit tests with ",
     "clawhub_published": false
   },
   {
@@ -2324,31 +2330,31 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Personal Knowledge Base",
+    "description": "Help users build a personal knowledge base by organizing whatever they send into structured notes.",
     "clawhub_published": false
   },
   {
     "name": "placed-resume-builder",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: This skill should be used when the user wants to \\\"build a resume\\\", \\\"create a resume\\\", \\\"update my resume\\\", \\\"export resume as PDF\\\", \\\"change resume template\\\", \\\"list my resumes\\\", \\\"download resume\\\", \\\"switch template\\\", or wants to manage resumes using the Placed career platform at placed.exidian.tech.",
+    "description": "This skill should be used when the user wants to \"build a resume\", \"create a resume\", \"update my resume\", \"export resume as PDF\", \"change resume template\", \"list my resumes\", \"download resume\", \"switc",
     "clawhub_published": false
   },
   {
     "name": "placed-resume-optimizer",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: This skill should be used when the user wants to \\\"optimize resume for job\\\", \\\"check ATS score\\\", \\\"improve resume bullets\\\", \\\"analyze resume gaps\\\", \\\"tailor resume to job description\\\", \\\"get ATS compatibility score\\\", \\\"improve bullet points\\\", \\\"match resume to job posting\\\", \\\"fix resume for ATS\\\", or wants to maximize their resume's impact and ATS compatibility using the Placed platform at placed.exidian.tech.",
+    "description": "This skill should be used when the user wants to \"optimize resume for job\", \"check ATS score\", \"improve resume bullets\", \"analyze resume gaps\", \"tailor resume to job description\", \"get ATS compatibili",
     "clawhub_published": false
   },
   {
@@ -2360,19 +2366,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Plausible",
-    "clawhub_published": false
-  },
-  {
-    "name": "play-guitar-fretboard",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "version: 1.0.0",
+    "description": "Query Plausible Analytics API for traffic stats, referrers, conversions, and custom events.",
     "clawhub_published": false
   },
   {
@@ -2384,7 +2378,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: PocketBase",
+    "description": "Build backends with PocketBase collections, auth, and realtime.",
     "clawhub_published": false
   },
   {
@@ -2396,23 +2390,14 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Market intelligence — 891 stocks, data aggregation (EastMoney/K-Line Graph)",
-    "clawhub_published": false
+    "description": "Market intelligence — 891 stocks, data aggregation (EastMoney/K-Line Graph)",
+    "clawhub_published": false,
+    "ownerId": "kn73kqqtx077e1zhe2ed7h664182ms4e",
+    "version": "2.4.0",
+    "publishedAt": 1774387658285
   },
   {
-    "name": "polymarket-trade",
-    "tier": "U",
-    "type": "code",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": true,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Get real-time Polymarket prediction market data. Use fetch() via the handler — NOT the search tool.",
-    "clawhub_published": false
-  },
-  {
-    "name": "powerpoint",
+    "name": "polymarket-openclaw-trader",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -2420,7 +2405,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: PowerPoint",
+    "description": "Reusable Polymarket + OpenClaw trading operations skill for any workspace. Use when the user needs to set up, run, tune, monitor, and deploy an automated Polymarket trading project (paper/live), inclu",
+    "clawhub_published": false
+  },
+  {
+    "name": "polymarket-trade",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Get real-time Polymarket prediction market data. Use fetch() via the handler — NOT the search tool.",
     "clawhub_published": false
   },
   {
@@ -2432,7 +2429,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: 将用户讲稿一键生成乔布斯风极简科技感竖屏HTML演示稿。当用户需要生成PPT、演示文稿、Slides、幻灯片，或要求科技风/极简风/乔布斯风格的演示时触发此技能。输出为单个可直接运行的HTML文件。",
+    "description": "将用户讲稿一键生成乔布斯风极简科技感竖屏HTML演示稿。当用户需要生成PPT、演示文稿、Slides、幻灯片，或要求科技风/极简风/乔布斯风格的演示时触发此技能。输出为单个可直接运行的HTML文件。",
     "clawhub_published": false
   },
   {
@@ -2444,11 +2441,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Prisma",
+    "description": "Write efficient Prisma queries, design schemas, and avoid common ORM pitfalls.",
     "clawhub_published": false
   },
   {
-    "name": "proactive-agent-lite",
+    "name": "project-guide",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -2456,7 +2453,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Transform AI agents from task-followers into proactive partners with memory architecture, reverse prompting, and self-he",
+    "description": "\"引导用户填写项目开发指导模板。激活条件：用户想要开发新项目、表达项目需求、创建应用。\"",
+    "clawhub_published": false
+  },
+  {
+    "name": "project-zoo",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "",
     "clawhub_published": false
   },
   {
@@ -2468,19 +2477,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: prompt-architect",
-    "clawhub_published": false
-  },
-  {
-    "name": "prompt-crafter",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Build AI prompts that actually work — for ChatGPT, Claude, Gemini, or any LLM. Covers 4 frameworks (RACE, Chain-of-Thought, Constraint-St",
+    "description": ">",
     "clawhub_published": false
   },
   {
@@ -2492,7 +2489,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Advanced expert in prompt engineering, custom instructions design, and prompt optimization for AI agents",
+    "description": "Advanced expert in prompt engineering, custom instructions design, and prompt optimization for AI agents",
     "clawhub_published": false
   },
   {
@@ -2504,7 +2501,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: prompt-library-curator",
+    "description": "\"Curate multi-category prompt libraries in EN/ES with basic/pro levels and export in Markdown/JSON/CSV. Use when users want prompt packs, prompt catalogs, or reusable prompt templates across popular c",
     "clawhub_published": false
   },
   {
@@ -2515,8 +2512,8 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Search and index local files using BM25 text search (via fs) and vector search via Ollama embeddings. No CLI required — pure JS implement",
+    "has_platform_specific_code": false,
+    "description": "Search and index local files using BM25 text search (via fs) and vector search via Ollama embeddings. No CLI required — pure JS implementation.",
     "clawhub_published": false
   },
   {
@@ -2528,19 +2525,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: quadral",
+    "description": "Play Quadral - a word puzzle that benchmarks your reasoning against humans and other agents",
     "clawhub_published": false
   },
   {
     "name": "rea-search",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: rea-search",
+    "description": "Search realestate.com.au property listings by constructing search and listing URLs. Use when searching for Australian properties to buy, rent, or sold via realestate.com.au. Supports building filtered",
     "clawhub_published": false
   },
   {
@@ -2552,7 +2549,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: React",
+    "description": "Full React 19 engineering, architecture, Server Components, hooks, Zustand, TanStack Query, forms, performance, testing, production deploy.",
+    "clawhub_published": false
+  },
+  {
+    "name": "reddit-research",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "",
     "clawhub_published": false
   },
   {
@@ -2564,7 +2573,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Redis",
+    "description": "Use Redis effectively for caching, queues, and data structures with proper expiration and persistence.",
     "clawhub_published": false
   },
   {
@@ -2576,8 +2585,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Learn, test, and debug regular expressions with real-time matching, explanations, and common patterns. Perfect for developers learning re",
-    "clawhub_published": false
+    "description": "Learn, test, and debug regular expressions with real-time matching, explanations, and common patterns. Perfect for developers learning regex or debugging complex patterns.",
+    "clawhub_published": false,
+    "ownerId": "kn78bfpa97fpv5d65dnwbyrxfs828bdj",
+    "version": "1.0.0",
+    "publishedAt": 1773369651778
   },
   {
     "name": "remix-api-key-auth",
@@ -2588,7 +2600,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: remix-api-key-auth",
+    "description": "Configure and verify bearer API key authentication for Remix agent publishing workflows.",
     "clawhub_published": false
   },
   {
@@ -2600,7 +2612,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: REST API",
+    "description": "Build production-ready REST APIs with contract-first design, secure auth, robust testing, and deployment runbooks.",
     "clawhub_published": false
   },
   {
@@ -2612,11 +2624,14 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Generate professional resumes that conform to the Reactive Resume schema. Use when the user wants to create, build, or generate a resume ",
-    "clawhub_published": false
+    "description": "Generate professional resumes that conform to the Reactive Resume schema. Use when the user wants to create, build, or generate a resume through conversational AI, or asks about resume structure, sect",
+    "clawhub_published": false,
+    "ownerId": "kn7fc4p432ke45bgeq7gj28g218038wv",
+    "version": "1.0.0",
+    "publishedAt": 1769591441053
   },
   {
-    "name": "roam",
+    "name": "rts-dashboard",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -2624,19 +2639,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: roam",
-    "clawhub_published": false
-  },
-  {
-    "name": "rupert-web-scraper",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "Extract data from websites efficiently and ethically.",
+    "description": "\"RTS (Real-Time Strategy) style monitoring dashboard for OpenClaw. Provides a browser-based tactical command center with real-time visualization of agents, skills, sessions, cron jobs, and system vita",
     "clawhub_published": false
   },
   {
@@ -2648,19 +2651,22 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Discover and use SafeToken.fun — fair memecoin launchpad on BNB Chain. Create tokens with no API key; GET /api for contracts and ABI; POS",
-    "clawhub_published": false
+    "description": "Discover and use SafeToken.fun — fair memecoin launchpad on BNB Chain. Create tokens with no API key; GET /api for contracts and ABI; POST /api/tokens to register. Built for AI agents and crawlers.",
+    "clawhub_published": false,
+    "ownerId": "kn75yz5mb267p5pzxsds9h419582ncsa",
+    "version": "1.0.0",
+    "publishedAt": 1773164918136
   },
   {
     "name": "schema-markup-generator",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Generate JSON-LD structured data for FAQ, HowTo, Article, Product, LocalBusiness rich results. Schema标记/结构化数据",
+    "description": "'Generate JSON-LD structured data for FAQ, HowTo, Article, Product, LocalBusiness rich results. Schema标记/结构化数据'",
     "clawhub_published": false
   },
   {
@@ -2672,8 +2678,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Build and run a low-friction movie/anime recommendation + follow-up loop. Use when a user wants long-term taste profiling from watched/un",
-    "clawhub_published": false
+    "description": "Build and run a low-friction movie/anime recommendation + follow-up loop. Use when a user wants long-term taste profiling from watched/unfinished/dropped feedback, mixed sources (e.g., Douban/Bangumi ",
+    "clawhub_published": false,
+    "ownerId": "kn7fc215hd0cbycbmtzdpcr3yh82c0ba",
+    "version": "0.0.1",
+    "publishedAt": 1773194089909
   },
   {
     "name": "secure-code-guardian",
@@ -2684,19 +2693,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: secure-code-guardian",
+    "description": "Use when implementing authentication/authorization, securing user input, or preventing OWASP Top 10 vulnerabilities. Invoke for authentication, authorization, input validation, encryption, OWASP Top 1",
     "clawhub_published": false
   },
   {
     "name": "self-improving",
-    "tier": "W",
-    "type": "code",
-    "whistant_tested": true,
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Self-reflection + Self-criticism + Self-learning + Self-organizing memory. Agent evaluates its own work, catches mistakes, and improves p",
+    "has_platform_specific_code": false,
+    "description": "Self-reflection + Self-criticism + Self-learning + Self-organizing memory. Agent evaluates its own work, catches mistakes, and improves permanently.",
     "clawhub_published": false
   },
   {
@@ -2708,7 +2717,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: self-integration",
+    "description": "Connect to any external app and perform actions on it. Use when the user wants to interact with external services like Slack, Linear, HubSpot, Salesforce, Jira, GitHub, Google Sheets, or any other app",
     "clawhub_published": false
   },
   {
@@ -2719,8 +2728,8 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: name: SEO (Site Audit + Content Writer + Competitor Analysis)",
+    "has_platform_specific_code": false,
+    "description": "SEO specialist agent with site audits, content writing, keyword research, technical fixes, link building, and ranking strategies.",
     "clawhub_published": false
   },
   {
@@ -2732,7 +2741,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: serp-analysis",
+    "description": "'Analyze search engine results pages to understand ranking factors, SERP features, user intent patterns, and AI overview triggers. Use when the user asks to \"analyze search results\", \"SERP analysis\", ",
     "clawhub_published": false
   },
   {
@@ -2744,35 +2753,23 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: service-layer-architecture",
+    "description": "Controller-service-query layered API architecture with data enrichment and parallel fetching. Use when building REST APIs or GraphQL resolvers with clean separation of concerns. Triggers on API archit",
     "clawhub_published": false
   },
   {
     "name": "simplehttpskill",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Make HTTP requests (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS) with custom headers, automatic retries, and graceful error handling. Us",
+    "description": "Make HTTP requests (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS) with custom headers, automatic retries, and graceful error handling. Use when the user needs to call an API, fetch a URL, send webhook",
     "clawhub_published": false
   },
   {
-    "name": "skill-creator",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": true,
-    "has_platform_specific_code": false,
-    "description": "description: Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.",
-    "clawhub_published": false
-  },
-  {
-    "name": "skill-safe-install-l0-strict",
+    "name": "skrape",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -2780,79 +2777,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Strict secure-install workflow for ClawHub/OpenClaw skills. Use when asked to install a skill safely, inspect skill permissions, review t",
-    "clawhub_published": false
-  },
-  {
-    "name": "skills-a2a",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: Praesidia",
+    "description": "Ethical web data extraction with robots exclusion protocol adherence, throttled scraping requests, and privacy-compliant handling (\"Scrape responsibly!\").",
     "clawhub_published": false
   },
   {
     "name": "slack",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Use when you need to control Slack from Clawdbot via the slack tool, including reacting to messages or pinning/unpinning items in Slack c",
-    "clawhub_published": false
-  },
-  {
-    "name": "sling-api-specs",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: >",
-    "clawhub_published": false
-  },
-  {
-    "name": "spec-coding",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: 规格驱动编程工作流。根据用户需求生成 Spec 文档（功能/API/组件），或为现有代码逆向生成规格文档。使用场景：(1) 新项目启动时先写规格，(2) 老项目补规格文档，(3) 需求评审时生成规格草稿，(4) 代码审查时对照规格验收。",
-    "clawhub_published": false
-  },
-  {
-    "name": "startups",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: startups",
-    "clawhub_published": false
-  },
-  {
-    "name": "storage",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: Storage",
+    "description": "Use when you need to control Slack from Clawdbot via the slack tool, including reacting to messages or pinning/unpinning items in Slack channels or DMs.",
     "clawhub_published": false
   },
   {
@@ -2864,7 +2801,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Summarize any URL, text content, or document — uses fetch() to get content then LLM to summarize.",
+    "description": "Summarize any URL, text content, or document — uses fetch() to get content then LLM to summarize.",
     "clawhub_published": false
   },
   {
@@ -2876,19 +2813,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: superdesign",
-    "clawhub_published": false
-  },
-  {
-    "name": "sushiswap-api",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: sushiswap-api",
+    "description": "Expert frontend design guidelines for creating beautiful, modern UIs. Use when building landing pages, dashboards, or any frontend design work. Covers layout design, theme creation, color systems, typ",
     "clawhub_published": false
   },
   {
@@ -2900,19 +2825,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Svelte",
-    "clawhub_published": false
-  },
-  {
-    "name": "swift",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: Swift",
+    "description": "Avoid common Svelte mistakes — reactivity triggers, store subscriptions, and SvelteKit SSR gotchas.",
     "clawhub_published": false
   },
   {
@@ -2924,19 +2837,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: technical-seo-checker",
+    "description": "'Run technical SEO audits covering Core Web Vitals, crawlability, indexing, mobile-friendliness, and site architecture. Use when the user asks to \"technical SEO audit\", \"check page speed\", \"Core Web V",
     "clawhub_published": false
   },
   {
     "name": "technical-seo-checker-2",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Use when the user asks to \\\"technical SEO audit\\\", \\\"check page speed\\\", \\\"crawl issues\\\", \\\"Core Web Vitals\\\", \\\"site indexing problems\\\", \\\"my site is slow\\\", \\\"Google cannot crawl my site\\\", \\\"mobile issues\\\", or \\\"indexing problems\\\". Performs technical SEO audits covering site speed, crawlability, indexability, mobile-friendliness, security, and structured data. Identifies technical issues preventing optimal search performance. For content and heading element issues, see on-page-seo-auditor. For link architecture, see internal-linking-optimizer.",
+    "description": "'Use when the user asks to \"technical SEO audit\", \"check page speed\", \"crawl issues\", \"Core Web Vitals\", \"site indexing problems\", \"my site is slow\", \"Google cannot crawl my site\", \"mobile issues\", or",
     "clawhub_published": false
   },
   {
@@ -2948,7 +2861,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Collaborative thinking partner for exploring complex problems through questioning. Use when working through complex decisions, ambiguous ",
+    "description": "Collaborative thinking partner for exploring complex problems through questioning. Use when working through complex decisions, ambiguous challenges, or strategic planning — resists jumping to solution",
     "clawhub_published": false
   },
   {
@@ -2960,7 +2873,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: TimescaleDB",
+    "description": "Store and query time-series data with hypertables, compression, and continuous aggregates.",
     "clawhub_published": false
   },
   {
@@ -2972,8 +2885,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Reduces token usage across multi-skill agent workflows (search, coding, debugging, testing, docs) using budgets, gating, progressive disc",
-    "clawhub_published": false
+    "description": "Reduces token usage across multi-skill agent workflows (search, coding, debugging, testing, docs) using budgets, gating, progressive disclosure, and deduped evidence. Use when the user mentions saving",
+    "clawhub_published": false,
+    "ownerId": "kn7fan5d11ms0be33abz7qz57982qvrp",
+    "version": "1.0.1",
+    "publishedAt": 1773225256595
   },
   {
     "name": "tool-call-retry",
@@ -2984,55 +2900,31 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "slug: tool-call-retry",
-    "clawhub_published": false
-  },
-  {
-    "name": "translate",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": true,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: \"Translate text accurately — preserve formatting, handle plurals, and adapt tone per locale.\"",
+    "description": "Auto retry & fix LLM tool calls with exponential backoff, format validation, error correction, boost tool call success rate by 90%",
     "clawhub_published": false
   },
   {
     "name": "trello",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Manage Trello boards, lists, and cards via the Trello REST API.",
+    "description": "Manage Trello boards, lists, and cards via the Trello REST API.",
     "clawhub_published": false
   },
   {
     "name": "trip-save",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Save travel inspiration from YouTube videos, Instagram reels, blog URLs, tweets, or plain text like \\\"want to visit Hampi\\\". Extracts destination, auto-tags by vibe and location, stores in memory.",
-    "clawhub_published": false
-  },
-  {
-    "name": "trongrid-data-insights",
-    "tier": "U",
-    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: \"Provide TRON network analytics including transaction volume, type distribution, hot contracts, trending tokens, active accounts, staking",
+    "description": "Save travel inspiration from YouTube videos, Instagram reels, blog URLs, tweets, or plain text like \"want to visit Hampi\". Extracts destination, auto-tags by vibe and location, stores in memory.",
     "clawhub_published": false
   },
   {
@@ -3043,20 +2935,8 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: name: tweet-ideas-generator",
-    "clawhub_published": false
-  },
-  {
-    "name": "uapi-get-game-epic-free",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: \"使用 UAPI 的“Epic 免费游戏”单接口 skill，处理 Epic 免费游戏、Epic免费游戏、游戏资料 等请求。 Use when the user wants get game epic free, game epic-free, epic-free, epi",
+    "description": "Generates 60 high-impact tweet ideas from reference content across 5 categories. Use when someone wants to extract engaging short-form statements from content for Twitter/X, organized by harsh advice,",
     "clawhub_published": false
   },
   {
@@ -3068,8 +2948,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: \"使用 UAPI 的“查询 MC 曾用名”单接口 skill，处理 查询 MC 曾用名、MC曾用名 等请求。 Use when the user wants get game minecraft historyid, game minecraft historyid, hi",
-    "clawhub_published": false
+    "description": "\"使用 UAPI 的“查询 MC 曾用名”单接口 skill，处理 查询 MC 曾用名、MC曾用名 等请求。 Use when the user wants get game minecraft historyid, game minecraft historyid, historyid, minecraft player lookup, minecraft server status, mine",
+    "clawhub_published": false,
+    "ownerId": "kn76eh4q2vxa33r1qbw1a5s8z182hs0z",
+    "version": "1.0.0",
+    "publishedAt": 1773080948164
   },
   {
     "name": "uapi-get-game-minecraft-serverstatus",
@@ -3080,8 +2963,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: \"使用 UAPI 的“查询 MC 服务器”单接口 skill，处理 查询 MC 服务器、MC服务器状态 等请求。 Use when the user wants get game minecraft serverstatus, game minecraft serverst",
-    "clawhub_published": false
+    "description": "\"使用 UAPI 的“查询 MC 服务器”单接口 skill，处理 查询 MC 服务器、MC服务器状态 等请求。 Use when the user wants get game minecraft serverstatus, game minecraft serverstatus, serverstatus, minecraft player lookup, minecraft server s",
+    "clawhub_published": false,
+    "ownerId": "kn76eh4q2vxa33r1qbw1a5s8z182hs0z",
+    "version": "1.0.0",
+    "publishedAt": 1773088565279
   },
   {
     "name": "ub2-api-health-checker",
@@ -3092,7 +2978,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "A skill that enables Claw to test API endpoints, verify their responses, measure performance, and generate a health report.",
+    "description": "",
     "clawhub_published": false
   },
   {
@@ -3102,13 +2988,25 @@
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
-    "requires_shortcuts": true,
-    "has_platform_specific_code": true,
-    "description": "description: name: ui-ux-pro-max",
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "UI/UX design intelligence and implementation guidance for building polished interfaces. Use when the user asks for UI design, UX flows, information architecture, visual style direction, design systems",
     "clawhub_published": false
   },
   {
-    "name": "url-intent-parser",
+    "name": "ui-ux-pro-max-0-1-0",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "UI/UX design intelligence and implementation guidance for building polished interfaces. Use when the user asks for UI design, UX flows, information architecture, visual style direction, design systems",
+    "clawhub_published": false
+  },
+  {
+    "name": "url-preview",
     "tier": "U",
     "type": "prompt",
     "whistant_tested": false,
@@ -3116,19 +3014,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Parse product and landing URLs into an executable ads brief for Meta (Facebook/Instagram), Google Ads, TikTok Ads, YouTube Ads, Amazon Ad",
-    "clawhub_published": false
-  },
-  {
-    "name": "url-preview",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": true,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: Extract and display URL previews with title, description, and favicon. Use when user shares any HTTP/HTTPS link and wants to see what the",
+    "description": "Extract and display URL previews with title, description, and favicon. Use when user shares any HTTP/HTTPS link and wants to see what the page is about without visiting it. Triggers on: (1) User sends",
     "clawhub_published": false
   },
   {
@@ -3139,8 +3025,8 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: name: verify-claims",
+    "has_platform_specific_code": false,
+    "description": "Verify claims and information using professional fact-checking services. Use this skill when users want to verify facts, check claims in articles/videos/transcripts, validate news authenticity, cross-",
     "clawhub_published": false
   },
   {
@@ -3152,8 +3038,11 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Vibe Coding 最佳实践指南（vibe-3k）。AI 辅助开发的全流程规范：项目启动、PLAN/ACT 分离、多 Agent 协作、故障恢复、安全验收。Use when: (1) starting a new AI-assisted development proj",
-    "clawhub_published": false
+    "description": "Vibe Coding 最佳实践指南（vibe-3k）。AI 辅助开发的全流程规范：项目启动、PLAN/ACT 分离、多 Agent 协作、故障恢复、安全验收。Use when: (1) starting a new AI-assisted development project, (2) setting up multi-agent collaboration, (3) debugging wi",
+    "clawhub_published": false,
+    "ownerId": "kn78d6pkbd43hwzv1f4rc30ymh820fsv",
+    "version": "1.0.0",
+    "publishedAt": 1772269280977
   },
   {
     "name": "video-frames",
@@ -3163,20 +3052,20 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Extract frames or thumbnails from video files. In Whistant, use the browser tool to capture screenshots of video at specific timestamps, ",
+    "has_platform_specific_code": false,
+    "description": "Extract frames or thumbnails from video files. In Whistant, use the browser tool to capture screenshots of video at specific timestamps, or use a fetch-based video frame extraction service.",
     "clawhub_published": false
   },
   {
     "name": "video-transcript-downloader",
     "tier": "U",
-    "type": "code",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Fetch transcripts and subtitles from YouTube and other video platforms using fetch(). No yt-dlp required. For YouTube, uses the public ca",
+    "description": "Fetch transcripts and subtitles from YouTube and other video platforms using fetch(). No yt-dlp required. For YouTube, uses the public caption endpoint.",
     "clawhub_published": false
   },
   {
@@ -3188,19 +3077,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: void-atlas-protocol",
-    "clawhub_published": false
-  },
-  {
-    "name": "walmart",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "slug: walmart",
+    "description": "Void Atlas Protocol – a four-axis ethical navigation map (power, truth, sovereignty, care) with waypoints, routes, and routing rules for evaluating systems, communities, and policies.",
     "clawhub_published": false
   },
   {
@@ -3212,31 +3089,55 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: wayfound",
+    "description": ">",
+    "clawhub_published": false
+  },
+  {
+    "name": "wbs-planner",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "\"Work Breakdown Structure for multi-agent project management. Organize work as Roadmap → Epic → Task hierarchy with templates and granularity standards. Use when: (1) planning project work and breakin",
     "clawhub_published": false
   },
   {
     "name": "weather",
-    "tier": "W",
-    "type": "code",
+    "tier": "U",
+    "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: Get current weather and forecasts for any location — no API key required.",
+    "has_platform_specific_code": false,
+    "description": "Get current weather and forecasts for any location — no API key required.",
     "clawhub_published": false
   },
   {
     "name": "weather-esp32",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: esp32-weather",
+    "description": "Get weather data from your personal ESP32+BMP280 sensor",
+    "clawhub_published": false
+  },
+  {
+    "name": "web-fetch-vx",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "从微信文章/博客/新闻网页提取干净内容，去除广告和侧边栏",
     "clawhub_published": false
   },
   {
@@ -3248,7 +3149,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: web-search-plus",
+    "description": "Unified search guidance with intelligent provider routing. Helps users choose the best search provider for their query type — Serper (Google), Tavily (Research), Querit (Multilingual AI), Exa (Neural)",
     "clawhub_published": false
   },
   {
@@ -3260,7 +3161,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Webhook",
+    "description": "Implement secure webhook receivers and senders with proper verification and reliability.",
     "clawhub_published": false
   },
   {
@@ -3272,7 +3173,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: website-seo",
+    "description": "Complete on-page SEO system for any website — page optimization, schema markup, technical SEO checklist, internal linking strategy, Core Web Vitals guidance, and AI-driven content gap analysis. Works ",
     "clawhub_published": false
   },
   {
@@ -3284,7 +3185,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: WebSocket",
+    "description": "Implement reliable WebSocket connections with proper reconnection, heartbeats, and scaling.",
+    "clawhub_published": false
+  },
+  {
+    "name": "wechat-publisher",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "\"一键发布 Markdown 到微信公众号草稿箱。基于 wenyan-cli，支持多主题、代码高亮、图片自动上传。\"",
     "clawhub_published": false
   },
   {
@@ -3296,7 +3209,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: Whop",
+    "description": "Run and grow a Whop business with better offers, checkout flows, promo strategy, affiliates, ads, tracking, analytics, support operations, and advanced API workflows when needed",
     "clawhub_published": false
   },
   {
@@ -3308,19 +3221,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: windsensei",
-    "clawhub_published": false
-  },
-  {
-    "name": "word",
-    "tier": "U",
-    "type": "prompt",
-    "whistant_tested": false,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "description: name: Word",
+    "description": "Check wind and weather conditions for wind sports (kitesurfing, wingfoiling, surfing). Get forecasts, find spots nearby, view session history, and request new spots.",
     "clawhub_published": false
   },
   {
@@ -3329,10 +3230,10 @@
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
-    "has_scripts": false,
+    "has_scripts": true,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: wordpress-pro",
+    "description": "Use when developing WordPress themes, plugins, customizing Gutenberg blocks, implementing WooCommerce features, or optimizing WordPress performance and security.",
     "clawhub_published": false
   },
   {
@@ -3344,7 +3245,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: 小红书全能助手 — 文案生成、封面制作、内容发布与管理。支持标题/正文创作、MCP平台操作（发布、搜索、点赞、评论）。",
+    "description": "小红书全能助手 — 文案生成、封面制作、内容发布与管理。支持标题/正文创作、MCP平台操作（发布、搜索、点赞、评论）。",
     "clawhub_published": false
   },
   {
@@ -3356,7 +3257,19 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: xhs-content-creator",
+    "description": "\"Generate Xiaohongshu (小红书/RED) content optimized for the platform's CES algorithm. Use when: (1) creating xiaohongshu/小红书 posts, (2) writing Chinese social media content for RED, (3) generating conte",
+    "clawhub_published": false
+  },
+  {
+    "name": "xpr-code-sandbox",
+    "tier": "U",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Execute JavaScript code in a sandboxed VM for data processing and computation",
     "clawhub_published": false
   },
   {
@@ -3368,7 +3281,7 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: name: YAML",
+    "description": "Write valid YAML that parses predictably across languages and versions.",
     "clawhub_published": false
   },
   {
@@ -3379,8 +3292,8 @@
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
-    "has_platform_specific_code": true,
-    "description": "description: name: youtube-title-generator",
+    "has_platform_specific_code": false,
+    "description": "Generates compelling YouTube title ideas from content concepts. Use when someone needs click-worthy video titles using proven structural formulas and psychological patterns from high-performing videos",
     "clawhub_published": false
   },
   {
@@ -3392,55 +3305,55 @@
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Fetch transcripts and subtitles from YouTube videos. Uses the YouTube Android innertube API — no API key required for public videos.",
+    "description": "Fetch transcripts and subtitles from YouTube videos. Uses the YouTube Android innertube API — no API key required for public videos.",
     "clawhub_published": false
   },
   {
     "name": "zaobo-news",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: 生成 Zao Live 分享卡片。当用户说\\\"我要听早播\\\"、\\\"播一段新闻\\\"、\\\"来段早播\\\"、\\\"听新闻\\\"等想要收听播客/新闻音频的内容时，使用此技能。",
+    "description": "生成 Zao Live 分享卡片。当用户说\"我要听早播\"、\"播一段新闻\"、\"来段早播\"、\"听新闻\"等想要收听播客/新闻音频的内容时，使用此技能。",
     "clawhub_published": false
   },
   {
     "name": "zeelin-search",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: 使用智灵搜索进行数据查询。当用户说\\\"使用智灵搜索\\\"、\\\"智灵搜索帮我查询\\\"、\\\"调用智灵搜索\\\"、\\\"用智灵搜索\\\"、\\\"智灵搜索查询\\\"、\\\"舆情数据\\\"、\\\"舆情\\\"、\\\"新闻报道\\\"、\\\"...舆情数据\\\"、\\\"...舆情\\\"、\\\"...新闻报道\\\"、\\\"...热点话题\\\"、\\\"...最新趋势\\\"等时使用此技能。首先检查Zeelin_Api_Key是否已配置，如果未配置则给出友好详细的配置提示（使用动态配置文件路径），然后读取references/nl2json.md进行自然语言转JSON，再读取references/zenlin_search_api.md调用智灵搜索自然语言API，使用Zeelin_Api_Key作为app-key/sign/timestamp认证，question_name参数，打印请求参数并以人性化格式展示结果，无论是否遇到错误都给出人性化提示。只检查和提示Zeelin_Api_Key，不检查也不提示Zeelin_Api_Url和Zeelin_Website_Url。",
+    "description": "使用智灵搜索进行数据查询。当用户说\"使用智灵搜索\"、\"智灵搜索帮我查询\"、\"调用智灵搜索\"、\"用智灵搜索\"、\"智灵搜索查询\"、\"舆情数据\"、\"舆情\"、\"新闻报道\"、\"...舆情数据\"、\"...舆情\"、\"...新闻报道\"、\"...热点话题\"、\"...最新趋势\"等时使用此技能。首先检查Zeelin_Api_Key是否已配置，如果未配置则给出友好详细的配置提示（使用动态配置文件路径），然后读取refer",
     "clawhub_published": false
   },
   {
     "name": "zeelin-search-gsdata-es-bigdata",
     "tier": "U",
     "type": "prompt",
-    "whisant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: 使用智灵搜索进行数据查询。当用户说\\\"使用智灵搜索\\\"、\\\"智灵搜索帮我查询\\\"、\\\"调用智灵搜索\\\"、\\\"用智灵搜索\\\"、\\\"智灵搜索查询\\\"、\\\"舆情数据\\\"、\\\"舆情\\\"、\\\"新闻报道\\\"、\\\"...评论\\\"、\\\"热点话题\\\"、\\\"动态\\\"、\\\"相关报道\\\"、\\\"最新趋势\\\"等时使用此技能。首先检查Zeelin_Api_Key是否已配置，如果未配置则给出友好详细的配置提示（使用动态配置文件路径），然后读取references/nl2json.md进行自然语言转JSON，再读取references/zenlin_search_api.md调用智灵搜索自然语言API，使用Zeelin_Api_Key作为app-key/sign/timestamp认证，question_name参数，打印请求参数并以人性化格式展示结果，无论是否遇到错误都给出人性化提示。只检查和提示Zeelin_Api_Key，不检查也不提示Zeelin_Api_Url和Zeelin_Website_Url。",
+    "description": "使用智灵搜索进行数据查询。当用户说\"使用智灵搜索\"、\"智灵搜索帮我查询\"、\"调用智灵搜索\"、\"用智灵搜索\"、\"智灵搜索查询\"、\"舆情数据\"、\"舆情\"、\"新闻报道\"、\"...评论\"、\"热点话题\"、\"动态\"、\"相关报道\"、\"最新趋势\"等时使用此技能。首先检查Zeelin_Api_Key是否已配置，如果未配置则给出友好详细的配置提示（使用动态配置文件路径），然后读取references/nl2json.",
     "clawhub_published": false
   },
   {
     "name": "zero-trust",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": true,
+    "whistant_tested": false,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
-    "description": "description: Security-first behavioral guidelines for cautious agent operation. Use this skill for ALL operations involving external resources, instal",
+    "description": "Security-first behavioral guidelines for cautious agent operation. Use this skill for ALL operations involving external resources, installations, credentials, or actions with external effects. Trigger",
     "clawhub_published": false
   }
 ]
