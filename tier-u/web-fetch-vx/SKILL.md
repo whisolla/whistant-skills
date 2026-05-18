@@ -1,291 +1,65 @@
-# Web Content Extractor - 网页内容提取器
-
-**版本**: 2.0  
-**作者**: OpenClaw Team  
-**更新日期**: 2026-03-15  
-**许可证**: MIT
-
+---
+name: web-fetch-vx
+description: Generic web content fetcher. Extract clean content from any public URL with configurable output format. Triggers on: (1) User asks to fetch a URL, (2) User asks "抓取网页", "get the content of", "extract from URL"
+version: 1.3
 ---
 
-## 📦 技能元数据
+# Web Fetch vX
 
-```yaml
-name: web-content-extractor
-version: 2.0.0
-description: 从微信文章/博客/新闻网页提取干净内容，去除广告和侧边栏
-category: 内容处理
-tags: [网页提取，内容清洗，微信文章，Markdown]
-author: OpenClaw Team
-license: MIT
+> **Runtime:** Always `await` the handler — do NOT use `.then()`. Do NOT write fetch code manually.
+
+A generic fetch wrapper that retrieves any public URL and returns its content in a configurable format.
+
+## JS API
+
+```js
+const s = require('/skills/web-fetch-vx/scripts/web-fetch-vx.js');
+// Fetch as markdown (default)
+console.log(await s.runFromParams({url: 'https://example.com'}));
+// Fetch as plain text
+console.log(await s.runFromParams({url: 'https://example.com', extractMode: 'text'}));
+// Fetch as JSON
+console.log(await s.runFromParams({url: 'https://example.com', extractMode: 'json'}));
+// With max chars
+console.log(await s.runFromParams({url: 'https://example.com', maxChars: 2000, includeMetadata: true}));
 ```
 
----
+## Features
 
-## 🎯 功能概述
+- **extractMode**: `markdown` (default), `text`, or `json`
+- **maxChars**: truncate content (default 8000)
+- **includeMetadata**: include title/author/description header (default true)
+- Cleans HTML: removes scripts, styles, nav, footer, sidebar
+- Decodes HTML entities
 
-基于 Readability + Firecrawl + Defuddle 三引擎的网页内容提取工具，专为中文内容优化。支持微信文章、新闻网站、博客等多种来源，自动去除广告/导航/侧边栏，输出干净的 Markdown 格式。
+## /cmd Usage
 
-**核心能力**：
-- ✅ 微信文章提取（mp.weixin.qq.com）
-- ✅ 新闻网页清洗
-- ✅ 博客文章解析
-- ✅ 元数据提取（标题/作者/日期）
-- ✅ 多格式输出（Markdown/JSON/纯文本）
-- ✅ 批量处理支持
+```bash
+# Default: markdown, 8000 chars, with metadata
+run /skills/web-fetch-vx/scripts/web-fetch-vx.js https://example.com
 
----
+# Plain text, no metadata
+run /skills/web-fetch-vx/scripts/web-fetch-vx.js https://example.com --mode text --no-metadata
 
-## 🚀 快速开始
+# JSON output with 4000 char limit
+run /skills/web-fetch-vx/scripts/web-fetch-vx.js https://example.com --mode json --max-chars 4000
 
-### 基础调用
-
-```python
-# OpenClaw 工具调用
-result = web_fetch(
-    url="https://mp.weixin.qq.com/s/xxx",
-    extractMode="markdown",
-    maxChars=8000
-)
+# Markdown with explicit --url flag
+run /skills/web-fetch-vx/scripts/web-fetch-vx.js --url "https://news.ycombinator.com" --mode markdown
 ```
 
-### 完整参数
+## Notes
 
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| url | str | ✅ | - | 网页 URL |
-| extractMode | str | ❌ | "markdown" | 输出格式（markdown/text/json） |
-| maxChars | int | ❌ | 8000 | 最大字符数 |
-| includeMetadata | bool | ❌ | true | 是否包含元数据 |
-| timeout | int | ❌ | 30 | 超时时间（秒） |
+- Works on public HTTP/HTTPS URLs only
+- Complex SPAs (React/Vue apps) may need the browser tool instead
+- Rate limit: ~10-20 requests/min per domain recommended
+- CoinGecko has 10-30 calls/min rate limit on free tier
 
----
+## Local Testing
 
-## 📤 输入输出
+Parent project uses ESM; scripts use CommonJS (required for JSC `return`). Override once:
 
-### 输入示例
-
-```json
-{
-  "url": "https://mp.weixin.qq.com/s/abcdefg",
-  "extractMode": "markdown",
-  "maxChars": 8000,
-  "includeMetadata": true
-}
+```bash
+echo '{"type":"commonjs"}' > scripts/package.json
+node scripts/web-fetch-vx.js https://example.com
 ```
-
-### 输出示例
-
-```json
-{
-  "success": true,
-  "url": "https://mp.weixin.qq.com/s/abcdefg",
-  "title": "文章标题",
-  "author": "作者名",
-  "publishDate": "2026-03-15",
-  "content": "Markdown 格式的正文内容...",
-  "wordCount": 2500,
-  "readTime": "10 分钟",
-  "images": ["https://..."],
-  "extractTime": 0.8
-}
-```
-
----
-
-## 🔧 技术架构
-
-### 三引擎设计
-
-```
-                    用户请求
-                       ↓
-              ┌────────────────┐
-              │   路由判断层    │
-              └────────────────┘
-                       ↓
-        ┌──────────────┼──────────────┐
-        ↓              ↓              ↓
-   ┌─────────┐   ┌─────────┐   ┌─────────┐
-   │ web_fetch│   │ defuddle│   │ browser │
-   │ (快速)  │   │ (专业)  │   │ (兜底)  │
-   └─────────┘   └─────────┘   └─────────┘
-        ↓              ↓              ↓
-              ┌────────────────┐
-              │   结果聚合层    │
-              └────────────────┘
-                       ↓
-                  返回用户
-```
-
-### 引擎对比
-
-| 引擎 | 速度 | 成功率 | 适用场景 |
-|------|------|--------|----------|
-| web_fetch | <1s | 70% | 微信文章/通用网页 |
-| defuddle | <1s | 75% | 博客/新闻网站 |
-| browser | 5-10s | 90% | 复杂 SPA/动态页面 |
-
----
-
-## 📋 使用场景
-
-### 场景 1：微信文章提取
-
-```python
-result = web_fetch(
-    url="https://mp.weixin.qq.com/s/xxx",
-    extractMode="markdown"
-)
-print(result["content"])
-```
-
-### 场景 2：批量处理
-
-```python
-urls = ["url1", "url2", "url3"]
-results = [web_fetch(url=u) for u in urls]
-```
-
-### 场景 3：带元数据提取
-
-```python
-result = web_fetch(
-    url="https://example.com/article",
-    includeMetadata=True
-)
-print(f"标题：{result['title']}")
-print(f"作者：{result['author']}")
-print(f"字数：{result['wordCount']}")
-```
-
----
-
-## ⚠️ 限制与注意事项
-
-### 不支持的场景
-
-- ❌ 需要登录的页面
-- ❌ 付费墙内容
-- ❌ 验证码保护的页面
-- ❌ 纯 JavaScript 渲染的 SPA（需用 browser 引擎）
-
-### 速率限制
-
-| 域名类型 | 请求间隔 | 并发限制 |
-|----------|----------|----------|
-| 微信文章 | 2 秒 | 1 |
-| 新闻网站 | 1 秒 | 3 |
-| 博客 | 1 秒 | 5 |
-
-### 合规要求
-
-1. 仅提取公开可访问内容
-2. 尊重 robots.txt 协议
-3. 不用于商业用途（除非获得授权）
-4. 保留原作者署名
-
----
-
-## 🎛️ 高级配置
-
-### 自定义 User-Agent
-
-```python
-result = web_fetch(
-    url="https://example.com",
-    userAgent="Mozilla/5.0 ..."
-)
-```
-
-### 代理配置
-
-```python
-result = web_fetch(
-    url="https://example.com",
-    proxy="http://proxy:port"
-)
-```
-
-### 缓存控制
-
-```python
-# 启用缓存（1 小时）
-result = web_fetch(url, cache=True, ttl=3600)
-
-# 强制刷新
-result = web_fetch(url, cache=False)
-```
-
----
-
-## 📊 性能指标
-
-| 指标 | 数值 |
-|------|------|
-| 平均响应时间 | 0.8 秒 |
-| P95 响应时间 | 2.5 秒 |
-| 成功率 | 85% |
-| 缓存命中率 | 60% |
-
----
-
-## 🔍 故障排查
-
-### 问题 1：提取内容为空
-
-**原因**：页面需要 JavaScript 渲染  
-**解决**：切换到 browser 引擎
-
-### 问题 2：微信文章提取失败
-
-**原因**：链接过期或有反爬  
-**解决**：
-1. 检查链接是否有效
-2. 尝试 browser 引擎
-3. 手动复制内容
-
-### 问题 3：提取内容不完整
-
-**原因**：maxChars 限制  
-**解决**：增加 maxChars 参数或分页处理
-
----
-
-## 📚 依赖项
-
-```json
-{
-  "readability": "^0.4.4",
-  "firecrawl": "^1.0.0",
-  "defuddle": "^3.0.0"
-}
-```
-
----
-
-## 🤝 贡献指南
-
-1. Fork 本仓库
-2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启 Pull Request
-
----
-
-## 📄 许可证
-
-MIT License - 详见 [LICENSE](LICENSE)
-
----
-
-## 📞 支持
-
-- **文档**: https://docs.openclaw.ai/skills/web-content-extractor
-- **问题反馈**: https://github.com/openclaw/openclaw/issues
-- **社区**: https://discord.com/invite/clawd
-
----
-
-**最后更新**: 2026-03-15  
-**维护状态**: ✅ 活跃维护

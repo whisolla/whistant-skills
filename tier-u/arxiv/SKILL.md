@@ -1,7 +1,19 @@
 ---
 name: arxiv
 description: Search, download, and summarize academic papers from arXiv. Built for AI/ML researchers.
+version: 1.3
 ---
+
+> **Runtime:** Always `await` the handler — do NOT use `.then()`. Do NOT write fetch code manually.
+>
+> **Two ways to call:**
+> - JS: `await arxiv.runFromParams({input:"transformer architecture"})` or `await arxiv.search("LLM security")`
+> - Terminal:
+>   `run /skills/arxiv/scripts/arxiv.js --search "transformer architecture"`
+>   `run /skills/arxiv/scripts/arxiv.js --id 2103.14030`
+>   `run /skills/arxiv/scripts/arxiv.js --pdf 2103.14030`
+>   `run /skills/arxiv/scripts/arxiv.js --max 10 "prompt injection"`
+> ⚠️ **Rate limiting:** arXiv caps search queries (~3-4/min). If you hit 429, wait 30-60s and retry. The `--id` and `--pdf` endpoints are not rate-limited.
 
 # arXiv Research Assistant
 
@@ -38,42 +50,37 @@ This skill enables Claude to search arXiv for academic papers, fetch paper detai
 "Download the PDF for arXiv 2401.12345"
 ```
 
-### Track Reading List
+## JS API
+
+```js
+// Search
+await arxiv.search("transformer architecture", 5);
+
+// By ID (comma-separated)
+await arxiv.getById("2301.00001,2301.00002");
+
+// Download PDF URL
+await arxiv.downloadPdf("2301.00001");
+
+// Via runFromParams
+await arxiv.runFromParams({input: "LLM security attacks", maxResults: 10});
+await arxiv.runFromParams({action: "getById", idList: "2301.00001"});
+await arxiv.runFromParams({action: "downloadPdf", input: "2301.00001"});
 ```
-"Add this paper to my reading list"
-"Show my saved papers"
-"Mark paper 2401.12345 as read"
-```
-
-## Examples
-
-**Research Query:**
-> "Find the top 5 papers on LLM jailbreaking from 2025"
-
-**Response includes:**
-- Paper titles with authors
-- Publication dates
-- Abstracts (summarized)
-- Direct PDF links
-- Citation counts (if available)
-
-**Interview Prep:**
-> "What are the latest papers on AI red teaming?"
-
-**Content Creation:**
-> "Find a paper I can break down for a LinkedIn post about prompt injection"
 
 ## Configuration
 
 No API key required - arXiv API is free and open.
 
-Optional MongoDB integration for paper tracking:
-```yaml
-# In your .env
-MONGODB_URI=your_connection_string
-MONGODB_DB_NAME=your_database
-```
-
 ## Author
 
 Created by [Ractor](https://github.com/Ractorrr)
+
+## Local Testing
+
+Parent project uses ESM; scripts use CommonJS (required for JSC `return`). Override once:
+
+```bash
+echo '{"type":"commonjs"}' > scripts/package.json
+node scripts/arxiv.js --search "transformer" --max 3
+```

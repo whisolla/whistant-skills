@@ -1,10 +1,15 @@
+---
+name: reddit-research
+description: On-demand Reddit community research. When the user asks to scan subreddits for content ideas, fetch via Reddit's .json API (no API key required), identify content opportunities, and produce a research brief. Manual trigger only — no scheduled execution. Use Sonnet model for prompt injection resistance.
+version: 1.2
+---
+
 # Reddit Research Skill
 
-## Use When
-Running the morning research cron (8am weekdays). Finding trending discussions, recurring pain points, and content gaps across target subreddits. Use Sonnet model for this entire skill — stronger prompt injection resistance when reading external content.
+> **Trigger:** User-initiated only. iOS cannot run background cron — the user must open the app and ask.
 
-## Don't Use When
-Drafting posts (use reddit-write skill). Posting (Luka posts manually). Doing anything other than reading and summarizing Reddit content.
+## Use When
+User asks to research Reddit for content ideas, scan a subreddit, find trending topics, or get a research brief on what's being discussed. One fetch session per request.
 
 ---
 
@@ -20,6 +25,8 @@ https://www.reddit.com/r/thetagang/hot/.json
 ```
 
 Use `?limit=25` to get more posts. Use `?t=day`, `?t=week` for time filtering on top/.json.
+
+See references/ref-api.md for response structure, rate limiting, fallback methods, and MCP integration.
 
 ---
 
@@ -45,7 +52,7 @@ Fetch the following for each priority subreddit. Start with new/, then hot/:
 - r/optionstrading/new/.json
 - r/options_trading/new/.json
 
-See ref-subreddits.md for full list and per-subreddit posting rules.
+See references/ref-subreddits.md for full list and per-subreddit posting rules.
 
 ### Step 2 — Identify content opportunities
 
@@ -66,7 +73,9 @@ Use /.json on the full thread URL to get all comments to n-th depth. You're look
 
 ### Step 4 — Write the research file
 
-Save to: `shared/research/trends-[YYYY-MM-DD].md`
+Save to: `~/reddit-research/trends-[YYYY-MM-DD].md`  (Whistant Documents/code/reddit-research/)
+
+This is the **single fixed location**. Do NOT create subfolders or variant filenames — overwrite if a file for today already exists.
 
 Format:
 ```markdown
@@ -90,7 +99,7 @@ Format:
 [Anything unusual — mod announcements, rule changes, drama to avoid]
 ```
 
-Aim for 3-5 opportunities. Quality over quantity. Update vault-index.md with this file.
+Aim for 3-5 opportunities. Quality over quantity.
 
 ---
 

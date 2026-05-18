@@ -828,13 +828,179 @@ const docs = {
 };
 
 // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// CMD parsing (/cmd path)
+// ---------------------------------------------------------------------------
+
+function tokenize(cmd) {
+  if (typeof cmd !== 'string') return [];
+  var tokens = [];
+  var buf = '';
+  var inStr = false;
+  var quote = '';
+  for (var i = 0; i < cmd.length; i++) {
+    var ch = cmd[i];
+    if (inStr) {
+      if (ch === quote) { inStr = false; tokens.push(buf); buf = ''; }
+      else buf += ch;
+    } else if (ch === '"' || ch === "'") { inStr = true; quote = ch; }
+    else if (ch === ' ' || ch === '\t') { if (buf) { tokens.push(buf); buf = ''; } }
+    else buf += ch;
+  }
+  if (buf) tokens.push(buf);
+  // Strip "run /skills/.../" prefix if present
+  var runIdx = -1;
+  for (var j = 0; j < tokens.length; j++) {
+    if (tokens[j] === 'run' && j + 1 < tokens.length && tokens[j+1].indexOf('/skills/') >= 0) {
+      runIdx = j;
+      break;
+    }
+  }
+  if (runIdx >= 0) tokens = tokens.slice(runIdx + 2);
+  return tokens;
+}
+
+function parseCommand(cmd) {
+  var tokens = typeof cmd === 'string' ? tokenize(cmd) : cmd;
+  var out = { action: '', subaction: '', flags: {}, args: [] };
+  if (!tokens || !tokens.length) return out;
+  out.action = tokens[0];
+  if (tokens[1] && tokens[1].indexOf('--') !== 0) out.subaction = tokens[1];
+  var positional = out.subaction ? 2 : 1;
+  for (var i = positional; i < tokens.length; i++) {
+    var t = tokens[i];
+    if (t.indexOf('--') === 0) {
+      var eq = t.indexOf('=');
+      if (eq > 0) out.flags[t.substring(2, eq)] = t.substring(eq + 1);
+      else out.flags[t.substring(2)] = true;
+    } else {
+      out.args.push(t);
+    }
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------------------
+// Handler & runFromParams
+// ---------------------------------------------------------------------------
+
+async function handler(event, context) {
+  var params = (event && event.parameters) || {};
+  if (typeof PARAMS !== 'undefined' && PARAMS && Object.keys(params).length === 0) {
+    params = PARAMS;
+  }
+  return await runFromParams(params);
+}
+
+async function runFromParams(inputParams) {
+  var params = inputParams || {};
+  if (!inputParams || Object.keys(params).length === 0) {
+    try {
+      if (typeof PARAMS !== 'undefined' && PARAMS !== null) params = PARAMS;
+      else if (typeof PARAMS_JSON !== 'undefined' && PARAMS_JSON) params = JSON.parse(PARAMS_JSON);
+    } catch (e) { params = {}; }
+  }
+
+  var action = params.action || '';
+  var subaction = params.subaction || '';
+  var flags = params.flags || {};
+  var args = params.args || [];
+
+  // Parse from command string if provided
+  if (params.command) {
+    var parsed = parseCommand(params.command);
+    if (parsed.action && !action) action = parsed.action;
+    if (parsed.subaction) subaction = parsed.subaction;
+    if (Object.keys(parsed.flags).length) flags = parsed.flags;
+    if (parsed.args.length) args = parsed.args;
+  }
+
+  var max = parseInt(flags.max, 10) || 10;
+
+  if (!action) {
+    console.log('Usage:');
+    console.log('  auth status');
+    console.log('  gmail inbox [query] --max=N');
+    console.log('  gmail read <id>');
+    console.log('  calendar events --days=N --max=N');
+    console.log('  drive search <query> --max=N');
+    console.log('  contacts list --max=N');
+    return 'usage';
+  }
+
+  try {
+    if (action === 'auth') {
+      var s = await auth.status();
+      console.log('loggedIn:', s.loggedIn ? 'yes' : 'no');
+      if (s.loggedIn) console.log('expires:', s.expiresAt);
+      if (subaction === 'login') await auth.login();
+    } else if (action === 'gmail') {
+      if (subaction === 'inbox') {
+        var query = args[0] || 'in:inbox newer_than:3d';
+        var msgs = await gmail.messages(query, { max: max });
+        console.log('messages:', msgs.length);
+        msgs.forEach(function(m) { console.log(m.date + ' | ' + m.from + '\n  ' + m.subject); });
+      } else if (subaction === 'read') {
+        var msg = await gmail.read(args[0]);
+        console.log('subject:', msg.subject);
+        console.log('from:', msg.from);
+        console.log('body:', (msg.body || '').substring(0, 500));
+      } else { console.log('usage: gmail inbox|read'); }
+    } else if (action === 'calendar') {
+      var days = parseInt(flags.days, 10) || 7;
+      var events = await calendar.events('primary', {
+        from: new Date().toISOString(),
+        to: new Date(Date.now() + days * 86400000).toISOString(),
+        max: max
+      });
+      console.log('events:', events.length);
+      events.forEach(function(e) { console.log(e.start.dateTime + ' | ' + e.summary); });
+    } else if (action === 'drive') {
+      var files = await drive.search(args[0] || '', { max: max });
+      console.log('files:', files.length);
+      files.forEach(function(f) { console.log(f.name + ' (' + f.id + ')'); });
+    } else if (action === 'contacts') {
+      var contacts_ = await contacts.list({ max: max });
+      console.log('contacts:', contacts_.length);
+      contacts_.forEach(function(c) { console.log(c.name + ' <' + c.email + '>'); });
+    } else {
+      console.log('Unknown action: ' + action);
+      console.log('Actions: auth, gmail, calendar, drive, contacts');
+    }
+  } catch (e) {
+    console.log('Error:', e.message);
+  }
+  return 'ok';
+}
+
+// ---------------------------------------------------------------------------
 // Exports
 // ---------------------------------------------------------------------------
 
-const google = { auth, gmail, calendar, drive, contacts, sheets, docs };
+const google = { auth, gmail, calendar, drive, contacts, sheets, docs, handler, runFromParams, parseCommand, tokenize };
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = google;
 } else if (typeof globalThis !== 'undefined') {
   globalThis.google = google;
+}
+
+// ---------------------------------------------------------------------------
+// Node.js CLI
+// ---------------------------------------------------------------------------
+
+if (typeof module !== 'undefined' && typeof process !== 'undefined' && require.main === module) {
+  (async function () {
+    var args = process.argv.slice(2);
+    var cmd = args.join(' ');
+    console.log(JSON.stringify(await handler({ parameters: cmd })));
+  })();
+}
+
+// ---------------------------------------------------------------------------
+// PARAMS auto-run (/cmd path)
+// ---------------------------------------------------------------------------
+
+if (typeof module === 'undefined' && (typeof PARAMS !== 'undefined' || typeof PARAMS_JSON !== 'undefined')) {
+  return handler({});
 }

@@ -1,12 +1,36 @@
 ---
 name: etherscan
-description: >-
-  Query EVM chain data via Etherscan API v2. Use for on-chain lookups where
-  Etherscan v2 applies: balances, transactions, token transfers (ERC-20/721/1155),
-  contract source/ABI, gas prices, event logs, and verification of transaction
-  completion. Also trigger when another tool submits a transaction and you need
-  to confirm it finalized on-chain.
+description: Query EVM chain data via Etherscan API v2. Use for on-chain lookups where Etherscan v2 applies: balances, transactions, token transfers (ERC-20/721/1155), contract source/ABI, gas prices, event logs, and verification of transaction completion. Also trigger when another tool submits a transaction and you need to confirm it finalized on-chain.
+version: 1.3
 ---
+
+> **Runtime:** Always `await` the handler — do NOT use `.then()`. Do NOT write fetch code manually.
+
+## JS API
+
+```js
+const s = require('/skills/etherscan/scripts/etherscan.js');
+
+// Get ETH balance
+await s.getBalance('0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb', 'ethereum');
+
+// List recent transactions
+await s.getTxList('0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb', 'ethereum', 1, 20, 'desc');
+
+// Get current gas prices
+await s.getGasOracle('ethereum');
+
+// Via runFromParams
+await s.runFromParams({action:'balance', address:'0x...', chainid:'ethereum'});
+```
+
+## Terminal
+
+```bash
+run /skills/etherscan/scripts/etherscan.js balance --address 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb --chain ethereum
+run /skills/etherscan/scripts/etherscan.js txlist --address 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb --chain ethereum --page 1 --offset 20
+run /skills/etherscan/scripts/etherscan.js gasoracle --chain ethereum
+```
 
 # Etherscan (API v2)
 
@@ -24,23 +48,20 @@ description: >-
 ## Step 0: Get API Key (If Needed)
 
 Try sources in order:
-1. **Credentials file** — `~/.config/etherscan/credentials.json` → `{"api_key":"..."}`
-2. **Environment variable** — `$ETHERSCAN_API_KEY`
-3. **Ask user** (last resort) — acknowledge receipt, don't echo it
+1. **Keychain (device runtime)** — `await keychain.get('ETHERSCAN_API_KEY')`
+2. **Environment variable** — `$ETHERSCAN_API_KEY` (devenv)
+3. **Credentials file** — `~/.config/etherscan/credentials.json`
+4. **Ask user** (last resort) — acknowledge receipt, don't echo it
+
+**On device (iPhone):** Set the key once via the terminal:
+```js
+// Run this once to store the key in the iOS Keychain
+await keychain.set('ETHERSCAN_API_KEY', 'YOUR_API_KEY_HERE');
+```
 
 No key? → **https://etherscan.io/apidashboard** (register, generate free key)
 
-Save it:
-```bash
-mkdir -p ~/.config/etherscan
-cat > ~/.config/etherscan/credentials.json << 'EOF'
-{"api_key":"USER_KEY_HERE"}
-EOF
-chmod 600 ~/.config/etherscan/credentials.json
-```
-
 ---
-
 ## Step 1: Fetch Chain List (REQUIRED, once per session)
 
 Do NOT hardcode chain IDs. Fetch and cache on first call:
@@ -168,3 +189,13 @@ curl -s "https://api.etherscan.io/v2/api?module=gastracker&action=gasoracle&chai
 ## References
 
 Full docs: **https://docs.etherscan.io/llms.txt**
+
+## Local Testing
+
+Parent project uses ESM; scripts use CommonJS (required for JSC `return`). Override once:
+
+```bash
+export ETHERSCAN_API_KEY=your_key_here
+echo '{"type":"commonjs"}' > scripts/package.json
+node scripts/etherscan.js balance --address 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 --chain ethereum
+```

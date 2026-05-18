@@ -25,6 +25,7 @@ async function fetchAllModels(apiKey) {
   const key = apiKey || process.env?.OPENROUTER_API_KEY;
   if (!key) throw new Error('OPENROUTER_API_KEY not set');
   const res = await fetch(OPENROUTER_API, {
+    timeout: 15,
     headers: {
       'Authorization': `Bearer ${key}`,
       'Content-Type': 'application/json',

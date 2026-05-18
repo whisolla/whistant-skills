@@ -1,9 +1,44 @@
 ---
 name: youtube-watcher
 description: Fetch transcripts and subtitles from YouTube videos. Uses the YouTube Android innertube API — no API key required for public videos.
-version: 2.1
+version: 2.3
 ---
-# youtube-watcher
+
+> **Runtime:** Always `await` the handler — do NOT use `.then()`. Do NOT write fetch code manually.
+
+## JS API
+
+```js
+const s = require('/skills/youtube-watcher/scripts/youtube-watcher.js');
+
+// Get video metadata (via oEmbed — no API key needed)
+await s.getMetadata('dQw4w9WgXcQ');
+
+// Get clean paragraph transcript (via innertube)
+await s.getCleanTranscript('dQw4w9WgXcQ');
+
+// Get transcript segments with timestamps
+await s.fetchTranscript('dQw4w9WgXcQ');
+
+// Format timestamps
+await s.getTimestamped(segments);
+
+// Via runFromParams
+await s.runFromParams({url:'dQw4w9WgXcQ', action:'metadata'});
+```
+
+## Terminal
+
+```bash
+run /skills/youtube-watcher/scripts/youtube-watcher.js metadata dQw4w9WgXcQ
+run /skills/youtube-watcher/scripts/youtube-watcher.js transcript dQw4w9WgXcQ
+run /skills/youtube-watcher/scripts/youtube-watcher.js timestamped dQw4w9WgXcQ
+run /skills/youtube-watcher/scripts/youtube-watcher.js clean dQw4w9WgXcQ --lang en
+```
+
+---
+
+# youtube-watcher (detail)
 
 Fetch YouTube video transcripts via the Android innertube `/player` endpoint. No API key required. Works for any public video with captions.
 
@@ -176,3 +211,12 @@ console.log(result.segments?.slice(0,5));
 - `lang` defaults to first available track if requested language not found
 - Caption XML format: `<p t="startMs" d="durationMs">text</p>`
 - `browser.evalJS` and `browser.fetchWithCookies` are also available for other web tasks requiring real browser session
+
+## Local Testing
+
+Parent project uses ESM; scripts use CommonJS (required for JSC `return`). Override once:
+
+```bash
+echo '{"type":"commonjs"}' > scripts/package.json
+node scripts/youtube-watcher.js metadata dQw4w9WgXcQ
+```

@@ -66,7 +66,7 @@ SimpleHttpClient.prototype._buildFetchOptions = function(method, url, options) {
 
 SimpleHttpClient.prototype._doFetch = async function(url, fetchOptions) {
     try {
-        var res = await fetch(url, fetchOptions);
+        var res = await fetch(url, Object.assign({}, fetchOptions, { timeout: this.timeout }));
         var contentType = res.headers.get("content-type") || "";
         var isJson = contentType.indexOf("json") !== -1;
         var body;

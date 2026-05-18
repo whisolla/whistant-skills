@@ -52,9 +52,9 @@ Reddit's unofficial API allows roughly 1 request/second without auth. Space requ
 
 1. Try fetching the mobile URL: `https://i.reddit.com/r/[subreddit]/new/`
 2. Try web search: `site:reddit.com/r/[subreddit] [topic]`
-3. Use Reddit MCP server if configured
+3. Use Reddit MCP server if configured (⚠️ Whistant: MCP not available — skip this fallback)
 
-## Reddit MCP (When Available)
+## Reddit MCP (⚠️ Whistant: MCP not available — ignore this section)
 
 If `reddit-mcp` auth profile is active, use MCP tools for deeper access:
 - Thread reading with full comment trees

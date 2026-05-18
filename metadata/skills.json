@@ -48,7 +48,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "A股实时行情与技术分析（沪深股票）。不需要API Key。",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "2.6",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "adclaw",
@@ -323,8 +325,9 @@
     "description": "Check real-time AI provider status, search model availability, get trending models, LLM benchmark leaderboard, and recent outage incidents. Use when asked about AI service status, model availability, ",
     "clawhub_published": false,
     "ownerId": "kn79pyzfgpxq2w0422yr4273px82q0be",
-    "version": "1.0.0",
-    "publishedAt": 1773245968580
+    "version": "2.2",
+    "publishedAt": 1773245968580,
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "anti-panic-protocol",
@@ -360,7 +363,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Search, download, and summarize academic papers from arXiv. Built for AI/ML researchers.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.3",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "auth",
@@ -648,7 +653,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Search, install, and self-improve on community skills from a pre-vetted catalog of 735 OpenClaw skills compatible with Whistant's JS runtime. Use when the user wants to find or install a skill by topi",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "3.24",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "close-loop",
@@ -879,7 +886,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.2",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "cs-ai-seo",
@@ -1092,7 +1101,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": ">-",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.3",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "everything-is-ok",
@@ -1188,7 +1199,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Manage free AI models from OpenRouter for OpenClaw. Fetch, rank, and configure the best free models via the OpenRouter API. Requires OPENROUTER_API_KEY.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.0",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "freeride-ai",
@@ -1312,7 +1325,7 @@
   },
   {
     "name": "google",
-    "tier": "U",
+    "tier": "W",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1320,7 +1333,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs — runs entirely in the iPhone JS terminal via fetch() and OAuth2 PKCE. Tokens stored in iOS Keychain.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.2",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "google-play-store",
@@ -1786,7 +1801,7 @@
   },
   {
     "name": "microsoft",
-    "tier": "U",
+    "tier": "W",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1794,7 +1809,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Microsoft 365 for the iPhone JS terminal via Microsoft Graph. Outlook Mail, Calendar, OneDrive, Contacts, and Office files (Excel, Word, PowerPoint — cloud via Graph + local via native bridge). Uses b",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "2.7",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "mikrotik",
@@ -1946,8 +1963,9 @@
     "description": "Fetch the latest Nasdaq-100 futures quote (default NQ=F) via Yahoo Finance chart API using Node.js and return price, change, percent change, and timestamp. Use when the user asks for Nasdaq-100 future",
     "clawhub_published": false,
     "ownerId": "kn7arejhvsx5nzzg0d1rm8zsyx82m83s",
-    "version": "1.0.4",
-    "publishedAt": 1773199980419
+    "version": "1.2",
+    "publishedAt": 1773199980419,
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "news-summary",
@@ -1959,7 +1977,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Get today's news briefing — fetches RSS feeds from BBC, Reuters, NPR, Al Jazeera and summarizes top stories.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.0",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "nextjs",
@@ -2031,7 +2051,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Notion API for creating and managing pages, databases, and blocks. Requires a Notion integration token.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "2.2",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "notion-calendar",
@@ -2562,7 +2584,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.2",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "redis-store",
@@ -2766,7 +2790,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Make HTTP requests (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS) with custom headers, automatic retries, and graceful error handling. Use when the user needs to call an API, fetch a URL, send webhook",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.0",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "skrape",
@@ -2913,7 +2939,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Manage Trello boards, lists, and cards via the Trello REST API.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "2.8",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "trip-save",
@@ -3015,7 +3043,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Extract and display URL previews with title, description, and favicon. Use when user shares any HTTP/HTTPS link and wants to see what the page is about without visiting it. Triggers on: (1) User sends",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.1",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "verify-claims",
@@ -3066,7 +3096,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Fetch transcripts and subtitles from YouTube and other video platforms using fetch(). No yt-dlp required. For YouTube, uses the public caption endpoint.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "2.6",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "void-atlas-protocol",
@@ -3114,7 +3146,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Get current weather and forecasts for any location — no API key required.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.3",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "weather-esp32",
@@ -3138,7 +3172,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "从微信文章/博客/新闻网页提取干净内容，去除广告和侧边栏",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.3",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "web-search-plus",
@@ -3306,7 +3342,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Fetch transcripts and subtitles from YouTube videos. Uses the YouTube Android innertube API — no API key required for public videos.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "2.3",
+    "lastUpdated": "2026-05-17"
   },
   {
     "name": "zaobo-news",
@@ -3354,6 +3392,20 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Security-first behavioral guidelines for cautious agent operation. Use this skill for ALL operations involving external resources, installations, credentials, or actions with external effects. Trigger",
+    "clawhub_published": false
+  },
+  {
+    "name": "skill-creator",
+    "version": "1.1",
+    "tier": "W",
+    "lastUpdated": "2026-05-17",
+    "type": "prompt",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "",
     "clawhub_published": false
   }
 ]

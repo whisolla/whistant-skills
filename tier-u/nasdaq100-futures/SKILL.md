@@ -1,16 +1,14 @@
 ---
-name: nasdaq100-futures-node
-description: Fetch the latest Nasdaq-100 futures quote (default NQ=F) via Yahoo Finance chart API using Node.js and return price, change, percent change, and timestamp. Use when the user asks for Nasdaq-100 futures, NQ futures, NQ=F, 纳指100期货, or wants the latest quote and change metrics.
-version: 1.1
+name: nasdaq100-futures
+description: Fetch the latest Nasdaq-100 futures quote (default NQ=F) via Yahoo Finance chart API and return price, change, percent change, and timestamp. Use when the user asks for Nasdaq-100 futures, NQ futures, NQ=F, 纳指100期货, or wants the latest quote and change metrics.
+version: 1.2
 ---
 
-> **Runtime:** Use `handler()` from `scripts/main.js` — fetches data via Yahoo Finance using `fetch()`. Do NOT use iOS Shortcuts or runShortcut — use terminal JS execution.
+> **Runtime:** Use `handler()` from `scripts/main.js` — fetches data via Yahoo Finance using `fetch()`. The exported function is `handler` (aliased as `get_nasdaq100_futures` in manifest). Do NOT use iOS Shortcuts or runShortcut — use terminal JS execution.
 
-# Nasdaq-100 Futures Quote (Node.js)
+# Nasdaq-100 Futures Quote
 
-## Quick Start
-
-This is an OpenClaw/ClawHub-style **Node.js** skill. The runtime entrypoint is `scripts/main.handler` (see `manifest.json`), and the exposed function is `get_nasdaq100_futures`.
+> **Runtime:** Always await the handler — do NOT use .then(). Do NOT write fetch code manually.
 
 Use this skill when you need the **latest** quote for Nasdaq-100 futures (or another Yahoo Finance symbol), including:
 - **regularMarketPrice**
@@ -20,23 +18,24 @@ Use this skill when you need the **latest** quote for Nasdaq-100 futures (or ano
 
 ## How to Call
 
-Call the function `get_nasdaq100_futures` (as declared in `manifest.json`) with optional parameters:
+> **Runtime:** Primary: `run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js --symbol <sym>`. Code mode: `await s.runFromParams(...)` — do NOT use .then(). Do NOT write fetch code manually.
 
-- **symbol** (string, optional): Yahoo Finance symbol. Default is `NQ=F` (Nasdaq-100 futures).
+### /cmd — Terminal (preferred, fewer tokens)
 
-### Invocation Contract (Agent skill calling shape)
-
-The handler expects the OpenClaw event shape (function parameters wrapped under `parameters`):
-
-```json
-{
-  "parameters": {
-    "symbol": "NQ=F"
-  }
-}
+```sh
+run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js
+run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js --symbol NQ=F
+run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js -s ES=F
 ```
 
-If `parameters.symbol` is omitted, it defaults to `NQ=F`.
+### /code — JavaScript (require)
+
+```js
+var s = require('/skills/nasdaq100-futures/scripts/nasdaq100-futures.js');
+var result = await s.runFromParams();
+var result = await s.runFromParams({ symbol: 'ES=F' });
+console.log(result.message);
+```
 
 ## Output
 
@@ -98,3 +97,12 @@ Input:
 ## Additional resources
 
 - OpenClaw runtime details: [references/openclaw.md](references/openclaw.md)
+
+## Local Testing
+
+Parent project uses ESM; scripts use CommonJS (required for JSC `return`). Override once:
+
+```bash
+echo '{"type":"commonjs"}' > scripts/package.json
+node scripts/nasdaq100-futures.js --symbol NQ=F
+```

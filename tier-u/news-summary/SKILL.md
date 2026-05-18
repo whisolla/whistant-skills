@@ -44,8 +44,15 @@ function parseRSS(xml) {
   while ((match = itemRegex.exec(xml)) !== null) {
     const itemXml = match[1];
     const getTag = (tag) => {
+      // Match tag content, handling CDATA wrappers
       const m = itemXml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, 'i'));
-      return m ? m[1].replace(/<[^>]+>/g, '').trim() : '';
+      if (!m) return '';
+      let content = m[1];
+      // Strip CDATA wrapper if present: <![CDATA[...]]>
+      content = content.replace(/^<!\[CDATA\[([\\s\\S]*?)\]\]>$/, '$1');
+      // Strip any remaining HTML/XML tags
+      content = content.replace(/<[^>]+>/g, '').trim();
+      return content;
     };
     items.push({
       title: getTag('title'),
@@ -143,3 +150,12 @@ Sources: BBC World · Reuters · NPR
 - Al Jazeera adds Global South perspective
 - Combine 2-3 feeds for a balanced briefing
 - Fetch + parse + LLM summary = full briefing in <2 min
+
+## Local Testing
+
+Parent project uses ESM; scripts use CommonJS (required for JSC `return`). Override once:
+
+```bash
+echo '{"type":"commonjs"}' > scripts/package.json
+node -e "var ns = require('./scripts/news-summary.js'); ns.getNewsBriefing({maxPerSource:1}).then(console.log)"
+```

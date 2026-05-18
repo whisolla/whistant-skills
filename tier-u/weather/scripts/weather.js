@@ -147,25 +147,26 @@ function parseWeatherCommand(cmd) {
 
 // Convenience runner for environments that inject parameters (e.g. iPhone `executeJavaScript`).
 // Reads `PARAMS` (object) or `PARAMS_JSON` (string) if available and returns a provider result.
-async function runFromParams() {
-  let params = {};
-  try {
-    if (typeof PARAMS !== 'undefined' && PARAMS !== null) {
-      params = PARAMS;
-    } else if (typeof PARAMS_JSON !== 'undefined' && PARAMS_JSON) {
-      params = JSON.parse(PARAMS_JSON);
-    }
-  } catch (e) {
-    // ignore parse errors and fall back to empty params
-    params = {};
+async function runFromParams(inputParams) {
+  var params = inputParams || {};
+  if (!inputParams) {
+    try {
+      if (typeof PARAMS !== 'undefined' && PARAMS !== null) { params = PARAMS; }
+      else if (typeof PARAMS_JSON !== 'undefined' && PARAMS_JSON) { params = JSON.parse(PARAMS_JSON); }
+    } catch (e) { params = {}; }
   }
 
-  // Accept direct fields or a CLI-style 'command' string
+  // Resolve location: direct field → parsed command string → argv
   let location = params.location || params.loc || params.query || '';
   let provider = (params.provider || '').toLowerCase();
 
-  if (!location && typeof params.command === 'string' && params.command.trim()) {
+  if (!location && params.command) {
     const parsed = parseWeatherCommand(params.command);
+    if (parsed.provider) provider = parsed.provider.toLowerCase();
+    if (parsed.location) location = parsed.location;
+  }
+  if (!location && params.argv && params.argv.length) {
+    const parsed = parseWeatherCommand(params.argv.join(' '));
     if (parsed.provider) provider = parsed.provider.toLowerCase();
     if (parsed.location) location = parsed.location;
   }
@@ -173,8 +174,6 @@ async function runFromParams() {
   if (provider.includes('open') || provider === 'open-meteo' || provider === 'open_meteo') {
     return await getWeatherOpenMeteo(location);
   }
-
-  // Default to wttr.in
   return await getWeatherWttr(location);
 }
 
@@ -195,13 +194,12 @@ async function runFromCli(argv) {
 weatherApi.runFromCli = runFromCli;
 
 async function handler(event, context) {
-  const params = (event && event.parameters) || {};
-  const location = params.location || params.query || params.text || 'New York';
-  try {
-    return await weatherApi.getWeatherWttr(location);
-  } catch (e) {
-    return await weatherApi.getWeatherOpenMeteo(location);
+  var params = (event && event.parameters) || {};
+  // Fallback: if called with no parameters but PARAMS was injected by Swift
+  if (typeof PARAMS !== 'undefined' && PARAMS && Object.keys(params).length === 0) {
+    params = PARAMS;
   }
+  return await runFromParams(params);
 }
 
 function init() {
@@ -209,8 +207,9 @@ function init() {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { ...weatherApi, handler, init };
-} else if (typeof globalThis !== 'undefined') {
+  module.exports = { ...weatherApi, handler, init, runFromParams, parseWeatherCommand };
+}
+if (typeof globalThis !== 'undefined') {
   globalThis.weatherApi = weatherApi;
 }
 
@@ -229,11 +228,15 @@ if (typeof process !== 'undefined' && typeof require !== 'undefined' && typeof m
 // When loaded via require(), the module IIFE wrapper defines a local `module` variable, so
 // `typeof module !== 'undefined'` is true and we skip this block to avoid running twice.
 if (typeof module === 'undefined' && ((typeof PARAMS !== 'undefined' && PARAMS !== null) || (typeof PARAMS_JSON !== 'undefined' && PARAMS_JSON))) {
-  runFromParams()
-    .then((result) => {
-      console.log(JSON.stringify(result, null, 2));
-    })
-    .catch((error) => {
-      console.error(error?.message || String(error));
-    });
+  return (async function() {
+    var result = await runFromParams();
+    if (typeof console !== 'undefined' && console.log) {
+      if (typeof result === 'string') { console.log(result); }
+      else { console.log(JSON.stringify(result, null, 2)); }
+    }
+    return result;
+  })().catch(function(err) {
+    if (typeof console !== 'undefined' && console.error) console.error(err && err.message ? err.message : String(err));
+    throw err;
+  });
 }
