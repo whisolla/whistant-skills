@@ -4,15 +4,15 @@
 
 ## What Is This?
 
-This repo contains **287 skills** cataloged for availability on Whistant. They're organized by tier so you know what works where.
+This repo contains **272 skills** cataloged for availability on Whistant. They're organized by tier so you know what works where.
 
-**⚠️ Testing status:** These skills were sourced from the community skill catalog and curated for Whistant compatibility. They have **not** been individually L3 live-tested on the Whistant iPhone app. The `whistant_tested` flag in `skills.json` reflects catalog population, not on-device verification.
+**⚠️ Testing status:** These skills were sourced from the community skill catalog (clawhub/scripts/catalog.js, COMPATIBLE set) and curated for Whistant compatibility. They have **not** been individually L3 live-tested on the Whistant iPhone app unless marked `whistant_tested: true`.
 
 ## Tiers Explained
 
 ### Tier U — Universal 🌐
 
-**275 skills** — Pure JavaScript + `fetch()`. No iOS Shortcuts, no JSC-specific APIs, no platform dependencies. These skills work on:
+**271 skills** — Pure JavaScript + `fetch()`. No iOS Shortcuts, no JSC-specific APIs, no platform dependencies. These skills work on:
 
 - ✅ Whistant (iOS / JavaScriptCore)
 - ✅ OpenClaw (Node.js / desktop)
@@ -20,16 +20,18 @@ This repo contains **287 skills** cataloged for availability on Whistant. They'r
 
 Ideal for: cross-platform agent frameworks, community sharing, ClawHub publishing.
 
+**Source:** `clawhub/scripts/catalog.js` COMPATIBLE set (2026-05-09).
+
 **Examples:** `simplehttpskill`, `polymarket-trade`, `nasdaq100-futures`, `tool-call-retry`, `http-retry`
 
 ### Tier W — Whistant-only 📱
 
-**12 skills** — Require iOS-specific APIs (Shortcuts, keychain, JSC `require('fs')`, etc.) or Whistant-specific runtime features. (Unchanged) These work on:
+**1 skill** — Requires iOS-specific APIs (Shortcuts, keychain, JSC `require('fs')`, etc.) or Whistant-specific runtime features.
 
 - ✅ Whistant (iOS)
 - ❌ OpenClaw / desktop (without porting)
 
-**Includes:** `weather`, `google`, `microsoft`, `discord`, `clawhub`, `ontology`, `agent-autonomy-kit`, and 5 more.
+**Includes:** `clawhub` (pre-installed, uses Whistant-specific hooks).
 
 ## Skill Types
 
@@ -104,22 +106,20 @@ Tier W skills need porting — replace iOS-specific APIs with Node.js equivalent
 
 | Metric | Count |
 |--------|-------|
-| Metric | Count |
-|--------|-------|
-| Total cataloged skills | 287 |
-| Tier U (Universal) | 275 |
-| Tier W (Whistant-only) | 12 |
-| Code skills (has `scripts/`) | 33 |
-| Prompt-only skills | 254 |
-| Shortcuts-dependent | 5 |
-| Platform-specific code | 32 |
+| Total cataloged skills | 272 |
+| Tier U (Universal) | 271 |
+| Tier W (Whistant-only) | 1 |
+| Code skills (has `scripts/`) | ~33 |
+| Prompt-only skills | ~238 |
+| Shortcuts-dependent | 0 |
+| Platform-specific code | 0 |
 
 ## Testing & Verification
 
-These 287 skills are **catalog-sourced**, not individually L3 live-tested on Whistant:
+These 272 skills are **catalog-sourced**, not individually L3 live-tested on Whistant:
 
-- **275 Tier U (Universal)** — Community skills cataloged for Whistant compatibility. Pure JavaScript + `fetch()`, no iOS-specific dependencies.
-- **12 Tier W (Whistant-only)** — Whistant-specific skills using iOS APIs (Shortcuts, keychain, JSC extensions).
+- **271 Tier U (Universal)** — Sourced from `clawhub/scripts/catalog.js` COMPATIBLE set. Pure JavaScript + `fetch()`, no iOS-specific dependencies.
+- **1 Tier W (Whistant-only)** — `clawhub`, pre-installed and uses Whistant-specific hooks.
 
 The `whistant_tested` field in `skills.json` is set based on catalog sourcing, not on-device L3 verification.
 
