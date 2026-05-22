@@ -1,7 +1,7 @@
 [
   {
     "name": "1p-shortlink",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -13,7 +13,7 @@
   },
   {
     "name": "3d-wordcloud-visualizer",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -25,7 +25,7 @@
   },
   {
     "name": "51mee-position-parse",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -42,7 +42,7 @@
     "name": "a-stock-analysis",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -54,7 +54,7 @@
   },
   {
     "name": "adclaw",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -66,7 +66,7 @@
   },
   {
     "name": "admapix",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -78,7 +78,7 @@
   },
   {
     "name": "afrexai-automation-strategy",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -90,7 +90,7 @@
   },
   {
     "name": "afrexai-data-privacy",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -102,7 +102,7 @@
   },
   {
     "name": "afrexai-invoice-engine",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -114,7 +114,7 @@
   },
   {
     "name": "afrexai-kpi-tracker",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -126,7 +126,7 @@
   },
   {
     "name": "afrexai-prd-engine",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -138,7 +138,7 @@
   },
   {
     "name": "afrexai-seo-content-engine",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -152,7 +152,7 @@
     "name": "agent-autonomy-kit",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -162,7 +162,7 @@
   },
   {
     "name": "agent-autopilot-bak",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -174,7 +174,7 @@
   },
   {
     "name": "agent-bbs",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -189,7 +189,7 @@
   },
   {
     "name": "agent-contact-card",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -201,7 +201,7 @@
   },
   {
     "name": "agent-context-memory",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -213,7 +213,7 @@
   },
   {
     "name": "ai",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -225,7 +225,7 @@
   },
   {
     "name": "ai-bounty-skill",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -240,7 +240,7 @@
   },
   {
     "name": "ai-business-search",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -252,7 +252,7 @@
   },
   {
     "name": "ai-cost-optimizer",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -267,7 +267,7 @@
   },
   {
     "name": "ai-humanizer",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -279,7 +279,7 @@
   },
   {
     "name": "ai-meeting-notes",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -291,7 +291,7 @@
   },
   {
     "name": "ai-ppt-generator",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -303,7 +303,7 @@
   },
   {
     "name": "ai-workforce",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -317,7 +317,7 @@
     "name": "aistatus",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -331,7 +331,7 @@
   },
   {
     "name": "anti-panic-protocol",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -343,7 +343,7 @@
   },
   {
     "name": "api-gateway",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -357,7 +357,7 @@
     "name": "arxiv",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
@@ -369,7 +369,7 @@
   },
   {
     "name": "auth",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -381,7 +381,7 @@
   },
   {
     "name": "auth-patterns",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -393,7 +393,7 @@
   },
   {
     "name": "authorization",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -405,7 +405,7 @@
   },
   {
     "name": "automation-workflows",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -417,7 +417,7 @@
   },
   {
     "name": "automation-workflows-0-1-0",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -429,7 +429,7 @@
   },
   {
     "name": "autoresearch-pro",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -441,7 +441,7 @@
   },
   {
     "name": "b2a",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -453,7 +453,7 @@
   },
   {
     "name": "backend",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -465,7 +465,7 @@
   },
   {
     "name": "backend-patterns",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -477,7 +477,7 @@
   },
   {
     "name": "bili-rs",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -489,7 +489,7 @@
   },
   {
     "name": "billing",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -501,7 +501,7 @@
   },
   {
     "name": "book-brain",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -513,7 +513,7 @@
   },
   {
     "name": "book-of-the-day",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -525,7 +525,7 @@
   },
   {
     "name": "breadcrumb-generator",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -537,7 +537,7 @@
   },
   {
     "name": "brw-homepage-audit",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -549,7 +549,7 @@
   },
   {
     "name": "caching",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -561,7 +561,7 @@
   },
   {
     "name": "caldav-calendar",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -573,7 +573,7 @@
   },
   {
     "name": "cardano",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -585,7 +585,7 @@
   },
   {
     "name": "cart-management",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -597,7 +597,7 @@
   },
   {
     "name": "celebration-firework",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -609,7 +609,7 @@
   },
   {
     "name": "chrome",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -621,7 +621,7 @@
   },
   {
     "name": "clankerkit",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -635,7 +635,7 @@
     "name": "clawdbot-filesystem",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -647,7 +647,7 @@
     "name": "clawhub",
     "tier": "W",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -659,7 +659,7 @@
   },
   {
     "name": "close-loop",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -671,7 +671,7 @@
   },
   {
     "name": "cloud-storage",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -683,7 +683,7 @@
   },
   {
     "name": "cn-web-search",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -695,7 +695,7 @@
   },
   {
     "name": "code-patent-scanner",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -707,7 +707,7 @@
   },
   {
     "name": "code-patent-validator",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -719,7 +719,7 @@
   },
   {
     "name": "cognitive-agent",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -731,7 +731,7 @@
   },
   {
     "name": "cognitive-bullwhip",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -743,7 +743,7 @@
   },
   {
     "name": "conatus",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -755,7 +755,7 @@
   },
   {
     "name": "content-ideas-generator",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -767,7 +767,7 @@
   },
   {
     "name": "content-quality-auditor",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -779,7 +779,7 @@
   },
   {
     "name": "content-refresher",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -791,7 +791,7 @@
   },
   {
     "name": "content-rewriter",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -806,7 +806,7 @@
   },
   {
     "name": "contract-review",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -818,7 +818,7 @@
   },
   {
     "name": "conventional-commits",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -830,7 +830,7 @@
   },
   {
     "name": "cors",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -842,7 +842,7 @@
   },
   {
     "name": "cosin",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -854,7 +854,7 @@
   },
   {
     "name": "criticaster",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -866,7 +866,7 @@
   },
   {
     "name": "crm",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -880,7 +880,7 @@
     "name": "crypto-watcher",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
@@ -892,7 +892,7 @@
   },
   {
     "name": "cs-ai-seo",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -907,7 +907,7 @@
   },
   {
     "name": "cym-zentao",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -919,7 +919,7 @@
   },
   {
     "name": "cypress",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -931,7 +931,7 @@
   },
   {
     "name": "daily-news-digest",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -943,7 +943,7 @@
   },
   {
     "name": "delegate",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -955,7 +955,7 @@
   },
   {
     "name": "demo-video",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -967,7 +967,7 @@
   },
   {
     "name": "deno",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -979,7 +979,7 @@
   },
   {
     "name": "design-system-patterns",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -993,7 +993,7 @@
     "name": "discord",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -1003,7 +1003,7 @@
   },
   {
     "name": "drizzle",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1015,7 +1015,7 @@
   },
   {
     "name": "dtc-ads-helper",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1030,7 +1030,7 @@
   },
   {
     "name": "easy-meeting",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1045,7 +1045,7 @@
   },
   {
     "name": "ecomseer",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1057,7 +1057,7 @@
   },
   {
     "name": "eeat-content-quality-audit",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1069,7 +1069,7 @@
   },
   {
     "name": "email-best-practices",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1081,7 +1081,7 @@
   },
   {
     "name": "ethereum-history",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1095,7 +1095,7 @@
     "name": "etherscan",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
@@ -1107,7 +1107,7 @@
   },
   {
     "name": "everything-is-ok",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1122,7 +1122,7 @@
   },
   {
     "name": "family-chef-cn",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1137,7 +1137,7 @@
   },
   {
     "name": "fiverr",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1152,7 +1152,7 @@
   },
   {
     "name": "fl-crm-pipeline",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1167,7 +1167,7 @@
   },
   {
     "name": "flowfi",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1179,7 +1179,7 @@
   },
   {
     "name": "forms",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1193,7 +1193,7 @@
     "name": "free-ride",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -1205,7 +1205,7 @@
   },
   {
     "name": "freeride-ai",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1217,7 +1217,7 @@
   },
   {
     "name": "fundamental-stock-analysis",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1229,7 +1229,7 @@
   },
   {
     "name": "gamer-news",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1241,7 +1241,7 @@
   },
   {
     "name": "general-writing",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1253,7 +1253,7 @@
   },
   {
     "name": "geo-audit-optimizer",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1265,7 +1265,7 @@
   },
   {
     "name": "gin-ssr-template",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1279,7 +1279,7 @@
     "name": "github",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -1289,7 +1289,7 @@
   },
   {
     "name": "github-tools",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1301,7 +1301,7 @@
   },
   {
     "name": "gmail",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1313,7 +1313,7 @@
   },
   {
     "name": "godot-engine-3d-developer",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1327,7 +1327,7 @@
     "name": "google",
     "tier": "W",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -1339,7 +1339,7 @@
   },
   {
     "name": "google-play-store",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1351,7 +1351,7 @@
   },
   {
     "name": "grafana",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1363,7 +1363,7 @@
   },
   {
     "name": "graphql",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1375,7 +1375,7 @@
   },
   {
     "name": "guitar-tab-finder",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1392,7 +1392,7 @@
     "name": "hacker-news",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
@@ -1402,7 +1402,7 @@
   },
   {
     "name": "http-retry",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1414,7 +1414,7 @@
   },
   {
     "name": "humanizer",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1426,7 +1426,7 @@
   },
   {
     "name": "id-cv-resume-creator",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1438,7 +1438,7 @@
   },
   {
     "name": "imap-smtp-email",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1450,7 +1450,7 @@
   },
   {
     "name": "in-app-purchases",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1462,7 +1462,7 @@
   },
   {
     "name": "inspiration",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1474,7 +1474,7 @@
   },
   {
     "name": "internal-linking-optimizer",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1486,7 +1486,7 @@
   },
   {
     "name": "ios",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1498,7 +1498,7 @@
   },
   {
     "name": "javascript-skills",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1510,7 +1510,7 @@
   },
   {
     "name": "jiangfeng",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1522,7 +1522,7 @@
   },
   {
     "name": "jqopenclaw-node-invoker",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1534,7 +1534,7 @@
   },
   {
     "name": "keyword-research",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1546,7 +1546,7 @@
   },
   {
     "name": "kostja94-schema-markup",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1558,7 +1558,7 @@
   },
   {
     "name": "lb-better-auth-skill",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1570,7 +1570,7 @@
   },
   {
     "name": "lb-shadcn-ui-skill",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1582,7 +1582,7 @@
   },
   {
     "name": "lb-zod-skill",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1594,7 +1594,7 @@
   },
   {
     "name": "learn-anything-in-one-hour",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1606,7 +1606,7 @@
   },
   {
     "name": "letterboxd-watchlist",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1618,7 +1618,7 @@
   },
   {
     "name": "liang-tavily-search",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1630,7 +1630,7 @@
   },
   {
     "name": "lofy-life-coach",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1642,7 +1642,7 @@
   },
   {
     "name": "lofy-projects",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1654,7 +1654,7 @@
   },
   {
     "name": "lygo-champion-cosmara",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1666,7 +1666,7 @@
   },
   {
     "name": "mapping-skill",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1678,7 +1678,7 @@
   },
   {
     "name": "mariadb",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1690,7 +1690,7 @@
   },
   {
     "name": "market-research",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1702,7 +1702,7 @@
   },
   {
     "name": "marketing-skills",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1716,7 +1716,7 @@
     "name": "maths-rage-bate",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -1726,7 +1726,7 @@
   },
   {
     "name": "mcporter",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1738,7 +1738,7 @@
   },
   {
     "name": "megaeth",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1750,7 +1750,7 @@
   },
   {
     "name": "meme-lord",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1767,7 +1767,7 @@
     "name": "memory-manager",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -1779,7 +1779,7 @@
     "name": "memory-setup",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -1789,7 +1789,7 @@
   },
   {
     "name": "meta-ads-manager",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1803,7 +1803,7 @@
     "name": "microsoft",
     "tier": "W",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -1815,7 +1815,7 @@
   },
   {
     "name": "mikrotik",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1827,7 +1827,7 @@
   },
   {
     "name": "model-usage",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1839,7 +1839,7 @@
   },
   {
     "name": "moltchan-official",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1851,7 +1851,7 @@
   },
   {
     "name": "multi-search-engine",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1863,7 +1863,7 @@
   },
   {
     "name": "music-manager",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1877,7 +1877,7 @@
     "name": "mx-macro-data",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -1889,7 +1889,7 @@
     "name": "mx-stockpick",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -1899,7 +1899,7 @@
   },
   {
     "name": "mysticx-tarot-drawer",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1914,7 +1914,7 @@
   },
   {
     "name": "n8n-workflow-automation",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1926,7 +1926,7 @@
   },
   {
     "name": "n8n-workflow-automation-1-0-0",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1938,7 +1938,7 @@
   },
   {
     "name": "naming-forge",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1955,7 +1955,7 @@
     "name": "nasdaq100-futures",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -1971,7 +1971,7 @@
     "name": "news-summary",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -1983,7 +1983,7 @@
   },
   {
     "name": "nextjs",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1995,7 +1995,7 @@
   },
   {
     "name": "nextjs-expert",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2007,7 +2007,7 @@
   },
   {
     "name": "nodejs",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2019,7 +2019,7 @@
   },
   {
     "name": "nodejs-patterns",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2031,7 +2031,7 @@
   },
   {
     "name": "notify",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2043,7 +2043,7 @@
   },
   {
     "name": "notion",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2057,7 +2057,7 @@
   },
   {
     "name": "notion-calendar",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2069,7 +2069,7 @@
   },
   {
     "name": "nuxt",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2081,7 +2081,7 @@
   },
   {
     "name": "nyx-archive-mirror-and-room",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2096,7 +2096,7 @@
   },
   {
     "name": "oauth",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2108,7 +2108,7 @@
   },
   {
     "name": "ohos-react-native-performance",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2120,7 +2120,7 @@
   },
   {
     "name": "omnifun",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2132,7 +2132,7 @@
   },
   {
     "name": "on-page-seo-auditor",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2144,7 +2144,7 @@
   },
   {
     "name": "only-baby-skill",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2158,7 +2158,7 @@
     "name": "ontology",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -2168,7 +2168,7 @@
   },
   {
     "name": "open-wallet",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2180,7 +2180,7 @@
   },
   {
     "name": "openbook",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2195,7 +2195,7 @@
   },
   {
     "name": "openclaw-api-tester",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2207,7 +2207,7 @@
   },
   {
     "name": "openclaw-version-monitor",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2219,7 +2219,7 @@
   },
   {
     "name": "openvid",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2231,7 +2231,7 @@
   },
   {
     "name": "outreach-scout",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2246,7 +2246,7 @@
   },
   {
     "name": "p-seo",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2261,7 +2261,7 @@
   },
   {
     "name": "pa-admin-exec",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2273,7 +2273,7 @@
   },
   {
     "name": "paddle",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2285,7 +2285,7 @@
   },
   {
     "name": "paper-evoweb-ai",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2297,7 +2297,7 @@
   },
   {
     "name": "payments",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2309,7 +2309,7 @@
   },
   {
     "name": "paypal",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2321,7 +2321,7 @@
   },
   {
     "name": "pear-apple",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2333,7 +2333,7 @@
   },
   {
     "name": "phoenix-api-gen",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2345,7 +2345,7 @@
   },
   {
     "name": "pkm",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2357,7 +2357,7 @@
   },
   {
     "name": "placed-resume-builder",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2369,7 +2369,7 @@
   },
   {
     "name": "placed-resume-optimizer",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2381,7 +2381,7 @@
   },
   {
     "name": "plausible",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2393,7 +2393,7 @@
   },
   {
     "name": "pocketbase",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2405,7 +2405,7 @@
   },
   {
     "name": "polaris-report",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2420,7 +2420,7 @@
   },
   {
     "name": "polymarket-openclaw-trader",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2434,7 +2434,7 @@
     "name": "polymarket-trade",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -2444,7 +2444,7 @@
   },
   {
     "name": "ppt-generator",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2456,7 +2456,7 @@
   },
   {
     "name": "prisma",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2468,7 +2468,7 @@
   },
   {
     "name": "project-guide",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2480,7 +2480,7 @@
   },
   {
     "name": "project-zoo",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2492,7 +2492,7 @@
   },
   {
     "name": "prompt-architect",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2504,7 +2504,7 @@
   },
   {
     "name": "prompt-engineering-expert",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2516,7 +2516,7 @@
   },
   {
     "name": "prompt-library-curator",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2528,7 +2528,7 @@
   },
   {
     "name": "qmd",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2540,7 +2540,7 @@
   },
   {
     "name": "quadral",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2552,7 +2552,7 @@
   },
   {
     "name": "rea-search",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2564,7 +2564,7 @@
   },
   {
     "name": "react",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2578,7 +2578,7 @@
     "name": "reddit-research",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
@@ -2590,7 +2590,7 @@
   },
   {
     "name": "redis-store",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2602,7 +2602,7 @@
   },
   {
     "name": "regex-playground",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2617,7 +2617,7 @@
   },
   {
     "name": "remix-api-key-auth",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2629,7 +2629,7 @@
   },
   {
     "name": "rest-api",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2641,7 +2641,7 @@
   },
   {
     "name": "resume-builder",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2656,7 +2656,7 @@
   },
   {
     "name": "rts-dashboard",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2668,7 +2668,7 @@
   },
   {
     "name": "safetoken-fun",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2683,7 +2683,7 @@
   },
   {
     "name": "schema-markup-generator",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2695,7 +2695,7 @@
   },
   {
     "name": "screen-recommendation-loop",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2710,7 +2710,7 @@
   },
   {
     "name": "secure-code-guardian",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2724,7 +2724,7 @@
     "name": "self-improving",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -2734,7 +2734,7 @@
   },
   {
     "name": "self-integration",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2746,7 +2746,7 @@
   },
   {
     "name": "seo",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2758,7 +2758,7 @@
   },
   {
     "name": "serp-analysis",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2770,7 +2770,7 @@
   },
   {
     "name": "service-layer-architecture",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2784,7 +2784,7 @@
     "name": "simplehttpskill",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -2796,7 +2796,7 @@
   },
   {
     "name": "skrape",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2810,7 +2810,7 @@
     "name": "slack",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -2820,7 +2820,7 @@
   },
   {
     "name": "summarize",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2832,7 +2832,7 @@
   },
   {
     "name": "superdesign",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2844,7 +2844,7 @@
   },
   {
     "name": "svelte",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2856,7 +2856,7 @@
   },
   {
     "name": "technical-seo-checker",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2868,7 +2868,7 @@
   },
   {
     "name": "technical-seo-checker-2",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2880,7 +2880,7 @@
   },
   {
     "name": "thinking-partner",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2892,7 +2892,7 @@
   },
   {
     "name": "timescaledb",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2904,7 +2904,7 @@
   },
   {
     "name": "tokenkiller",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2919,7 +2919,7 @@
   },
   {
     "name": "tool-call-retry",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2933,7 +2933,7 @@
     "name": "trello",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -2945,7 +2945,7 @@
   },
   {
     "name": "trip-save",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2957,7 +2957,7 @@
   },
   {
     "name": "tweet-ideas-generator",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2969,7 +2969,7 @@
   },
   {
     "name": "uapi-get-game-minecraft-historyid",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2984,7 +2984,7 @@
   },
   {
     "name": "uapi-get-game-minecraft-serverstatus",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2999,7 +2999,7 @@
   },
   {
     "name": "ub2-api-health-checker",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3011,7 +3011,7 @@
   },
   {
     "name": "ui-ux-pro-max",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3023,7 +3023,7 @@
   },
   {
     "name": "ui-ux-pro-max-0-1-0",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3037,7 +3037,7 @@
     "name": "url-preview",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
@@ -3049,7 +3049,7 @@
   },
   {
     "name": "verify-claims",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3061,7 +3061,7 @@
   },
   {
     "name": "vibe-3k",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3076,7 +3076,7 @@
   },
   {
     "name": "video-frames",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3090,7 +3090,7 @@
     "name": "video-transcript-downloader",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -3102,7 +3102,7 @@
   },
   {
     "name": "void-atlas-protocol",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3114,7 +3114,7 @@
   },
   {
     "name": "wayfound",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3126,7 +3126,7 @@
   },
   {
     "name": "wbs-planner",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3140,7 +3140,7 @@
     "name": "weather",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": true,
     "requires_shortcuts": false,
@@ -3152,7 +3152,7 @@
   },
   {
     "name": "weather-esp32",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3166,7 +3166,7 @@
     "name": "web-fetch-vx",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
@@ -3178,7 +3178,7 @@
   },
   {
     "name": "web-search-plus",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3190,7 +3190,7 @@
   },
   {
     "name": "webhook",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3202,7 +3202,7 @@
   },
   {
     "name": "website-seo",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3214,7 +3214,7 @@
   },
   {
     "name": "websocket",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3226,7 +3226,7 @@
   },
   {
     "name": "wechat-publisher",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3238,7 +3238,7 @@
   },
   {
     "name": "whop",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3250,7 +3250,7 @@
   },
   {
     "name": "windsensei",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3262,7 +3262,7 @@
   },
   {
     "name": "wordpress-pro",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3274,7 +3274,7 @@
   },
   {
     "name": "xhs",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3286,7 +3286,7 @@
   },
   {
     "name": "xhs-content-creator",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3298,7 +3298,7 @@
   },
   {
     "name": "xpr-code-sandbox",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3310,7 +3310,7 @@
   },
   {
     "name": "yaml",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3322,7 +3322,7 @@
   },
   {
     "name": "youtube-title-generator",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3336,7 +3336,7 @@
     "name": "youtube-watcher",
     "tier": "U",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
@@ -3348,7 +3348,7 @@
   },
   {
     "name": "zaobo-news",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3360,7 +3360,7 @@
   },
   {
     "name": "zeelin-search",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3372,7 +3372,7 @@
   },
   {
     "name": "zeelin-search-gsdata-es-bigdata",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3384,7 +3384,7 @@
   },
   {
     "name": "zero-trust",
-    "tier": "U",
+    "tier": "U-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3400,7 +3400,7 @@
     "tier": "W",
     "lastUpdated": "2026-05-17",
     "type": "prompt",
-    "whistant_tested": false,
+    "whistant_tested": true,
     "openclaw_tested": false,
     "has_scripts": false,
     "requires_shortcuts": false,
