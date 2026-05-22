@@ -1,12 +1,56 @@
 ---
 name: google
 description: Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs — runs entirely in the iPhone JS terminal via fetch() and OAuth2 PKCE. Tokens stored in iOS Keychain.
-version: 1.1
+version: 1.2
 ---
 
 # google
 
+> **Runtime:** Terminal: `run /skills/google/scripts/google.js <action> [args]`. JS: `var g = require('/skills/google/scripts/google'); var s = await g.auth.status(); console.log('loggedIn:', s.loggedIn)`
+
 Google Workspace skill for the iPhone JS terminal. No binary required — uses `fetch()` + Google OAuth2 PKCE in the in-app browser. Credentials stored securely in iOS Keychain via the `keychain` bridge.
+
+## Quick Use (terminal)
+
+```bash
+# Check auth status
+run /skills/google/scripts/google.js auth status
+
+# List recent inbox
+run /skills/google/scripts/google.js gmail inbox --max=5
+
+# Read a specific email
+run /skills/google/scripts/google.js gmail read MESSAGE_ID
+
+# Calendar events
+run /skills/google/scripts/google.js calendar events --days=7 --max=10
+
+# Drive search
+run /skills/google/scripts/google.js drive search report --max=10
+
+# Contacts
+run /skills/google/scripts/google.js contacts list --max=20
+```
+
+## Quick Use (JS)
+
+```js
+var g = require('/skills/google/scripts/google');
+
+// Auth
+await g.auth.setup('CLIENT_ID');  // once
+await g.auth.login();            // opens browser
+var s = await g.auth.status();
+console.log('loggedIn:', s.loggedIn, 'expires:', s.expiresAt);
+
+// Gmail
+var msgs = await g.gmail.messages('in:inbox newer_than:3d', { max: 5 });
+msgs.forEach(function(m) { console.log(m.date + ' | ' + m.from + '\n  ' + m.subject); });
+
+// Calendar
+var events = await g.calendar.events('primary', { from: new Date().toISOString(), max: 10 });
+events.forEach(function(e) { console.log(e.start.dateTime + ' | ' + e.summary); });
+```
 
 ## Setup (once per user)
 
@@ -38,31 +82,30 @@ If Google shows `access_denied` or says the app is not verified, the usual fix i
 ### 2. Save the client ID in Whistant
 
 ```js
-(async () => {
-  const g = require('/skills/google/scripts/google');
+var g = require('/skills/google/scripts/google');
 
-  // Good default for Gmail/Calendar/read-only Drive + Docs
-  await g.auth.setup('YOUR_CLIENT_ID');
+// Good default for Gmail/Calendar/read-only Drive + Docs
+await g.auth.setup('YOUR_CLIENT_ID');
+console.log('client ID saved');
 
-  // For Drive upload + Docs editing, use broader scopes explicitly
-  await g.auth.setup('YOUR_CLIENT_ID', [
-    'https://www.googleapis.com/auth/gmail.modify',
-    'https://www.googleapis.com/auth/calendar',
-    'https://www.googleapis.com/auth/drive.file',
-    'https://www.googleapis.com/auth/contacts.readonly',
-    'https://www.googleapis.com/auth/spreadsheets',
-    'https://www.googleapis.com/auth/documents',
-  ]);
-})()
+// For Drive upload + Docs editing, use broader scopes explicitly
+await g.auth.setup('YOUR_CLIENT_ID', [
+  'https://www.googleapis.com/auth/gmail.modify',
+  'https://www.googleapis.com/auth/calendar',
+  'https://www.googleapis.com/auth/drive.file',
+  'https://www.googleapis.com/auth/contacts.readonly',
+  'https://www.googleapis.com/auth/spreadsheets',
+  'https://www.googleapis.com/auth/documents',
+]);
+console.log('client ID saved with full scopes');
 ```
 
 ### 3. Log in
 
 ```js
-(async () => {
-  const g = require('/skills/google/scripts/google');
-  await g.auth.login();
-})()
+var g = require('/skills/google/scripts/google');
+await g.auth.login();
+console.log('logged in');
 ```
 
 The browser opens once, Google redirects back to Whistant, and the token is stored in Keychain.
@@ -259,16 +302,6 @@ const full = await g.docs.get(doc.documentId);
 - 404 / API disabled
   - enable the matching API in Google Cloud Console
 
-## Quick start example
-
-```js
-(async () => {
-  const g = require('/skills/google/scripts/google');
-  const msgs = await g.gmail.messages('in:inbox newer_than:3d', { max: 5 });
-  msgs.forEach(m => console.log(m.date + ' | ' + m.from + '\n  ' + m.subject));
-})();
-```
-
 ## Safety — confirm before destructive or bulk actions
 
 Before executing any action that is irreversible or affects many items at once, **always show the user what will be affected and ask for confirmation first**. Do not proceed until the user explicitly says yes.
@@ -297,3 +330,10 @@ console.log(`Found ${msgs.length} messages. IDs: ${msgs.map(m => m.id).join(', '
 - Token is refreshed automatically when it expires (uses refresh token).
 - Keychain bridge: `keychain.set/get/delete(key, value)` — used internally, but you can use it for other secrets too.
 - `browser.openOAuth(authUrl, redirectPrefix)` — used internally; resolves with the full redirect URL when the browser navigates to any URL starting with `redirectPrefix`.
+
+## Local Testing
+
+```bash
+echo '{"type":"commonjs"}' > scripts/package.json
+node scripts/google.js auth status
+```

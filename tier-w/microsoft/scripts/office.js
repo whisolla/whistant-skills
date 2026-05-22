@@ -1,11 +1,14 @@
-// Base64 encoder — btoa is not available in JSCore (iOS JS runtime)
+// office.js — Microsoft Office skill (Word, Excel, PowerPoint)
+// Read and edit Office files in OneDrive via Microsoft Graph API.
+
+'use strict';
+
+// Base64 encoder — btoa not available in JSCore
 function _btoa(str) {
   var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
   var out = ''; var i = 0;
   while (i < str.length) {
-    var c1 = str.charCodeAt(i++) & 0xff;
-    var c2 = str.charCodeAt(i++) & 0xff;
-    var c3 = str.charCodeAt(i++) & 0xff;
+    var c1 = str.charCodeAt(i++) & 0xff, c2 = str.charCodeAt(i++) & 0xff, c3 = str.charCodeAt(i++) & 0xff;
     out += chars[c1 >> 2] + chars[((c1 & 3) << 4) | (c2 >> 4)];
     out += isNaN(str.charCodeAt(i - 2)) ? '=' : chars[((c2 & 15) << 2) | (c3 >> 6)];
     out += isNaN(str.charCodeAt(i - 1)) ? '=' : chars[c3 & 63];
@@ -13,34 +16,7 @@ function _btoa(str) {
   return out;
 }
 
-// office.js — Microsoft Office skill (Word, Excel, PowerPoint)
-// Read and edit Office files stored in OneDrive via Microsoft Graph API
-//
-// Quick start:
-//   const o = require('/skills/microsoft/scripts/office');
-//   const m = require('/skills/microsoft/scripts/microsoft');
-//   // Authenticate once: await m.auth.login();
-//
-//   // Find a file in OneDrive by name
-//   const files = await o.findFile('budget');
-//
-//   // Excel
-//   const info  = await o.excel.info('ITEM_ID');
-//   const rows  = await o.excel.read('ITEM_ID', { sheet: 'Sheet1', offset: 0, limit: 50 });
-//   await o.excel.update('ITEM_ID', 'Sheet1!B2', [['newValue']]);
-//
-//   // Word
-//   const doc  = await o.word.read('ITEM_ID', { offset: 0, limit: 50 });
-//   const hits = await o.word.search('ITEM_ID', 'keyword');
-//   await o.word.replace('ITEM_ID', 'old text', 'new text');
-//
-//   // PowerPoint
-//   const ppt    = await o.powerpoint.info('ITEM_ID');
-//   const slides = await o.powerpoint.read('ITEM_ID', { offset: 0, limit: 5 });
-
-'use strict';
-
-const GRAPH_BASE = 'https://graph.microsoft.com/v1.0';
+var GRAPH_BASE = 'https://graph.microsoft.com/v1.0';
 
 function getAuth() {
   return require('/skills/microsoft/scripts/microsoft').auth;
@@ -51,8 +27,8 @@ function getAuth() {
 // ---------------------------------------------------------------------------
 
 async function apiGet(path, params, extraHeaders) {
-  const token = await getAuth().getAccessToken();
-  let url = path.startsWith('https://') ? path : GRAPH_BASE + path;
+  var token = await getAuth().getAccessToken();
+  var url = path.startsWith('https://') ? path : GRAPH_BASE + path;
   if (params) {
     const parts = [];
     Object.keys(params).forEach(function(k) {
@@ -62,55 +38,55 @@ async function apiGet(path, params, extraHeaders) {
     });
     if (parts.length) url += (url.includes('?') ? '&' : '?') + parts.join('&');
   }
-  const headers = Object.assign({ Authorization: 'Bearer ' + token }, extraHeaders || {});
-  const res = await fetch(url, { headers: headers });
+  var headers = Object.assign({ Authorization: 'Bearer ' + token }, extraHeaders || {});
+  var res = await fetch(url, { headers: headers });
   if (!res.ok) throw new Error('API error ' + res.status + ': ' + await res.text());
   return await res.json();
 }
 
 async function apiPost(path, body, method, extraHeaders) {
-  const token = await getAuth().getAccessToken();
-  const url = path.startsWith('https://') ? path : GRAPH_BASE + path;
-  const headers = Object.assign(
+  var token = await getAuth().getAccessToken();
+  var url = path.startsWith('https://') ? path : GRAPH_BASE + path;
+  var headers = Object.assign(
     { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json' },
     extraHeaders || {}
   );
-  const res = await fetch(url, {
+  var res = await fetch(url, {
     method: method || 'POST',
     headers: headers,
     body: JSON.stringify(body),
   });
   if (!res.ok) throw new Error('API error ' + res.status + ': ' + await res.text());
-  const text = await res.text();
+  var text = await res.text();
   return text ? JSON.parse(text) : {};
 }
 
 async function apiPutBinary(path, buffer, contentType) {
-  const token = await getAuth().getAccessToken();
-  const url = path.startsWith('https://') ? path : GRAPH_BASE + path;
-  const headers = { Authorization: 'Bearer ' + token, 'Content-Type': contentType || 'application/octet-stream' };
+  var token = await getAuth().getAccessToken();
+  var url = path.startsWith('https://') ? path : GRAPH_BASE + path;
+  var headers = { Authorization: 'Bearer ' + token, 'Content-Type': contentType || 'application/octet-stream' };
 
-  const arr = toUint8Array(buffer);
+  var arr = toUint8Array(buffer);
 
   // Use bodyBase64 fetch option — Swift reads this as raw Data (no string coercion)
-  const res = await fetch(url, {
+  var res = await fetch(url, {
     method: 'PUT',
     headers: headers,
     bodyBase64: uint8ArrayToBase64(arr),
   });
   if (!res.ok) throw new Error('Upload error ' + res.status + ': ' + await res.text());
-  const text = await res.text();
+  var text = await res.text();
   return text ? JSON.parse(text) : {};
 }
 
 // Download a OneDrive file as ArrayBuffer using its pre-auth download URL
 async function downloadFileBuffer(itemId) {
-  const item = await apiGet(
+  var item = await apiGet(
     '/me/drive/items/' + itemId + '?$select=id,name,@microsoft.graph.downloadUrl'
   );
-  const url = item['@microsoft.graph.downloadUrl'];
+  var url = item['@microsoft.graph.downloadUrl'];
   if (!url) throw new Error('No download URL for item ' + itemId);
-  const res = await fetch(url);
+  var res = await fetch(url);
   if (!res.ok) throw new Error('Download failed: ' + res.status);
   return await res.arrayBuffer();
 }
@@ -125,7 +101,6 @@ async function uploadFileBuffer(itemId, buffer) {
 // ---------------------------------------------------------------------------
 
 var _fflateCache = null;
-var _aurochsRuntimeCache = null;
 
 async function loadFflate() {
   if (_fflateCache) return _fflateCache;
@@ -143,12 +118,6 @@ async function loadFflate() {
     return _fflateCache;
   }
   throw new Error('fflate failed to load. Try: pkg add fflate');
-}
-
-function loadAurochsRuntime() {
-  if (_aurochsRuntimeCache) return _aurochsRuntimeCache;
-  _aurochsRuntimeCache = require('/skills/microsoft/scripts/aurochs-runtime.js');
-  return _aurochsRuntimeCache;
 }
 
 function toUint8Array(input) {
@@ -214,15 +183,11 @@ async function fetchWithRetry(url, opt, retries, timeoutMs) {
   timeoutMs = timeoutMs !== undefined ? timeoutMs : 15000;
   opt = opt || {};
   for (var i = 0; i <= retries; i++) {
-    var ac = new AbortController();
-    var t  = setTimeout(function() { ac.abort('timeout'); }, timeoutMs);
     try {
-      var r = await fetch(url, Object.assign({}, opt, { signal: ac.signal }));
-      clearTimeout(t);
+      var r = await fetch(url, Object.assign({}, opt, { timeout: timeoutMs }));
       if (r.ok) return r;
       if (i === retries) throw new Error('HTTP ' + r.status);
     } catch (e) {
-      clearTimeout(t);
       if (i === retries) throw e;
       await new Promise(function(res) { setTimeout(res, 400 * Math.pow(2, i)); });
     }
@@ -278,7 +243,7 @@ async function withExcelSession(itemId, fn) {
   return result;
 }
 
-const excel = {
+var excel = {
   /**
    * Get workbook info: list of sheets with name, row count, column count.
    * @param {string} itemId — OneDrive item ID
@@ -690,7 +655,7 @@ function buildDocxHtml(xml) {
   return '<div class="docx">\n' + html + '</div>';
 }
 
-const word = {
+var word = {
   /**
    * Get document info: total paragraph count (including empty), non-empty count.
    */
@@ -900,7 +865,7 @@ async function readPptxSlides(bufferOrBytes) {
   return { entries: entries, files: files, slides: slides };
 }
 
-const powerpoint = {
+var powerpoint = {
   /**
    * Get presentation info: total slide count + brief preview of each slide.
    * Returns: { totalSlides, slides: [{ index, preview (first two text fragments) }] }
@@ -1050,18 +1015,50 @@ function writeLocalBuffer(filePath, buffer) {
   if (!ok) throw new Error('Could not write file: ' + filePath);
 }
 
-async function patchLocalDocxWithAurochs(filePath, spec) {
-  var rt = loadAurochsRuntime();
-  var newBytes = await rt.patchDocxBytes(spec, readLocalUint8Array(filePath));
-  writeLocalBuffer(filePath, newBytes);
-  return { filePath: filePath, bytesWritten: toUint8Array(newBytes).byteLength, engine: 'aurochs' };
+// Lightweight docx patcher — fflate-based XML text replace (replaces aurochs)
+async function patchLocalDocx(filePath, spec) {
+  var bytes = readLocalUint8Array(filePath);
+  var entries = await unzipSyncEntries(bytes);
+  var xml = await readZipTextEntry(entries, 'word/document.xml');
+  var patches = (spec && spec.patches) || [];
+  for (var i = 0; i < patches.length; i++) {
+    var p = patches[i];
+    if (p.type === 'text.replace' && p.search) {
+      var esc = p.search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      xml = xml.replace(new RegExp(esc, p.replaceAll !== false ? 'g' : ''), escapeXml(p.replace || ''));
+    }
+  }
+  await setZipTextEntry(entries, 'word/document.xml', xml);
+  var newBuf = await zipEntries(entries);
+  writeLocalBuffer(filePath, newBuf);
+  return { filePath: filePath, bytesWritten: toUint8Array(newBuf).byteLength, engine: 'fflate' };
 }
 
-async function patchLocalPptxWithAurochs(filePath, spec) {
-  var rt = loadAurochsRuntime();
-  var newBytes = await rt.patchPptxBytes(spec, readLocalUint8Array(filePath));
-  writeLocalBuffer(filePath, newBytes);
-  return { filePath: filePath, bytesWritten: toUint8Array(newBytes).byteLength, engine: 'aurochs' };
+// Lightweight pptx patcher — fflate-based XML text replace (replaces aurochs)
+async function patchLocalPptx(filePath, spec) {
+  var bytes = readLocalUint8Array(filePath);
+  var entries = await unzipSyncEntries(bytes);
+  var patches = (spec && spec.patches) || [];
+  var slideKeys = Object.keys(entries).filter(function(k) { return /^ppt\/slides\/slide\d+\.xml$/.test(k); });
+  for (var i = 0; i < patches.length; i++) {
+    var p = patches[i];
+    if (p.type !== 'text.replace' || !p.search) continue;
+    var esc = p.search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    var targetSlides = p.slides ? p.slides.map(function(n) { return 'ppt/slides/slide' + n + '.xml'; }) : slideKeys;
+    for (var j = 0; j < targetSlides.length; j++) {
+      var key = targetSlides[j];
+      if (!entries[key]) continue;
+      var xml = await readZipTextEntry(entries, key);
+      var re = new RegExp(esc, p.replaceAll !== false ? 'g' : '');
+      if (re.test(xml)) {
+        re.lastIndex = 0;
+        await setZipTextEntry(entries, key, xml.replace(re, escapeXml(p.replace || '')));
+      }
+    }
+  }
+  var newBuf = await zipEntries(entries);
+  writeLocalBuffer(filePath, newBuf);
+  return { filePath: filePath, bytesWritten: toUint8Array(newBuf).byteLength, engine: 'fflate' };
 }
 
 function normalizeAurochsWorkbookUpdates(updates) {
@@ -1123,11 +1120,82 @@ function normalizeAurochsWorkbookUpdates(updates) {
   return normalized;
 }
 
-async function patchLocalWorkbookWithAurochs(filePath, updates) {
-  var rt = loadAurochsRuntime();
-  var newBytes = await rt.patchXlsxBytes(normalizeAurochsWorkbookUpdates(updates), readLocalUint8Array(filePath));
-  writeLocalBuffer(filePath, newBytes);
-  return { filePath: filePath, bytesWritten: toUint8Array(newBytes).byteLength, engine: 'aurochs' };
+// Lightweight xlsx cell patcher — fflate-based (replaces aurochs)
+// Supports setting cell values by sheetName + col/row.
+// Uses inline strings for text values to avoid editing sharedStrings.xml.
+async function patchLocalWorkbook(filePath, updates) {
+  var normalized = normalizeAurochsWorkbookUpdates(updates);
+  var bytes = readLocalUint8Array(filePath);
+  var entries = await unzipSyncEntries(bytes);
+
+  // Parse workbook.xml to get sheet name -> rId
+  var wbXml = await readZipTextEntry(entries, 'xl/workbook.xml');
+  var sheetMap = {}; // sheetName -> rId
+  var sheetRe = /<sheet\s+[^>]*name="([^"]+)"[^>]*r:id="([^"]+)"[^>]*\/?>/g;
+  var sm;
+  while ((sm = sheetRe.exec(wbXml)) !== null) sheetMap[sm[1]] = sm[2];
+
+  // Parse rels to get rId -> file path
+  var relsXml = await readZipTextEntry(entries, 'xl/_rels/workbook.xml.rels');
+  var ridMap = {}; // rId -> target file path
+  var relRe = /<Relationship\s+[^>]*Id="([^"]+)"[^>]*Target="([^"]+)"[^>]*\/?>/g;
+  var rm;
+  while ((rm = relRe.exec(relsXml)) !== null) ridMap[rm[1]] = rm[2];
+
+  for (var i = 0; i < normalized.length; i++) {
+    var update = normalized[i];
+    if (!update.sheetName || !Array.isArray(update.cells) || update.cells.length === 0) continue;
+
+    var rid = sheetMap[update.sheetName];
+    if (!rid) throw new Error('Sheet not found: ' + update.sheetName);
+    var target = ridMap[rid];
+    if (!target) throw new Error('Sheet file not found for rId: ' + rid);
+    var sheetPath = 'xl/' + target.replace(/^\//, '');
+
+    var sheetXml = await readZipTextEntry(entries, sheetPath);
+
+    for (var c = 0; c < update.cells.length; c++) {
+      var cell = update.cells[c];
+      var ref = String(cell.col).toUpperCase() + cell.row; // e.g. "B3"
+      var val = cell.value;
+      var isNum = typeof val === 'number' || (typeof val === 'string' && val !== '' && !isNaN(Number(val)) && val === String(Number(val)));
+
+      // Build replacement cell XML
+      var newCell;
+      if (val === null || val === undefined || val === '') {
+        newCell = '<c r="' + ref + '"/>';
+      } else if (isNum) {
+        newCell = '<c r="' + ref + '"><v>' + Number(val) + '</v></c>';
+      } else {
+        // Inline string — avoids touching sharedStrings.xml
+        newCell = '<c r="' + ref + '" t="inlineStr"><is><t>' + escapeXml(String(val)) + '</t></is></c>';
+      }
+
+      // Try to find and replace existing cell
+      var cellRe = new RegExp('<c\\s+r="' + ref + '"[^/]*(?:/>|>[\\s\\S]*?</c>)');
+      if (cellRe.test(sheetXml)) {
+        sheetXml = sheetXml.replace(cellRe, newCell);
+      } else {
+        // Cell doesn't exist — insert into the correct row
+        var rowRe = new RegExp('(<row\\s+r="' + cell.row + '"[^>]*>)([\\s\\S]*?)(</row>)');
+        var rowMatch = rowRe.exec(sheetXml);
+        if (rowMatch) {
+          // Insert cell at end of row
+          sheetXml = sheetXml.replace(rowRe, rowMatch[1] + rowMatch[2] + newCell + rowMatch[3]);
+        } else {
+          // Row doesn't exist — insert new row into sheetData
+          var newRow = '<row r="' + cell.row + '">' + newCell + '</row>';
+          sheetXml = sheetXml.replace('</sheetData>', newRow + '</sheetData>');
+        }
+      }
+    }
+
+    await setZipTextEntry(entries, sheetPath, sheetXml);
+  }
+
+  var newBuf = await zipEntries(entries);
+  writeLocalBuffer(filePath, newBuf);
+  return { filePath: filePath, bytesWritten: toUint8Array(newBuf).byteLength, engine: 'fflate' };
 }
 
 // ---------------------------------------------------------------------------
@@ -1144,7 +1212,7 @@ function _nativeParse(filePath) {
   return null;
 }
 
-const local = {
+var local = {
   word: {
     // Sync read via native bridge (no JS, no CDN, no await)
     nativeRead: function(filePath) {
@@ -1426,15 +1494,15 @@ const local = {
     },
   },
 
-  // --- Skill-local AUROCHS helpers (bundled inside microsoft skill, no frontend changes needed) ---
+  // --- Structured OOXML patchers (fflate-based, no external runtime) ---
   aurochs: {
     async patchDocx(filePath, spec) {
-      return await patchLocalDocxWithAurochs(filePath, spec);
+      return await patchLocalDocx(filePath, spec);
     },
 
     async replaceDocx(filePath, searchText, replaceText, opts) {
       opts = opts || {};
-      return await patchLocalDocxWithAurochs(filePath, {
+      return await patchLocalDocx(filePath, {
         patches: [{
           type: 'text.replace',
           search: searchText,
@@ -1445,7 +1513,7 @@ const local = {
     },
 
     async patchPptx(filePath, spec) {
-      return await patchLocalPptxWithAurochs(filePath, spec);
+      return await patchLocalPptx(filePath, spec);
     },
 
     async replacePptx(filePath, searchText, replaceText, opts) {
@@ -1459,11 +1527,11 @@ const local = {
         }],
       };
       if (opts.slides) patch.patches[0].slides = opts.slides;
-      return await patchLocalPptxWithAurochs(filePath, patch);
+      return await patchLocalPptx(filePath, patch);
     },
 
     async patchWorkbook(filePath, updates) {
-      return await patchLocalWorkbookWithAurochs(filePath, updates);
+      return await patchLocalWorkbook(filePath, updates);
     },
   },
 };
@@ -1494,13 +1562,186 @@ async function findFile(name, opts) {
 }
 
 // ---------------------------------------------------------------------------
-// Exports
+// 2. HANDLER
 // ---------------------------------------------------------------------------
 
-const office = { excel, word, powerpoint, findFile, fetchWithRetry, local };
+async function handler(event, context) {
+  var params = (event && event.parameters) || {};
+  if (typeof PARAMS !== 'undefined' && PARAMS && Object.keys(params).length === 0) {
+    params = PARAMS;
+  }
+  return await runFromParams(params);
+}
+
+// ---------------------------------------------------------------------------
+// 3. EXPORTS
+// ---------------------------------------------------------------------------
+
+const office = { excel, word, powerpoint, findFile, fetchWithRetry, local, handler, runFromParams, parseCommand, tokenize };
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = office;
 } else if (typeof globalThis !== 'undefined') {
   globalThis.msOffice = office;
+}
+
+// ---------------------------------------------------------------------------
+// 4. CMD PARSING
+// ---------------------------------------------------------------------------
+
+function tokenize(cmd) {
+  if (typeof cmd !== 'string') return [];
+  var tokens = [];
+  var buf = ''; var inStr = false; var quote = '';
+  for (var i = 0; i < cmd.length; i++) {
+    var ch = cmd[i];
+    if (inStr) {
+      if (ch === quote) { inStr = false; tokens.push(buf); buf = ''; }
+      else buf += ch;
+    } else if (ch === '"' || ch === "'") { inStr = true; quote = ch; }
+    else if (ch === ' ' || ch === '\t') { if (buf) { tokens.push(buf); buf = ''; } }
+    else buf += ch;
+  }
+  if (buf) tokens.push(buf);
+  var runIdx = -1;
+  for (var j = 0; j < tokens.length; j++) {
+    if (tokens[j] === 'run' && j + 1 < tokens.length && tokens[j+1].indexOf('/skills/') >= 0) {
+      runIdx = j; break;
+    }
+  }
+  if (runIdx >= 0) tokens = tokens.slice(runIdx + 2);
+  return tokens;
+}
+
+function parseCommand(cmd) {
+  var tokens = typeof cmd === 'string' ? tokenize(cmd) : cmd;
+  var out = { action: '', subaction: '', flags: {}, args: [] };
+  if (!tokens || !tokens.length) return out;
+  out.action = tokens[0];
+  if (tokens[1] && tokens[1].indexOf('--') !== 0) out.subaction = tokens[1];
+  var positional = out.subaction ? 2 : 1;
+  for (var i = positional; i < tokens.length; i++) {
+    var t = tokens[i];
+    if (t.indexOf('--') === 0) {
+      var eq = t.indexOf('=');
+      if (eq > 0) out.flags[t.substring(2, eq)] = t.substring(eq + 1);
+      else out.flags[t.substring(2)] = true;
+    } else {
+      out.args.push(t);
+    }
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------------------
+// 5. runFromParams
+// ---------------------------------------------------------------------------
+
+async function runFromParams(inputParams) {
+  var params = inputParams || {};
+  if (!inputParams || Object.keys(params).length === 0) {
+    try {
+      if (typeof PARAMS !== 'undefined' && PARAMS !== null) params = PARAMS;
+      else if (typeof PARAMS_JSON !== 'undefined' && PARAMS_JSON) params = JSON.parse(PARAMS_JSON);
+    } catch (e) { params = {}; }
+  }
+
+  var action = params.action || '';
+  var subaction = params.subaction || '';
+  var flags = params.flags || {};
+  var args = params.args || [];
+
+  if (params.command) {
+    var parsed = parseCommand(params.command);
+    if (parsed.action && !action) action = parsed.action;
+    if (parsed.subaction) subaction = parsed.subaction;
+    if (Object.keys(parsed.flags).length) flags = parsed.flags;
+    if (parsed.args.length) args = parsed.args;
+  }
+
+  var max = parseInt(flags.max, 10) || 10;
+  var itemId = args[0] || '';
+
+  if (!action) {
+    console.log('Usage:');
+    console.log('  excel info <id> | read <id> --sheet=N --max=N');
+    console.log('  word info <id> | read <id> --max=N | search <id> <query>');
+    console.log('  ppt info <id> | read <id> --max=N | search <id> <query>');
+    console.log('  findFile <name> --max=N');
+    return 'usage';
+  }
+
+  try {
+    if (action === 'excel') {
+      if (subaction === 'info') {
+        var info = await excel.info(itemId);
+        console.log(JSON.stringify(info, null, 2));
+      } else if (subaction === 'read') {
+        var sheet = flags.sheet || 'Sheet1';
+        var data = await excel.read(itemId, { sheet: sheet, limit: max });
+        console.log('sheet:', data.sheet, 'rows:', data.rows ? data.rows.length : 0);
+        if (data.rows) data.rows.slice(0, max).forEach(function(r) { console.log(JSON.stringify(r)); });
+      } else { console.log('usage: excel info|read'); }
+    } else if (action === 'word') {
+      if (subaction === 'info') {
+        var winfo = await word.info(itemId);
+        console.log(JSON.stringify(winfo, null, 2));
+      } else if (subaction === 'read') {
+        var doc = await word.read(itemId, { limit: max });
+        console.log(doc);
+      } else if (subaction === 'search') {
+        var hits = await word.search(itemId, args[1] || '');
+        console.log('hits:', hits.length || hits);
+      } else { console.log('usage: word info|read|search'); }
+    } else if (action === 'ppt' || action === 'powerpoint') {
+      if (subaction === 'info') {
+        var pinfo = await powerpoint.info(itemId);
+        console.log(JSON.stringify(pinfo, null, 2));
+      } else if (subaction === 'read') {
+        var ppt = await powerpoint.read(itemId, { limit: max });
+        console.log(ppt);
+      } else if (subaction === 'search') {
+        var phits = await powerpoint.search(itemId, args[1] || '');
+        console.log('hits:', phits.length || phits);
+      } else { console.log('usage: ppt info|read|search'); }
+    } else if (action === 'findFile' || action === 'find') {
+      var files = await findFile(args[0] || '', { max: max });
+      console.log('files:', files.length);
+      files.forEach(function(f) { console.log(f.name + ' (' + f.id + ')'); });
+    } else {
+      console.log('Unknown action: ' + action);
+      console.log('Actions: excel, word, ppt, findFile');
+    }
+  } catch (e) {
+    console.log('Error:', e.message);
+  }
+  return 'ok';
+}
+
+// ---------------------------------------------------------------------------
+// 6. Node.js CLI
+// ---------------------------------------------------------------------------
+
+if (typeof module !== 'undefined' && typeof process !== 'undefined' && require.main === module) {
+  (async function () {
+    var args = process.argv.slice(2);
+    var cmdStr = args.join(' ');
+    var result = await runFromParams({ command: cmdStr });
+    console.log(typeof result === 'string' ? result : JSON.stringify(result, null, 2));
+  })();
+}
+
+// ---------------------------------------------------------------------------
+// 7. PARAMS auto-run
+// ---------------------------------------------------------------------------
+
+if (typeof module === 'undefined' && ((typeof PARAMS !== 'undefined' && PARAMS !== null) || (typeof PARAMS_JSON !== 'undefined' && PARAMS_JSON))) {
+  return (async function() {
+    var result = await runFromParams();
+    console.log(typeof result === 'string' ? result : JSON.stringify(result, null, 2));
+    return result;
+  })().catch(function(err) {
+    console.log('Error:', err && err.message ? err.message : String(err));
+    throw err;
+  });
 }

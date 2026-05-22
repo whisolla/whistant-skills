@@ -19,8 +19,12 @@ function parseRSS(xml) {
     const itemXml = match[1];
     const getTag = (tag) => {
       try {
-        const m = itemXml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, 'i'));
-        return m ? m[1].replace(/<[^>]+>/g, '').trim() : '';
+        const m = itemXml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\/${tag}>`, "i"));
+        if (!m) return '';
+        return m[1]
+          .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
+          .replace(/<[^>]+>/g, '')
+          .trim();
       } catch (e) { return ''; }
     };
     items.push({

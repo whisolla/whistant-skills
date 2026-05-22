@@ -1,10 +1,12 @@
 ---
 name: microsoft
-description: Microsoft 365 for the iPhone JS terminal via Microsoft Graph. Outlook Mail, Calendar, OneDrive, Contacts, and Office files (Excel, Word, PowerPoint — cloud via Graph + local via native bridge). Uses built-in OAuth2 PKCE.
-version: 2.3
+description: Microsoft 365 for the iPhone JS terminal via Microsoft Graph. Outlook Mail, Calendar, OneDrive, Contacts, and Office files (Excel, Word, PowerPoint - cloud via Graph + local via native bridge). Uses built-in OAuth2 PKCE.
+version: 2.7
 ---
 
 # microsoft
+
+> **Runtime:** Terminal: `run /skills/microsoft/scripts/microsoft.js <action> [args]` or `run /skills/microsoft/scripts/office.js <action> [args]` for Office files. JS: `var m = require('/skills/microsoft/scripts/microsoft'); var s = await m.auth.status(); console.log('loggedIn:', s.loggedIn)`
 
 Microsoft 365 skill for the iPhone JS terminal.
 
@@ -16,11 +18,64 @@ Uses the local runtime bridges plus Microsoft Graph:
 
 Covers: **Mail** · **Calendar** · **OneDrive** · **Contacts** · **Office files**
 
+## Quick Use (terminal)
+
+```bash
+# Check auth status
+run /skills/microsoft/scripts/microsoft.js auth status
+
+# Mail
+run /skills/microsoft/scripts/microsoft.js mail inbox --max=5
+run /skills/microsoft/scripts/microsoft.js mail read MESSAGE_ID
+
+# Calendar
+run /skills/microsoft/scripts/microsoft.js calendar events --days=7 --max=10
+
+# OneDrive
+run /skills/microsoft/scripts/microsoft.js onedrive list
+run /skills/microsoft/scripts/microsoft.js onedrive search report --max=10
+
+# Contacts
+run /skills/microsoft/scripts/microsoft.js contacts list --max=20
+
+# Office files (OneDrive cloud)
+run /skills/microsoft/scripts/office.js excel info ITEM_ID
+run /skills/microsoft/scripts/office.js excel read ITEM_ID --sheet=Sheet1 --max=20
+run /skills/microsoft/scripts/office.js word read ITEM_ID --max=30
+run /skills/microsoft/scripts/office.js word search ITEM_ID keyword
+run /skills/microsoft/scripts/office.js ppt info ITEM_ID
+run /skills/microsoft/scripts/office.js findFile budget --max=10
+```
+
+## Quick Use (JS)
+
+```js
+var m = require('/skills/microsoft/scripts/microsoft');
+
+// Auth
+await m.auth.login();              // opens browser
+var s = await m.auth.status();
+console.log('loggedIn:', s.loggedIn, 'expires:', s.expiresAt);
+
+// Mail
+var msgs = await m.mail.messages({ max: 5 });
+msgs.forEach(function(m) { console.log(m.receivedDateTime + ' | ' + m.from + '\n  ' + m.subject); });
+
+// Calendar
+var events = await m.calendar.events({ from: new Date().toISOString(), max: 10 });
+events.forEach(function(e) { console.log(e.start + ' | ' + e.subject); });
+
+// Office
+var o = require('/skills/microsoft/scripts/office');
+var files = await o.findFile('budget', { max: 10 });
+files.forEach(function(f) { console.log(f.name + ' (' + f.id + ')'); });
+```
+
 ## Auth
 
 ```js
 const m = require('/skills/microsoft/scripts/microsoft');
-await m.auth.status();   // check first — skip login if already logged in
+await m.auth.status();   // check first - skip login if already logged in
 await m.auth.login();
 await m.auth.logout();
 ```
@@ -150,24 +205,24 @@ await o.powerpoint.replace('ITEM_ID', 'Q1', 'Q2');
 
 ### Local Office files
 
-Local operations work **offline** — no Microsoft sign-in needed.
+Local operations work **offline** - no Microsoft sign-in needed.
 
 Two modes: **native bridge** (sync, instant, read-only) and **pure JS** (fflate-first OOXML parsing/editing for DOCX, PPTX, and lightweight XLSX text replacement).
 
-#### Native bridge (sync, read-only — no await needed)
+#### Native bridge (sync, read-only - no await needed)
 
 ```js
 const o = require('/skills/microsoft/scripts/office');
 
-// Word — sync read via __office_openFile
+// Word - sync read via __office_openFile
 const doc = o.local.word.nativeRead('Documents/report.docx');
 // → { type, name, paragraphs, text, wordCount, totalParagraphs, nonEmptyParagraphs }
 
-// PowerPoint — sync read
+// PowerPoint - sync read
 const deck = o.local.powerpoint.nativeRead('Documents/deck.pptx');
 // → { type, name, slides: [{ index, texts, textCount }], slideCount }
 
-// Excel — all local.excel methods use native bridge (sync)
+// Excel - all local.excel methods use native bridge (sync)
 const info = o.local.excel.info('Documents/data.xlsx');
 // → { sheetCount, sheets: [{ name, rowCount, colCount }] }
 
@@ -185,7 +240,7 @@ const hits  = o.local.excel.search('Documents/data.xlsx', 'revenue');
 ```js
 const o = require('/skills/microsoft/scripts/office');
 
-// Word — async read/search/HTML/patch via fflate + XML parsing
+// Word - async read/search/HTML/patch via fflate + XML parsing
 await o.local.word.info('Documents/report.docx');
 await o.local.word.read('Documents/report.docx', { offset: 0, limit: 50 });
 await o.local.word.search('Documents/report.docx', 'keyword');
@@ -194,13 +249,13 @@ await o.local.word.patch('Documents/report.docx', [
   { op: 'replaceText', search: 'Old title', replace: 'New title' },
 ]);
 
-// PowerPoint — async read, search, and replace via fflate
+// PowerPoint - async read, search, and replace via fflate
 await o.local.powerpoint.info('Documents/deck.pptx');
 await o.local.powerpoint.read('Documents/deck.pptx', { offset: 0, limit: 5 });
 await o.local.powerpoint.search('Documents/deck.pptx', 'roadmap');
 await o.local.powerpoint.replace('Documents/deck.pptx', 'Q1', 'Q2');
 
-// Excel — async plain-text replace in OOXML parts via fflate
+// Excel - async plain-text replace in OOXML parts via fflate
 await o.local.excel.replace('Documents/data.xlsx', 'Old label', 'New label');
 
 // Optional skill-local AUROCHS helpers for structured local patching
@@ -213,17 +268,17 @@ await o.local.aurochs.patchWorkbook('Documents/data.xlsx', [
 
 ## Notes
 
-- Authenticate once with `await m.auth.login()` before Graph calls.
-- `microsoft.js` handles token refresh for you.
-- Attachments use the local file bridge helpers.
-- `office.js` builds on top of `microsoft.js` auth.
-- Local operations do NOT require auth — they use the native bridge or pure JS file parsing.
+- Authenticate once with `await m.auth.login()` before Graph calls. Tokens auto-refresh.
+- Attachments use local file bridge helpers.
+- `office.js` builds on top of `microsoft.js` auth. Local operations need no auth.
 - Native bridge methods are **sync** (no `await`). Pure JS methods are **async** (need `await`).
-- `office.js` is now **fflate-first** for OOXML ZIP/container work across DOCX, PPTX, and the current lightweight XLSX text-replace path.
-- `/skills/microsoft/scripts/aurochs-runtime.js` is a **skill-local bundled JS runtime** for optional structured local patching, so the microsoft skill can ship it without any frontend runtime changes.
-- Local Excel editing is currently limited to **plain text string replacement** in OOXML XML parts, not full formula/style/typed-cell editing.
-- Prefer **pure JS, self-contained, JSCore-safe** packages only. Do **not** rely on native binaries, `.node` addons, WASM-only packages, or multi-file binary payloads for device delivery.
-- The iPhone app should sync **JS/text assets only** for runtime package delivery, not binary package artifacts.
-- The current AUROCHS XLSX patch path uses the workbook parser's own sheet names / row indices. For the current sample workbook, the visible second data row maps to `sheetName: 'Record'` and `row: 3`.
-- Use native bridge for fast reads, or pure JS methods when you want a backend-deliverable path with less native coupling.
-- Use `scripts/test.js` for the device-side smoke test workflow.
+- `office.js` is fflate-only for OOXML — no external runtime dependencies.
+- Prefer pure JS, self-contained, JSCore-safe packages. No native binaries or WASM.
+- Use `scripts/test.js` for device smoke tests.
+
+## Local Testing
+
+```bash
+echo '{"type":"commonjs"}' > scripts/package.json
+node scripts/microsoft.js auth status
+```

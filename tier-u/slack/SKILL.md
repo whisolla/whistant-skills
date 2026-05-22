@@ -1,163 +1,128 @@
 ---
 name: slack
 description: Use when you need to control Slack from Clawdbot via the slack tool, including reacting to messages or pinning/unpinning items in Slack channels or DMs.
-version: 1.0
+version: 1.3
 ---
 # slack
-_Converted from ClawHub: `steipete/slack`_
-## Runtime: fetch✅ fs✅ crypto✅ http✅ | child_process❌ WebSocket❌ Blob❌
-# Slack Actions
 
-## Overview
+Interact with Slack via `fetch()` using the Slack Web API. Works anywhere `fetch` is available — no child_process, no binaries needed.
 
-Use `slack` to react, manage pins, send/edit/delete messages, and fetch member info. The tool uses the bot token configured for Clawdbot.
+## Runtime: fetch✅ | blocked: child_process WebSocket Blob
 
-## JS Script Usage
+## Token Setup (one-time)
 
-The working script is at `scripts/slack.js`. Load it with:
+The bot token is read from these sources in priority order:
+1. `globalThis.SLACK_BOT_TOKEN` — injected by Whistant runtime
+2. `keychain.get('SLACK_BOT_TOKEN')` — persistent per-user storage
+3. `process.env.SLACK_BOT_TOKEN` — for local devenv testing
 
+**Store your bot token once:**
 ```js
-const slack = require('./scripts/slack.js');
-
-// React to a message
-await slack.react({ channelId: 'C123', messageId: '1712023032.1234', emoji: '✅' });
-
-// Send a message
-await slack.sendMessage({ to: 'channel:C123', content: 'Hello!' });
-
-// Read recent messages
-const result = await slack.readMessages({ channelId: 'C123', limit: 20 });
+await keychain.set('SLACK_BOT_TOKEN', 'xoxb-your-token-here');
 ```
 
-## Inputs to collect
+To obtain a Slack bot token:
+1. Create a Slack App at [api.slack.com/apps](https://api.slack.com/apps)
+2. Enable necessary scopes (chat:write, channels:history, etc.)
+3. Install the app to your workspace and copy the Bot User OAuth Token
 
-- `channelId` and `messageId` (Slack message timestamp, e.g. `1712023032.1234`).
-- For reactions, an `emoji` (Unicode or `:name:`).
-- For message sends, a `to` target (`channel:<id>` or `user:<id>`) and `content`.
+## /cmd Usage
 
-Message context lines include `slack message id` and `channel` fields you can reuse directly.
+```sh
+# List emoji
+run /skills/slack/scripts/slack.js emojiList
+
+# Send a message (--to flag)
+run /skills/slack/scripts/slack.js sendMessage --to channel:C123 --content Hello from Whistant!
+
+# React to a message
+run /skills/slack/scripts/slack.js react C123 1712023032.1234 ✅
+
+# Read messages
+run /skills/slack/scripts/slack.js readMessages --channelId C123 --limit 20
+```
+
+## /code Usage
+
+```js
+// Send a message
+const slack = require('/skills/slack/scripts/slack.js');
+console.log(await slack.sendMessage({ to: 'channel:C123', content: 'Hello!' }));
+
+// List emoji
+console.log(await slack.emojiList());
+
+// React
+console.log(await slack.react({ channelId: 'C123', messageId: '1712023032.1234', emoji: '✅' }));
+```
+
+## Exported Functions
+
+`run`, `handler`, `runFromParams`, `parseCommand`, `tokenize`, `react`, `listReactions`, `sendMessage`, `editMessage`, `deleteMessage`, `readMessages`, `pinMessage`, `unpinMessage`, `listPins`, `memberInfo`, `emojiList`
 
 ## Actions
 
-### Action groups
+### emojiList — List custom emoji
 
-| Action group | Default | Notes |
-| --- | --- | --- |
-| reactions | enabled | React + list reactions |
-| messages | enabled | Read/send/edit/delete |
-| pins | enabled | Pin/unpin/list |
-| memberInfo | enabled | Member info |
-| emojiList | enabled | Custom emoji list |
-
-### React to a message
-
-```json
-{
-  "action": "react",
-  "channelId": "C123",
-  "messageId": "1712023032.1234",
-  "emoji": "✅"
-}
+```js
+const r = await slack.emojiList();
+console.log(Object.keys(r.emoji).length, 'emoji available');
 ```
 
-### List reactions
+### sendMessage — Send a message
 
-```json
-{
-  "action": "reactions",
-  "channelId": "C123",
-  "messageId": "1712023032.1234"
-}
+```js
+// to: "channel:C123" or "user:U456"
+const r = await slack.sendMessage({ to: 'channel:C123', content: 'Hello!' });
 ```
 
-### Send a message
+### react — Add reaction
 
-```json
-{
-  "action": "sendMessage",
-  "to": "channel:C123",
-  "content": "Hello from Clawdbot"
-}
+```js
+const r = await slack.react({ channelId: 'C123', messageId: '1712023032.1234', emoji: '✅' });
 ```
 
-### Edit a message
+### readMessages — Read channel history
 
-```json
-{
-  "action": "editMessage",
-  "channelId": "C123",
-  "messageId": "1712023032.1234",
-  "content": "Updated text"
-}
+```js
+const r = await slack.readMessages({ channelId: 'C123', limit: 20 });
 ```
 
-### Delete a message
+### editMessage — Edit a message
 
-```json
-{
-  "action": "deleteMessage",
-  "channelId": "C123",
-  "messageId": "1712023032.1234"
-}
+```js
+const r = await slack.editMessage({ channelId: 'C123', messageId: '1712023032.1234', content: 'Updated text' });
 ```
 
-### Read recent messages
+### deleteMessage — Delete a message
 
-```json
-{
-  "action": "readMessages",
-  "channelId": "C123",
-  "limit": 20
-}
+```js
+const r = await slack.deleteMessage({ channelId: 'C123', messageId: '1712023032.1234' });
 ```
 
-### Pin a message
+### pinMessage / unpinMessage / listPins — Manage pins
 
-```json
-{
-  "action": "pinMessage",
-  "channelId": "C123",
-  "messageId": "1712023032.1234"
-}
+```js
+await slack.pinMessage({ channelId: 'C123', messageId: '1712023032.1234' });
+await slack.unpinMessage({ channelId: 'C123', messageId: '1712023032.1234' });
+const r = await slack.listPins({ channelId: 'C123' });
 ```
 
-### Unpin a message
+### memberInfo — Get user info
 
-```json
-{
-  "action": "unpinMessage",
-  "channelId": "C123",
-  "messageId": "1712023032.1234"
-}
+```js
+const r = await slack.memberInfo({ userId: 'U123' });
 ```
 
-### List pinned items
+### run — Dispatch by action name
 
-```json
-{
-  "action": "listPins",
-  "channelId": "C123"
-}
+```js
+const r = await slack.run({ action: 'emojiList' });
 ```
 
-### Member info
+## Local Testing
 
-```json
-{
-  "action": "memberInfo",
-  "userId": "U123"
-}
+```bash
+echo '{"type":"commonjs"}' > scripts/package.json
+SLACK_BOT_TOKEN=xoxb-... node scripts/slack.js emojiList
 ```
-
-### Emoji list
-
-```json
-{
-  "action": "emojiList"
-}
-```
-
-## Ideas to try
-
-- React with ✅ to mark completed tasks.
-- Pin key decisions or weekly status updates.

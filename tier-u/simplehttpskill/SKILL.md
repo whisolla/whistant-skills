@@ -1,6 +1,7 @@
 ---
-name: simple-http
+name: simplehttpskill
 description: Make HTTP requests (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS) with custom headers, automatic retries, and graceful error handling. Use when the user needs to call an API, fetch a URL, send webhooks, or make any HTTP request without external dependencies.
+version: 1.0
 ---
 
 # Simple HTTP Skill (Whistant JSC)
@@ -106,3 +107,12 @@ All options can be set at the client level (constructor) and overridden per-requ
 | `maxRetries`     | `3`      | Max retry attempts                   |
 | `backoffBase`    | `500`    | Base delay (ms) for exponential backoff |
 | `backoffMax`     | `30000`  | Maximum backoff delay cap (ms)       |
+
+## Local Testing
+
+Parent project uses ESM; scripts use CommonJS (required for JSC `return`). Override once:
+
+```bash
+echo '{"type":"commonjs"}' > scripts/package.json
+node -e "var {SimpleHttpClient} = require('./scripts/simplehttp.js'); new SimpleHttpClient().get('https://httpbin.org/json').then(console.log)"
+```

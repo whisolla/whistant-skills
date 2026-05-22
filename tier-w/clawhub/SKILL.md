@@ -1,63 +1,95 @@
 ---
 name: clawhub
-description: Search, install, and self-improve on community skills from a pre-vetted catalog of 735 OpenClaw skills compatible with Whistant's JS runtime. Use when the user wants to find or install a skill by topic, or to review skill ecosystem health.
-version: 1.1
+description: Main skill-management tool for listing installed skills, searching the catalog, installing skills, and uninstalling skills. Primary use is direct terminal commands like `run /skills/clawhub/scripts/clawhub.js list` or `run /skills/clawhub/scripts/clawhub.js search discord`; code mode via `require(...)` is secondary.
+version: 3.24
 ---
 
-# ClaWHub Skill Catalog
+# ClaWHub Skill Manager
 
-A JS module for searching, installing, and learning from community skills screened for Whistant JS runtime compatibility.
+A JS skill-management tool for listing installed skills, searching the vetted catalog, installing skills, uninstalling skills, and learning from prior usage.
 
 ## Load & Usage
 
 Top-level `await` is supported — use it directly.
 
+Primary usage is direct command mode.
+
+Use clawhub first whenever the task is about skill management:
+- list installed skills
+- browse or search available skills
+- install a skill
+- uninstall a skill
+
+Terminal command examples:
+
+```text
+run /skills/clawhub/scripts/clawhub.js list
+run /skills/clawhub/scripts/clawhub.js browse --limit 20
+run /skills/clawhub/scripts/clawhub.js search discord
+run /skills/clawhub/scripts/clawhub.js install discord
+run /skills/clawhub/scripts/clawhub.js uninstall discord
+```
+
+These are terminal commands, not JavaScript code.
+Do not put `run /skills/clawhub/scripts/clawhub.js list` inside the terminal tool's `code` field.
+Use it as the terminal command itself.
+
+In direct command mode (`run /skills/clawhub/scripts/clawhub.js ...`), clawhub prints the final result automatically.
+
+Code mode is secondary. In code mode, assign the return value and print it with `console.log(...)`.
+Do not call `clawhub.list()` or `await clawhub.search(...)` bare in terminal code and expect output; without `console.log(...)`, the result may not be shown.
+
 ```js
 const clawhub = require('/skills/clawhub/scripts/clawhub.js');
 
-// Discovery
-const results = await clawhub.search('keyword');  // returns [] if no match
-console.log(JSON.stringify(clawhub.list(20), null, 2));
+// What skills are installed on this device?
+const installed = clawhub.list();
+console.log(installed);        // required in code mode
 
-// Install + run
-await clawhub.install('creator/slug');       // community skill from GitHub
-await clawhub.install('youtube-watcher');     // local/compatible skill from backend
-const mod = await clawhub.run('creator/slug', { key: 'value' });  // auto-resolves script path
+// Browse the skill store (catalog, NOT installed)
+const topSkills = clawhub.browse(20);
+console.log(topSkills);        // required in code mode
 
-// Uninstall
-clawhub.uninstall('creator/slug');
+const matches = await clawhub.search('meeting notes');
+console.log(matches);          // required in code mode
 
-// Usage tracking — always call BEFORE clearTask
+// Install / uninstall — always use just the slug
+const installResult = await clawhub.install('youtube-watcher');
+console.log(installResult);
+
+const uninstallResult = clawhub.uninstall('simplehttpskill');
+console.log(uninstallResult);
+
+// Run a skill's script directly
+const mod = await clawhub.run('weather', { location: 'Boston' });
+
+// Usage tracking — call BEFORE clearTask
 clawhub.logUsage('weather', 'success', 'wttr.in worked for Tokyo');
-clawhub.logUsage('weather', 'fail', 'wttr.in 404 for zip code');
-// If search returned nothing useful:
-clawhub.logUnmetSearch('stock price feed');  // populates status().unmetSearches
+clawhub.logUnmetSearch('stock price feed');
+clawhub.usageSummary();        // per-skill success rates
 
-// Usage summary — shows per-skill success rates; sub-slugs (e.g. weather/wttr.in) get a providers breakdown
-console.log(JSON.stringify(clawhub.usageSummary(), null, 2));
-
-// Annotations — persist learned knowledge, even on success
+// Annotations — persist learned knowledge
 clawhub.annotate('weather', 'require path: /skills/weather/scripts/weather.js');
-console.log(clawhub.getNotes('weather'));
-
-// Self-diagnostic — ecosystem health overview
-console.log(JSON.stringify(clawhub.status(), null, 2));
+clawhub.getNotes('weather');
 ```
 
 ## API reference
 
 | Method | Description |
 |--------|-------------|
-| `search(query)` | Semantic + keyword blended search across 735 catalog skills. Returns `[{slug, downloads, desc, status, score}]`. Statuses: `"compatible_installed"` (5), `"compatible"` (60), `"not_compatible"` (45), `"may_work_directly"` (625+). |
-| `install(skillId)` | Install a skill. Accepts `"creator/slug"` (community, fetched from GitHub) or plain `"slug"` (local/compatible, fetched from backend with full file manifest). Skips `"not_compatible"`. |
-| `run(slug, args?)` | Find and require a skill's main script automatically. Checks SKILL.md `main:` frontmatter, then tries `scripts/<name>.js`. Throws a clear error if the skill is instruction-only (no script). |
-| `list(n?)` | Top-N catalog entries by downloads. Returns `[{slug, downloads, desc, status}]` with status for each. |
-| `uninstall(creator/slug)` | Remove skill directory. |
-| `logUsage(slug, outcome, note?)` | Record `"success"` / `"fail"` / `"partial"` for a skill use. Call before `clearTask`. |
-| `logUnmetSearch(query)` | Log a search that found nothing useful. Populates `status().unmetSearches`. |
-| `annotate(slug, note)` | Append a learned note to `_notes.md`. Call for gotchas, correct paths, arg formats — even on success. |
+| `list()` | **Installed skills.** Returns JSON array of skill slugs on this device. Primary use: `run /skills/clawhub/scripts/clawhub.js list`. In code mode: `const x = clawhub.list(); console.log(x);`. |
+| `browse(n?)` | **Browse catalog.** Top-N entries by downloads from the skill store (NOT installed). Primary use: `run /skills/clawhub/scripts/clawhub.js browse --limit 20`. In code mode: `const x = clawhub.browse(20); console.log(x);`. |
+| `search(query)` | **Search catalog.** Semantic + keyword search across the skill store. Primary use: `run /skills/clawhub/scripts/clawhub.js search discord`. In code mode: `const x = await clawhub.search(query); console.log(x);`. |
+| `status()` | **Full diagnostic.** Installed count, recent usage, failures, unmet searches. Returns JSON string. |
+| `install(skillId)` | Install a skill. `'creator/slug'` (community) or `'slug'` (local/backend). Primary use: `run /skills/clawhub/scripts/clawhub.js install discord`. In code mode: `const x = await clawhub.install(skillId); console.log(x);`. |
+| `run(slug, args?)` | Find and run a skill's main script. Returns result. |
+| `uninstall(slug)` | Remove skill from sandbox. Always use just the slug (e.g. `'weather'`). Primary use: `run /skills/clawhub/scripts/clawhub.js uninstall weather`. In code mode: `const x = clawhub.uninstall(slug); console.log(x);`. Throws on not-found. |
+| `status()` | Installed skills, recent usage, failures, unmet searches. Returns JSON string. |
+| `usageSummary(slug?)` | Per-skill success rates. Returns JSON string. |
+| `logUsage(slug, outcome, note?)` | Record `'success'` / `'fail'` / `'partial'`. Call before clearTask. |
+| `logUnmetSearch(query)` | Log a search that found nothing useful. |
+| `annotate(slug, note)` | Persist learned knowledge to `_notes.md`. |
 | `getNotes(slug)` | Read `_notes.md` for a skill. |
-| `usageSummary(slug?)` | Success rates per slug. Sub-slugs (e.g. `weather/wttr.in`) include a `providers` breakdown sorted by successRate. |
 | `status()` | Overview: installed skills, recently used, never used, recent failures, unmet searches. |
 
 ## Skill Screening & Status Categories
@@ -164,3 +196,12 @@ Blends semantic + keyword + popularity via `nlEmbed.semanticRank()` (Apple NLEmb
 5. **Review** → `status()` and `usageSummary()` to see failures, unused skills, and unmet gaps
 
 Usage stats appear in `skills.header` at session start — `{ total, lastUsed, successRate }` per skill.
+
+## Local Testing
+
+Parent project uses ESM; scripts use CommonJS (required for JSC `return`). Override once:
+
+```bash
+echo '{"type":"commonjs"}' > scripts/package.json
+node scripts/clawhub.js list
+```

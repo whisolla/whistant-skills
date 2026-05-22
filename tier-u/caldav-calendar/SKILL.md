@@ -1,25 +1,23 @@
 ---
 name: caldav-calendar
-description: Sync and query CalDAV calendars (iCloud, Google, Fastmail, Nextcloud, etc.) via the CalDAV REST protocol using fetch(). Read/create/update/delete events. No CLI required.
-version: 2.0
+description: Sync and query CalDAV calendars (iCloud, Google, Fastmail, Nextcloud, etc.) via the CalDAV REST protocol using fetch(). Read/create/update/delete events.
+version: 2.2
 ---
 # caldav-calendar
 
 Interact with CalDAV servers directly via `fetch()` using XML requests. Works with iCloud, Google Calendar, Fastmail, Nextcloud, and any CalDAV-compatible server.
 
-## Setup
+## Runtime: fetch✅ btoa✅ | blocked: child_process WebSocket Blob
 
+## Token Setup (one-time)
+
+Credentials are auto-resolved from: `globalThis` → `keychain` → `process.env`.
+
+**Store your credentials once:**
 ```js
-const CALDAV_URL = 'https://caldav.icloud.com/'; // iCloud example
-const USERNAME = 'your@icloud.com';
-const PASSWORD = 'your-app-specific-password'; // NOT your Apple ID password
-const AUTH = 'Basic ' + btoa(`${USERNAME}:${PASSWORD}`);
-
-const headers = {
-  'Authorization': AUTH,
-  'Content-Type': 'application/xml; charset=utf-8',
-  'Depth': '1',
-};
+await keychain.set('CALDAV_URL', 'https://caldav.icloud.com');
+await keychain.set('CALDAV_USERNAME', 'your@email.com');
+await keychain.set('CALDAV_PASSWORD', 'app-specific-password');
 ```
 
 **Common CalDAV base URLs:**
@@ -28,125 +26,116 @@ const headers = {
 - Fastmail: `https://caldav.fastmail.com/`
 - Nextcloud: `https://your-server.com/remote.php/dav/`
 
+**Note:** iCloud requires an **app-specific password** (not your Apple ID password) — generate at appleid.apple.com. Google Calendar CalDAV requires OAuth2 Bearer token.
+
+## /cmd Usage
+
+```sh
+# Discover principal / calendar home
+run /skills/caldav-calendar/scripts/caldav-calendar.js discover
+
+# List calendars at a given home URL
+run /skills/caldav-calendar/scripts/caldav-calendar.js listCalendars --calUrl https://caldav.example.com/user/calendars/
+
+# Query events in a date range
+run /skills/caldav-calendar/scripts/caldav-calendar.js queryEvents --calUrl https://caldav.example.com/user/calendar/ --start 20260101T000000Z --end 20260201T000000Z
+
+# Create an event (PUT)
+run /skills/caldav-calendar/scripts/caldav-calendar.js createEvent --calUrl https://caldav.example.com/user/calendar/ --dtstart 20260115T100000Z --dtend 20260115T110000Z --summary "Team Meeting"
+```
+
+## /code Usage
+
+```js
+const caldav = require('/skills/caldav-calendar/scripts/caldav-calendar.js');
+
+// Auto-resolve credentials from keychain
+const client = await caldav.getClient();
+console.log(await client.discover());
+
+// Or construct directly
+const client2 = caldav.calDavClient({
+  baseUrl: 'https://caldav.icloud.com',
+  username: 'your@email.com',
+  password: 'app-password',
+});
+
+// List calendars
+console.log(await client2.listCalendars('https://caldav.example.com/user/'));
+
+// Query events
+console.log(await client2.queryEvents('https://caldav.example.com/user/calendar/', {
+  start: '20260101T000000Z',
+  end: '20260201T000000Z',
+}));
+```
+
+## Available Actions
+
+| Action | Params |
+|--------|--------|
+| `discover` | — (finds principal/calendar home) |
+| `listCalendars` | `calUrl` (calendar home URL) |
+| `queryEvents` | `calUrl`, `start`, `end` |
+| `createEvent` | `calUrl`, `dtstart`, `dtend`, `summary`, `description` |
+| `deleteEvent` | `calUrl`, `uid`, `etag` |
+
 ## Discover calendars (PROPFIND)
 
 ```js
-const res = await fetch(CALDAV_URL, {
-  method: 'PROPFIND',
-  headers: { ...headers, 'Depth': '0' },
-  body: `<?xml version="1.0" encoding="utf-8"?>
-<D:propfind xmlns:D="DAV:" xmlns:C="urn:ietf:params:xml:ns:caldav">
-  <D:prop>
-    <D:displayname/>
-    <C:calendar-home-set/>
-    <D:current-user-principal/>
-  </D:prop>
-</D:propfind>`,
-});
-const xml = await res.text();
-// Parse the calendar-home-set href from the XML response
-const homeMatch = xml.match(/<[^:>]*:?href[^>]*>([^<]+calendar[^<]+)<\/[^>]+href>/);
-console.log('Calendar home:', homeMatch?.[1]);
+const client = caldav.calDavClient({ baseUrl, username, password });
+const xml = await client.discover();
+// Parse calendar-home-set href from xml
+const homeMatch = xml.match(/<[^:]*:?href[^>]*>([^<]+calendar[^<]+)<\/[^>]+href>/);
+console.log('Calendar home:', homeMatch && homeMatch[1] ? homeMatch[1] : 'not found');
 ```
 
 ## List calendars
 
 ```js
-const calHomeUrl = `${CALDAV_URL}${USERNAME}/`; // adjust per server
-const res = await fetch(calHomeUrl, {
-  method: 'PROPFIND',
-  headers: { ...headers, 'Depth': '1' },
-  body: `<?xml version="1.0" encoding="utf-8"?>
-<D:propfind xmlns:D="DAV:" xmlns:C="urn:ietf:params:xml:ns:caldav">
-  <D:prop>
-    <D:displayname/>
-    <D:resourcetype/>
-    <C:supported-calendar-component-set/>
-  </D:prop>
-</D:propfind>`,
-});
-const xml = await res.text();
-// Extract displayname elements
-const names = [...xml.matchAll(/<D:displayname>([^<]+)<\/D:displayname>/g)].map(m => m[1]);
-console.log('Calendars:', names);
+const calendars = await client.listCalendars(calHomeUrl);
+calendars.forEach(c => console.log(c.displayName, '→', c.href));
 ```
 
-## Fetch events in a date range (REPORT)
+## Query events (REPORT)
 
 ```js
-const calUrl = `${CALDAV_URL}${USERNAME}/calendar/`; // calendar collection URL
-const start = '20260101T000000Z';
-const end = '20260201T000000Z';
-
-const res = await fetch(calUrl, {
-  method: 'REPORT',
-  headers: { ...headers, 'Depth': '1' },
-  body: `<?xml version="1.0" encoding="utf-8"?>
-<C:calendar-query xmlns:D="DAV:" xmlns:C="urn:ietf:params:xml:ns:caldav">
-  <D:prop>
-    <D:getetag/>
-    <C:calendar-data/>
-  </D:prop>
-  <C:filter>
-    <C:comp-filter name="VCALENDAR">
-      <C:comp-filter name="VEVENT">
-        <C:time-range start="${start}" end="${end}"/>
-      </C:comp-filter>
-    </C:comp-filter>
-  </C:filter>
-</C:calendar-query>`,
+const events = await client.queryEvents(calUrl, {
+  start: '20260101T000000Z',
+  end: '20260201T000000Z',
 });
-const xml = await res.text();
-// Extract iCalendar data blocks
-const events = [...xml.matchAll(/<C:calendar-data[^>]*>([\s\S]*?)<\/C:calendar-data>/g)];
-events.forEach(([, ical]) => {
-  const summary = ical.match(/SUMMARY:(.+)/)?.[1]?.trim();
-  const dtstart = ical.match(/DTSTART[^:]*:(.+)/)?.[1]?.trim();
-  console.log(dtstart, summary);
-});
+events.forEach(e => console.log(e.dtstart, e.summary));
 ```
 
-## Create an event (PUT)
+## Create event (PUT)
 
 ```js
-const uid = `whistant-${Date.now()}@example.com`;
-const eventUrl = `${calUrl}${uid}.ics`;
-const ical = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Whistant//EN
-BEGIN:VEVENT
-UID:${uid}
-DTSTART:20260115T100000Z
-DTEND:20260115T110000Z
-SUMMARY:Team Meeting
-DESCRIPTION:Weekly sync
-END:VEVENT
-END:VCALENDAR`;
-
-const res = await fetch(eventUrl, {
-  method: 'PUT',
-  headers: { ...headers, 'Content-Type': 'text/calendar; charset=utf-8' },
-  body: ical,
+const result = await client.createEvent(calUrl, {
+  summary: 'Team Meeting',
+  dtstart: '20260115T100000Z',
+  dtend: '20260115T110000Z',
+  description: 'Weekly sync',
 });
-console.log('Created:', res.status, res.headers.get('ETag'));
+console.log('Created:', result.uid, 'ETag:', result.etag);
 ```
 
-## Delete an event (DELETE)
+## Delete event (DELETE)
 
 ```js
-const eventUrl = `${calUrl}event-uid.ics`;
-const etag = '"event-etag"'; // from GET or PROPFIND
-const res = await fetch(eventUrl, {
-  method: 'DELETE',
-  headers: { ...headers, 'If-Match': etag },
-});
-console.log('Deleted:', res.status);
+const result = await client.deleteEvent(calUrl, uid, etag);
+console.log('Deleted:', result.status);
 ```
 
 ## Notes
 
-- iCloud requires an **app-specific password** (not your Apple ID password) — generate at appleid.apple.com
-- Google Calendar CalDAV requires OAuth2 token in Authorization header (`Bearer <token>`)
-- `Depth: 1` means include children; `Depth: 0` means just the resource itself
-- REPORT with `calendar-query` is the standard way to fetch events by date range
-- Event UID must be unique; use timestamp or UUID
+- iCloud `PROPFIND` on root with `Depth: 1` returns 400 — use `Depth: 0`. Calendar-home-set may not appear in root PROPFIND response (server quirk). For iCloud specifically, you may need to discover the principal URL manually via alternative methods.
+- `Depth: 1` means include children; `Depth: 0` means just the resource itself.
+- REPORT with `calendar-query` is the standard way to fetch events by date range.
+- Event UID must be unique; use timestamp or UUID.
+
+## Local Testing
+
+```bash
+echo '{"type":"commonjs"}' > scripts/package.json
+CALDAV_URL=https://caldav.icloud.com CALDAV_USERNAME=... CALDAV_PASSWORD=... node scripts/caldav-calendar.js discover
+```

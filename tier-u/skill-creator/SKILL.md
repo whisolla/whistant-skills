@@ -1,7 +1,7 @@
 ---
 name: skill-creator
 description: Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.
-version: 1.0
+version: 1.1
 ---
 
 # Skill Creator
@@ -169,8 +169,23 @@ Use full paths for skill scripts: `require('/skills/weather/scripts/weather.js')
 ### Writing Skill Scripts
 
 - Use CommonJS (`module.exports = { ... }`)
-- All async work inside `(async () => { ... })()`
+- Use `async function` style throughout — works in all JSC contexts
+- **CRITICAL**: The PARAMS auto-run block MUST use `return (async function() { ... })()` — the `return` lets TerminalManager's outer IIFE await the result. Without it, `/cmd` silently times out after 15s with "No output"
 - Use `fetch()` for HTTP — not axios (saves a package install)
 - Use `fs` for file persistence between runs
 - Use `keychain` for secrets (API keys, tokens)
 - Use relative requires (`require('./helper.js')`) between scripts in the same skill
+
+#### Standard Section Order for skill.js files
+
+```
+1. SKILL LOGIC     — pure async functions implementing the skill
+2. HANDLER         — async handler(event, context) for AI entry point
+3. EXPORTS         — module.exports and globalThis assignment (synchronous)
+4. CMD PARSING     — skill-specific parseXxxCommand() first, then tokenize()
+5. runFromParams   — accepts inputParams arg; falls back to PARAMS/PARAMS_JSON globals
+6. Node CLI block  — require.main === module guard; .then() is fine here (Node.js only)
+7. PARAMS block    — device /cmd path; MUST use `return (async function(){...})()`
+```
+
+See `skills/skill-creator/scripts/template_skill.js` for a complete working example.

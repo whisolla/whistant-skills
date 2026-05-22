@@ -1,16 +1,12 @@
 // Discord skill test — Whistant iPhone JSC runtime
 // ------------------------------------------------------------------
-// This file tests the discord skill against a live bot.
-// Channel/guild IDs and token are specific to THIS test setup.
-// The SKILL.md is generic — this file is the test harness.
+// Guild: Whistant (1350904588231774361)
+// Channel: #general (1350904589347717187)
 // ------------------------------------------------------------------
 const KEYCHAIN_TOKEN_KEY = 'discord_bot_token';
-const CHANNEL   = 'CHANNEL_ID';   // ← Replace with your channel ID
-const GUILD     = 'GUILD_ID';     // ← Replace with your guild ID
+const CHANNEL   = '1350904589347717187';  // #general
+const GUILD     = '1350904588231774361';  // Whistant
 const BASE      = 'https://discord.com/api/v10';
-
-// Fallback token — replace with your bot token for testing
-const _fallback = 'YOUR_BOT_TOKEN_HERE';
 
 // ------------------------------------------------------------------
 // Token retrieval
@@ -20,9 +16,7 @@ async function getToken() {
     const stored = await keychain.get(KEYCHAIN_TOKEN_KEY);
     if (stored) { console.log('[keychain] token found'); return stored; }
   } catch (e) { console.log('[keychain] get error:', e.message || e); }
-  console.log('[keychain] storing fallback token...');
-  await keychain.set(KEYCHAIN_TOKEN_KEY, _fallback);
-  return _fallback;
+  throw new Error('discord_bot_token not found in keychain');
 }
 
 // ------------------------------------------------------------------
@@ -32,11 +26,19 @@ function httpHeaders(token) {
   return { 'Authorization': 'Bot ' + token, 'Content-Type': 'application/json' };
 }
 
-async function discord(token, method, path, body) {
+async function discord(token, method, path, body, _retries) {
+  _retries = _retries !== undefined ? _retries : 2;
   const opts = { method, headers: httpHeaders(token), timeout: 15 };
   if (body) opts.body = JSON.stringify(body);
   const res = await fetch(BASE + path, opts);
   const text = await res.text();
+  if (res.status === 429) {
+    if (_retries <= 0) throw new Error('Discord rate limited');
+    const data = JSON.parse(text);
+    const waitMs = (data.retry_after || 1) * 1000;
+    await new Promise(r => setTimeout(r, waitMs));
+    return discord(token, method, path, body, _retries - 1);
+  }
   if (res.status === 204) return null;
   if (!res.ok) throw new Error('HTTP ' + res.status + ': ' + text.slice(0, 200));
   try { return JSON.parse(text); } catch { return text; }
@@ -46,7 +48,7 @@ async function discord(token, method, path, body) {
 // Run tests
 // ------------------------------------------------------------------
 (async () => {
-  const results = { skill: 'discord', version: '3.2', runtime: 'iPhone-JSC', passed: [], failed: [] };
+  const results = { skill: 'discord', version: '3.4', runtime: 'iPhone-JSC', passed: [], failed: [] };
   let TOKEN = null; let sentId = null;
 
   // Token
@@ -58,51 +60,44 @@ async function discord(token, method, path, body) {
   // Auth
   try {
     const me = await discord(TOKEN, 'GET', '/users/@me');
-    if (me && me.bot) results.passed.push('live:auth (bot=' + me.username + ')');
+    if (me && me.bot) results.passed.push('live:auth (bot=' + me.username + ', id=' + me.id + ')');
     else results.failed.push('live:auth -> ' + JSON.stringify(me).slice(0, 100));
   } catch (e) { results.failed.push('live:auth -> ' + e.message); }
 
-  // Guild channels (requires GUILD to be set)
-  if (GUILD !== 'GUILD_ID') {
-    try {
-      const channels = await discord(TOKEN, 'GET', '/guilds/' + GUILD + '/channels');
-      if (Array.isArray(channels)) results.passed.push('live:guild-channels (count=' + channels.length + ')');
-      else results.failed.push('live:guild-channels -> ' + JSON.stringify(channels).slice(0, 80));
-    } catch (e) { results.failed.push('live:guild-channels -> ' + e.message); }
-  }
+  // Guild channels
+  try {
+    const channels = await discord(TOKEN, 'GET', '/guilds/' + GUILD + '/channels');
+    const text = channels.filter(c => c.type === 0);
+    results.passed.push('live:guild-channels (count=' + text.length + ')');
+    text.forEach(c => console.log('  #' + c.name + ' → ' + c.id));
+  } catch (e) { results.failed.push('live:guild-channels -> ' + e.message); }
 
-  // Send (requires CHANNEL to be set)
-  if (CHANNEL !== 'CHANNEL_ID') {
+  // Send
+  try {
+    const msg = await discord(TOKEN, 'POST', '/channels/' + CHANNEL + '/messages', {
+      content: '🧪 Whistant discord skill v3.4 test ✅',
+    });
+    if (msg && msg.id) { sentId = msg.id; results.passed.push('live:send (id=' + sentId + ')'); }
+    else results.failed.push('live:send -> ' + JSON.stringify(msg).slice(0, 100));
+  } catch (e) { results.failed.push('live:send -> ' + e.message); }
+
+  // Read
+  try {
+    const msgs = await discord(TOKEN, 'GET', '/channels/' + CHANNEL + '/messages?limit=5');
+    if (Array.isArray(msgs)) results.passed.push('live:read (count=' + msgs.length + ')');
+    else results.failed.push('live:read -> ' + JSON.stringify(msgs).slice(0, 80));
+  } catch (e) { results.failed.push('live:read -> ' + e.message); }
+
+  // React
+  if (sentId) {
     try {
-      const msg = await discord(TOKEN, 'POST', '/channels/' + CHANNEL + '/messages', {
-        content: '🧪 Whistant discord skill v3.2 test ✅',
+      const emoji = encodeURIComponent('✅');
+      const r = await fetch(BASE + '/channels/' + CHANNEL + '/messages/' + sentId + '/reactions/' + emoji + '/@me', {
+        method: 'PUT', headers: httpHeaders(TOKEN),
       });
-      if (msg && msg.id) { sentId = msg.id; results.passed.push('live:send (id=' + sentId + ')'); }
-      else results.failed.push('live:send -> ' + JSON.stringify(msg).slice(0, 100));
-    } catch (e) { results.failed.push('live:send -> ' + e.message); }
-
-    // Read
-    try {
-      const msgs = await discord(TOKEN, 'GET', '/channels/' + CHANNEL + '/messages?limit=5');
-      if (Array.isArray(msgs)) results.passed.push('live:read (count=' + msgs.length + ')');
-      else results.failed.push('live:read -> ' + JSON.stringify(msgs).slice(0, 80));
-    } catch (e) { results.failed.push('live:read -> ' + e.message); }
-
-    // React (requires sentId)
-    if (sentId) {
-      try {
-        const emoji = encodeURIComponent('✅');
-        const r = await fetch(BASE + '/channels/' + CHANNEL + '/messages/' + sentId + '/reactions/' + emoji + '/@me', {
-          method: 'PUT', headers: httpHeaders(TOKEN),
-        });
-        if (r.status === 204) results.passed.push('live:react');
-        else results.failed.push('live:react -> HTTP ' + r.status + ': ' + (await r.text()).slice(0, 80));
-      } catch (e) { results.failed.push('live:react -> ' + e.message); }
-    }
-  } else {
-    results.passed.push('skip:send (CHANNEL not configured)');
-    results.passed.push('skip:read (CHANNEL not configured)');
-    results.passed.push('skip:react (CHANNEL not configured)');
+      if (r.status === 204) results.passed.push('live:react');
+      else results.failed.push('live:react -> HTTP ' + r.status + ': ' + (await r.text()).slice(0, 80));
+    } catch (e) { results.failed.push('live:react -> ' + e.message); }
   }
 
   results.ok = results.failed.length === 0;

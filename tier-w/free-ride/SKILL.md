@@ -133,3 +133,13 @@ ranked.slice(0, 20).forEach(m => console.log(`${m.id} | ctx:${m.context_length}`
 - `openrouter/free` is OpenRouter's smart router — auto-picks best available model
 - After writing config: restart gateway with `openclaw gateway restart`
 - Free models may have rate limits — configure fallbacks to auto-rotate
+
+## Local Testing
+
+Parent project uses ESM; scripts use CommonJS (required for JSC `return`). Override once:
+
+```bash
+export OPENROUTER_API_KEY=your_key_here
+echo '{"type":"commonjs"}' > scripts/package.json
+node -e "var fr = require('./scripts/free-ride.js'); fr.fetchAllModels('YOUR_KEY').then(function(m){console.log(m.length)})"
+```

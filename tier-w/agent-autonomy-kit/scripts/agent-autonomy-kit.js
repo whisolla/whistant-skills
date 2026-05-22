@@ -13,7 +13,7 @@
  *   aak.completeTask(tasks[0], 'whistant');
  */
 
-const WORKSPACE = process.env.WORKSPACE_DIR || '/workspace';
+const WORKSPACE = process.env.WORKSPACE_DIR || '/code';
 const TASKS_DIR = WORKSPACE + '/tasks';
 const QUEUE_FILE = TASKS_DIR + '/QUEUE.md';
 const MEMORY_DIR = WORKSPACE + '/memory';
@@ -243,7 +243,139 @@ function tokenStrategy(estimatedDailyBudget, costPerHeartbeat) {
   };
 }
 
-module.exports = {
+// ─── CMD parsing ───────────────────────────────────────────────────────────────
+
+function tokenize(cmd) {
+  if (typeof cmd !== 'string') return [];
+  var tokens = [];
+  var buf = '';
+  var inStr = false;
+  var quote = '';
+  for (var i = 0; i < cmd.length; i++) {
+    var ch = cmd[i];
+    if (inStr) {
+      if (ch === quote) { inStr = false; quote = ''; }
+      else { buf += ch; }
+    } else {
+      if (ch === '"' || ch === "'") { inStr = true; quote = ch; }
+      else if (ch === ' ') { if (buf) { tokens.push(buf); buf = ''; } }
+      else { buf += ch; }
+    }
+  }
+  if (buf) tokens.push(buf);
+  // Strip "run /skills/.../" prefix
+  var runIdx = -1;
+  for (var j = 0; j < tokens.length; j++) {
+    if (tokens[j] === 'run' && j + 1 < tokens.length && tokens[j+1].indexOf('/skills/') >= 0) {
+      runIdx = j; break;
+    }
+  }
+  if (runIdx >= 0) tokens = tokens.slice(runIdx + 2);
+  return tokens;
+}
+
+function parseCommand(cmd) {
+  var tokens = typeof cmd === 'string' ? tokenize(cmd) : cmd;
+  var out = { action: '', flags: {}, args: [] };
+  if (!tokens || !tokens.length) return out;
+  out.action = tokens[0];
+  for (var i = 1; i < tokens.length; i++) {
+    var t = tokens[i];
+    if (t.indexOf('--') === 0) {
+      var kv = t.slice(2).split('=');
+      out.flags[kv[0]] = kv[1] || true;
+    } else {
+      out.args.push(t);
+    }
+  }
+  return out;
+}
+
+// ─── Handler / runFromParams ───────────────────────────────────────────────────
+
+async function runFromParams(inputParams) {
+  var params = inputParams || {};
+  if (!inputParams || Object.keys(params).length === 0) {
+    try {
+      if (typeof PARAMS !== 'undefined' && PARAMS !== null) params = PARAMS;
+      else if (typeof PARAMS_JSON !== 'undefined' && PARAMS_JSON) params = JSON.parse(PARAMS_JSON);
+    } catch (e) { params = {}; }
+  }
+  var action = params.action || '';
+  if (params.command) {
+    var parsed = parseCommand(params.command);
+    if (parsed.action && !action) action = parsed.action;
+    // Merge flags from command line into params
+    for (var k in parsed.flags) { if (!params[k]) params[k] = parsed.flags[k]; }
+    // Positional args
+    if (parsed.args.length && !params._) { params._ = parsed.args; }
+  }
+  if (!action) action = 'help';
+
+  switch (action) {
+    case 'init':
+      init();
+      return 'agent-autonomy-kit initialized.';
+    case 'tasks':
+      return getReadyTasks().join('\n') || '(no ready tasks)';
+    case 'queue':
+      return getQueue();
+    case 'claim': {
+      var t = params.task || (params._ && params._[0]) || '';
+      var a = params.agent || 'agent';
+      if (!t) return 'Usage: claim <task text> [--agent=name]';
+      claimTask(t, a);
+      return 'Claimed: ' + t;
+    }
+    case 'complete': {
+      var t2 = params.task || (params._ && params._[0]) || '';
+      var a2 = params.agent || 'agent';
+      if (!t2) return 'Usage: complete <task text> [--agent=name]';
+      completeTask(t2, a2);
+      return 'Completed: ' + t2;
+    }
+    case 'add': {
+      var t3 = params.task || (params._ && params._[0]) || '';
+      if (!t3) return 'Usage: add <task text> [--priority=high]';
+      addTask(t3, params.priority);
+      return 'Added: ' + t3;
+    }
+    case 'handoff': {
+      var work = (params.workDone || '').split(',').filter(Boolean);
+      var next = (params.nextTasks || '').split(',').filter(Boolean);
+      writeHandoffNote(params.agent || 'agent', work, next);
+      return 'Handoff note written.';
+    }
+    case 'strategy': {
+      var budget = parseInt(params.budget) || 100000;
+      var cost = parseInt(params.costPerHeartbeat) || 3000;
+      return JSON.stringify(tokenStrategy(budget, cost), null, 2);
+    }
+    case 'help':
+    default:
+      return 'agent-autonomy-kit — Usage:\n' +
+        '  init              — create tasks/QUEUE.md and HEARTBEAT.md\n' +
+        '  tasks             — list ready tasks\n' +
+        '  queue             — show full queue\n' +
+        '  claim <text>      — claim a task\n' +
+        '  complete <text>  — mark task done\n' +
+        '  add <text>        — add new task\n' +
+        '  handoff --workDone=a,b --nextTasks=c,d — write handoff note\n' +
+        '  strategy [--budget=N] [--cost=N] — token budget advice';
+  }
+}
+
+async function handler(event, context) {
+  var params = (event && event.parameters) || {};
+  if (typeof PARAMS !== 'undefined' && PARAMS && Object.keys(params).length === 0) {
+    params = PARAMS;
+  }
+  return await runFromParams(params);
+}
+
+// ─── Exports ───────────────────────────────────────────────────────────────────
+
+const myApi = {
   init,
   getReadyTasks,
   claimTask,
@@ -254,4 +386,35 @@ module.exports = {
   writeHandoffNote,
   tokenStrategy,
   HEARTBEAT_TEMPLATE,
+  handler,
+  runFromParams,
 };
+
+if (typeof module !== 'undefined' && module.exports) { module.exports = myApi; }
+if (typeof globalThis !== 'undefined') { globalThis.agent_autonomy_kit = myApi; }
+
+// ─── Node.js CLI (local dev only) ─────────────────────────────────────────────
+
+if (typeof process !== 'undefined' && typeof module !== 'undefined' && require.main === module) {
+  (async function() {
+    var args = process.argv.slice(2);
+    var result = await runFromParams({ command: args.join(' ') });
+    console.log(typeof result === 'string' ? result : JSON.stringify(result, null, 2));
+  })();
+}
+
+// ─── PARAMS auto-run block (device /cmd only) ─────────────────────────────────
+
+if (typeof module === 'undefined' && ((typeof PARAMS !== 'undefined' && PARAMS !== null) || (typeof PARAMS_JSON !== 'undefined' && PARAMS_JSON))) {
+  return (async function() {
+    var result = await runFromParams();
+    if (typeof console !== 'undefined' && console.log) {
+      if (typeof result === 'string') { console.log(result); }
+      else { console.log(JSON.stringify(result, null, 2)); }
+    }
+    return result;
+  })().catch(function(err) {
+    if (typeof console !== 'undefined' && console.error) console.error(err && err.message ? err.message : String(err));
+    throw err;
+  });
+}

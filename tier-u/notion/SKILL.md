@@ -1,177 +1,230 @@
 ---
 name: notion
 description: Notion API for creating and managing pages, databases, and blocks. Requires a Notion integration token.
-version: 2.0
+version: 2.2
 ---
+
 # notion
 
-Use the Notion REST API via `fetch()` to create, read, update pages, databases, and blocks.
+> **Runtime:** `run /skills/notion/scripts/notion --action search --query "..."` / Code: `console.log(await require('/skills/notion/scripts/notion').search("..."))`
+
+Use the Notion REST API to search pages, query databases, create pages, and append blocks.
 
 ## Setup
 
 1. Create an integration at https://notion.so/my-integrations
 2. Copy the API key (starts with `ntn_` or `secret_`)
 3. Share target pages/databases with your integration (click "..." → "Connect to" → your integration name)
+4. Store the token once via keychain:
 
-Store the key in memory or pass it directly:
 ```js
-const NOTION_KEY = 'ntn_your_key_here'; // replace with real key
-const NOTION_VERSION = '2022-06-28';
-const headers = {
-  'Authorization': `Bearer ${NOTION_KEY}`,
-  'Notion-Version': NOTION_VERSION,
-  'Content-Type': 'application/json',
-};
+await keychain.set("NOTION_TOKEN", "ntn_your_key");
+console.log(await keychain.get("NOTION_TOKEN"));
+// → "ntn_your_key"
 ```
 
-## Search pages and databases
+After this, the skill finds the token automatically — no need to pass it in any command.
+
+| Token source | When it's used |
+|-------------|---------------|
+| `keychain.get("NOTION_TOKEN")` | Normal Whistant use (set once, persists) |
+| `globalThis.NOTION_TOKEN = "..."` | Testing via `/code` if keychain not set |
+| `NOTION_TOKEN=...` env var | Node.js CLI local testing |
+
+## Terminal Usage
+
+```bash
+# Search pages and databases
+run /skills/notion/scripts/notion --action search --query "meeting notes"
+
+# Get a page by ID
+run /skills/notion/scripts/notion --action get-page --page-id "uuid-here"
+
+# Query a database
+run /skills/notion/scripts/notion --action query-db --database-id "uuid-here"
+
+# Update page properties
+run /skills/notion/scripts/notion --action update-page --page-id "uuid-here" --properties '{"Date":{"date":{"start":"2026-05-18"}}}'
+
+# Add a comment
+run /skills/notion/scripts/notion --action add-comment --page-id "uuid-here" --comment "Great progress!"
+
+# Create a page in a database
+run /skills/notion/scripts/notion --action create-page --parent "database-uuid" --properties '{"Name":{"title":[{"text":{"content":"My Note"}}]}}'
+
+# Create a child page under a parent page
+run /skills/notion/scripts/notion --action create-page --parent "page-uuid" --parent-type page --properties '{"Name":{"title":[{"text":{"content":"Child Page"}}]}}'
+
+# Append blocks to a page
+run /skills/notion/scripts/notion --action append-block --page-id "uuid-here" --children '[{"object":"block","type":"paragraph","paragraph":{"rich_text":[{"text":{"content":"Hello!"}}]}}]'
+
+# Get blocks (children) of a page
+run /skills/notion/scripts/notion --action get-blocks --page-id "uuid-here"
+
+# Get database metadata
+run /skills/notion/scripts/notion --action get-database --database-id "uuid-here"
+```
+
+## JS API
 
 ```js
-const res = await fetch('https://api.notion.com/v1/search', {
-  method: 'POST',
-  headers,
-  body: JSON.stringify({ query: 'page title' }),
+var s = require('/skills/notion/scripts/notion');
+
+// Search — returns array of pages and databases
+console.log(await s.search("meeting notes"));
+
+// Get a page by ID
+console.log(await s.getPage("uuid-here"));
+
+// Query a database — returns all pages
+console.log(await s.queryDatabase("uuid-here"));
+
+// Create a page in a database
+console.log(await s.createPage({
+  parent: { database_id: "uuid-here" },
+  properties: { Name: { title: [{ text: { content: "My Note" } }] } }
+}));
+
+// Append blocks to a page (or any block)
+console.log(await s.appendBlock("uuid-here", [
+  { object: "block", type: "paragraph", paragraph: { rich_text: [{ text: { content: "Hello!" } }] } }
+]));
+
+// Get blocks (children) of a page
+console.log(await s.getBlocks("uuid-here"));
+
+// Get database metadata
+console.log(await s.getDatabase("uuid-here"));
+
+// Update page properties (date, tags, status, etc.)
+console.log(await s.updatePage("uuid-here", {
+  properties: { Date: { date: { start: "2026-05-18" } }, Tags: { multi_select: [{ name: "Urgent" }] } }
+}));
+
+// Add a comment to a page (requires comment permission on integration)
+console.log(await s.createComment({ page_id: "uuid-here" }, [
+  { text: { content: "Nice work!" } }
+]));
+// ⚠️ Enable "Insert comments" in your integration settings at notion.so/my-integrations
+```
+
+## Actions
+
+### search(query, options?)
+Searches all pages and databases the integration has access to.
+
+```js
+await s.search("term");
+await s.search("term", { filter: { property: "object", value: "page" }, sort: { direction: "descending", timestamp: "last_edited_time" } });
+```
+
+### getPage(pageId)
+Retrieves a page by ID.
+
+```js
+await s.getPage("uuid");
+```
+
+### queryDatabase(databaseId, options?)
+Queries a database with optional filter and sort.
+
+```js
+await s.queryDatabase("uuid");
+await s.queryDatabase("uuid", { filter: { property: "Status", select: { equals: "Done" } }, sorts: [{ property: "Date", direction: "descending" }] });
+```
+
+### createPage({ parent, properties, children? })
+Creates a new page in a database or as a child of a page.
+
+```js
+await s.createPage({
+  parent: { database_id: "uuid" },
+  properties: { Name: { title: [{ text: { content: "Title" } }] } }
 });
-const data = await res.json();
-console.log(data.results);
 ```
 
-## Get a page
+### appendBlock(blockId, children)
+Appends blocks to an existing page or block.
 
 ```js
-const pageId = 'your-page-id'; // UUID with or without dashes
-const res = await fetch(`https://api.notion.com/v1/pages/${pageId}`, { headers });
-const page = await res.json();
-console.log(page.properties);
+await s.appendBlock("uuid", [
+  { object: "block", type: "paragraph", paragraph: { rich_text: [{ text: { content: "Text" } }] } }
+]);
 ```
 
-## Get page content (blocks)
+### getBlocks(blockId)
+Retrieves the children blocks of a page or block.
 
 ```js
-const pageId = 'your-page-id';
-const res = await fetch(`https://api.notion.com/v1/blocks/${pageId}/children`, { headers });
-const data = await res.json();
-data.results.forEach(b => console.log(b.type, b[b.type]));
+await s.getBlocks("uuid");
 ```
 
-## Create a page in a database
+### getDatabase(databaseId)
+Retrieves database metadata including property schemas.
 
 ```js
-const res = await fetch('https://api.notion.com/v1/pages', {
-  method: 'POST',
-  headers,
-  body: JSON.stringify({
-    parent: { database_id: 'your-database-id' },
-    properties: {
-      Name: { title: [{ text: { content: 'New Item' } }] },
-      Status: { select: { name: 'Todo' } },
-    },
-  }),
+await s.getDatabase("uuid");
+```
+
+### updatePage(pageId, { properties, archived? })
+Updates a page's properties (date, tags, status, etc.) or archives it.
+
+```js
+await s.updatePage("uuid", {
+  properties: { Date: { date: { start: "2026-05-19" } }, Tags: { multi_select: [{ name: "Done" }] } }
 });
-const page = await res.json();
-console.log('Created page:', page.id);
 ```
 
-## Query a database
+### createComment({ page_id }, richText)
+Adds a comment to a page. Requires "Insert comments" permission on the integration.
 
 ```js
-const dbId = 'your-database-id';
-const res = await fetch(`https://api.notion.com/v1/databases/${dbId}/query`, {
-  method: 'POST',
-  headers,
-  body: JSON.stringify({
-    filter: { property: 'Status', select: { equals: 'Active' } },
-    sorts: [{ property: 'Date', direction: 'descending' }],
-  }),
-});
-const data = await res.json();
-console.log(data.results.length, 'results');
+await s.createComment(
+  { page_id: "uuid" },
+  [{ text: { content: "Looks good!" } }]
+);
 ```
 
-## Update page properties
-
-```js
-const pageId = 'your-page-id';
-const res = await fetch(`https://api.notion.com/v1/pages/${pageId}`, {
-  method: 'PATCH',
-  headers,
-  body: JSON.stringify({
-    properties: { Status: { select: { name: 'Done' } } },
-  }),
-});
-const updated = await res.json();
-console.log('Updated:', updated.id);
-```
-
-## Add blocks to a page
-
-```js
-const pageId = 'your-page-id';
-const res = await fetch(`https://api.notion.com/v1/blocks/${pageId}/children`, {
-  method: 'PATCH',
-  headers,
-  body: JSON.stringify({
-    children: [
-      {
-        object: 'block',
-        type: 'paragraph',
-        paragraph: { rich_text: [{ text: { content: 'Hello from Whistant!' } }] },
-      },
-    ],
-  }),
-});
-const data = await res.json();
-console.log('Appended blocks:', data.results.length);
-```
-
-## Create a database
-
-```js
-const res = await fetch('https://api.notion.com/v1/databases', {
-  method: 'POST',
-  headers,
-  body: JSON.stringify({
-    parent: { page_id: 'parent-page-id' },
-    title: [{ text: { content: 'My Database' } }],
-    properties: {
-      Name: { title: {} },
-      Status: { select: { options: [{ name: 'Todo' }, { name: 'Done' }] } },
-      Date: { date: {} },
-    },
-  }),
-});
-const db = await res.json();
-console.log('Created DB:', db.id);
-```
-
-## Property type reference
+## Property Type Reference
 
 ```js
 // title
-const titleProp = { title: [{ text: { content: 'My Title' } }] };
+{title: [{text: {content: 'My Title'}}]}
 // rich_text
-const textProp = { rich_text: [{ text: { content: 'Some text' } }] };
+{rich_text: [{text: {content: 'Some text'}}]}
 // select
-const selectProp = { select: { name: 'Option A' } };
+{select: {name: 'Option A'}}
 // multi_select
-const multiProp = { multi_select: [{ name: 'A' }, { name: 'B' }] };
+{multi_select: [{name: 'A'}, {name: 'B'}]}
 // date
-const dateProp = { date: { start: '2024-01-15', end: '2024-01-16' } };
+{date: {start: '2024-01-15', end: '2024-01-16'}}
 // checkbox
-const checkProp = { checkbox: true };
+{checkbox: true}
 // number
-const numProp = { number: 42 };
+{number: 42}
 // url
-const urlProp = { url: 'https://example.com' };
+{url: 'https://example.com'}
 // email
-const emailProp = { email: 'user@example.com' };
+{email: 'user@example.com'}
 // relation
-const relProp = { relation: [{ id: 'related-page-id' }] };
+{relation: [{id: 'related-page-id'}]}
 ```
 
 ## Notes
 
-- Page/database IDs are UUIDs (with or without dashes)
+- Page/database IDs are UUIDs with or without dashes
 - Rate limit: ~3 requests/second average
-- `Notion-Version: 2022-06-28` is the stable version
+- `Notion-Version: 2022-06-28` is used
 - The API cannot set database view filters — that's UI-only
+- Pass `NOTION_TOKEN` via `keychain.set("NOTION_TOKEN", "ntn_...")` before first use (see Setup)
+
+## Local Testing
+
+```bash
+export NOTION_TOKEN=ntn_...
+cd ~/Projects/whistant/backend/skills/notion
+echo '{"type":"commonjs"}' > scripts/package.json
+node scripts/notion.js --action search --query "test"
+```
+
+

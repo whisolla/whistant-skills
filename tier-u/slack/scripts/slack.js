@@ -1,18 +1,41 @@
 /**
  * slack.js — Slack Web API for Whistant iOS JS runtime
  * Uses fetch() to call Slack Web API methods.
- * 
- * Setup: Set SLACK_BOT_TOKEN in your environment or pass it in.
- *   export SLACK_BOT_TOKEN=xoxb-your-token-here
- * 
+ *
+ * Setup: Set SLACK_BOT_TOKEN via globalThis or keychain before use.
+ *   // Option 1: globalThis (injected by Whistant runtime)
+ *   globalThis.SLACK_BOT_TOKEN = 'xoxb-...';
+ *
+ *   // Option 2: keychain (per-user persistent storage)
+ *   await keychain.set('SLACK_BOT_TOKEN', 'xoxb-...');
+ *
  * Usage:
  *   const slack = require('./slack.js');
- *   // React to a message
  *   await slack.react({ channelId: 'C123', messageId: '1712023032.1234', emoji: '✅' });
  */
 
 const SLACK_API = 'https://slack.com/api';
-const TOKEN = (typeof process !== 'undefined' && process.env?.SLACK_BOT_TOKEN) || '';
+
+/**
+ * Resolve Slack bot token from available sources.
+ * Priority: globalThis.SLACK_BOT_TOKEN > keychain > process.env (devenv)
+ */
+async function _getToken() {
+  // 1. globalThis injected by Whistant runtime
+  if (typeof globalThis !== 'undefined' && globalThis.SLACK_BOT_TOKEN) {
+    return globalThis.SLACK_BOT_TOKEN;
+  }
+  // 2. keychain persistent storage
+  if (typeof keychain !== 'undefined') {
+    const stored = await keychain.get('SLACK_BOT_TOKEN');
+    if (stored) return stored;
+  }
+  // 3. process.env for devenv
+  if (typeof process !== 'undefined' && process.env && process.env.SLACK_BOT_TOKEN) {
+    return process.env.SLACK_BOT_TOKEN;
+  }
+  throw new Error('SLACK_BOT_TOKEN not set. Provide via globalThis.SLACK_BOT_TOKEN or keychain.set("SLACK_BOT_TOKEN", ...)');
+}
 
 /**
  * Make a Slack API call via fetch
@@ -20,8 +43,8 @@ const TOKEN = (typeof process !== 'undefined' && process.env?.SLACK_BOT_TOKEN) |
  * @param {object} params
  * @returns {Promise<object>}
  */
-async function slackCall(method, params = {}) {
-  if (!TOKEN) throw new Error('SLACK_BOT_TOKEN not set. Cannot call Slack API.');
+async function slackCall(method, params) {
+  const TOKEN = await _getToken();
   const res = await fetch(`${SLACK_API}/${method}`, {
     method: 'POST',
     headers: {
@@ -29,6 +52,7 @@ async function slackCall(method, params = {}) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(params),
+    timeout: 15,
   });
   const data = await res.json();
   if (!data.ok) {
@@ -46,7 +70,6 @@ async function slackCall(method, params = {}) {
  * @param {{ channelId: string, messageId: string, emoji: string }} opts
  */
 async function react({ channelId, messageId, emoji }) {
-  // Slack emoji: strip colons if user included them
   const emojiName = emoji.replace(/^:|:$/g, '');
   return slackCall('reactions.add', {
     channel: channelId,
@@ -74,11 +97,11 @@ async function listReactions({ channelId, messageId }) {
  *   to: "channel:C123" or "user:U456"
  */
 async function sendMessage({ to, content }) {
-  const [type, id] = to.split(':');
-  const channel = type === 'channel' ? id : undefined;
-  const user = type === 'user' ? id : undefined;
+  // Slack chat.postMessage accepts user IDs directly as channel (auto-DM)
+  var parts = to.split(':');
+  var channel = parts.length === 2 ? parts[1] : to;
   return slackCall('chat.postMessage', {
-    channel: channel || id,
+    channel: channel,
     text: content,
   });
 }
@@ -163,7 +186,7 @@ async function memberInfo({ userId }) {
  * List custom emoji
  */
 async function emojiList() {
-  return slackCall('emoji.list');
+  return slackCall('emoji.list', {});
 }
 
 // ─── Convenience ────────────────────────────────────────────────────────────
@@ -173,6 +196,11 @@ async function emojiList() {
  * @param {{ action: string, [key: string]: any }} opts
  */
 async function run(opts) {
+  if (!opts || !opts.action) {
+    return 'Usage: slack.run({ action: "emojiList", ... })\n' +
+           'Actions: react, listReactions, sendMessage, editMessage, deleteMessage,\n' +
+           '         readMessages, pinMessage, unpinMessage, listPins, memberInfo, emojiList';
+  }
   const { action, ...params } = opts;
   switch (action) {
     case 'react':              return react(params);
@@ -191,4 +219,149 @@ async function run(opts) {
   }
 }
 
-module.exports = { run, react, listReactions, sendMessage, editMessage, deleteMessage, readMessages, pinMessage, unpinMessage, listPins, memberInfo, emojiList };
+// ─── handler / runFromParams (template compliance) ──────────────────────────
+
+/**
+ * Terminal handler — parses cmd-line style input
+ */
+function handler(event, context) {
+  return run(event);
+}
+
+/**
+ * runFromParams — supports both cmd-line object and action string
+ */
+async function runFromParams(params) {
+  if (!params) params = {};
+  // Handle string input (direct call with command string)
+  if (typeof params === 'string') params = parseCommand(params);
+  // If no action set but PARAMS has positional args (from /cmd path), use first as action
+  if (!params.action && params.argv && params.argv.length > 0) {
+    params.action = params.argv[0];
+  }
+  return run(params);
+}
+
+/**
+ * Tokenize a command string into an array
+ */
+function tokenize(input) {
+  const tokens = [];
+  const re = /[^\s"']+|"([^"]*)"|'([^']*)'/g;
+  let m;
+  while ((m = re.exec(input)) !== null) {
+    tokens.push(m[1] !== undefined ? m[1] : m[2] !== undefined ? m[2] : m[0]);
+  }
+  return tokens;
+}
+
+/**
+ * Parse command string into action+params object
+ * Examples:
+ *   "emojiList"                 → { action: "emojiList" }
+ *   "sendMessage --to channel:C123 --content Hello" → { action: "sendMessage", to: "channel:C123", content: "Hello" }
+ *   "react C123 1712023032.1234 ✅" → { action: "react", channelId: "C123", messageId: "1712023032.1234", emoji: "✅" }
+ */
+function parseCommand(input) {
+  const tokens = tokenize(input);
+  if (!tokens.length) return {};
+  const action = tokens[0];
+  const result = { action };
+  let i = 1;
+  while (i < tokens.length) {
+    const t = tokens[i];
+    if (t.startsWith('--')) {
+      const key = t.slice(2);
+      result[key] = tokens[i + 1] !== undefined && !tokens[i + 1].startsWith('--') ? tokens[++i] : true;
+    } else if (t.startsWith('-')) {
+      const key = t.slice(1);
+      result[key] = tokens[i + 1] !== undefined && !tokens[i + 1].startsWith('--') ? tokens[++i] : true;
+    } else {
+      // Positional args
+      if (i === 1) result.channelId = t;
+      else if (i === 2) result.messageId = t;
+      else if (i === 3) result.emoji = t;
+      else if (i === 4) result.content = t;
+    }
+    i++;
+  }
+  return result;
+}
+
+// ─── Node CLI block ──────────────────────────────────────────────────────────
+
+if (typeof require !== 'undefined' && typeof module !== 'undefined' && require.main === module) {
+  const args = process.argv.slice(2);
+  const input = args.join(' ');
+  if (!input) {
+    console.log('Usage: node slack.js <action> [args]');
+    console.log('Actions: emojiList, sendMessage, react, readMessages, pinMessage, memberInfo');
+    process.exit(0);
+  }
+  const parsed = parseCommand(input);
+  run(parsed).then(r => console.log(JSON.stringify(r, null, 2))).catch(e => { console.error(e.message); process.exit(1); });
+}
+
+// ─── PARAMS auto-run block ──────────────────────────────────────────────────
+
+if (typeof module === 'undefined' && ((typeof PARAMS !== 'undefined' && PARAMS !== null) || (typeof PARAMS_JSON !== 'undefined' && PARAMS_JSON))) {
+  return (async function() {
+    try {
+      var inputParams = typeof PARAMS !== 'undefined' && PARAMS !== null ? PARAMS : (typeof PARAMS_JSON !== 'undefined' ? PARAMS_JSON : null);
+      var result = await runFromParams(inputParams);
+      if (typeof console !== 'undefined' && console.log) {
+        console.log(typeof result === 'string' ? result : JSON.stringify(result, null, 2));
+      }
+      return result;
+    } catch (err) {
+      if (typeof console !== 'undefined' && console.error) console.error(err && err.message ? err.message : String(err));
+      throw err;
+    }
+  })();
+}
+
+// ─── CommonJS / globalThis exports ─────────────────────────────────────────
+
+// Guarded: only set module.exports when CommonJS `module` is available (require path).
+// In direct eval (/cmd path), `module` is undefined so this block is skipped.
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    run,
+    handler,
+    runFromParams,
+    parseCommand,
+    tokenize,
+    react,
+    listReactions,
+    sendMessage,
+    editMessage,
+    deleteMessage,
+    readMessages,
+    pinMessage,
+    unpinMessage,
+    listPins,
+    memberInfo,
+    emojiList,
+  };
+}
+// Always set globalThis for direct script access (both /cmd and /code paths)
+if (typeof globalThis !== 'undefined') {
+  globalThis.slack = {
+    run,
+    handler,
+    runFromParams,
+    parseCommand,
+    tokenize,
+    react,
+    listReactions,
+    sendMessage,
+    editMessage,
+    deleteMessage,
+    readMessages,
+    pinMessage,
+    unpinMessage,
+    listPins,
+    memberInfo,
+    emojiList,
+  };
+}

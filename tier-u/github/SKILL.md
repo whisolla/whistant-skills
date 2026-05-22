@@ -1,130 +1,96 @@
 ---
 name: github
 description: Interact with GitHub using the REST API via fetch(). List/create issues, PRs, check CI runs, and query repositories.
-version: 2.0
+version: 2.3
 ---
 # github
 
 Use the GitHub REST API via `fetch()`. All authenticated requests need a Personal Access Token (PAT).
 
-## Setup
+## Runtime: fetch✅ | blocked: child_process WebSocket Blob
 
+## Token Setup (one-time)
+
+The bot token is read from these sources in priority order:
+1. `globalThis.GITHUB_TOKEN` or `globalThis.GITHUB_FINE_GRAINED_PAT` — injected by Whistant runtime
+2. `keychain.get('GITHUB_TOKEN')` — persistent per-user storage
+3. `params.token` — passed explicitly via `/cmd` flag
+
+**Store your token once:**
 ```js
-const GITHUB_TOKEN = 'ghp_your_token_here'; // PAT with repo scope
-const headers = {
-  'Authorization': `Bearer ${GITHUB_TOKEN}`,
-  'Accept': 'application/vnd.github+json',
-  'X-GitHub-Api-Version': '2022-11-28',
-};
-const REPO = 'owner/repo'; // e.g. 'steipete/Whisperator'
+await keychain.set('GITHUB_TOKEN', 'github_pat_your_token_here');
 ```
 
-## List issues
+To obtain a GitHub PAT: Settings → Developer settings → Personal access tokens → Fine-grained tokens (repo scope).
 
-```js
-const res = await fetch(`https://api.github.com/repos/${REPO}/issues?state=open&per_page=20`, { headers });
-const issues = await res.json();
-issues.forEach(i => console.log(`#${i.number} ${i.title}`));
+## /cmd Usage
+
+```sh
+# Rate limit check (token auto-resolved from keychain)
+run /skills/github/scripts/github.js getRateLimit
+
+# Get repo info
+run /skills/github/scripts/github.js getRepo --repo whisolla/whistant_local
+
+# List open issues
+run /skills/github/scripts/github.js listIssues --repo whisolla/whistant_local --state open --per_page 5
+
+# Search repositories
+run /skills/github/scripts/github.js searchRepos --q "react hooks" --per_page 5
+
+# List your accessible repos (shows read/write permissions)
+run /skills/github/scripts/github.js listRepos --per_page 20
 ```
 
-## Create an issue
+## /code Usage
 
 ```js
-const res = await fetch(`https://api.github.com/repos/${REPO}/issues`, {
-  method: 'POST',
-  headers,
-  body: JSON.stringify({ title: 'Bug: something broke', body: 'Details here', labels: ['bug'] }),
-});
-const issue = await res.json();
-console.log('Created issue:', issue.html_url);
+// Get rate limit
+const gh = require('/skills/github/scripts/github.js');
+const api = gh.githubApi(await gh._getToken());
+console.log(await api.getRateLimit());
+
+// Get repo info
+console.log(await api.getRepo('whisolla/whistant_local'));
+
+// List your repos (shows permissions per repo)
+const repos = await api.listRepos();
+console.log(repos.length + ' repos. First: ' + repos[0].full_name + ' push=' + repos[0].permissions.push);
+
+// List issues
+console.log(await api.listIssues('whisolla/whistant_local', { state: 'open', per_page: 3 }));
+
+// Search repos
+console.log(await api.searchRepos('react hooks', { per_page: 3 }));
 ```
 
-## List pull requests
+## Available Actions
 
-```js
-const res = await fetch(`https://api.github.com/repos/${REPO}/pulls?state=open`, { headers });
-const prs = await res.json();
-prs.forEach(pr => console.log(`#${pr.number} ${pr.title} (${pr.head.ref} → ${pr.base.ref})`));
+| Action | Params |
+|--------|--------|
+| `getRateLimit` | — |
+| `getRepo` | `repo` (owner/name) |
+| `listRepos` | `visibility`, `affiliation`, `per_page` — response includes `permissions.push/admin` per repo |
+| `listIssues` | `repo`, `state`, `labels`, `per_page` |
+| `getIssue` | `repo`, `number` |
+| `createIssue` | `repo`, `title`, `body`, `labels` |
+| `updateIssue` | `repo`, `number`, `state`, `title` |
+| `addIssueComment` | `repo`, `number`, `body` |
+| `listPRs` | `repo`, `state`, `per_page` |
+| `getPR` | `repo`, `number` |
+| `createPR` | `repo`, `title`, `head`, `base` |
+| `getCheckRuns` | `repo`, `sha` |
+| `getCommitStatus` | `repo`, `sha` |
+| `listWorkflowRuns` | `repo`, `branch`, `status` |
+| `getWorkflowRun` | `repo`, `runId` |
+| `getWorkflowRunJobs` | `repo`, `runId` |
+| `getFailedJobs` | `repo`, `runId` |
+| `searchIssues` | `q`, `per_page` |
+| `searchRepos` | `q`, `sort`, `order`, `per_page` |
+
+## Local Testing
+
+```bash
+echo '{"type":"commonjs"}' > scripts/package.json
+GITHUB_FINE_GRAINED_PAT=github_pat_... node scripts/github.js getRateLimit
 ```
-
-## Get PR status / CI checks
-
-```js
-const prNumber = 55;
-const res = await fetch(`https://api.github.com/repos/${REPO}/pulls/${prNumber}`, { headers });
-const pr = await res.json();
-console.log('State:', pr.state, 'Mergeable:', pr.mergeable, 'CI:', pr.head.sha);
-
-// Get check runs for the PR's head commit
-const checkRes = await fetch(`https://api.github.com/repos/${REPO}/commits/${pr.head.sha}/check-runs`, { headers });
-const checks = await checkRes.json();
-checks.check_runs.forEach(c => console.log(c.name, c.status, c.conclusion));
-```
-
-## List workflow runs
-
-```js
-const res = await fetch(`https://api.github.com/repos/${REPO}/actions/runs?per_page=10`, { headers });
-const data = await res.json();
-data.workflow_runs.forEach(r => console.log(r.id, r.name, r.status, r.conclusion));
-```
-
-## Get a specific workflow run
-
-```js
-const runId = 12345678;
-const res = await fetch(`https://api.github.com/repos/${REPO}/actions/runs/${runId}`, { headers });
-const run = await res.json();
-console.log(run.name, run.status, run.conclusion, run.html_url);
-```
-
-## Get failed jobs in a run
-
-```js
-const runId = 12345678;
-const res = await fetch(`https://api.github.com/repos/${REPO}/actions/runs/${runId}/jobs`, { headers });
-const data = await res.json();
-data.jobs
-  .filter(j => j.conclusion === 'failure')
-  .forEach(j => {
-    console.log('Failed job:', j.name);
-    j.steps.filter(s => s.conclusion === 'failure').forEach(s => console.log('  Step:', s.name));
-  });
-```
-
-## Comment on an issue or PR
-
-```js
-const issueNumber = 42;
-const res = await fetch(`https://api.github.com/repos/${REPO}/issues/${issueNumber}/comments`, {
-  method: 'POST',
-  headers,
-  body: JSON.stringify({ body: 'Thanks for the report!' }),
-});
-const comment = await res.json();
-console.log('Comment posted:', comment.html_url);
-```
-
-## Search issues / PRs
-
-```js
-const q = encodeURIComponent(`repo:${REPO} is:issue is:open label:bug`);
-const res = await fetch(`https://api.github.com/search/issues?q=${q}`, { headers });
-const data = await res.json();
-data.items.forEach(i => console.log(`#${i.number} ${i.title}`));
-```
-
-## Get repo info
-
-```js
-const res = await fetch(`https://api.github.com/repos/${REPO}`, { headers });
-const repo = await res.json();
-console.log(repo.full_name, '⭐', repo.stargazers_count, '🍴', repo.forks_count);
-```
-
-## Notes
-
-- Token scopes: `repo` for private repos, `public_repo` for public only
-- Rate limit: 5000 req/hour authenticated, 60/hour unauthenticated
-- Pagination: use `?page=2&per_page=100`, check `Link` header for next page
-- All timestamps are ISO 8601 UTC
