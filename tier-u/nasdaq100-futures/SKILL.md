@@ -1,14 +1,10 @@
 ---
 name: nasdaq100-futures
-description: Fetch the latest Nasdaq-100 futures quote (default NQ=F) via Yahoo Finance chart API and return price, change, percent change, and timestamp. Use when the user asks for Nasdaq-100 futures, NQ futures, NQ=F, 纳指100期货, or wants the latest quote and change metrics.
-version: 1.2
+description: Fetch the latest Nasdaq-100 futures quote (default NQ=F) via Yahoo Finance chart API. Returns human-readable formatted output with price, change, percent change, and timestamp. Use `/cmd` path for single-line dashboard-style output. Use when the user asks for Nasdaq-100 futures, NQ futures, NQ=F, 纳指100期货, or wants the latest quote and change metrics. Evolved from lbl581581/nasdaq100-futures version 1.0.4 at 2026-05-15.
+version: 1.5
 ---
 
-> **Runtime:** Use `handler()` from `scripts/main.js` — fetches data via Yahoo Finance using `fetch()`. The exported function is `handler` (aliased as `get_nasdaq100_futures` in manifest). Do NOT use iOS Shortcuts or runShortcut — use terminal JS execution.
-
-# Nasdaq-100 Futures Quote
-
-> **Runtime:** Always await the handler — do NOT use .then(). Do NOT write fetch code manually.
+> **Runtime — `/cmd` preferred:** `run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js [--symbol SYM] [--compare]`. The `/cmd` terminal path is the first choice. `/code` (require) is available as a secondary path. The exported function is `handler`.
 
 Use this skill when you need the **latest** quote for Nasdaq-100 futures (or another Yahoo Finance symbol), including:
 - **regularMarketPrice**
@@ -18,14 +14,23 @@ Use this skill when you need the **latest** quote for Nasdaq-100 futures (or ano
 
 ## How to Call
 
-> **Runtime:** Primary: `run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js --symbol <sym>`. Code mode: `await s.runFromParams(...)` — do NOT use .then(). Do NOT write fetch code manually.
+> **`/cmd` first (preferred), `/code` second.**
 
-### /cmd — Terminal (preferred, fewer tokens)
+### /cmd — Terminal
 
 ```sh
+# Default: Nasdaq-100 futures (NQ=F)
 run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js
-run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js --symbol NQ=F
-run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js -s ES=F
+
+# Compare all three major futures in one call
+run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js --compare
+
+# Any single Yahoo Finance symbol
+run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js --symbol ES=F
+run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js -s YM=F
+
+# Multiple symbols at once
+run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js --symbol NQ=F,ES=F,YM=F
 ```
 
 ### /code — JavaScript (require)
@@ -33,8 +38,9 @@ run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js -s ES=F
 ```js
 var s = require('/skills/nasdaq100-futures/scripts/nasdaq100-futures.js');
 var result = await s.runFromParams();
-var result = await s.runFromParams({ symbol: 'ES=F' });
 console.log(result.message);
+var result2 = await s.runFromParams({ symbol: 'ES=F' });
+console.log(result2.message);
 ```
 
 ## Output

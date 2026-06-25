@@ -189,6 +189,34 @@ async function emojiList() {
   return slackCall('emoji.list', {});
 }
 
+/**
+ * List channels the bot has access to
+ * @param {{ types?: string }} opts — e.g. "public_channel,private_channel"
+ */
+async function listChannels(opts) {
+  opts = opts || {};
+  var types = opts.types || 'public_channel,private_channel';
+  var allChannels = [];
+  var cursor;
+  do {
+    var params = { types: types, limit: 200 };
+    if (cursor) params.cursor = cursor;
+    var data = await slackCall('conversations.list', params);
+    var channels = data.channels || [];
+    for (var i = 0; i < channels.length; i++) {
+      allChannels.push({
+        id: channels[i].id,
+        name: channels[i].name,
+        isPrivate: channels[i].is_private || false,
+        numMembers: channels[i].num_members || 0,
+        topic: channels[i].topic ? channels[i].topic.value : '',
+      });
+    }
+    cursor = data.response_metadata ? data.response_metadata.next_cursor : null;
+  } while (cursor);
+  return allChannels;
+}
+
 // ─── Convenience ────────────────────────────────────────────────────────────
 
 /**
@@ -214,6 +242,7 @@ async function run(opts) {
     case 'listPins':           return listPins(params);
     case 'memberInfo':         return memberInfo(params);
     case 'emojiList':          return emojiList();
+    case 'listChannels':       return listChannels(params);
     default:
       throw new Error(`Unknown slack action: ${action}`);
   }
@@ -342,6 +371,7 @@ if (typeof module !== 'undefined' && module.exports) {
     listPins,
     memberInfo,
     emojiList,
+    listChannels,
   };
 }
 // Always set globalThis for direct script access (both /cmd and /code paths)
@@ -363,5 +393,6 @@ if (typeof globalThis !== 'undefined') {
     listPins,
     memberInfo,
     emojiList,
+    listChannels,
   };
 }

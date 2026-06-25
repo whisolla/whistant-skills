@@ -620,6 +620,20 @@
     "clawhub_published": false
   },
   {
+    "name": "citedy",
+    "tier": "U-QA",
+    "type": "code",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Citedy SEO Content Autopilot — AI marketing toolkit for trend scouting, competitor analysis, article generation with AI illustrations and voice-over in 55 languages, social media adaptations, lead magnets, content ingestion, and short-form video.",
+    "clawhub_published": false,
+    "version": "3.1",
+    "lastUpdated": "2026-06-25"
+  },
+  {
     "name": "clankerkit",
     "tier": "U-QA",
     "type": "prompt",
@@ -641,7 +655,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Advanced filesystem operations — list, search, batch process, analyze directories. Pure JS using Node fs module. No CLI required.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.3",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "clawhub",
@@ -875,6 +891,20 @@
     "has_platform_specific_code": false,
     "description": "Guide users building a personal CRM from simple files to structured database.",
     "clawhub_published": false
+  },
+  {
+    "name": "crypto-levels",
+    "tier": "U-QA",
+    "type": "code",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Analyze cryptocurrency support and resistance levels with live CoinGecko data. Local extrema, Fibonacci retracement, MA/RSI, and trading insights for 60+ crypto pairs. No API key required.",
+    "clawhub_published": false,
+    "version": "1.0",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "crypto-watcher",
@@ -1285,7 +1315,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Interact with GitHub using the REST API via fetch(). List/create issues, PRs, check CI runs, and query repositories.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "2.7",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "github-tools",
@@ -1483,6 +1515,20 @@
     "has_platform_specific_code": false,
     "description": "'Use when improving internal link structure, anchor text, orphan pages, crawl depth, site architecture, or link equity flow. 内链优化/站内架构'",
     "clawhub_published": false
+  },
+  {
+    "name": "investor-memo-generator",
+    "tier": "U-QA",
+    "type": "code",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Generate investor-ready memos, executive summaries, board updates, LP letters, and term sheet summaries from structured financial data. Pure formatting — no API key.",
+    "clawhub_published": false,
+    "version": "1.2",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "ios",
@@ -1963,9 +2009,9 @@
     "description": "Fetch the latest Nasdaq-100 futures quote (default NQ=F) via Yahoo Finance chart API using Node.js and return price, change, percent change, and timestamp. Use when the user asks for Nasdaq-100 future",
     "clawhub_published": false,
     "ownerId": "kn7arejhvsx5nzzg0d1rm8zsyx82m83s",
-    "version": "1.2",
+    "version": "1.5",
     "publishedAt": 1773199980419,
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "news-summary",
@@ -2117,6 +2163,20 @@
     "has_platform_specific_code": false,
     "description": "OpenHarmony React Native performance static checks and optimization. Based on ohos_react_native performance doc. Use when writing or reviewing React Native for OpenHarmony code, bundle-harmony, lifecy",
     "clawhub_published": false
+  },
+  {
+    "name": "olo-sec-scanner",
+    "tier": "U-QA",
+    "type": "code",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "M&A due diligence scanner using SEC EDGAR XBRL companyfacts API. Income statement, balance sheet, cash flow, risk flags, 8-K/13D/DEF 14A filings. No API key required.",
+    "clawhub_published": false,
+    "version": "1.1",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "omnifun",
@@ -2795,6 +2855,34 @@
     "lastUpdated": "2026-05-17"
   },
   {
+    "name": "skill-creator",
+    "version": "1.1",
+    "tier": "W",
+    "lastUpdated": "2026-05-17",
+    "type": "prompt",
+    "whistant_tested": true,
+    "openclaw_tested": false,
+    "has_scripts": false,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "",
+    "clawhub_published": false
+  },
+  {
+    "name": "skill-goldprice",
+    "tier": "U-QA",
+    "type": "code",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Real-time precious metal prices — gold, silver, platinum, palladium via free JSON API. No API key required.",
+    "clawhub_published": false,
+    "version": "1.0",
+    "lastUpdated": "2026-06-25"
+  },
+  {
     "name": "skrape",
     "tier": "U-QA",
     "type": "prompt",
@@ -2816,7 +2904,23 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Use when you need to control Slack from Clawdbot via the slack tool, including reacting to messages or pinning/unpinning items in Slack channels or DMs.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.4",
+    "lastUpdated": "2026-06-25"
+  },
+  {
+    "name": "startup-financial-model",
+    "tier": "U-QA",
+    "type": "code",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Build investor-ready 3-statement financial models for startups with revenue forecasting, expense modeling, balance sheet projections, cash flow statements, burn rate analysis, and scenario modeling. No API key — pure financial math.",
+    "clawhub_published": false,
+    "version": "1.2",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "summarize",
@@ -2889,6 +2993,20 @@
     "has_platform_specific_code": false,
     "description": "Collaborative thinking partner for exploring complex problems through questioning. Use when working through complex decisions, ambiguous challenges, or strategic planning — resists jumping to solution",
     "clawhub_published": false
+  },
+  {
+    "name": "thirteen-week-cash-flow",
+    "tier": "U-QA",
+    "type": "code",
+    "whistant_tested": false,
+    "openclaw_tested": false,
+    "has_scripts": true,
+    "requires_shortcuts": false,
+    "has_platform_specific_code": false,
+    "description": "Build and maintain a rolling 13-week cash flow forecast. Week-by-week receipts/disbursements, variance tracking, borrowing base, covenant monitoring. Pure treasury math — no API key.",
+    "clawhub_published": false,
+    "version": "1.1",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "timescaledb",
@@ -3147,8 +3265,8 @@
     "has_platform_specific_code": false,
     "description": "Get current weather and forecasts for any location — no API key required.",
     "clawhub_published": false,
-    "version": "1.3",
-    "lastUpdated": "2026-05-17"
+    "version": "1.8",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "weather-esp32",
@@ -3392,20 +3510,6 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Security-first behavioral guidelines for cautious agent operation. Use this skill for ALL operations involving external resources, installations, credentials, or actions with external effects. Trigger",
-    "clawhub_published": false
-  },
-  {
-    "name": "skill-creator",
-    "version": "1.1",
-    "tier": "W",
-    "lastUpdated": "2026-05-17",
-    "type": "prompt",
-    "whistant_tested": true,
-    "openclaw_tested": false,
-    "has_scripts": false,
-    "requires_shortcuts": false,
-    "has_platform_specific_code": false,
-    "description": "",
     "clawhub_published": false
   }
 ]

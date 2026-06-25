@@ -1,5 +1,5 @@
 // ============================================================================
-// nasdaq100-futures v1.2 — Yahoo Finance futures quote
+// nasdaq100-futures v1.3 — Yahoo Finance futures quote
 // /cmd run /skills/nasdaq100-futures/scripts/nasdaq100-futures.js --symbol NQ=F
 // /code: var s = require('/skills/nasdaq100-futures/scripts/nasdaq100-futures.js'); await s.runFromParams({symbol:'ES=F'})
 // ============================================================================
@@ -58,7 +58,7 @@ async function _fetchQuote(symbol) {
     change: (change >= 0 ? '+' : '') + change.toFixed(2),
     changePercent: (changePercent >= 0 ? '+' : '') + changePercent.toFixed(2),
     time: timeStr,
-    message: sym + ' Futures: $' + regularPrice.toFixed(2) + ' (' + (change >= 0 ? '+' : '') + change.toFixed(2) + ' / ' + (changePercent >= 0 ? '+' : '') + changePercent.toFixed(2) + '%) ' + timeStr
+    message: (sym === 'NQ=F' ? 'Nasdaq-100' : sym) + ' Futures: $' + regularPrice.toFixed(2) + ' (' + (change >= 0 ? '+' : '') + change.toFixed(2) + ' / ' + (changePercent >= 0 ? '+' : '') + changePercent.toFixed(2) + '%) ' + timeStr
   };
 }
 
@@ -112,7 +112,7 @@ function tokenize(cmd) {
 
 function parseCommand(cmd) {
   var tokens = tokenize(cmd);
-  var out = { symbol: undefined };
+  var out = { symbol: undefined, compare: false };
   if (!tokens.length) return out;
 
   if (tokens[0] && tokens[0].toLowerCase() === 'run') tokens.shift();
@@ -123,6 +123,9 @@ function parseCommand(cmd) {
     var t = tokens[i];
     if ((t === '--symbol' || t === '-s') && i + 1 < tokens.length) {
       out.symbol = tokens[i + 1]; i += 2; continue;
+    }
+    if (t === '--compare' || t === '-c') {
+      out.compare = true; i += 1; continue;
     }
     i += 1;
   }
@@ -143,18 +146,53 @@ async function runFromParams(inputParams) {
   }
 
   var symbol = params.symbol || 'NQ=F';
+  var compare = params.compare || false;
 
   if (params.command) {
     var parsed = parseCommand(params.command);
     if (parsed.symbol) symbol = parsed.symbol;
+    if (parsed.compare) compare = true;
   }
   if (params.argv && params.argv.length) {
-    var parsed = parseCommand(params.argv.join(' '));
-    if (parsed.symbol) symbol = parsed.symbol;
+    var parsed2 = parseCommand(params.argv.join(' '));
+    if (parsed2.symbol) symbol = parsed2.symbol;
+    if (parsed2.compare) compare = true;
+  }
+
+  // Multi-symbol: comma-separated or --compare flag fetches NQ,ES,YM
+  var symbols = symbol.split(',').map(function(s) { return s.trim(); }).filter(Boolean);
+  if (symbols.length > 1 || compare) {
+    if (compare && symbols.length === 1) symbols = ['NQ=F', 'ES=F', 'YM=F'];
+    var results = [];
+    for (var i = 0; i < symbols.length; i++) {
+      try { results.push(await _fetchQuote(symbols[i])); } catch (e) { results.push({ error: true, symbol: symbols[i], message: e.message }); }
+    }
+    var lines = ['## Futures Comparison', ''];
+    lines.push('| Symbol | Price | Change | % Change | Time |');
+    lines.push('|--------|-------|--------|----------|------|');
+    for (var j = 0; j < results.length; j++) {
+      var r = results[j];
+      if (r.error) {
+        lines.push('| ' + r.symbol + ' | ❌ ' + (r.message || 'Error') + ' | - | - | - |');
+      } else {
+        lines.push('| ' + r.symbol + ' | $' + r.price + ' | ' + r.change + ' | ' + r.changePercent + '% | ' + r.time + ' |');
+      }
+    }
+    return { compare: true, symbols: symbols, results: results, message: lines.join('\n') };
   }
 
   try {
-    return await _fetchQuote(symbol);
+    var quote = await _fetchQuote(symbols[0]);
+    if (quote.error) return quote;
+    // Return formatted string for human-readable /cmd output
+    return {
+      symbol: quote.symbol,
+      price: quote.price,
+      change: quote.change,
+      changePercent: quote.changePercent,
+      time: quote.time,
+      formatted: '📊 ' + quote.symbol + ': $' + quote.price + ' (' + quote.change + ' / ' + quote.changePercent + '%) ' + quote.time
+    };
   } catch (e) {
     return { error: true, message: 'Query failed: ' + (e && e.message ? e.message : String(e)) };
   }
@@ -181,7 +219,13 @@ if (typeof module === 'undefined' && (
   return (async function() {
     var result = await runFromParams();
     if (typeof console !== 'undefined' && console.log) {
-      console.log(JSON.stringify(result, null, 2));
+      if (result.formatted) {
+        console.log(result.formatted);
+      } else if (result.compare) {
+        console.log(result.message);
+      } else {
+        console.log(JSON.stringify(result, null, 2));
+      }
     }
     return result;
   })().catch(function(err) {

@@ -1,7 +1,8 @@
 ---
 name: github
-description: Interact with GitHub using the REST API via fetch(). List/create issues, PRs, check CI runs, and query repositories.
-version: 2.3
+description: Interact with GitHub using the REST API via fetch(). List/create issues, PRs, check CI runs, and query repositories. Evolved from steipete/github version 1.0.0 at 2026-05-22.
+version: 2.7
+keychain: [GITHUB_FINE_GRAINED_PAT, GITHUB_TOKEN]
 ---
 # github
 
@@ -23,70 +24,57 @@ await keychain.set('GITHUB_TOKEN', 'github_pat_your_token_here');
 
 To obtain a GitHub PAT: Settings → Developer settings → Personal access tokens → Fine-grained tokens (repo scope).
 
-## /cmd Usage
+## Usage
 
-```sh
-# Rate limit check (token auto-resolved from keychain)
-run /skills/github/scripts/github.js getRateLimit
-
-# Get repo info
-run /skills/github/scripts/github.js getRepo --repo whisolla/whistant_local
-
-# List open issues
-run /skills/github/scripts/github.js listIssues --repo whisolla/whistant_local --state open --per_page 5
-
-# Search repositories
-run /skills/github/scripts/github.js searchRepos --q "react hooks" --per_page 5
-
-# List your accessible repos (shows read/write permissions)
-run /skills/github/scripts/github.js listRepos --per_page 20
-```
-
-## /code Usage
+Token is auto-resolved from `globalThis` → `keychain`. Use `require()` to load the skill module — do NOT use `child_process` or shell commands.
 
 ```js
-// Get rate limit
-const gh = require('/skills/github/scripts/github.js');
-const api = gh.githubApi(await gh._getToken());
-console.log(await api.getRateLimit());
+const g = require('/skills/github/scripts/github.js');
+const gh = await g.getApi();  // auto-resolves token
 
-// Get repo info
-console.log(await api.getRepo('whisolla/whistant_local'));
+// Rate limit check
+console.log(JSON.stringify(await gh.getRateLimit()));
 
-// List your repos (shows permissions per repo)
-const repos = await api.listRepos();
-console.log(repos.length + ' repos. First: ' + repos[0].full_name + ' push=' + repos[0].permissions.push);
+// List repos
+console.log(await gh.listRepos({ per_page: 5 }));
+
+// Repo info
+console.log(await gh.getRepo('whisolla/whistant_local'));
 
 // List issues
-console.log(await api.listIssues('whisolla/whistant_local', { state: 'open', per_page: 3 }));
+console.log(await gh.listIssues('whisolla/whistant_local', { state: 'open' }));
 
 // Search repos
-console.log(await api.searchRepos('react hooks', { per_page: 3 }));
+console.log(await gh.searchRepos('react hooks', { per_page: 5 }));
 ```
+
+The module exports `getApi()` — an async factory that auto-resolves the token and returns an API object with all methods. Call `await g.getApi()` once to get the authenticated API object, then call methods on it.
 
 ## Available Actions
 
-| Action | Params |
-|--------|--------|
-| `getRateLimit` | — |
-| `getRepo` | `repo` (owner/name) |
-| `listRepos` | `visibility`, `affiliation`, `per_page` — response includes `permissions.push/admin` per repo |
-| `listIssues` | `repo`, `state`, `labels`, `per_page` |
-| `getIssue` | `repo`, `number` |
-| `createIssue` | `repo`, `title`, `body`, `labels` |
-| `updateIssue` | `repo`, `number`, `state`, `title` |
-| `addIssueComment` | `repo`, `number`, `body` |
-| `listPRs` | `repo`, `state`, `per_page` |
-| `getPR` | `repo`, `number` |
-| `createPR` | `repo`, `title`, `head`, `base` |
-| `getCheckRuns` | `repo`, `sha` |
-| `getCommitStatus` | `repo`, `sha` |
-| `listWorkflowRuns` | `repo`, `branch`, `status` |
-| `getWorkflowRun` | `repo`, `runId` |
-| `getWorkflowRunJobs` | `repo`, `runId` |
-| `getFailedJobs` | `repo`, `runId` |
-| `searchIssues` | `q`, `per_page` |
-| `searchRepos` | `q`, `sort`, `order`, `per_page` |
+After calling `const gh = await g.getApi()`, use:
+
+| Method | Signature |
+|--------|-----------|
+| `gh.getRateLimit()` | — no args |
+| `gh.getRepo(repo)` | `repo` string, e.g. `"whisolla/whistant_local"` |
+| `gh.listRepos(opts)` | `opts`: `{ per_page, visibility, affiliation }` |
+| `gh.listIssues(repo, opts)` | `repo` string, `opts`: `{ state, labels, per_page }` |
+| `gh.getIssue(repo, number)` | `repo` string, `number` int |
+| `gh.createIssue(repo, opts)` | `repo` string, `opts`: `{ title, body, labels }` |
+| `gh.updateIssue(repo, number, opts)` | `repo` string, `number` int, `opts`: `{ state, title }` |
+| `gh.addIssueComment(repo, number, body)` | `repo` string, `number` int, `body` string |
+| `gh.listPRs(repo, opts)` | `repo` string, `opts`: `{ state, per_page }` |
+| `gh.getPR(repo, number)` | `repo` string, `number` int |
+| `gh.createPR(repo, opts)` | `repo` string, `opts`: `{ title, head, base }` |
+| `gh.getCheckRuns(repo, sha)` | `repo` string, `sha` commit hash |
+| `gh.getCommitStatus(repo, sha)` | `repo` string, `sha` commit hash |
+| `gh.listWorkflowRuns(repo, opts)` | `repo` string, `opts`: `{ branch, status }` |
+| `gh.getWorkflowRun(repo, runId)` | `repo` string, `runId` int |
+| `gh.getWorkflowRunJobs(repo, runId)` | `repo` string, `runId` int |
+| `gh.getFailedJobs(repo, runId)` | `repo` string, `runId` int |
+| `gh.searchIssues(q, opts)` | `q` query string, `opts`: `{ per_page }` |
+| `gh.searchRepos(q, opts)` | `q` query string, `opts`: `{ sort, order, per_page }` |
 
 ## Local Testing
 

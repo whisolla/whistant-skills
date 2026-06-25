@@ -239,6 +239,13 @@ function githubApi(token) {
   return api;
 }
 
+/** Auto-resolve token and return API object */
+async function getApi() {
+  var token = await _getToken();
+  if (!token) throw new Error('No GitHub token available. Set globalThis.GITHUB_FINE_GRAINED_PAT or store in keychain.');
+  return githubApi(token);
+}
+
 // Helper: merge two objects shallow (JSC-safe, no spread)
 function merge(a, b) {
   var out = {};
@@ -388,6 +395,7 @@ if (typeof require !== 'undefined' && typeof module !== 'undefined' && require.m
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     githubApi: githubApi,
+    getApi: getApi,
     runFromParams: runFromParams,
     handler: handler,
     parseCommand: parseCommand,
@@ -398,6 +406,7 @@ if (typeof module !== 'undefined' && module.exports) {
 if (typeof globalThis !== 'undefined') {
   globalThis.github = {
     githubApi: githubApi,
+    getApi: getApi,
     runFromParams: runFromParams,
     handler: handler,
     parseCommand: parseCommand,

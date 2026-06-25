@@ -1,10 +1,10 @@
 ---
 name: weather
-description: Get current weather and forecasts for any location — no API key required.
-version: 1.3
+description: Get current weather and forecasts for any location — no API key required. Evolved from steipete/weather version 1.0.0 at 2026-05-20.
+version: 1.8
 ---
 
-> **Runtime:** Primary: `run /skills/weather/scripts/weather.js -l <location>`. Code mode: always `await handler(...)` — do NOT use `.then()`. Do NOT write fetch code manually.
+> **Runtime:** Primary: `run /skills/weather/scripts/weather.js -l <location>`. Code mode: `require('/skills/weather/scripts/weather.js')` and call `console.log(await weather.getWeatherWttr(...))` or `console.log(await weather.getWeatherOpenMeteo(...))` — **`/code` only captures `console.log()` output.** Do NOT use `.then()`. Do NOT write fetch code manually.
 
 ## CLI Usage (primary)
 
@@ -19,23 +19,45 @@ run /skills/weather/scripts/weather.js -l London -p wttr
 
 **Short form:** `run scripts/weather.js -l Boston` also works from the skills directory.
 
-In direct command mode, weather.js prints the result automatically.
+In direct command mode, `weather.js` prints the result automatically.
 
-Code mode (`handler()`) is secondary — use it only when the AI needs to process weather data programmatically in a larger script.
+Code mode is secondary — use it only when the AI needs to process weather data programmatically in a larger script. `handler` is exported from the module; it is not a global variable unless your runtime injects it.
 
 ---
 
 ## Code Mode (secondary)
 
+**Important:** `/code` only captures `console.log()` output. Every example wraps the call in `console.log()`.
+
 ```js
-const result = await handler({ parameters: { location: "Boston" } });
-// → { provider: "wttr.in", location: "Boston, MA", tempC: "14", ... }
+const weather = require('/skills/weather/scripts/weather.js');
+
+// wttr.in provider (default, human-readable)
+console.log(await weather.getWeatherWttr('Boston'));
+// → { provider: "wttr.in", location: "Boston, MA", tempC: "14", desc: "Sunny", ... }
+
+// Open-Meteo provider (structured JSON, better for scripting)
+console.log(await weather.getWeatherOpenMeteo('Tokyo'));
+// → { provider: "open-meteo", location: "Tokyo, Japan", tempC: 12, weatherCode: 1, ... }
+
+// Geocoding helper
+console.log(await weather.geocodeOpenMeteo('London'));
+// → { name: "London", country: "United Kingdom", latitude: 51.51, longitude: -0.11, timezone: "Europe/London" }
 ```
 
-Or pass a plain location string:
+If you specifically want the event-style entry point:
 
 ```js
-const result = await handler({ parameters: { text: "London" } });
+const weather = require('/skills/weather/scripts/weather.js');
+console.log(await weather.handler({ location: "Boston" }));
+```
+
+For terminal-style parsing (`run /skills/...` equivalents in code), use `runFromParams`:
+
+```js
+const weather = require('/skills/weather/scripts/weather.js');
+console.log(await weather.runFromParams({ location: "Boston" }));
+console.log(await weather.runFromParams({ text: "London", provider: "open-meteo" }));
 ```
 
 ---
