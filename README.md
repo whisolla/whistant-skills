@@ -1,38 +1,37 @@
 # Whistant Skills
 
-> **Skills from skills_version/ only.** Every skill here has a Forge versioned fork — QA passed, deployable.
+> **Skills from skills_version/ only.** Being versioned = QA'd by Forge = deployable.
 
 ## Structure
 
 ```
 whistant-skills/
-├── tier-u/              ← Universal skills (pure fetch + JS)
-├── tier-w/              ← Whistant-only skills (keychain/OAuth/Shortcuts)
-├── tier-u-qa-list/      ← Pending: catalog entries not yet versioned by Forge
+├── tier-u/              ← Universal skills (pure JS + fetch)
+├── tier-w/              ← Whistant-only skills (OAuth PKCE, Shortcuts bridge)
+├── tier-u-qa-list/      ← Catalog entries not yet versioned by Forge
 └── metadata/
-    └── skills.json       ← Machine-readable catalog
+    └── skills.json       ← Machine-readable catalog (280 entries)
 ```
 
 ## Two Tiers
 
-### tier-u — Universal 🌐
+### tier-u — Universal 🌐 (51 skills)
 
-Pure JavaScript + `fetch()`. No iOS-specific APIs. Works on:
+Pure JavaScript + `fetch()`. No iOS-specific APIs required. Works on:
 - ✅ Whistant (iOS / JavaScriptCore)
 - ✅ OpenClaw (Node.js)
 - ✅ Any `fetch()` runtime
 
-### tier-w — Whistant-only 📱
+**Note:** Having `keychain:` in SKILL.md frontmatter does NOT make a skill Tier-W.
+That's just Whistant's credential resolution. The code itself is universal.
 
-Requires iOS-specific APIs (keychain, OAuth PKCE, Shortcuts bridge):
-- ✅ Whistant (iOS)
-- ❌ OpenClaw / desktop
+### tier-w — Whistant-only 📱 (8 skills)
 
-## Status
+Requires iOS-specific features:
+- OAuth2 PKCE browser flow
+- Shortcuts bridge (`runShortcut`)
+- `whistant://` URL schemes
 
-All skills in `tier-u/` and `tier-w/` come from `backend/skills_version/`
-(v1.0, v1.1, ... v3.6). Being versioned means Forge has already forked,
-tested, and QA'd them. They are deployable.
-
-Skills in `tier-u-qa-list/` are catalog entries not yet versioned by Forge.
-They are prompt-only stubs waiting for fork + versioning.
+Examples: `google` (OAuth + Shortcuts), `microsoft` (OAuth), `discord` (OAuth PKCE),
+`slack` (OAuth PKCE), `clawhub` (OAuth), `skill-creator` (OAuth PKCE),
+`caldav-calendar` (OAuth PKCE), `api-gateway` (OAuth PKCE)
