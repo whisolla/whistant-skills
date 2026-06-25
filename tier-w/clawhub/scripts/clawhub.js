@@ -4,9 +4,7 @@
 //   console.log(JSON.stringify(await clawhub.search('meeting notes'), null, 2));
 //   console.log(await clawhub.install('jeffjhunter/ai-meeting-notes'));
 
-// Catalog: 735 skills (5 pre-installed + 60 compatible + 46 not_compatible + 650+ may_work + 40k+ excluded)
-// Format: ["creator/slug", downloads, "description"]
-// Status tiers: compatible_installed (5), compatible (60), not_compatible (46), may_work_directly (650+)
+// Catalog and status tiers are defined in catalog.js (canonical source)
 // Update CATALOG_VERSION whenever the catalog is regenerated so the vector cache auto-invalidates.
 var _catalog = require('/skills/clawhub/scripts/catalog.js');
 const CATALOG_VERSION = _catalog.CATALOG_VERSION;
@@ -15,6 +13,8 @@ const COMPATIBLE_INSTALLED = _catalog.COMPATIBLE_INSTALLED;
 const COMPATIBLE = _catalog.COMPATIBLE;
 const NOT_COMPATIBLE = _catalog.NOT_COMPATIBLE;
 const getSkillStatus = _catalog.getSkillStatus;
+const SEARCH_TEXT_VERSION = 'category-before-desc-v1';
+const VEC_CACHE_VERSION = CATALOG_VERSION + ':' + SEARCH_TEXT_VERSION;
 var fs = require('fs');
 
 // Backend API base for skill installs (both local and community skills)
@@ -43,8 +43,8 @@ var _catalogTexts = (CATALOG || []).map(function(e) {
   // "a-stock-analysis" embeds as "a-stock-analysis Description..."
   // Author queries ("jeffjhunter"), bare-name queries ("ai-meeting-notes"), and
   // combined queries ("jeffjhunter meeting notes") all work correctly.
-  var embedText = e[0].replace('/', ' ');
-  return embedText + ' ' + (e[2] || '');
+  var embedText = (e && e[0] !== undefined) ? String(e[0]).replace('/', ' ') : '';
+  return embedText + ' ' + (e[3] || '') + ' ' + (e[2] || '');
 });
 if (!CATALOG) console.log('[clawhub] WARNING: CATALOG failed to load from catalog.js — search/list will not work');
 
@@ -64,7 +64,7 @@ function _cosine(a, b) {
 }
 
 async function _ensureVecCache() {
-  if (_vecCache && _vecCacheVersion === CATALOG_VERSION) return true;
+  if (_vecCache && _vecCacheVersion === VEC_CACHE_VERSION) return true;
   if (typeof nlEmbed === 'undefined' || !nlEmbed.embed) return false;
 
   // Load from disk if version matches
@@ -72,13 +72,13 @@ async function _ensureVecCache() {
     try {
       var raw = fs.readFileSync(_vecCacheFile, 'utf8');
       var cached = JSON.parse(raw);
-      if (cached.version === CATALOG_VERSION && Array.isArray(cached.vectors) && cached.vectors.length === CATALOG.length) {
+      if (cached.version === VEC_CACHE_VERSION && Array.isArray(cached.vectors) && cached.vectors.length === CATALOG.length) {
         _vecCache = cached.vectors;
-        _vecCacheVersion = CATALOG_VERSION;
+        _vecCacheVersion = VEC_CACHE_VERSION;
         console.log('[clawhub] Loaded vector cache from disk (' + _vecCache.length + ' vectors).');
         return true;
       }
-      console.log('[clawhub] Stale vector cache (v' + cached.version + ' ≠ v' + CATALOG_VERSION + '), rebuilding...');
+      console.log('[clawhub] Stale vector cache (v' + cached.version + ' ≠ v' + VEC_CACHE_VERSION + '), rebuilding...');
     } catch (e) {
       console.log('[clawhub] Vector cache read error: ' + e.message + ', rebuilding...');
     }
@@ -96,9 +96,9 @@ async function _ensureVecCache() {
     }
   }
   _vecCache = vectors;
-  _vecCacheVersion = CATALOG_VERSION;
+  _vecCacheVersion = VEC_CACHE_VERSION;
   try {
-    fs.writeFileSync(_vecCacheFile, JSON.stringify({ version: CATALOG_VERSION, vectors: _vecCache }), 'utf8');
+    fs.writeFileSync(_vecCacheFile, JSON.stringify({ version: VEC_CACHE_VERSION, vectors: _vecCache }), 'utf8');
     console.log('[clawhub] Vector cache saved to disk (' + _vecCache.length + ' vectors).');
   } catch (e) {
     console.log('[clawhub] Vector cache write error: ' + e.message);
@@ -124,13 +124,12 @@ async function _getSemanticScores(query) {
  * Falls back to keyword-only when nlEmbed is unavailable.
  * @param {string} query
  * @param {number} [limit=10]
- * @returns {Promise<Array<{slug, downloads, desc, status, score}>>}
+ * @returns {Promise<Array<{slug, downloads, category, desc, status, score}>>}
  *
  * Status meanings:
- *   "compatible_installed" — pre-installed (5 default: clawhub, skill-creator, weather, google, microsoft)
- *   "compatible" — locally available, whistant-compatible, not pre-installed (60 skills)
- *   "not_compatible" — deep screened, requires Python/shell/binaries (45 skills)
- *   "may_work_directly" — JS-only code found, simple screened (625+ skills)
+ *   "compatible_installed" — pre-installed, always available
+ *   "compatible" — L3-tested, whistant-compatible
+ *   "not_compatible" — deep screened, non-JS runtime
  */
 async function search(query, limit) {
   limit = limit || 10;
@@ -189,7 +188,7 @@ async function search(query, limit) {
     var semTerm = (semRanks && semRanks[i] > 0) ? 1.0 / (RRF_K + semRanks[i]) : 0;
     var fused = kwTerm + semTerm;
     if (fused === 0) continue;
-    results.push({ slug: CATALOG[i][0], downloads: CATALOG[i][1], desc: CATALOG[i][2] || '', status: getSkillStatus(CATALOG[i]), score: fused, kwScore: kwScores[i] });
+    results.push({ slug: CATALOG[i][0], downloads: CATALOG[i][1], category: CATALOG[i][3] || '', desc: CATALOG[i][2] || '', status: getSkillStatus(CATALOG[i]), score: fused, kwScore: kwScores[i] });
   }
   for (var bi = 0; bi < results.length; bi++) {
     delete results[bi].kwScore;  // don't leak internal scoring data
@@ -324,12 +323,12 @@ function list() {
  * Browse the skill catalog — top N by downloads.
  * This is the "store", not installed skills. Use list() for installed.
  * @param {number} [limit=20]
- * @returns {string} JSON array of {slug, downloads, desc, status}
+ * @returns {string} JSON array of {slug, downloads, category, desc, status}
  */
 function browse(limit) {
   limit = limit || 20;
   var results = CATALOG.slice(0, limit).map(function(e) {
-    return { slug: e[0], downloads: e[1], desc: e[2] || '', status: getSkillStatus(e) };
+    return { slug: e[0], downloads: e[1], category: e[3] || '', desc: e[2] || '', status: getSkillStatus(e) };
   });
   return JSON.stringify(results, null, 2);
 }
@@ -932,7 +931,7 @@ async function runFromParams(inputParams) {
   if (action === 'usageSummary' || action === 'usage') return usageSummary(_firstDefined([params.skill, params.slug, args[0]]));
   if (action === 'annotate') return annotate(_firstDefined([params.skill, params.slug, args[0]]), _firstDefined([params.note, args.slice(1).join(' ')]));
   if (action === 'getNotes' || action === 'notes') return getNotes(_firstDefined([params.skill, params.slug, args[0]]));
-  if (action === 'logUsage') return logUsage(_firstDefined([params.skill, params.slug, args[0]]), _firstDefined([params.outcome, args[1]]), _firstDefined([params.note, args.slice(2).join(' ')]));
+  if (action === 'logUsage' || action === 'log') return logUsage(_firstDefined([params.skill, params.slug, args[0]]), _firstDefined([params.outcome, args[1]]), _firstDefined([params.note, args.slice(2).join(' ')]));
   if (action === 'logUnmetSearch') return logUnmetSearch(_firstDefined([params.query, args.join(' ')]));
   if (action === 'run') {
     var runTarget = _firstDefined([params.skill, params.slug, args[0]]);
@@ -944,7 +943,16 @@ async function runFromParams(inputParams) {
     return await syncCatalogFromBackend();
   }
 
-  throw new Error('Unknown clawhub action: ' + action);
+  if (action === 'help' || action === '--help' || action === '-h') {
+    return 'clawhub actions: list | browse | search | install | uninstall | status | usageSummary | logUsage | log | annotate | getNotes | logUnmetSearch | run | help\n'
+      + 'Examples:\n'
+      + '  run /skills/clawhub/scripts/clawhub.js list\n'
+      + '  run /skills/clawhub/scripts/clawhub.js search discord\n'
+      + '  run /skills/clawhub/scripts/clawhub.js install discord\n'
+      + '  run /skills/clawhub/scripts/clawhub.js logUsage weather success "wttr.in worked"';
+  }
+
+  throw new Error('Unknown clawhub action: ' + action + '. Run with "help" to see available actions.');
 }
 
 // ---------------------------------------------------------------------------

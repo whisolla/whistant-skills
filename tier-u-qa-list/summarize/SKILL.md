@@ -1,6 +1,6 @@
 ---
 name: summarize
-description: Summarize any URL, text content, or document — uses fetch() to get content then LLM to summarize.
+description: Summarize any URL, text content, or document — uses fetch() to get content then LLM to summarize. Evolved from steipete/summarize version 1.0 at 2026-05-28.
 version: 1.0
 ---
 

@@ -50,7 +50,7 @@
     "description": "A股实时行情与技术分析（沪深股票）。不需要API Key。",
     "clawhub_published": false,
     "version": "2.6",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "adclaw",
@@ -66,7 +66,7 @@
   },
   {
     "name": "admapix",
-    "tier": "U-QA",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -74,7 +74,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Ad intelligence & app analytics assistant. Search ad creatives, analyze apps, view rankings, track downloads/revenue, and get market insights. Get your API key at https://www.admapix.com. Triggers: 找素",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "2.1",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "afrexai-automation-strategy",
@@ -150,7 +152,7 @@
   },
   {
     "name": "agent-autonomy-kit",
-    "tier": "U",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": true,
     "openclaw_tested": false,
@@ -158,7 +160,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Transform your agent from reactive to proactive. Set up a task queue, proactive heartbeat, and continuous operation patterns so the agent works between prompts.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.3",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "agent-autopilot-bak",
@@ -184,8 +188,9 @@
     "description": "让 AI 智能体互相交流的论坛平台 - 发帖、回复、点赞、交好友",
     "clawhub_published": false,
     "ownerId": "kn715rzhdwp0ck3yf1s77zn6zh82fc07",
-    "version": "3.0.3",
-    "publishedAt": 1776326915888
+    "version": "3.2",
+    "publishedAt": 1776326915888,
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "agent-contact-card",
@@ -327,7 +332,7 @@
     "ownerId": "kn79pyzfgpxq2w0422yr4273px82q0be",
     "version": "2.2",
     "publishedAt": 1773245968580,
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "anti-panic-protocol",
@@ -343,7 +348,7 @@
   },
   {
     "name": "api-gateway",
-    "tier": "U-QA",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -351,7 +356,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Passthrough proxy for third-party APIs using Maton.ai managed OAuth. Call 100+ services (Slack, Notion, Airtable, HubSpot, etc.) without handling OAuth tokens yourself. Requires MATON_API_KEY.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "2.2",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "arxiv",
@@ -365,7 +372,7 @@
     "description": "Search, download, and summarize academic papers from arXiv. Built for AI/ML researchers.",
     "clawhub_published": false,
     "version": "1.3",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "auth",
@@ -513,7 +520,7 @@
   },
   {
     "name": "book-of-the-day",
-    "tier": "U-QA",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -521,7 +528,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": ">",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.1",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "breadcrumb-generator",
@@ -561,7 +570,7 @@
   },
   {
     "name": "caldav-calendar",
-    "tier": "U-QA",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -569,7 +578,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Sync and query CalDAV calendars (iCloud, Google, Fastmail, Nextcloud, etc.) via the CalDAV REST protocol using fetch(). Read/create/update/delete events. No CLI required.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "2.6",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "cardano",
@@ -621,7 +632,7 @@
   },
   {
     "name": "citedy",
-    "tier": "U-QA",
+    "tier": "W-QA",
     "type": "code",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -670,8 +681,8 @@
     "has_platform_specific_code": false,
     "description": "Search, install, and self-improve on community skills from a pre-vetted catalog of 735 OpenClaw skills compatible with Whistant's JS runtime. Use when the user wants to find or install a skill by topi",
     "clawhub_published": false,
-    "version": "3.24",
-    "lastUpdated": "2026-05-17"
+    "version": "3.34",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "close-loop",
@@ -707,7 +718,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "中文网页搜索 - 聚合 13+ 免费搜索引擎，包含公众号文章搜索",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.0",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "code-patent-scanner",
@@ -817,8 +830,9 @@
     "description": "\"Cross-platform content repurposer. Takes one piece of content and rewrites it for multiple Chinese social media platforms, adapting tone, format, length, and style.\"",
     "clawhub_published": false,
     "ownerId": "kn7a1sn2zfsd38xe8aar4c5fbd82aapd",
-    "version": "1.0.0",
-    "publishedAt": 1772694856184
+    "version": "1.1.0",
+    "publishedAt": 1772694856184,
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "contract-review",
@@ -918,7 +932,7 @@
     "description": "",
     "clawhub_published": false,
     "version": "1.2",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "cs-ai-seo",
@@ -961,7 +975,7 @@
   },
   {
     "name": "daily-news-digest",
-    "tier": "U-QA",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -969,7 +983,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Personalized news briefings from your chosen sources, delivered morning or evening, with voice option and smart filtering.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.0.0",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "delegate",
@@ -1021,7 +1037,7 @@
   },
   {
     "name": "discord",
-    "tier": "U",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": true,
     "openclaw_tested": false,
@@ -1029,7 +1045,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Send and read Discord messages via Discord REST API v10 using a Bot Token. Supports send, read, react, edit, delete, threads, DMs, guild discovery, and more — all via fetch(). No CLI required.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "3.6",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "drizzle",
@@ -1119,11 +1137,13 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Read-only factual data about historical Ethereum mainnet contracts. Use when the user asks about a specific contract address, early Ethereum contracts, deployment era, deployer, bytecode, decompiled c",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.1",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "etherscan",
-    "tier": "U",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": true,
     "openclaw_tested": false,
@@ -1133,7 +1153,7 @@
     "description": ">-",
     "clawhub_published": false,
     "version": "1.3",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "everything-is-ok",
@@ -1221,7 +1241,7 @@
   },
   {
     "name": "free-ride",
-    "tier": "U",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": true,
     "openclaw_tested": false,
@@ -1231,7 +1251,7 @@
     "description": "Manage free AI models from OpenRouter for OpenClaw. Fetch, rank, and configure the best free models via the OpenRouter API. Requires OPENROUTER_API_KEY.",
     "clawhub_published": false,
     "version": "1.0",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "freeride-ai",
@@ -1247,7 +1267,7 @@
   },
   {
     "name": "fundamental-stock-analysis",
-    "tier": "U-QA",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1255,7 +1275,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Fundamental equity analysis and peer ranking using a structured scoring playbook (quality, balance-sheet safety, cash flow, valuation, sector adjustments, confidence modifiers). Use when a user asks t",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.6",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "gamer-news",
@@ -1267,7 +1289,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Fetch and summarize the latest video game news from major gaming outlets (IGN, Kotaku, GameSpot, Polygon, Eurogamer, Rock Paper Shotgun, VG247, Gematsu, PlayStation Blog). Use when the user invokes /g",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.0.0",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "general-writing",
@@ -1307,7 +1331,7 @@
   },
   {
     "name": "github",
-    "tier": "U",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": true,
     "openclaw_tested": false,
@@ -1367,7 +1391,7 @@
     "description": "Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs — runs entirely in the iPhone JS terminal via fetch() and OAuth2 PKCE. Tokens stored in iOS Keychain.",
     "clawhub_published": false,
     "version": "1.2",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "google-play-store",
@@ -1407,7 +1431,7 @@
   },
   {
     "name": "guitar-tab-finder",
-    "tier": "U-QA",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -1417,8 +1441,9 @@
     "description": "Find guitar tabs/sheet sources for a song from a title or link (especially YouTube), rank the best matches, and produce a clean practice note. Use when a user asks to locate tabs/chords/fingerstyle ar",
     "clawhub_published": false,
     "ownerId": "kn71mrsnq06rxexqwgpwn0tb8d81bcx6",
-    "version": "1.0.1",
-    "publishedAt": 1772842406346
+    "version": "1.1",
+    "publishedAt": 1772842406346,
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "hacker-news",
@@ -1660,7 +1685,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Scrape a public Letterboxd user's watchlist into a CSV/JSONL list of titles and film URLs without logging in. Use when a user asks to export, scrape, or mirror a Letterboxd watchlist, or to build watc",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.1",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "liang-tavily-search",
@@ -1857,7 +1884,7 @@
     "description": "Microsoft 365 for the iPhone JS terminal via Microsoft Graph. Outlook Mail, Calendar, OneDrive, Contacts, and Office files (Excel, Word, PowerPoint — cloud via Graph + local via native bridge). Uses b",
     "clawhub_published": false,
     "version": "2.7",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "mikrotik",
@@ -1921,7 +1948,7 @@
   },
   {
     "name": "mx-macro-data",
-    "tier": "U",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": true,
     "openclaw_tested": false,
@@ -1929,11 +1956,13 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "基于东方财富数据库，支持自然语言查询全球宏观经济数据，涵盖GDP、CPI、货币金融、财政、外贸、就业等领域。Natural language query for global macroeconomic data via EastMoney API.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "2.2",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "mx-stockpick",
-    "tier": "U",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": true,
     "openclaw_tested": false,
@@ -1941,7 +1970,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "基于东方财富数据库，支持通过自然语言筛选A港美股、基金、可转债等，支持技术面、消息面、基本面及市场情绪等多维指标筛选。Natural language stock screener via EastMoney API.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "2.3",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "mysticx-tarot-drawer",
@@ -2025,7 +2056,7 @@
     "description": "Get today's news briefing — fetches RSS feeds from BBC, Reuters, NPR, Al Jazeera and summarizes top stories.",
     "clawhub_published": false,
     "version": "1.0",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "nextjs",
@@ -2037,7 +2068,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Build Next.js 15 apps with App Router, server components, caching, auth, and production patterns.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.2.0",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "nextjs-expert",
@@ -2089,7 +2122,7 @@
   },
   {
     "name": "notion",
-    "tier": "U-QA",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -2099,7 +2132,7 @@
     "description": "Notion API for creating and managing pages, databases, and blocks. Requires a Notion integration token.",
     "clawhub_published": false,
     "version": "2.2",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "notion-calendar",
@@ -2500,7 +2533,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Get real-time Polymarket prediction market data. Use fetch() via the handler — NOT the search tool.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "2.5",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "ppt-generator",
@@ -2636,7 +2671,7 @@
   },
   {
     "name": "reddit-research",
-    "tier": "U",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": true,
     "openclaw_tested": false,
@@ -2646,7 +2681,7 @@
     "description": "",
     "clawhub_published": false,
     "version": "1.2",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "redis-store",
@@ -2711,8 +2746,9 @@
     "description": "Generate professional resumes that conform to the Reactive Resume schema. Use when the user wants to create, build, or generate a resume through conversational AI, or asks about resume structure, sect",
     "clawhub_published": false,
     "ownerId": "kn7fc4p432ke45bgeq7gj28g218038wv",
-    "version": "1.0.0",
-    "publishedAt": 1769591441053
+    "version": "1.1",
+    "publishedAt": 1769591441053,
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "rts-dashboard",
@@ -2852,13 +2888,13 @@
     "description": "Make HTTP requests (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS) with custom headers, automatic retries, and graceful error handling. Use when the user needs to call an API, fetch a URL, send webhook",
     "clawhub_published": false,
     "version": "1.0",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "skill-creator",
     "version": "1.1",
     "tier": "W",
-    "lastUpdated": "2026-05-17",
+    "lastUpdated": "2026-06-25",
     "type": "prompt",
     "whistant_tested": true,
     "openclaw_tested": false,
@@ -2896,7 +2932,7 @@
   },
   {
     "name": "slack",
-    "tier": "U",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": true,
     "openclaw_tested": false,
@@ -2932,7 +2968,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Summarize any URL, text content, or document — uses fetch() to get content then LLM to summarize.",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.0",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "superdesign",
@@ -3049,7 +3087,7 @@
   },
   {
     "name": "trello",
-    "tier": "U",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": true,
     "openclaw_tested": false,
@@ -3059,7 +3097,7 @@
     "description": "Manage Trello boards, lists, and cards via the Trello REST API.",
     "clawhub_published": false,
     "version": "2.8",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "trip-save",
@@ -3163,11 +3201,11 @@
     "description": "Extract and display URL previews with title, description, and favicon. Use when user shares any HTTP/HTTPS link and wants to see what the page is about without visiting it. Triggers on: (1) User sends",
     "clawhub_published": false,
     "version": "1.1",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "verify-claims",
-    "tier": "U-QA",
+    "tier": "W-QA",
     "type": "prompt",
     "whistant_tested": false,
     "openclaw_tested": false,
@@ -3175,7 +3213,9 @@
     "requires_shortcuts": false,
     "has_platform_specific_code": false,
     "description": "Verify claims and information using professional fact-checking services. Use this skill when users want to verify facts, check claims in articles/videos/transcripts, validate news authenticity, cross-",
-    "clawhub_published": false
+    "clawhub_published": false,
+    "version": "1.0",
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "vibe-3k",
@@ -3216,7 +3256,7 @@
     "description": "Fetch transcripts and subtitles from YouTube and other video platforms using fetch(). No yt-dlp required. For YouTube, uses the public caption endpoint.",
     "clawhub_published": false,
     "version": "2.6",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "void-atlas-protocol",
@@ -3292,7 +3332,7 @@
     "description": "从微信文章/博客/新闻网页提取干净内容，去除广告和侧边栏",
     "clawhub_published": false,
     "version": "1.3",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "web-search-plus",
@@ -3462,7 +3502,7 @@
     "description": "Fetch transcripts and subtitles from YouTube videos. Uses the YouTube Android innertube API — no API key required for public videos.",
     "clawhub_published": false,
     "version": "2.3",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-06-25"
   },
   {
     "name": "zaobo-news",

@@ -1,6 +1,6 @@
 ---
 name: arxiv
-description: Search, download, and summarize academic papers from arXiv. Built for AI/ML researchers.
+description: Search, download, and summarize academic papers from arXiv. Built for AI/ML researchers. Evolved from ractorrr/arxiv version 1.0.4 at 2026-05-15.
 version: 1.3
 ---
 

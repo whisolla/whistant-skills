@@ -1,7 +1,8 @@
 ---
 name: google
-description: Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs — runs entirely in the iPhone JS terminal via fetch() and OAuth2 PKCE. Tokens stored in iOS Keychain.
+description: Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs — runs entirely in the iPhone JS terminal via fetch() and OAuth2 PKCE. Tokens stored in iOS Keychain. Evolved from whistant/google version 1.0 at 2026-05-16.
 version: 1.2
+keychain: [google_oauth_token, google_client_id, google_scopes]
 ---
 
 # google

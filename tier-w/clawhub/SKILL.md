@@ -1,7 +1,7 @@
 ---
 name: clawhub
-description: Main skill-management tool for listing installed skills, searching the catalog, installing skills, and uninstalling skills. Primary use is direct terminal commands like `run /skills/clawhub/scripts/clawhub.js list` or `run /skills/clawhub/scripts/clawhub.js search discord`; code mode via `require(...)` is secondary.
-version: 3.24
+description: Main skill-management tool for listing installed skills, searching the catalog, installing skills, and uninstalling skills. Primary use is direct terminal commands like `run /skills/clawhub/scripts/clawhub.js list` or `run /skills/clawhub/scripts/clawhub.js search discord`; code mode via `require(...)` is secondary. Evolved from steipete/clawhub version 1.0 at 2026-05-15.
+version: 3.34
 ---
 
 # ClaWHub Skill Manager
@@ -28,6 +28,9 @@ run /skills/clawhub/scripts/clawhub.js browse --limit 20
 run /skills/clawhub/scripts/clawhub.js search discord
 run /skills/clawhub/scripts/clawhub.js install discord
 run /skills/clawhub/scripts/clawhub.js uninstall discord
+run /skills/clawhub/scripts/clawhub.js logUsage weather success "wttr.in worked"
+run /skills/clawhub/scripts/clawhub.js log weather success "wttr.in worked"
+run /skills/clawhub/scripts/clawhub.js help
 ```
 
 These are terminal commands, not JavaScript code.
@@ -86,8 +89,9 @@ clawhub.getNotes('weather');
 | `uninstall(slug)` | Remove skill from sandbox. Always use just the slug (e.g. `'weather'`). Primary use: `run /skills/clawhub/scripts/clawhub.js uninstall weather`. In code mode: `const x = clawhub.uninstall(slug); console.log(x);`. Throws on not-found. |
 | `status()` | Installed skills, recent usage, failures, unmet searches. Returns JSON string. |
 | `usageSummary(slug?)` | Per-skill success rates. Returns JSON string. |
-| `logUsage(slug, outcome, note?)` | Record `'success'` / `'fail'` / `'partial'`. Call before clearTask. |
+| `logUsage(slug, outcome, note?)` | Record `'success'` / `'fail'` / `'partial'`. Call before clearTask. Alias: `log`. |
 | `logUnmetSearch(query)` | Log a search that found nothing useful. |
+| `help` | Show all available actions and examples. Terminal: `run ... clawhub.js help` or `--help` / `-h`. |
 | `annotate(slug, note)` | Persist learned knowledge to `_notes.md`. |
 | `getNotes(slug)` | Read `_notes.md` for a skill. |
 | `status()` | Overview: installed skills, recently used, never used, recent failures, unmet searches. |
@@ -190,7 +194,7 @@ Blends semantic + keyword + popularity via `nlEmbed.semanticRank()` (Apple NLEmb
 ## Self-improvement loop
 
 1. **Use a skill** → `run(slug)` auto-resolves the script; no need to manually find paths
-2. **Log outcome** → `logUsage(slug, outcome, note)` before every `clearTask`
+2. **Log outcome** → `logUsage(slug, outcome, note)` (or alias `log`) before every `clearTask`
 3. **Log gaps** → `logUnmetSearch(query)` when search returns nothing useful
 4. **Annotate** → `annotate(slug, note)` for anything learned, including on success (correct path, provider quirks, arg format)
 5. **Review** → `status()` and `usageSummary()` to see failures, unused skills, and unmet gaps

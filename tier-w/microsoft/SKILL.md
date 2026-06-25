@@ -1,7 +1,8 @@
 ---
 name: microsoft
-description: Microsoft 365 for the iPhone JS terminal via Microsoft Graph. Outlook Mail, Calendar, OneDrive, Contacts, and Office files (Excel, Word, PowerPoint - cloud via Graph + local via native bridge). Uses built-in OAuth2 PKCE.
+description: Microsoft 365 for the iPhone JS terminal via Microsoft Graph. Outlook Mail, Calendar, OneDrive, Contacts, and Office files (Excel, Word, PowerPoint - cloud via Graph + local via native bridge). Uses built-in OAuth2 PKCE. Evolved from whistant/microsoft version 2.1 at 2026-05-16.
 version: 2.7
+keychain: [microsoft_oauth_token]
 ---
 
 # microsoft

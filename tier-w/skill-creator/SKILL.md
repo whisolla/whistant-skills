@@ -1,6 +1,6 @@
 ---
 name: skill-creator
-description: Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.
+description: Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets. Evolved from chindden/skill-creator version 0.1.0 at 2026-05-12.
 version: 1.1
 ---
 

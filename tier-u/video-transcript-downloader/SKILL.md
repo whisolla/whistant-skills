@@ -1,6 +1,6 @@
 ---
 name: video-transcript-downloader
-description: Fetch YouTube video transcripts, timestamps, and metadata. Uses the Android player endpoint to bypass bot detection. No API key required.
+description: Fetch YouTube video transcripts, timestamps, and metadata. Uses the Android player endpoint to bypass bot detection. No API key required. Evolved from steipete/video-transcript-downloader version 1.0.0 at 2026-05-15.
 version: 2.6
 ---
 

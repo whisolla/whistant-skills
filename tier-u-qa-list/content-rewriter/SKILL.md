@@ -1,7 +1,7 @@
 ---
 name: content-rewriter
-version: 1.0.0
-description: "Cross-platform content repurposer. Takes one piece of content and rewrites it for multiple Chinese social media platforms, adapting tone, format, length, and style."
+version: 1.1.0
+description: "Cross-platform content repurposer. Takes one piece of content and rewrites it for multiple Chinese social media platforms, adapting tone, format, length, and style. Evolved from content-rewriter/content-rewriter version 1.0.0 at 2026-05-28."
 author: ai-agent-store
 license: MIT
 platforms:
@@ -36,7 +36,9 @@ Trigger when the user mentions: 改写, rewrite, 转载, cross-post, 多平台�
 ### → 小红书 (from any platform)
 - Shorten to 300-800 characters
 - Add emoji every 2-3 sentences
-- Title: "number + keyword + emoji" format
+- Title: **number + keyword + emoji** format
+  - Example: `**5个迹象表明AI正在改变你的生活🤖**` or `**8个AI趋势打工人必须知道🔥**`
+  - The number should reflect the content (e.g., number of tips, signs, reasons found in the source)
 - Short paragraphs (1-3 sentences each)
 - Add 5-10 hashtags
 - Tone: bestie sharing / personal experience
@@ -63,7 +65,17 @@ Trigger when the user mentions: 改写, rewrite, 转载, cross-post, 多平台�
 - End with comment-driving CTA
 
 ## Output Format
-Generate each platform version as a standalone, ready-to-publish piece. Label each with platform name and word count.
+Generate each platform version as a standalone, ready-to-publish piece. **Every output MUST include:**
+- Platform name as header (e.g., `## 小红书 | ~400字`)
+- Word count estimate in the header
+- Full rewritten content below
+
+**Mandatory label format**: `## {平台名} | ~{N}字`
+- Example: `## 小红书 | ~520字`
+- Example: `## 知乎 | ~1500字`
+- Example: `## 公众号 | ~2200字`
+
+Do NOT output a combined multi-platform piece without clear section headers.
 
 ## Guidelines
 - Rewriting ≠ translating — match platform-native voice

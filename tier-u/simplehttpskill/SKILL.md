@@ -1,6 +1,6 @@
 ---
 name: simplehttpskill
-description: Make HTTP requests (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS) with custom headers, automatic retries, and graceful error handling. Use when the user needs to call an API, fetch a URL, send webhooks, or make any HTTP request without external dependencies.
+description: Make HTTP requests (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS) with custom headers, automatic retries, and graceful error handling. Use when the user needs to call an API, fetch a URL, send webhooks, or make any HTTP request without external dependencies. Evolved from stephen-standridge/simplehttpskill version 0.1.0 at 2026-05-15.
 version: 1.0
 ---
 

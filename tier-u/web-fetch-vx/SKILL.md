@@ -1,6 +1,6 @@
 ---
 name: web-fetch-vx
-description: Generic web content fetcher. Extract clean content from any public URL with configurable output format. Triggers on: (1) User asks to fetch a URL, (2) User asks "抓取网页", "get the content of", "extract from URL"
+description: Generic web content fetcher. Extract clean content from any public URL with configurable output format. Triggers on: (1) User asks to fetch a URL, (2) User asks "抓取网页", "get the content of", "extract from URL" Evolved from 3511815125/web-fetch-vx version 1.0.0 at 2026-05-15.
 version: 1.3
 ---
 

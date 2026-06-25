@@ -1,6 +1,6 @@
 ---
 name: crypto-watcher
-description: Monitor crypto prices, 24h changes, market cap, and watchlists via CoinGecko free API. Triggers on: (1) User asks about crypto price, (2) User asks "比特币价格", "crypto price", "btc price", (3) User wants to track a set of coins
+description: Monitor crypto prices, 24h changes, market cap, and watchlists via CoinGecko free API. Triggers on: (1) User asks about crypto price, (2) User asks "比特币价格", "crypto price", "btc price", (3) User wants to track a set of coins Evolved from 0xraini/crypto-watcher version 1.0.0 at 2026-05-15.
 version: 1.2
 ---
 

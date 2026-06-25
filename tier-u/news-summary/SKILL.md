@@ -1,6 +1,6 @@
 ---
 name: news-summary
-description: Get today's news briefing — fetches RSS feeds from BBC, Reuters, NPR, Al Jazeera and summarizes top stories.
+description: Get today's news briefing — fetches RSS feeds from BBC, Reuters, NPR, Al Jazeera and summarizes top stories. Evolved from joargp/news-summary version 1.0.1 at 2026-05-15.
 version: 1.0
 ---
 

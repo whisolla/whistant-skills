@@ -1,6 +1,7 @@
 ---
 name: resume-builder
-description: Generate professional resumes that conform to the Reactive Resume schema. Use when the user wants to create, build, or generate a resume through conversational AI, or asks about resume structure, sections, or content. This skill guides the agent to ask clarifying questions, avoid hallucination, and produce valid JSON output for https://rxresu.me.
+version: 1.1
+description: Generate professional resumes that conform to the Reactive Resume schema. Use when the user wants to create, build, or generate a resume through conversational AI, or asks about resume structure, sections, or content. This skill guides the agent to ask clarifying questions, avoid hallucination, and produce valid JSON output for https://rxresu.me. Evolved from resume-builder/resume-builder version 1.0.0 at 2026-05-28.
 ---
 
 # Resume Builder for Reactive Resume
@@ -51,10 +52,10 @@ Ask about preferences:
 
 ### Step 4: Generate Valid JSON
 
-Output must conform to the Reactive Resume schema. See [references/schema.md](references/schema.md) for the complete schema structure.
+**Read `references/schema.md` before generating any JSON.** This is mandatory — do not generate JSON without checking the schema reference first.
 
-Key requirements:
-- All item `id` fields must be valid UUIDs
+Output must conform to the Reactive Resume schema. Key requirements:
+- All item `id` fields must be valid UUIDs (use `crypto.randomUUID()` or similar)
 - Description fields accept HTML-formatted strings
 - Website fields require both `url` and `label` properties
 - Colors use `rgba(r, g, b, a)` format

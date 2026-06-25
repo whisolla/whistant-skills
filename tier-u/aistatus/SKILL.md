@@ -1,6 +1,6 @@
 ---
 name: aistatus
-description: Check real-time AI provider status, search model availability, get trending models, LLM benchmark leaderboard, and recent outage incidents. Use when asked about AI service status, model availability, or AI rankings.
+description: Check real-time AI provider status, search model availability, get trending models, LLM benchmark leaderboard, and recent outage incidents. Use when asked about AI service status, model availability, or AI rankings. Evolved from aistatus/aistatus version 1.0.0 at 2026-05-15.
 version: 2.2
 ---
 # aistatus

@@ -1,6 +1,6 @@
 ---
 name: a-stock-analysis
-description: China A-share stock analysis: real-time quotes, K-line, technical indicators (MA, RSI, MACD, Bollinger). Shanghai/Shenzhen stock market. No API key required.
+description: China A-share stock analysis: real-time quotes, K-line, technical indicators (MA, RSI, MACD, Bollinger). Shanghai/Shenzhen stock market. No API key required. Evolved from cnyezi/a-stock-analysis version 1.0.0 at 2026-05-15.
 version: 2.6
 ---
 

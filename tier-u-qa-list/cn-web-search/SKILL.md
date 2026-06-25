@@ -1,7 +1,7 @@
 ---
 name: cn-web-search
-version: 0.9.0
-description: 中文网页搜索 - 聚合 13+ 免费搜索引擎，包含公众号文章搜索
+version: 1.0
+description: 中文网页搜索 — 聚合 11 个免费搜索引擎，并行获取，无需 API Key Evolved from joansongjr/cn-web-search version 2.4.0 at 2026-05-26.
 author: joansongjr
 author_url: https://github.com/joansongjr
 repository: https://github.com/joansongjr/cn-web-search
@@ -10,10 +10,7 @@ tags:
   - search
   - chinese
   - wechat
-  - 公众号
   - web-search
-  - 360-search
-  - sogou
   - bing
   - qwant
   - startpage
@@ -22,176 +19,126 @@ tags:
   - reddit
   - arxiv
   - stackoverflow
-  - github
   - caixin
   - wolfram
   - no-api-key
   - free
   - 中文搜索
-  - 学术搜索
 ---
 
 # 中文网页搜索 (CN Web Search)
 
-多引擎聚合搜索，**全部免费，无需 API Key**。
+多引擎聚合搜索，**全部免费，无需 API Key**。并行查询 11 个搜索引擎，JSON 引擎返回结构化结果，HTML 引擎提取文本摘要。
 
 ## 引擎总览
 
-| 类别 | 引擎 | 说明 |
-|------|------|------|
-| 公众号 | 搜狗微信、必应索引 | ⭐ |
-| 中文 | 360、搜狗、必应 | 主+备用 |
-| 英文 | DDG、Qwant、Startpage、必应 | 主+备用 |
-| 技术 | Stack Overflow、GitHub Trending | ⭐ |
-| 专用 | Hacker News、Reddit、ArXiv | API |
-| 投资 | 东方财富 | A股 |
-| 深度 | 财新 | 财经 |
-| 知识 | Wolfram Alpha | 计算 |
+| 类别 | 引擎 ID | 类型 | 默认 |
+|------|---------|------|------|
+| JSON | `hn` — Hacker News | 结构化 | ✅ |
+| JSON | `reddit` — Reddit | 结构化 | ✅ |
+| 中文 | `bing` — Bing CN | 文本 | ✅ |
+| 英文 | `ddg` — DuckDuckGo Lite | 文本 | ✅ |
+| 公众号 | `weixin` — 搜狗微信 | 文本 | ✅ |
+| 英文 | `qwant` — Qwant | 文本 | |
+| 英文 | `startpage` — Startpage | 文本 | |
+| 深度 | `caixin` — 财新 | 文本 | |
+| 技术 | `stackoverflow` — Stack Overflow | 文本 | |
+| 知识 | `wolfram` — Wolfram Alpha | 文本 | |
+| 学术 | `arxiv` — arXiv | 文本 | |
+
+> ⚠️ `m.so.com`（360）和 `sogou.com`（搜狗网页）响应过大（450KB+），不适合 JSC 环境，已跳过。
 
 ---
 
-## 1. 公众号搜索
-
-### 1.1 搜狗微信
+## /cmd — Terminal Usage
 
 ```
-https://weixin.sogou.com/weixin?type=2&query=QUERY&page=1
+run /skills/cn-web-search/scripts/cn-web-search.js --query "iPhone 18" 
+run /skills/cn-web-search/scripts/cn-web-search.js --query "AI 新闻" --engines hn,reddit,bing --count 3
+run /skills/cn-web-search/scripts/cn-web-search.js engines
 ```
 
-### 1.2 必应公众号索引
+### Command-line flags
 
-```
-https://cn.bing.com/search?q=site:mp.weixin.qq.com+QUERY
-```
+| Flag | Short | Description | Default |
+|------|-------|-------------|---------|
+| `--query` | `-q` | Search query (required) | — |
+| `--engines` | `-e` | Comma-separated engine IDs | `hn,reddit,bing,ddg,weixin` |
+| `--count` | `-n` | Results per engine (max 20) | `5` |
+
+### Commands
+
+| Command | Description |
+|---------|-------------|
+| `engines` / `list` | List all available engines |
+| `help` / `--help` | Show usage help |
+| (query string) | Positional query (same as `--query`) |
 
 ---
 
-## 2. 中文搜索
+## /code — JS API
 
-### 2.1 360 搜索
+Load the skill:
 
-```
-https://m.so.com/s?q=QUERY
-```
-
-### 2.2 搜狗网页
-
-```
-https://www.sogou.com/web?query=QUERY
+```js
+var s = require("/skills/cn-web-search/scripts/cn-web-search.js");
 ```
 
-### 2.3 必应中文
+### Search
 
-```
-https://cn.bing.com/search?q=QUERY
-```
-
----
-
-## 3. 英文搜索
-
-### 3.1 DuckDuckGo Lite
-
-```
-https://lite.duckduckgo.com/lite/?q=QUERY
+```js
+console.log(await s.search({query: "iPhone 18", engines: ["hn", "reddit"], count: 3}));
+// Returns: { query, engineCount, results, formatted }
 ```
 
-### 3.2 Qwant
-
-```
-https://www.qwant.com/?q=QUERY&t=web
-```
-
-### 3.3 Startpage
-
-```
-https://www.startpage.com/do/search?q=QUERY&cluster=web
+```js
+console.log(await s.search({query: "AI 新闻"}));
+// Default engines: hn, reddit, bing, ddg, weixin
 ```
 
-### 3.4 必应英文
+### List engines
 
-```
-https://www.bing.com/search?q=QUERY
-```
-
----
-
-## 4. 技术/社区/学术
-
-### 4.1 Hacker News
-
-```
-https://hn.algolia.com/api/v1/search?query=QUERY&tags=story&hitsPerPage=10
+```js
+console.log(await s.listEngines());
+// hn — Hacker News (json) [default]
+// reddit — Reddit (json) [default]
+// ...
 ```
 
-### 4.2 Reddit
+### runFromParams
 
-```
-https://www.reddit.com/search.json?q=QUERY&limit=10
-```
-
-### 4.3 ArXiv
-
-```
-http://export.arxiv.org/api/query?search_query=all:QUERY&max_results=5
+```js
+console.log(await s.runFromParams({action: "search", query: "AI news", engines: "hn,ddg", count: 3}));
+console.log(await s.runFromParams({action: "engines"}));
 ```
 
-### 4.4 Stack Overflow
+### handler
 
-```
-https://stackoverflow.com/search?q=QUERY
-```
-
-### 4.5 GitHub Trending
-
-```
-https://github.com/trending?since=weekly
+```js
+console.log(await s.handler({action: "search", query: "iPhone 18"}));
+console.log(await s.handler({action: "engines"}));
 ```
 
 ---
 
-## 5. 其他专用
+## v1.0 — Track B Conversion (2026-05-26)
 
-### 5.1 东方财富
+- ✅ Converted from pure prompt to CODE skill
+- ✅ 11 engines with parallel fetch
+- ✅ JSON engines (HN, Reddit) return structured results
+- ✅ HTML engines use lightweight text extraction
+- ✅ JSC compatible (no const/let/arrow)
+- ✅ Template compliant (handler, exports, parseCommand, tokenize, runFromParams, Node CLI, PARAMS)
+- ✅ 13 exported functions
 
-```
-https://search.eastmoney.com/search?keyword=QUERY
-```
-
-### 5.2 财新
-
-```
-https://search.caixin.com/search/?keyword=QUERY
-```
-
-### 5.3 Wolfram Alpha
-
-```
-https://www.wolframalpha.com/input?i=QUERY
-```
-
----
-
-## 使用示例
-
-```
-web_fetch(url="https://m.so.com/s?q=英伟达财报", extractMode="text", maxChars=12000)
-web_fetch(url="https://lite.duckduckgo.com/lite/?q=AI+news", extractMode="text", maxChars=8000)
-web_fetch(url="https://weixin.sogou.com/weixin?type=2&query=英伟达&page=1", extractMode="text", maxChars=10000)
-```
-
----
-
-## 更新日志
-
-### v0.9.0
+## v0.9.0
 - ✅ 移除付费引擎，全部免费
 
-### v0.8.0
-- ❌（已跳过）
+---
 
-### v0.7.0
-- ✅ 公众号搜索
+## Local Testing
 
-### v0.6.0
-- ✅ 财新 + Wolfram Alpha
+```bash
+echo '{"type":"commonjs"}' > scripts/package.json
+node scripts/cn-web-search.js --query "AI news" --engines hn,reddit --count 3
+```

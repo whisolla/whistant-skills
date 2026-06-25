@@ -7,103 +7,57 @@
 ```
 whistant-skills/
 ├── tier-u/              ← Universal skills: QA-tested, works on Whistant + OpenClaw
+├── tier-u-qa-list/      ← Universal candidates: compatible but NOT yet QA-tested
 ├── tier-w/              ← Whistant-only skills: QA-tested, requires iOS-specific APIs
-├── tier-u-qa-list/      ← Universal candidate skills: compatible but NOT yet QA-tested
+├── tier-w-qa-list/      ← Whistant-only candidates: not yet QA-tested
 └── metadata/
     └── skills.json       ← Machine-readable catalog with tier & test flags
 ```
 
-## Three Tiers
+Source of truth for all tier-u/, tier-u-qa-list/, tier-w/, and tier-w-qa-list/ entries:
+`backend/skills_version/<skill>/<latest-version>/`
 
-### tier-u — Universal 🌐 (30 skills)
+Each repo skill folder is a clean copy of `skills_version/<skill>/<latest>/`.
+Version bumps flow: Forge updates `skills_version/<skill>/vN.M/` → Captain syncs the
+latest version into the appropriate tier folder here.
 
-**QA-tested universal skills.** Pure JavaScript + `fetch()`. No iOS-specific APIs. Works on:
+## Four Tiers
 
+### tier-u — Universal, QA-tested 🌐
+
+**Pure JavaScript + `fetch()`. No iOS-specific APIs.** Works on:
 - ✅ Whistant (iOS / JavaScriptCore)
 - ✅ OpenClaw (Node.js / desktop)
 - ✅ Any runtime with `fetch()` support
 
-All 30 have passed deep QA (device testing on simulator or real device).
+### tier-u-qa-list — Universal Candidates ⏳
 
-**Examples:** `weather`, `slack`, `github`, `trello`, `discord`, `simplehttpskill`, `nasdaq100-futures`
+**Compatible but NOT yet QA-tested.** Universal candidates waiting for Forge QA.
+Once verified, they promote to `tier-u/`.
 
-### tier-w — Whistant-only 📱 (4 skills)
+### tier-w — Whistant-only, QA-tested 📱
 
-**QA-tested Whistant-only skills.** Require iOS-specific APIs (OAuth browser, keychain, etc.):
+**Require iOS-specific APIs** (OAuth browser, keychain, Shortcuts bridge). Whistant-only.
 
-- ✅ Whistant (iOS)
-- ❌ OpenClaw / desktop
+### tier-w-qa-list — Whistant-only Candidates ⏳
 
-**Includes:** `google`, `microsoft`, `clawhub`, `skill-creator`
-
-### tier-u-qa-list — Universal Candidates ⏳ (244 skills)
-
-**Compatible but NOT yet QA-tested.** These skills are in the COMPATIBLE set (catalog.js) and appear to use only `fetch()` + pure JS — they should be Tier U. But they haven't been through deep QA yet.
-
-These are waiting in the queue for QA verification. Once Forge tests them and they pass, they move to `tier-u/`.
+**Whistant-only but not yet QA-tested.** Wait for Forge verification before promoting to `tier-w/`.
 
 ## Skill Stats
 
-| Metric | Count |
-|--------|-------|
-| **tier-u** (QA-tested universal) | 30 |
-| **tier-w** (QA-tested Whistant-only) | 4 |
-| **tier-u-qa-list** (awaiting QA) | 244 |
-| **Total** | **278** |
-| QA-tested (`whistant_tested: true`) | 34 |
-| Platform-specific code (tier-w) | 4 |
+See `metadata/skills.json` for current counts. The four-tier breakdown changes with each QA pass.
 
-## Testing Status
+## Tier Classification Rules
 
-The `whistant_tested` and `openclaw_tested` flags in `metadata/skills.json` reflect actual QA results from `dev/tasks/skill-qa/RESULTS-QA.md`.
+A skill is **Tier U (Universal)** when its code uses only:
+- `fetch()` to public/free APIs
+- Pure JavaScript computation
+- Optional `keychain:` for non-essential user credentials (e.g. elevated rate limits)
 
-**Only skills in tier-u/ and tier-w/ have been device-tested.** Skills in tier-u-qa-list/ are catalog-compatible but not yet verified.
+A skill is **Tier W (Whistant-only)** when its code requires:
+- iOS Shortcuts bridge (`runShortcut`, `runShortcutWithInput`)
+- OAuth2 PKCE flow + Keychain token storage
+- iOS-native bridge calls (e.g. `whistant://` schemes)
 
-## Installation
-
-### On Whistant (iOS)
-
-Tier u and tier-w skills both work. Install via ClawHub skill browser or:
-
-```bash
-run /skills/clawhub/scripts/clawhub.js install <skill-name>
-```
-
-### On OpenClaw (Desktop)
-
-Only tier-u/ skills work. To install:
-
-```bash
-git clone https://github.com/whisolla/whistant-skills.git
-cp -r whisant-skills/tier-u/* ~/.openclaw/skills/
-```
-
-Tier-w skills need porting (replace `browser.openOAuth()` / `keychain` with Node equivalents).
-
-## Contributing
-
-### Adding a new skill
-
-1. Ensure the skill is in `backend/skills/` and passes L3 compatibility check
-2. Submit for QA → goes to `tier-u-qa-list/` while awaiting testing
-3. After QA passes → moves to `tier-u/` (universal) or `tier-w/` (Whistant-only)
-
-### Tier Classification
-
-| Tier | Criteria |
-|------|----------|
-| **U** | Pure JS + `fetch()` only. No `require('fs')`, `keychain`, `browser.openOAuth`, Shortcuts, `UIApplication`, ObjC, etc. |
-| **W** | Uses any iOS/Whistant-specific API |
-| **U-QA** | Appears to be U (catalog-compatible, no platform deps) but hasn't been device QA-tested yet |
-
-## Source
-
-Skills sourced from `whistant/backend/skills/clawhub/scripts/catalog.js` COMPATIBLE set.
-
-Maintained by Captain 📦 — Whisolla LLC.
-
-## Related
-
-- [Whistant](https://whistant.app) — iPhone AI agent app
-- [OpenClaw](https://github.com/openclaw) — Desktop agent framework
-- [ClawHub](https://clawhub.ai) — Community skill registry
+The source of truth is the code itself — see `backend/skills_version/<skill>/<latest>/scripts/`.
+The `tier` field in `metadata/skills.json` should match this code-based classification.

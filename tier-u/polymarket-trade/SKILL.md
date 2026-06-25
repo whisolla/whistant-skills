@@ -1,6 +1,6 @@
 ---
 name: polymarket-trade
-description: Get real-time Polymarket prediction market data. Use fetch() via the handler — NOT the search tool.
+description: Get real-time Polymarket prediction market data. Use fetch() via the handler — NOT the search tool. Evolved from joelchance/polymarket-trade version 1.0.6 at 2026-05-19.
 version: 2.5
 ---
 

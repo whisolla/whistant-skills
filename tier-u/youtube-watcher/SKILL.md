@@ -1,6 +1,6 @@
 ---
 name: youtube-watcher
-description: Fetch transcripts and subtitles from YouTube videos. Uses the YouTube Android innertube API — no API key required for public videos.
+description: Fetch transcripts and subtitles from YouTube videos. Uses the YouTube Android innertube API — no API key required for public videos. Evolved from michaelgathara/youtube-watcher version 1.0.0 at 2026-05-15.
 version: 2.3
 ---
 

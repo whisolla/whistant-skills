@@ -1,6 +1,6 @@
 ---
 name: url-preview
-description: Extract and display URL previews with title, description, and favicon. Use when user shares any HTTP/HTTPS link and wants to see what the page is about without visiting it. Triggers on: (1) User sends a URL/link, (2) User asks "这个链接是什么", "看看这个网页", "what's this link"
+description: Extract and display URL previews with title, description, and favicon. Use when user shares any HTTP/HTTPS link and wants to see what the page is about without visiting it. Triggers on: (1) User sends a URL/link, (2) User asks "这个链接是什么", "看看这个网页", "what's this link" Evolved from kingfish1949101-wq/url-preview version 1.0.0 at 2026-05-15.
 version: 1.1
 ---
 
